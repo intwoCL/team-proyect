@@ -2,6 +2,10 @@
 
 return [
 
+  
+
+  'welcome' => 'Bienvenido',
+
   'message' => [
     'success'   => [
       'create' => 'Se ha creado correctamente.',
