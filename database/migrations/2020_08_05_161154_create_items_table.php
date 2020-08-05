@@ -15,7 +15,8 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->integer('content_id');
+            // $table->integer('content_id');
+            $table->foreignId('content_id')->references('id')->on('contents');
             $table->string('title',100);
             $table->string('content',100);
             $table->integer('position');

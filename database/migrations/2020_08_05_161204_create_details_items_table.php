@@ -15,8 +15,10 @@ class CreateDetailsItemsTable extends Migration
     {
         Schema::create('details_items', function (Blueprint $table) {
             $table->id();
-            $table->integer('type_id');
-            $table->integer('item_id');
+            // $table->integer('type_id');
+            $table->foreignId('type_id')->references('id')->on('types');
+            // $table->integer('item_id');
+            $table->foreignId('item_id')->references('id')->on('items');
             $table->timestamps();
         });
     }

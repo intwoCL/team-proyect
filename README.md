@@ -19,8 +19,8 @@ cp .env.example .env
 Initial
 ```shell
   php artisan migrate:refresh
-  php artisan db:seed
   composer dump-autoload
+  php artisan db:seed
 ```
 
 

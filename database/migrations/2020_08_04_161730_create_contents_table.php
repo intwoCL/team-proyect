@@ -15,7 +15,8 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            $table->integer('activity_id');
+            // $table->integer('activity_id');
+            $table->foreignId('activity_id')->references('id')->on('activities'); 
             $table->string('name',50);
             $table->integer('position');
             $table->timestamps();
