@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateContentsTable extends Migration
+class CreateScalesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateContentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('contents', function (Blueprint $table) {
+        Schema::create('scales', function (Blueprint $table) {
             $table->id();
-            // $table->integer('activity_id');
-            $table->foreignId('activity_id')->references('id')->on('activities');
-            $table->string('name',10);
-            $table->integer('position');
-            $table->integer('items_total')->default(0);
+            $table->string('name',100)->unique();
+            $table->string('description',300)->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateContentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contents');
+        Schema::dropIfExists('users');
     }
 }

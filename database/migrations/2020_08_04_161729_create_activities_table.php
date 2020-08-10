@@ -16,8 +16,10 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
-            $table->string('objetive',100);
+            $table->string('objetive',100)->nullable();
             $table->string('photo');
+            $table->foreignId('scale_id')->references('id')->on('scales');
+            $table->foreignId('scale_id')->references('id')->on('users');
             $table->string('code')->unique();
             $table->timestamps();
         });
