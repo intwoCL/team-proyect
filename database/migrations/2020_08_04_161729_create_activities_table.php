@@ -21,7 +21,7 @@ class CreateActivitiesTable extends Migration
             $table->foreignId('scale_id')->references('id')->on('scales');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('code')->unique();
-            $table->enum('status');
+            $table->integer('status');
             $table->integer('total_content');
             $table->integer('total_time');
             $table->timestamps();
