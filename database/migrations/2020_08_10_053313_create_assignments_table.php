@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateItemsTable extends Migration
+class CreateAssignmentsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('items', function (Blueprint $table) {
+        Schema::create('assignments', function (Blueprint $table) {
             $table->id();
-            $table->integer('content_id');
-            $table->string('title',100);
-            $table->string('content',100);
-            $table->integer('position');
+            $table->foreignId('specialist_id')->references('id')->on('users');
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->boolean('active');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('items');
+        Schema::dropIfExists('assignments');
     }
 }

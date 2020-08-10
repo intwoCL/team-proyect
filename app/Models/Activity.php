@@ -10,5 +10,13 @@ class Activity extends Model
 
   public function contents(){
     return $this->hasMany(Content::class,'activity_id');
-	}
+  }
+
+  public function scale(){
+    return $this->hasMany(Scale::class,'scale_id');
+  }
+
+  public function user(){
+    return $this->belongsTo(User::class,'user_id');
+  }
 }
