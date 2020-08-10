@@ -15,6 +15,11 @@ class CreateCalendarsTable extends Migration
     {
         Schema::create('calendars', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->references('id')->on('users');
+            $table->string('name',100);
+            $table->string('objetive',100);
+            $table->integer('status')->default(1);
+            $table->boolean('active');
             $table->timestamps();
         });
     }

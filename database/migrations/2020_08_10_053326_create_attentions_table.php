@@ -17,8 +17,8 @@ class CreateAttentionsTable extends Migration
             $table->id();
             $table->foreignId('specialist_id')->references('id')->on('users');
             $table->foreignId('user_id')->references('id')->on('users');
-            
-
+            $table->string('comment_in');
+            $table->integer('status');
             $table->timestamps();
         });
     }

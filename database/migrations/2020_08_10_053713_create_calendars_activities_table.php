@@ -15,6 +15,9 @@ class CreateCalendarsActivitiesTable extends Migration
     {
         Schema::create('calendars_activities', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('calendar_id')->references('id')->on('calendars');
+            $table->foreignId('activity_id')->references('id')->on('activities');
+            $table->datetime('date');
             $table->timestamps();
         });
     }

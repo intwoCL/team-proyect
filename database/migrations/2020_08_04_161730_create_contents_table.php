@@ -20,6 +20,7 @@ class CreateContentsTable extends Migration
             $table->string('name',10);
             $table->integer('position');
             $table->integer('items_total')->default(0);
+            $table->boolean('quiz');
             $table->timestamps();
         });
     }
