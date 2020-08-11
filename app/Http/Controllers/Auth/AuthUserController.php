@@ -17,6 +17,8 @@ class AuthUserController extends Controller
   }
 
   public function login(Request $request){
+    return redirect()->route('activity.index');
+
     return $request;
     try {
         close_sessions();
