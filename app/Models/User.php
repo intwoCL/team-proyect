@@ -11,10 +11,11 @@ class User extends Authenticatable
 
   use Notifiable;
 
+  protected $guard = 'user';
+
   protected $hidden = [
     'password'
   ];
-
 
   /**
    * Get the user's full name.
