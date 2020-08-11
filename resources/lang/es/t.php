@@ -1,8 +1,15 @@
 <?php
 
 return [
-
-  
+  'login' => [
+    'title' => 'Bienvenidos a ',
+    'email' => 'Correo electronico',
+    'password' => 'Contraseña',
+    'forgot'   => '¿He olvido mi contraseña?',
+    'btn' => [
+      'login' => 'Acceder'
+    ]
+  ], 
 
   'welcome' => 'Bienvenido',
 

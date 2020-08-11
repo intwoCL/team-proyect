@@ -18,10 +18,16 @@ cp .env.example .env
 
 Initial
 ```shell
-  php artisan migrate:refresh
-  composer dump-autoload
-  php artisan db:seed
+php artisan migrate:refresh
+composer dump-autoload
+php artisan db:seed
 ```
+
+## inicial con forma de seed
+```shell
+php artisan migrate:fresh --seed
+```
+
 
 #### Translate
 add to lang -> t.php

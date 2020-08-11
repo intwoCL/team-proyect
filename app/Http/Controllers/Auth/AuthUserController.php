@@ -17,6 +17,7 @@ class AuthUserController extends Controller
   }
 
   public function login(Request $request){
+    return $request;
     try {
         close_sessions();
         $u = User::where('email',$request->email)->firstOrFail();

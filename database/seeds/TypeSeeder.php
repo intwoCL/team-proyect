@@ -11,10 +11,16 @@ class TypeSeeder extends Seeder
    */
   public function run()
   {
-    DB::table('types')->insert(
-      ['name' => "url"],
-      ['name' => "imagen"],
-      ['name' => "text"]
-    );
+    $types = [
+      'url',
+      'imagen',
+      'text'
+    ];
+
+    foreach ($types as $key => $value) {
+      DB::table('types')->insert([
+        'name' => $value
+      ]);
+    }
   }
 }

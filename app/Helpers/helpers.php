@@ -1,28 +1,5 @@
 <?php 
 
-
-/**
- * close all sessions actives
- *
- * @return only true
- */
-function close_sessions(){
-  if(Auth::guard('user')->check()){
-      Auth::guard('user')->logout();
-  }
-  // session()->forget('permisos');
-  return true;
-}
-
-/**
- * session user
- *
- * @return only true
- */
-function current_user(){
-  return auth('user')->user();
-}
-
 /**
  * Random (string & num) por su longitud
  *
@@ -65,11 +42,3 @@ function helper_random_integer($longitud) {
   return $key;
 }
 
-/**
-* verify if gmail is active
-*
-* @return boolean status
-*/
-function  helper_integration_gmail(){
-  return env('GOOGLE_ACTIVE', false);
-}
