@@ -23,7 +23,6 @@ Initial
   php artisan db:seed
 ```
 
-
 #### Translate
 add to lang -> t.php
 ```shell
