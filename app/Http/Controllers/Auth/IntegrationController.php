@@ -29,7 +29,7 @@ class IntegrationController extends Controller
   public function handleGoogleCallback()
   {
     try {
-      helper_close_sessions();
+      close_sessions();
       $user = Socialite::driver('google')->user();
       $id = $user->getId();
       $email = $user->getEmail();

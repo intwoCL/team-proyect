@@ -2,16 +2,25 @@
 
 
 /**
- * Cierrar todas las sesiones activas
+ * close all sessions actives
  *
  * @return only true
  */
-function helper_close_sessions(){
-  if(Auth::guard('admin')->check()){
-      Auth::guard('admin')->logout();
+function close_sessions(){
+  if(Auth::guard('user')->check()){
+      Auth::guard('user')->logout();
   }
   // session()->forget('permisos');
   return true;
+}
+
+/**
+ * session user
+ *
+ * @return only true
+ */
+function current_user(){
+  return auth('user')->user();
 }
 
 /**

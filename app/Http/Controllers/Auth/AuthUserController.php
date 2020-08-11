@@ -12,13 +12,13 @@ use Auth;
 class AuthUserController extends Controller
 {
   public function index(){
-    helper_close_sessions();
-    return view('auth.usuario');
+    close_sessions();
+    // return view('auth.usuario');
   }
 
   public function login(Request $request){
     try {
-        helper_close_sessions();
+        close_sessions();
         $u = User::where('email',$request->email)->firstOrFail();
 
         $pass =  hash('sha256', $request->password);
@@ -37,7 +37,7 @@ class AuthUserController extends Controller
 }
 
 public function logout(){        
-    helper_close_sessions();
-    return redirect()->route('auth.usuario.login');
+    close_sessions();
+    // return redirect()->route('auth.usuario.login');
 }
 }
