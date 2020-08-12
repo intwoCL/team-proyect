@@ -24,7 +24,7 @@ class AuthUserController extends Controller
       
       if($u->password==$pass){
         Auth::guard('user')->loginUsingId($u->id);        
-        return redirect()->route('activity.index');
+        return redirect()->route('dashboard.index');
       }else{
         return $u;
         // return back()->with('info','Error. Intente nuevamente.');
