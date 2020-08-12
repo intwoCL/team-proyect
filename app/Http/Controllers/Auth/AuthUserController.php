@@ -13,34 +13,30 @@ class AuthUserController extends Controller
 {
   public function index(){
     close_sessions();
-    // return view('auth.usuario');
+    return view('layouts.login');
   }
 
   public function login(Request $request){
-    return redirect()->route('activity.index');
-
-    return $request;
     try {
-        close_sessions();
-        $u = User::where('email',$request->email)->firstOrFail();
-
-        $pass =  hash('sha256', $request->password);
-        
-        if($u->password==$pass){
-            Auth::guard('usuario')->loginUsingId($u->id_usuario);
-
-            // return redirect()->route('home.index');
-        }else{
-            // return back()->with('info','Error. Intente nuevamente.');
-        }
+      close_sessions();
+      $u = User::where('email',$request->email)->firstOrFail();
+      $pass = hash('sha256', $request->password);
+      
+      if($u->password==$pass){
+        Auth::guard('user')->loginUsingId($u->id);        
+        return redirect()->route('activity.index');
+      }else{
+        return $u;
+        // return back()->with('info','Error. Intente nuevamente.');
+      }
     } catch (\Throwable $th) {
-        return $th;
-        // return back()->with('info','Error. Intente nuevamente.'); 
+      return $th;
+      // return back()->with('info','Error. Intente nuevamente.'); 
     }
 }
 
 public function logout(){        
     close_sessions();
-    // return redirect()->route('auth.usuario.login');
+    return redirect('/');
 }
 }
