@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Activity;
+use App\Models\Category;
 
 class ActivityController extends Controller
 {
@@ -15,7 +16,7 @@ class ActivityController extends Controller
   public function index()
   {
     $activities = Activity::get();
-    return view('admin.activity.index',compact('$activities'));
+    return view('admin.activity.index',compact('activities','categories'));
   }
 
   /**
@@ -25,7 +26,8 @@ class ActivityController extends Controller
    */
   public function create()
   {
-    return view('admin.activity.create');
+    $categories = Category::get();
+    return view('admin.activity.create',compact('categories'));
   }
 
   /**
