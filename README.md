@@ -32,7 +32,7 @@ npm run dev
 <!-- #### Inicial laravel-mix mode produccion
 ```shell
 npm install
-npm run pro
+npm run prod
 ``` -->
 
 <!-- Initial
