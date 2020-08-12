@@ -47,12 +47,21 @@
 
               <div class="form-group">
                 <label>Escala</label>
-                @foreach ($categories as $c)
-                <label>{{ $c->name }}</label>
-                @endforeach
-                <input type="text"  name="scale_id" class="form-control" required="">
+                <select class="form-control select2" name="scale" required="">
+                  @foreach ($scales as $s)
+                  <option value="{{ $s->id }}">{{ $s->name }}</option>
+                  @endforeach
+                </select>
               </div>
-            
+              <div class="form-group">
+                <label>Categorias</label>
+                <select class="form-control select2" multiple="" name="categories[]" required="">
+                  @foreach ($categories as $c)
+                  <option value="{{ $c->id }}">{{ $c->name }}</option>
+                  @endforeach
+                </select>
+                
+              </div>
 
               
 

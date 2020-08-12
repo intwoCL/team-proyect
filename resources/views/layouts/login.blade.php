@@ -19,7 +19,7 @@
               @csrf
               <div class="form-group">
                 <label for="email">{{ trans('t.login.email') }}</label>
-                <input id="email" type="email" class="form-control invalid" name="email" tabindex="1" required autofocus>
+                <input id="email" type="email" class="form-control invalid" name="email" tabindex="1" value="admin@example.com" required autofocus>
                 <div class="invalid-feedback">
                   Please fill in your email
                 </div>
@@ -29,7 +29,7 @@
                 <div class="d-block">
                   <label for="password" class="control-label">{{ trans('t.login.password') }}</label>
                 </div>
-                <input id="password" type="password" autocomplete="off" class="form-control" name="password" tabindex="2" required>
+                <input id="password" type="password" autocomplete="off" class="form-control" name="password" tabindex="2" value="123456" required>
                 <div class="invalid-feedback">
                   please fill in your password
                 </div>
