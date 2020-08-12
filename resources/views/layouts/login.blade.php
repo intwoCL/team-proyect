@@ -50,12 +50,12 @@
                   {{ trans('t.login.btn.login') }}
                 </button>
               </div>
-
+              @if (helper_integration_gmail())
               <div class="mt-5 text-center">
                 <a href="auth-register.html" class="btn btn-danger"><i class="fab fa-google"></i> Sign in google</a>
               </div>
+              @endif
             </form>
-
             {{-- <div class="text-center mt-5 text-small">
               Copyright &copy; Your Company. Made with ðŸ’™ by Stisla
               <div class="mt-2">

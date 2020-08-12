@@ -16,21 +16,37 @@ Copy .env
 cp .env.example .env
 ```
 
-Initial
+### Inicial con forma de seed
+```shell
+composer dump-autoload
+php artisan migrate:fresh --seed
+```
+
+### Inicial laravel-mix mode dev
+```shell
+npm install
+npm run dev
+```
+
+
+<!-- #### Inicial laravel-mix mode produccion
+```shell
+npm install
+npm run pro
+``` -->
+
+<!-- Initial
 ```shell
 php artisan migrate:refresh
 composer dump-autoload
 php artisan db:seed
-```
+``` -->
 
-## inicial con forma de seed
-```shell
-php artisan migrate:fresh --seed
-```
 
+<!-- 
 
 #### Translate
 add to lang -> t.php
 ```shell
 trans('t.message.success.create')
-```
+``` -->

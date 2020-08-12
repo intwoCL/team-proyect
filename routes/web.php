@@ -7,6 +7,10 @@ Route::post('/', 'Auth\AuthUserController@login')->name('login');
 
 Route::middleware('user')->group(function () {
   Route::resource('activity', 'ActivityController');
-  
 
+
+});
+
+Route::get('t', function () {
+    return view('template.form2');
 });

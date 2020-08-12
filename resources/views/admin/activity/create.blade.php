@@ -47,8 +47,14 @@
 
               <div class="form-group">
                 <label>Escala</label>
+                @foreach ($categories as $c)
+                <label>{{ $c->name }}</label>
+                @endforeach
                 <input type="text"  name="scale_id" class="form-control" required="">
               </div>
+            
+
+              
 
               <div class="form-group">
                 <label>Tiempo Total</label>
