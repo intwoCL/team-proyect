@@ -21,7 +21,9 @@ class UserSeeder extends Seeder
       'email' => 'admin@example.com',
       'run' => Str::random(10),
       // 'password' => Hash::make('password'),
-      'password' => hash('sha256', '123456')
+      'password' => hash('sha256', '123456'),
+      'admin' => true,
+      'specialist' => true
     ]);
   }
 }
