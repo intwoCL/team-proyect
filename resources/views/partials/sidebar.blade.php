@@ -16,7 +16,7 @@
   <ul class="sidebar-menu">
     <li class="menu-header">Dashboard</li>
     <li class="{{ request()->is('/') ? 'active' : '' }}"><a class="nav-link" href="{{ url('/') }}"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
-    <li class="{{ active() }}"><a href=""><i class="fas fa-table"></i> <span>Tables</span></a></li>
+    <li class="{{ active('activity') }}"><a href=""><i class="fas fa-table"></i> <span>Tables</span></a></li>
     <li class="menu-header">Users</li>
     <li><a class="nav-link" href=""><i class="fas fa-users"></i> <span>Usuarios</span></a></li>
     <li class="menu-header">Dashboard</li>
