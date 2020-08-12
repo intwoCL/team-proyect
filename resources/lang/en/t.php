@@ -9,7 +9,14 @@ return [
     'btn' => [
       'login' => 'Login'
     ]
-  ], 
+  ],
+  
+  'activity' => [
+    'create' => [
+      'title' => 'Create Activity',
+      'name' => 'Activity name'
+    ],
+  ],
 
   'welcome' => 'Welcome',
 

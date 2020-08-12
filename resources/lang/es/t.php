@@ -11,6 +11,14 @@ return [
     ]
   ], 
 
+  'activity' => [
+    'create' => [
+      'title' => 'Crear nueva Actividad',
+      'name' => 'Nombre actividad'
+    ]
+  ], 
+
+
   'welcome' => 'Bienvenido',
 
   'message' => [
