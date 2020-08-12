@@ -17,7 +17,7 @@ class ActivityController extends Controller
   public function index()
   {
     $activities = Activity::get();
-    return view('admin.activity.index',compact('activities','categories'));
+    return view('admin.activity.index',compact('activities'));
   }
 
   /**

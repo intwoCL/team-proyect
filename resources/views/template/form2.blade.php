@@ -19,6 +19,41 @@
       <div class="col-12 col-md-6 col-lg-6">
         <div class="card">
           <div class="card-header">
+            <h4>Toggle Switches</h4>
+          </div>
+          <div class="card-body">
+            <div class="form-group">
+              <div class="control-label">Toggle switches</div>
+              <div class="custom-switches-stacked mt-2">
+                <label class="custom-switch">
+                  <input type="radio" name="option" value="1" class="custom-switch-input" checked="">
+                  <span class="custom-switch-indicator"></span>
+                  <span class="custom-switch-description">Option 1</span>
+                </label>
+                <label class="custom-switch">
+                  <input type="radio" name="option" value="2" class="custom-switch-input">
+                  <span class="custom-switch-indicator"></span>
+                  <span class="custom-switch-description">Option 2</span>
+                </label>
+                <label class="custom-switch">
+                  <input type="radio" name="option" value="3" class="custom-switch-input">
+                  <span class="custom-switch-indicator"></span>
+                  <span class="custom-switch-description">Option 3</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="control-label">Toggle switch single</div>
+              <label class="custom-switch mt-2">
+                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input">
+                <span class="custom-switch-indicator"></span>
+                <span class="custom-switch-description">I agree with terms and conditions</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
             <h4>Input Text</h4>
           </div>
           <div class="card-body">
