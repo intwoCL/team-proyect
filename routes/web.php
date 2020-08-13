@@ -13,5 +13,5 @@ Route::middleware('user')->group(function () {
 });
 
 Route::get('t', function () {
-    return view('template.form2');
+    return view('template.toast');
 });

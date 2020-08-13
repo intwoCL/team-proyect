@@ -18,9 +18,13 @@ require('popper.js');
 require('bootstrap');
 require('jquery.nicescroll');
 
+/* customers team */
+require('select2');
+
+/* internal team */
 require('./stisla/stisla');
 require('./stisla/scripts');
-require('./stisla/custom');
+// require('./stisla/custom');
 
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
@@ -52,9 +56,3 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
-
-
-
-/* customers team */
-require('select2');
-require('izitoast');
