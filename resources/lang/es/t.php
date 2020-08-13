@@ -14,7 +14,13 @@ return [
   'activity' => [
     'create' => [
       'title' => 'Crear nueva Actividad',
-      'name' => 'Nombre actividad'
+      'name' => 'Nombre actividad',
+      'objetive' =>'Objetivo',
+      'photo' => 'Foto',
+      'scale' => 'Escala',
+      'categories'=> 'Categorias',
+      'total_time' => 'Tiempo total',
+      'submit'=> "Enviar"
     ]
   ], 
 

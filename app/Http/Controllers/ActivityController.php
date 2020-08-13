@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Scale;
+use App\Http\Requests\ActivityStoreRequest as ActStore;
 
 class ActivityController extends Controller
 {
@@ -38,7 +39,7 @@ class ActivityController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(ActStore $request)
   {
     try {
       $a = new Activity();
@@ -81,7 +82,7 @@ class ActivityController extends Controller
    */
   public function edit($id)
   {
-    //
+    return view('admin.activity.edit');
   }
 
   /**

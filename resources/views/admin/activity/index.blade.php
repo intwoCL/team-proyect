@@ -29,7 +29,7 @@
               @foreach ($activities as $a)
               <tr>
                 <td>{{ $a->id }}</td>
-                <td>{{ $a->name }}}</td>
+                <td>{{ $a->name }}</td>
                 <td>Lorem ipsum dolor sit amet, consectetur adipisicing.</td>
                 <td>3</td>
                 <td><button onclick="window.location.href='{{ route('activity.show',$a->id) }}'"></button></td>
