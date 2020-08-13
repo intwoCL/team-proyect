@@ -32,17 +32,17 @@
             <div class="card-body">
               <div class="form-group">
                 <label>{{trans('t.activity.create.name')}}</label>
-                <input type="text" name="name" class="form-control" required="" autocomplete="off">
+                <input type="text"  name="name" class="form-control" required="">
               </div>
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.objetive')}}</label>
-                <input type="text" name="objetive" class="form-control" required="" autocomplete="off">
+                <input type="text"  name="objetive" class="form-control" required="">
               </div>
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.photo')}}</label>
-                <input type="file" name="photo" class="form-control" required="">
+                <input type="file"  name="photo" class="form-control" required="">
               </div>
 
               <div class="form-group">
@@ -60,11 +60,14 @@
                   <option value="{{ $c->id }}">{{ $c->name }}</option>
                   @endforeach
                 </select>
+                
               </div>
+
+              
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.total_time')}}</label>
-                <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off">
+                <input type="number"  name="total_time" class="form-control" required="">
               </div>
 
             </div>
