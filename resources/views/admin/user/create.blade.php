@@ -59,7 +59,7 @@
                 <input type="file"  name="photo" class="form-control">
               </div>
 
-              <div class="form-group">
+              <div class="form-group col-sm-6 col-md-12 col-6">
                 <label>Idioma<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="">
                   <option value="es">Español</option>
@@ -71,6 +71,7 @@
                 <div class="control-label">¿Es administrador? <small class="text-danger">*</small></div>
                 <label class="custom-switch mt-2">
                   <input type="checkbox" name="admin" class="custom-switch-input">
+                  <span class="custom-switch-description mr-2">No</span>
                   <span class="custom-switch-indicator"></span>
                   <span class="custom-switch-description">Si</span>
                 </label>
@@ -80,6 +81,7 @@
                 <div class="control-label">¿Es especialista? <small class="text-danger">*</small></div>
                 <label class="custom-switch mt-2">
                   <input type="checkbox" name="specialist" class="custom-switch-input">
+                  <span class="custom-switch-description mr-2">No</span>
                   <span class="custom-switch-indicator"></span>
                   <span class="custom-switch-description">Si</span>
                 </label>

@@ -18,8 +18,7 @@
     <li class="{{ active('dashboard') }}"><a class="nav-link" href="{{ route('dashboard.index') }}"><i class="fas fa-columns"></i> <span>Dashboard</span></a></li>
     <li class="{{ active('activity*') }}"><a href="{{ route('activity.index') }}"><i class="fab fa-wpforms"></i> <span>Actividades</span></a></li>
     <li class="{{ active('user*') }}"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>Usuarios</span></a></li>
-    <li class=""><a href=""><i class="fas fa-users"></i> <span>Asociar</span></a></li>
-    <li class=""><a href=""><i class="fas fa-users"></i> <span>Reportes</span></a></li>
-    <li class=""><a href=""><i class="fas fa-users"></i> <span>Reportes</span></a></li>
+    <li class="{{ active('calendar*') }}"><a href="{{ route('calendar.index') }}"><i class="fas fa-calendar-alt"></i> <span>Calendar</span></a></li>
+    <li class="{{ active('assignment*') }}"><a href="{{ route('assignment.index') }}"><i class="fas fa-hands-helping"></i><span>Asociar</span></a></li>
   </ul>
 </aside>

@@ -9,7 +9,9 @@ Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
   Route::resource('activity', 'ActivityController');
   Route::resource('user', 'UserController');
-
+  Route::resource('calendar', 'CalendarController');
+  Route::resource('assignment', 'AssignmentController');
+  
 });
 
 Route::get('t', function () {

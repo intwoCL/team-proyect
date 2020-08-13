@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Scale;
+
 use App\Http\Requests\ActivityStoreRequest;
 
 class ActivityController extends Controller
@@ -59,10 +60,10 @@ class ActivityController extends Controller
       //   $request->image->move(public_path('/dir/formulario/'), $photo_name);
       //   $a->foto = "/dir/formulario/$photo_name";
       // } 
-
       $a->save();
+      return redirect()->route('activity.index')->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
-      return $th;
+      return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }
 
