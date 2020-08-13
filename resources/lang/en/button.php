@@ -3,7 +3,7 @@
 return [
 
   'save' => 'Save',
-  'update' => 'Changes save',
+  'update' => 'Save changes',
 
   // 'danger'  => 'Error. intente nuevamente.',
   // 'info'    => '',

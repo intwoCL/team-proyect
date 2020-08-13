@@ -28,6 +28,12 @@ return [
     ]
   ], 
 
+  'user'=>[
+    'create'=>[
+      'title'=> 'Crear nuevo usuario',
+    ]
+  ],
+
 
   'welcome' => 'Bienvenido',
 ];

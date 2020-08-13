@@ -33,12 +33,12 @@
             <div class="card-body">
               <div class="form-group">
                 <label>{{trans('t.activity.create.name')}}</label>
-                <input type="text" name="name" class="form-control" required="" autocomplete="off">
+                <input type="text" name="name" class="form-control" required="" autocomplete="off" value="{{ old('name') }}">
               </div>
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.objetive')}}</label>
-                <input type="text" name="objetive" class="form-control" required="" autocomplete="off">
+                <input type="text" name="objetive" class="form-control" required="" autocomplete="off" value="{{ old('objetive') }}">
               </div>
 
               <div class="form-group">
@@ -65,7 +65,7 @@
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.total_time')}}</label>
-                <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off">
+                <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="{{ old('total_time') }}">
               </div>
 
             </div>

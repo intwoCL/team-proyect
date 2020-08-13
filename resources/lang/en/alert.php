@@ -6,6 +6,6 @@ return [
   'danger'  => 'Error. intente nuevamente.',
   'info'    => '',
   'warning' => 'Algo ha salido mal.',
-
+  'update'  => 'Se ha actualizado correctamente.',
 
 ];

@@ -28,5 +28,11 @@ return [
     ]
   ],
 
+  'user'=>[
+    'create'=>[
+      'title'=> 'Create new user',
+    ]
+  ],
+
   'welcome' => 'Welcome',
 ];
