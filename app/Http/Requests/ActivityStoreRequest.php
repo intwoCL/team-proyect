@@ -27,7 +27,8 @@ class ActivityStoreRequest extends FormRequest
             'name'=>'required|min:4|max:100',
             'objetive'=>'required|min:4|max:300',
             'scale_id'=>'required|exists:scales,id',
-            'total_time'=>'required|min:1|max:1000'
+            'total_time'=>'required|min:1|max:1000',
+            'categories'=>'required|array|min:1'
         ];
     }
 }

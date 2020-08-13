@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Scale;
-use App\Http\Requests\ActivityStoreRequest as ActStore;
+use App\Http\Requests\ActivityStoreRequest;
 
 class ActivityController extends Controller
 {
@@ -39,23 +39,26 @@ class ActivityController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(ActStore $request)
+  public function store(ActivityStoreRequest $request)
   {
-    try {
+    try{
       $a = new Activity();
       $a->name = $request->input('name');
       $a->objetive = $request->input('objetive');
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
-      
-      if(!empty($request->file('photo'))){
-        $request->validate([
-          'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-        $photo_name = time().'.'.$request->image->extension();  
-        $request->image->move(public_path('/dir/formulario/'), $photo_name);
-        $a->foto = "/dir/formulario/$photo_name";
-      } 
+      $a->user_id = current_user()->id;
+      $a->code = $this->getCodeRandom();
+      //Foto
+      $a->photo = 'example.png';
+      // if(!empty($request->file('photo'))){
+      //   $request->validate([
+      //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+      //   ]);
+      //   $photo_name = time().'.'.$request->image->extension();  
+      //   $request->image->move(public_path('/dir/formulario/'), $photo_name);
+      //   $a->foto = "/dir/formulario/$photo_name";
+      // } 
 
       $a->save();
     } catch (\Throwable $th) {
@@ -82,7 +85,10 @@ class ActivityController extends Controller
    */
   public function edit($id)
   {
-    return view('admin.activity.edit');
+    $scales = Scale::get();
+    $categories = Category::get();
+    $activity = Activity::where('id',$id)->firstOrFail();
+    return view('admin.activity.edit',compact('categories','scales','activity'));
   }
 
   /**
@@ -92,9 +98,19 @@ class ActivityController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(ActivityStoreRequest $request, $id)
   {
-    //
+    try {
+      $a = Activity::where('id',$id)->FirstOrFail(); 
+      $a->name = $request->input('name');
+      $a->objetive = $request->input('objetive');
+      $a->scale_id = $request->input('scale_id');
+      $a->total_time = $request->input('total_time');
+      $a->update();
+    } catch (\Throwable $th) {
+      //throw $th;
+      return $th;
+    }
   }
 
   /**
@@ -106,5 +122,16 @@ class ActivityController extends Controller
   public function destroy($id)
   {
     //
+  }
+
+  //crear funcion buscar codigo de largo 10
+  private function getCodeRandom(){
+    try {
+      $code = helper_random_string_number(10);
+      $a = Activity::where('code',$code)->firstOrFail();
+      return $this->getCodeRandom();                
+    } catch (\Throwable $th) {
+      return $code;
+    }
   }
 }

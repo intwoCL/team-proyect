@@ -22,6 +22,10 @@ return [
       'total_time' => 'Total Time',
       'submit'=> "Submit"
     ],
+    'edit'=>[
+      'title' => 'Edit activity',
+      'code' => 'Code'
+    ]
   ],
 
   'welcome' => 'Welcome',

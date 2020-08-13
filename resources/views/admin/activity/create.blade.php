@@ -23,6 +23,11 @@
       
       <div class="col-12 col-md-6 col-lg-6">
         <div class="card">
+          <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+          </ul>
           
           <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data" >
             @csrf
@@ -47,7 +52,7 @@
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.scale')}}</label>
-                <select class="form-control select2" name="scale" required="">
+                <select class="form-control select2" name="scale_id" required="">
                   @foreach ($scales as $s)
                   <option value="{{ $s->id }}">{{ $s->name }}</option>
                   @endforeach

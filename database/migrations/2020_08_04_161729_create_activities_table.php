@@ -17,12 +17,12 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->string('name',50);
             $table->string('objetive',100)->nullable();
-            $table->string('photo');
+            $table->string('photo')->default('example.png');
             $table->foreignId('scale_id')->references('id')->on('scales');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('code')->unique();
-            $table->integer('status');
-            $table->integer('total_content');
+            $table->integer('status')->default(1);
+            $table->integer('total_content')->default(0);
             $table->integer('total_time');
             $table->timestamps();
         });

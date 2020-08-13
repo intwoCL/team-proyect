@@ -21,6 +21,10 @@ return [
       'categories'=> 'Categorias',
       'total_time' => 'Tiempo total',
       'submit'=> "Enviar"
+    ],
+    'edit'=>[
+      'title' => 'Editar actividad',
+      'code' => 'Codigo'
     ]
   ], 
 

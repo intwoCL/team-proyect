@@ -32,7 +32,7 @@
                 <td>{{ $a->name }}</td>
                 <td>Lorem ipsum dolor sit amet, consectetur adipisicing.</td>
                 <td>3</td>
-                <td><button onclick="window.location.href='{{ route('activity.show',$a->id) }}'"></button></td>
+                <td><button onClick="window.location.href='{{ route('activity.edit',$a->id) }}'" class="btn btn-primary">Editar</button></td>
               </tr>
               @endforeach
               </tbody>
