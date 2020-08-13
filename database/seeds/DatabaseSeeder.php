@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
     
     $this->call(UserSeeder::class);
     $this->call(TypeSeeder::class);
-    $this->call(ScaleSeeder::class);
     $this->call(CategorySeeder::class);
+    $this->call(ExternalSeeder::class); 
   }
 
   public function truncateTables(array $tables)
