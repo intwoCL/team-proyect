@@ -57,3 +57,4 @@ if (token) {
 
 /* customers team */
 require('select2');
+require('izitoast');
