@@ -85,10 +85,11 @@ class ActivityController extends Controller
    */
   public function edit($id)
   {
+    $status = array('1' => 'pending' , '2' => 'finished' );
     $scales = Scale::get();
     $categories = Category::get();
     $activity = Activity::where('id',$id)->firstOrFail();
-    return view('admin.activity.edit',compact('categories','scales','activity'));
+    return view('admin.activity.edit',compact('status','categories','scales','activity'));
   }
 
   /**

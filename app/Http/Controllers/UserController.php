@@ -66,11 +66,11 @@ class UserController extends Controller
         //   $a->foto = "/dir/formulario/$photo_name";
         // }
         $u->photo = 'image.png';
-
         $u->save();
-        return $u;
+        return redirect()->route('user.index')->with('success',trans('alert.success'));
       } catch (\Throwable $th) {
-        return $th;
+        // return $th;
+        return redirect()->back()->with('danger',$th);
       }
     }
 

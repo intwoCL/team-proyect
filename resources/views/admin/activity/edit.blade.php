@@ -22,13 +22,9 @@
     <div class="row">
       
       <div class="col-12 col-md-6 col-lg-6">
-        <div class="card">
-          <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-          </ul>
-          
+        @include('partials.alert')
+        @include('partials.errors')
+        <div class="card">          
           <form action="{{route('activity.update', $activity->id)}}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')

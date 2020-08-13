@@ -12,6 +12,7 @@
     <div class="section-body">
       <h2 class="section-title">Lista de todas las actividades </h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
+      @include('partials.alert')
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
