@@ -4,6 +4,8 @@
 
 @section('content')
   <section class="section">
+    @include('partials.alert')
+
     <div class="section-header">
       <h1>Dashboard</h1>
     </div>

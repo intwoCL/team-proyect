@@ -14,16 +14,14 @@
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Formulario de usuario</h2>
+    {{-- <h2 class="section-title">Formulario de usuario</h2>
     <p class="section-lead">
       Form validation using default from Bootstrap 4
-    </p>
-
+    </p> --}}
     <div class="row">
-      
       <div class="col-12 col-md-6 col-lg-6">
+        @include('partials.errors')
         <div class="card">
-          
           <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data" >
             @csrf
             <div class="card-header">

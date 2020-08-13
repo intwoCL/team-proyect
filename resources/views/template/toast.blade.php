@@ -5,8 +5,9 @@
     <div class="section-header">
       <h1>Dashboard</h1>
     </div>
-
+    
     <div class="section-body">
+      @include('partials.alert')
     </div>
   </section>
   <section class="section">
