@@ -11,8 +11,7 @@ class DatabaseSeeder extends Seeder
    * @return void
    */
   public function run()
-  {;
-    
+  {
     $this->truncateTables([
       'users',
       'types',
@@ -23,7 +22,6 @@ class DatabaseSeeder extends Seeder
     $this->call(UserSeeder::class);
     $this->call(TypeSeeder::class);
     $this->call(CategorySeeder::class);
-    $this->call(ExternalSeeder::class); 
   }
 
   public function truncateTables(array $tables)

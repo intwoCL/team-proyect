@@ -23,5 +23,11 @@ class TypeSeeder extends Seeder
         'name' => $value
       ]);
     }
+
+    for ($i=1; $i < 5; $i++){ 
+      DB::table('scales')->insert([
+        'name' => "Level $i"
+      ]);
+    }
   }
 }
