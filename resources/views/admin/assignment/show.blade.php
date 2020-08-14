@@ -7,17 +7,18 @@
         <a href="{{ route('assignment.index') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
-        <h1>Litado de especialistas</h1>
+        <h1>Lista de usuarios asignados</h1>
         <div class="section-header-button">
           <a href="{{ route('assignment.edit',$user->id)  }}" class="btn btn-primary btn-sm">Asignar</a>
         </div>
       </div>
       <div class="section-body">
+        <h2 class="section-title">Usuario : {{ $user->getFullName() }}</h2>
         @include('partials.alert')
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped table-md ">
+              <table class="table table-md table-hover">
                 <thead>
                 <tr>
                   {{-- <th>#</th> --}}
@@ -25,10 +26,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse ($user->users_allocate as $u)
+                @forelse ($user->assignmentUsers as $ass)
                 <tr>
                   {{-- <td>{{ $u->id }}</td> --}}
-                  <td>{{ $u->getFullName() }}</td>
+                  <td>{{ $ass->user->getFullName() }}</td>
                   {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
                   {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignar</a></td> --}}
                 </tr>
