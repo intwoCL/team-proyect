@@ -17,7 +17,7 @@ class CalendarController extends Controller
     public function index()
     {
       $calendars = Calendar::get();
-      return view('admin.calendar.index',compact('canlendars'));
+      return view('admin.calendar.index',compact('calendars'));
     }
 
     /**
@@ -27,7 +27,7 @@ class CalendarController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.calendar.create');
     }
 
     /**
@@ -38,7 +38,17 @@ class CalendarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      try {
+        $c = new Calendar();
+        $c->user_id = current_user()->id;
+        $c->name = $request->input('name');
+        $c->objective = $request->input('objective');
+        $c->save();
+        return redirect()->route('calendar.index')->with('success',trans('alert.success'));
+      } catch (\Throwable $th) {
+        // return redirect()->back()->with('danger',trans('alert.danger'));
+        return $th;
+      }
     }
 
     /**
