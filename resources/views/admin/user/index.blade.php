@@ -3,14 +3,14 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Panel de actividades</h1>
+      <h1>Panel de usuarios</h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-        <button onClick="window.location.href='{{ route('user.create') }}'" class="btn btn-primary">Crear nueva actividad</button>
+        <button onClick="window.location.href='{{ route('user.create') }}'" class="btn btn-primary">Crear nuevo usuario</button>
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Lista de todas las actividades </h2>
+      <h2 class="section-title">Lista de todos los usuarios</h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       @include('partials.alert')
       <div class="card">
@@ -33,7 +33,7 @@
                 <td>{{ $u->first_name }}</td>
                 <td>Lorem ipsum dolor sit amet, consectetur adipisicing.</td>
                 <td>3</td>
-                <td><button onclick="window.location.href='{{ route('user.show',$u->id) }}'"></button></td>
+                <td><button onclick="window.location.href='{{ route('user.edit',$u->id) }}'" class="btn btn-primary">Editar</button></td>
               </tr>
               @endforeach
               </tbody>

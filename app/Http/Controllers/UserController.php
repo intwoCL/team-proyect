@@ -92,7 +92,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::where('id',$id)->firstOrFail();
+      return view('admin.user.edit')->with('user',$user);
     }
 
     /**
@@ -102,9 +103,23 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UsTRest $request, $id)
     {
-        //
+      try {
+        $u = User::where('id',$id)->firstOrFail();
+        $u->email = $request->input('email');
+        $u->password = hash('sha256', $request->input('password'));
+        $u->first_name = $request->input('first_name');
+        $u->last_name = $request->input('last_name');
+        $u->lang = $request->input('lang');
+        $u->run = $request->input('run');
+        $u->update();
+        return redirect()->route('user.index')->with('success',trans('alert.success'));
+      } catch (\Throwable $th) {
+        //throw $th;
+        //return $th;
+        return redirect()->back()->with('danger',trans('alert.danger'));
+      }
     }
 
     /**

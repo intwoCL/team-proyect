@@ -94,6 +94,7 @@
 </section>
 @endsection
 @push('javascript')
+{{--Revisar--}}
   <script>
     iziToast.show({
       title: 'Hey',
