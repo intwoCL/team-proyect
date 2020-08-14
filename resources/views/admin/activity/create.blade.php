@@ -38,9 +38,9 @@
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.objetive')}}</label>
-                <input type="text" name="objetive" class="form-control" required="" autocomplete="off" value="{{ old('objetive')}}">
+                <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
               </div>
-
+              
               <div class="form-group">
                 <label>{{trans('t.activity.create.photo')}}</label>
                 <input type="file" name="photo" class="form-control" required="">

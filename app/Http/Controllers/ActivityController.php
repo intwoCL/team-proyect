@@ -45,7 +45,7 @@ class ActivityController extends Controller
     try{
       $a = new Activity();
       $a->name = $request->input('name');
-      $a->objetive = $request->input('objective');
+      $a->objective = $request->input('objective');
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
       $a->user_id = current_user()->id;

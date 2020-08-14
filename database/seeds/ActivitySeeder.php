@@ -14,7 +14,7 @@ class ActivitySeeder extends Seeder
     {
       DB::table('activities')->insert([
         'name' => 'Lenguaje de señas',
-        'objetive' => 'Poder aprender el lenguaje de señas',
+        'objective' => 'Poder aprender el lenguaje de señas',
         'photo' => 'example.jpg',
         'scale_id' => 1,
         'user_id' => 1,
