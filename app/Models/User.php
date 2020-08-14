@@ -26,4 +26,9 @@ class User extends Authenticatable
   {
     return "{$this->first_name} {$this->last_name}";
   }
+
+  public function users_allocate(){
+    return $this->hasMany(Assignment::class,'user_id');
+  }
+
 }

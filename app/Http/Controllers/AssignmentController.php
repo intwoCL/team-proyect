@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\Assignment;
+
 use Illuminate\Http\Request;
 
 class AssignmentController extends Controller
@@ -13,7 +16,8 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        //
+      $users = User::where('specialist',true)->get();
+      return view('admin.assignment.index',compact('users'));
     }
 
     /**
@@ -45,7 +49,8 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {
-        //
+      $user = User::where('specialist',true)->where('id',$id)->firstOrFail();
+      return view('admin.assignment.show',compact('user'));
     }
 
     /**
@@ -56,7 +61,13 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::where('specialist',true)->where('id',$id)->firstOrFail();
+      $users = User::get();
+      
+      // return $user->users_allocate;
+      // $users = User::where('user_id','!=',$user->users_allocate ) 
+      return view('admin.assignment.edit',compact('user','users'));
+
     }
 
     /**
