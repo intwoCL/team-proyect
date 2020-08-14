@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\User;
+use App\Models\Assignment;
+
+use App\Http\Requests\AssignmentStoreRequest;
+
 class AssignmentController extends Controller
 {
     /**
@@ -13,7 +18,8 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        //
+      $users = User::where('specialist',true)->get();
+      return view('admin.assignment.index',compact('users'));
     }
 
     /**
@@ -32,9 +38,24 @@ class AssignmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AssignmentStoreRequest $request)
     {
-        //
+      try {
+        $users_id = $request->input('users');
+        $user_id  = $request->input('id');
+  
+        foreach ($users_id as $value) {
+          $a = new Assignment();
+          $a->user_id = $value;
+          $a->specialist_id = $user_id;
+          $a->active = 1;
+          $a->save();
+        }
+        return redirect()->route('assignment.show',$user_id)->with('success',trans('alert.success'));
+      } catch (\Throwable $th) {
+        //throw $th;
+        return $th;
+      }
     }
 
     /**
@@ -45,7 +66,8 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {
-        //
+      $user = User::where('specialist',true)->where('id',$id)->firstOrFail();
+      return view('admin.assignment.show',compact('user'));
     }
 
     /**
@@ -56,7 +78,14 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-        //
+      $user = User::where('specialist',true)->where('id',$id)->firstOrFail();
+      $assigments = $user->assignmentUsers->pluck('user_id');
+      if (count($assigments)>0){
+        $users = User::where('id','<>',$id)->where('id','<>',$assigments)->get();
+      }else{
+        $users = User::where('id','<>',$id)->get();
+      }
+      return view('admin.assignment.edit',compact('user','users'));
     }
 
     /**
