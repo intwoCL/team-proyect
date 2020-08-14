@@ -6,7 +6,7 @@
       <h1>Panel de usuarios</h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-        <button onClick="window.location.href='{{ route('user.create') }}'" class="btn btn-primary">Crear nuevo usuario</button>
+        <button onClick="window.location.href='{{ route('user.create') }}'" class="btn btn-primary">{{ trans('t.user.create.title') }}</button>
       </div>
     </div>
     <div class="section-body">
@@ -20,20 +20,23 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Level</th>
-                <th></th>
+                <th>{{ trans('t.user.index.table_run') }}</th>
+                <th>{{ trans('t.user.index.table_name') }}</th>
+                <th>{{ trans('t.user.index.table_email') }}</th>
+                <th>{{ trans('t.user.index.table_languages') }}</th>
+                <th>{{ trans('t.user.index.table_privileges')}}</th>
               </tr>
               </thead>
               <tbody>
               @foreach ($users as $u)
               <tr>
                 <td>{{ $u->id }}</td>
-                <td>{{ $u->first_name }}</td>
-                <td>Lorem ipsum dolor sit amet, consectetur adipisicing.</td>
-                <td>3</td>
-                <td><button onclick="window.location.href='{{ route('user.edit',$u->id) }}'" class="btn btn-primary">Editar</button></td>
+                <td>{{ $u->run }}</td>
+                <td>{{ $u->getFullName() }}</td>
+                <td>{{ $u->email }}</td>
+                <td>{{ $u->lang }}</td>
+                <td>{{ $u->admin . ' .' . $u->specialist }}</td>
+                <td><button onclick="window.location.href='{{ route('user.edit',$u->id) }}'" class="btn btn-primary">{{ trans('t.user.edit.edit') }}</button></td>
               </tr>
               @endforeach
               </tbody>

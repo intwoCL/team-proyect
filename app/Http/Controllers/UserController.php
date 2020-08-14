@@ -93,7 +93,7 @@ class UserController extends Controller
     public function edit($id)
     {
       $user = User::where('id',$id)->firstOrFail();
-      return view('admin.user.edit')->with('user',$user);
+      return view('admin.user.edit', compact('user'));
     }
 
     /**
@@ -112,7 +112,21 @@ class UserController extends Controller
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
         $u->lang = $request->input('lang');
-        $u->run = $request->input('run');
+        if (!empty($request->input('run'))) {
+          $u->run = $request->input('run');
+        }
+        
+        if (!empty($request->input('admin'))) {
+          $u->admin = true;
+        } else {
+          $u->admin = false;
+        }
+        
+        if (!empty($request->input('specialist'))) {
+          $u->specialist = true;
+        }else {
+          $u->specialist = false;
+        }
         $u->update();
         return redirect()->route('user.index')->with('success',trans('alert.success'));
       } catch (\Throwable $th) {

@@ -35,9 +35,19 @@ return [
   ],
 
   'user'=>[
+    'index' => [
+      'table_name' => 'Name',
+      'table_email' => 'Email',
+      'table_run' => 'Run',
+      'table_privileges' => 'Privileges',
+      'table_languages' => 'Languages',
+    ],
     'create'=>[
       'title'=> 'Create new user',
-    ]
+    ],
+    'edit'=> [
+      'edit' => 'Edit',
+    ],
   ],
 
   'welcome' => 'Welcome',

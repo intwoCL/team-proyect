@@ -5,7 +5,7 @@ return [
     'title' => 'Bienvenidos a ',
     'email' => 'Correo electronico',
     'password' => 'Contraseña',
-    'forgot'   => '¿He olvido mi contraseña?',
+    'forgot'   => '¿He olvidado mi contraseña?',
     'btn' => [
       'login' => 'Acceder'
     ]
@@ -38,9 +38,19 @@ return [
   ],
 
   'user'=>[
+    'index' => [
+      'table_name' => 'Nombre completo',
+      'table_email' => 'Correo',
+      'table_run' => 'Rut',
+      'table_privileges' => 'Privilegios',
+      'table_languages' => 'Idioma',
+    ],
     'create'=>[
       'title'=> 'Crear nuevo usuario',
-    ]
+    ],
+    'edit'=> [
+      'edit' => 'Editar',
+    ],
   ],
 
 
