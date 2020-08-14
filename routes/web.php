@@ -12,6 +12,7 @@ Route::middleware('user')->group(function () {
   Route::resource('user', 'UserController');
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
+  Route::resource('attention', 'AttentionController');
   
 });
 
