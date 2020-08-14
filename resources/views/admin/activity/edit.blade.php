@@ -53,7 +53,6 @@
               <input type="file" name="photo" value="{{$activity->photo}}" class="form-control" required="">
               </div>
 
-
               <div class="form-group">
                 <label>{{trans('t.activity.create.scale')}}</label>
                 <select class="form-control select2" name="scale_id" required="">

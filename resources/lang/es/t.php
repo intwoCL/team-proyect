@@ -25,8 +25,17 @@ return [
     'edit'=>[
       'title' => 'Editar actividad',
       'code' => 'Codigo'
+    ],
+    'show' =>[
+      'title' => 'Panel de contenidos',
     ]
   ], 
+
+  'content' =>[
+    'create' => [
+      'title' => 'Crear contenido'
+    ]
+  ],
 
   'user'=>[
     'create'=>[

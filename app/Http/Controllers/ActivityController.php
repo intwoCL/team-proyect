@@ -75,7 +75,8 @@ class ActivityController extends Controller
    */
   public function show($id)
   {
-    //
+    $a = Activity::where('id',$id)->FirstOrFail();
+    return view('admin.activity.show',compact('a'));
   }
 
   /**
@@ -109,9 +110,9 @@ class ActivityController extends Controller
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
       $a->update();
+      return redirect()->route('activity.index')->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
-      //throw $th;
-      return $th;
+      return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }
 

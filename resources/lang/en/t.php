@@ -10,8 +10,11 @@ return [
       'login' => 'Login'
     ]
   ],
-  
+
   'activity' => [
+    'index' =>[
+      'title' => 'Actividades',
+    ],
     'create' => [
       'title' => 'Create Activity',
       'name' => 'Activity name',
@@ -25,6 +28,9 @@ return [
     'edit'=>[
       'title' => 'Edit activity',
       'code' => 'Code'
+    ],
+    'show' =>[
+      'title' => 'Content panel'
     ]
   ],
 

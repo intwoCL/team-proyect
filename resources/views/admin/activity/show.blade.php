@@ -3,14 +3,14 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Panel de actividades</h1>
+      <h1>{{trans('t.activity.show.title')}} </h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-        <button onClick="window.location.href='{{ route('activity.create') }}'" class="btn btn-primary">Crear nueva actividad</button>
+        <button onClick="window.location.href='{{ route('content.create',$a->id) }}'" class="btn btn-primary">Nuevos Contenidos</button>
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Lista de todas las actividades </h2>
+      <h2 class="section-title">Lista de todos los contenidos</h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       @include('partials.alert')
       <div class="card">
@@ -20,20 +20,20 @@
               <thead>
               <tr>
                 <th>#</th>
+                <th>Id Actividad</th>
                 <th>Nombre</th>
-                <th>Description</th>
                 <th></th>
                 <th></th>
               </tr>
               </thead>
               <tbody>
-              @foreach ($activities as $a)
+              @foreach ($a->contents as $c)
               <tr>
-                <td>{{ $a->id }}</td>
-                <td>{{ $a->name }}</td>
-                <td>{{ $a->objetive}}</td>
-                <td><button onClick="window.location.href='{{ route('activity.show',$a->id) }}'" class="btn btn-primary">Contenidos</button></td>
-                <td><button onClick="window.location.href='{{ route('activity.edit',$a->id) }}'" class="btn btn-primary">Editar</button></td>
+                <td>{{$c->position}}</td>
+                <td>{{$c->activity_id}}</td>
+                <td>{{$c->name}}</td>
+                <td><button class="btn btn-primary">Items</button></td>
+                <td><button class="btn btn-primary">Editar</button></td>
               </tr>
               @endforeach
               </tbody>
