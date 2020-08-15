@@ -21,5 +21,8 @@
     <li class="{{ active('assignment*') }}"><a href="{{ route('assignment.index') }}"><i class="fas fa-hands-helping"></i><span>Especialista</span></a></li>
     <li class="{{ active('attention*') }}"><a href="{{ route('attention.index') }}"><i class="fas fa-hands-helping"></i><span>Atención</span></a></li>
     <li class="{{ active('calendar*') }}"><a href="{{ route('calendar.index') }}"><i class="fas fa-calendar-alt"></i> <span>Calendar</span></a></li>
+
+    <hr>
+    <li><a href="/webapp"><i class="fas fa-mobile-alt"></i> <span>App</span></a></li>
   </ul>
 </aside>

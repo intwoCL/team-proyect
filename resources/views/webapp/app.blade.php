@@ -14,8 +14,9 @@
       <div class="main-content">
         @yield('content')
       </div>
-      <footer class="main-footer">
+      {{-- <footer class="main-footer">
         @include('partials.webappfooter')
-      </footer>
+      </footer> --}}
     </div>
+ 
   @endsection
