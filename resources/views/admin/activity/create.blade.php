@@ -37,7 +37,7 @@
               </div>
 
               <div class="form-group">
-                <label>{{trans('t.activity.create.objetive')}}</label>
+                <label>{{trans('t.activity.create.objective')}}</label>
                 <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
               </div>
               

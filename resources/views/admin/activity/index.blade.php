@@ -31,7 +31,7 @@
               <tr>
                 <td>{{ $a->id }}</td>
                 <td>{{ $a->name }}</td>
-                <td>{{ $a->objetive}}</td>
+                <td>{{ $a->objective}}</td>
                 <td><button onClick="window.location.href='{{ route('activity.show',$a->id) }}'" class="btn btn-primary">Contenidos</button></td>
                 <td><button onClick="window.location.href='{{ route('activity.edit',$a->id) }}'" class="btn btn-primary">Editar</button></td>
               </tr>

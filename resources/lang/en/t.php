@@ -18,7 +18,7 @@ return [
     'create' => [
       'title' => 'Create Activity',
       'name' => 'Activity name',
-      'objetive' =>'Objetive',
+      'objective' =>'Objective',
       'photo' => 'Photo',
       'scale' => 'Scale',
       'categories'=> 'Categories',

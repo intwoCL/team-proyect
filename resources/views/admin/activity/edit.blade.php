@@ -44,8 +44,8 @@
               </div>
 
               <div class="form-group">
-                <label>{{trans('t.activity.create.objetive')}}</label>
-              <input type="text" name="objetive" value="{{$activity->objetive}}" class="form-control" required="" autocomplete="off">
+                <label>{{trans('t.activity.create.objective')}}</label>
+              <input type="text" name="objective" value="{{$activity->objective}}" class="form-control" required="" autocomplete="off">
               </div>
 
               <div class="form-group">

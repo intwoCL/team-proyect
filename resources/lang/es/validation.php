@@ -305,7 +305,7 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
         'required'              => 'Requerido',
-        'objetive'              => 'objetivo',
+        'objective'             => 'objetivo',
         'scale_id'              => 'escala',
     ],
 

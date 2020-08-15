@@ -42,6 +42,7 @@ class ActivityController extends Controller
    */
   public function store(ActivityStoreRequest $request)
   {
+    return $request;
     try{
       $a = new Activity();
       $a->name = $request->input('name');
@@ -106,7 +107,7 @@ class ActivityController extends Controller
     try {
       $a = Activity::where('id',$id)->FirstOrFail(); 
       $a->name = $request->input('name');
-      $a->objetive = $request->input('objetive');
+      $a->objective = $request->input('objective');
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
       $a->update();
