@@ -18,6 +18,7 @@ class CreateContentsTable extends Migration
             // $table->integer('activity_id');
             $table->foreignId('activity_id')->references('id')->on('activities');
             $table->string('name',50);
+            $table->string('objective',100)->nullable();
             $table->integer('position');
             $table->integer('items_total')->default(0);
             $table->boolean('quiz');
