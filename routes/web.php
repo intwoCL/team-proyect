@@ -16,8 +16,14 @@ Route::middleware('user')->group(function () {
   Route::resource('attention', 'AttentionController');
   
   
+
+
+
+  
+  Route::get('webapp', 'WebAppController@index');
 });
 
 Route::get('t', function () {
     return view('template.form');
 });
+
