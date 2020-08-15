@@ -7,7 +7,7 @@
         <h1>Listado de especialistas</h1>
       </div>
       <div class="section-body">
-        @include('partials.alert')
+        @include('partials._alert')
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">

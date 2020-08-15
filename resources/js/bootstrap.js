@@ -23,6 +23,8 @@ require('select2');
 require('izitoast');
 
 
+// require('./custom/custom');
+
 /* internal team */
 require('./stisla/stisla');
 require('./stisla/scripts');

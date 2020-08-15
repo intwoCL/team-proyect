@@ -23,7 +23,7 @@
     </p> --}}
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
-        @include('partials.alert')
+        @include('partials._alert')
         @include('partials.errors')
         <div class="card">
           <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data" >

@@ -14,7 +14,7 @@
       </div>
       <div class="section-body">
         <h2 class="section-title">Usuario : {{ $user->getFullName() }}</h2>
-        @include('partials.alert')
+        @include('partials._alert')
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">

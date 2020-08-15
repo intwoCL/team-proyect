@@ -7,7 +7,7 @@
 @endpush
 @section('content')
   {{-- <section class="section">
-    @include('partials.alert')
+    @include('partials._alert')
 
     <div class="section-header">
       <h1>Dashboard</h1>
@@ -34,11 +34,10 @@
           @include('webapp.card._youtube')
         </div>
       </div>
-        <!-- Add Pagination -->
-    
-    <!-- Add Arrows -->
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
+      <!-- Add Pagination -->
+      <!-- Add Arrows -->
+      {{-- <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div> --}}
     </div>
   </div>
 @endsection

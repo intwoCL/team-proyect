@@ -4,7 +4,7 @@
 
 @section('content')
   <section class="section">
-    @include('partials.alert')
+    @include('partials._alert')
 
     <div class="section-header">
       <h1>Dashboard</h1>
@@ -14,14 +14,11 @@
     </div>
   </section>
 @endsection
-@push('javascript')
-  <script src="../node_modules/izitoast/src/js/iziToast.js"></script>
-  
+@push('javascript')  
   <script>
     iziToast.show({
       title: 'Hey',
       message: 'What would you like to add?'
     });
-
   </script>
 @endpush

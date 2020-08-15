@@ -1,0 +1,1 @@
+// require('./izitoast/js/iziToast');
