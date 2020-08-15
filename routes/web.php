@@ -16,7 +16,7 @@ Route::middleware('user')->group(function () {
   Route::resource('attention', 'AttentionController');
   
   
-
+  
 
 
   

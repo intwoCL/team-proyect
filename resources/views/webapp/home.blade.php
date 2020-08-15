@@ -37,8 +37,8 @@
         <!-- Add Pagination -->
     
     <!-- Add Arrows -->
-    {{-- <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div> --}}
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
     </div>
   </div>
 @endsection
@@ -51,10 +51,10 @@
         el: '.swiper-pagination',
         type: 'fraction',
       },
-      // navigation: {
-      //   nextEl: '.swiper-button-next',
-      //   prevEl: '.swiper-button-prev',
-      // },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
     });
 </script>
 @endpush

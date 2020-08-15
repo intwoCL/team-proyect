@@ -20,6 +20,8 @@ require('jquery.nicescroll');
 
 /* customers team */
 require('select2');
+require('izitoast');
+
 
 /* internal team */
 require('./stisla/stisla');

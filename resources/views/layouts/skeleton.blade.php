@@ -12,7 +12,6 @@
 <div id="app">
   @yield('app')
 </div>
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>

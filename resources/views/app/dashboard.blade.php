@@ -14,3 +14,14 @@
     </div>
   </section>
 @endsection
+@push('javascript')
+  <script src="../node_modules/izitoast/src/js/iziToast.js"></script>
+  
+  <script>
+    iziToast.show({
+      title: 'Hey',
+      message: 'What would you like to add?'
+    });
+
+  </script>
+@endpush
