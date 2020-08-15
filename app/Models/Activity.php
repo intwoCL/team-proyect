@@ -16,6 +16,10 @@ class Activity extends Model
     return $this->hasMany(Scale::class,'scale_id');
   }
 
+  public function tagsCategories(){
+    return $this->hasMany(ActivityCategory::class,'activity_id');
+  }
+
   public function user(){
     return $this->belongsTo(User::class,'user_id');
   }

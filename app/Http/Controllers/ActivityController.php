@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Activity;
 use App\Models\Category;
+use App\Models\ActivityCategory;
 use App\Models\Scale;
 
 use App\Http\Requests\ActivityStoreRequest;
@@ -42,7 +43,6 @@ class ActivityController extends Controller
    */
   public function store(ActivityStoreRequest $request)
   {
-    return $request;
     try{
       $a = new Activity();
       $a->name = $request->input('name');
@@ -53,6 +53,7 @@ class ActivityController extends Controller
       $a->code = $this->getCodeRandom();
       //Foto
       $a->photo = 'example.png';
+      $a->save();
       // if(!empty($request->file('photo'))){
       //   $request->validate([
       //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -61,10 +62,17 @@ class ActivityController extends Controller
       //   $request->image->move(public_path('/dir/formulario/'), $photo_name);
       //   $a->foto = "/dir/formulario/$photo_name";
       // } 
-      $a->save();
+      $categories = $request->input('categories');
+      for ($i=0; $i < count($categories) ; $i++) { 
+        $ac = new ActivityCategory();
+        $ac->category_id = $categories[$i];
+        $ac->activity_id = $a->id;
+        $ac->save();
+      }
       return redirect()->route('activity.index')->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
-      return redirect()->back()->with('danger',trans('alert.danger'));
+      return $th;
+      // return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }
 
