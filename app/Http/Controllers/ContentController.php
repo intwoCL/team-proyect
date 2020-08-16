@@ -43,7 +43,9 @@ class ContentController extends Controller
 
       if (!empty($request->input('quiz'))) {
         $c->quiz = true;
-      }
+      }else{
+        $c->quiz = false;
+      }  
       $c->save();
       return redirect()->route('activity.show',$a->id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
@@ -83,10 +85,26 @@ class ContentController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, $id)
+  public function update(Request $request,$activity_id,$id)
   {
     //pendiente
-    $content = Content::where('id',$id)->firstOrFail();
+    try {
+      $c = Content::where('id',$id)->where('activity_id',$activity_id)->firstOrFail();
+      $c->name = $request->input('name');
+      if (!empty($request->input('objective'))) {
+        $c->objective = $request->input('objective');
+      }
+      if (!empty($request->input('quiz'))) {
+        $c->quiz = true;
+      }else{
+        $c->quiz = false;
+      }  
+      $c->update();
+      return redirect()->route('activity.show',$activity_id)->with('success',trans('alert.success'));
+    } catch (\Throwable $th) {
+      return $th;
+      //return redirect()->back()->with('danger',trans('alert.danger'));
+    }
 
   }
 

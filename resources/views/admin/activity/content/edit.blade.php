@@ -49,7 +49,13 @@
               <div class="form-group">
                 <div class="control-label">¿Desea quiz al final? <small class="text-danger">*</small></div>
                 <label class="custom-switch mt-2">
-                  <input type="checkbox" name="quiz" class="custom-switch-input">
+                  @php
+                      $checked ='';
+                      if($content->quiz){
+                        $checked = 'checked';
+                      }
+                  @endphp
+                  <input type="checkbox" name="quiz" class="custom-switch-input" {{$checked}}>
                   <span class="custom-switch-description mr-2">No</span>
                   <span class="custom-switch-indicator"></span>
                   <span class="custom-switch-description">Si</span>
