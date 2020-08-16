@@ -27,7 +27,6 @@ Route::middleware('user')->group(function () {
   Route::get('webapp', 'WebAppController@index');
 });
 
-Route::get('t', function () {
-    return view('template.form');
-});
+Route::get('demo', function () { return view('template.text'); });
+Route::post('demo','WebAppController@store');
 

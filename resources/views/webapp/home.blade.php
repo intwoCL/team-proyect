@@ -2,15 +2,13 @@
 
 @section('title', 'Admin Dashboard')
 @push('stylesheet')
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+  <link rel="stylesheet" href="/vendor/swiper/css/swiper-bundle.min.css">
 @endpush
 @section('content')
   <section class="section">
     @include('partials._alert')
     <div class="section-header">
       <a href="#" onclick="buttonSound()">
-        <audio id="audio" src="/fx/effects/bottle-cork.mp3" data-url="/dashboard"></audio>
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
       <h1>Dashboardasdasd</h1>
@@ -44,11 +42,21 @@
       <div class="swiper-button-prev"></div> --}}
     </div>
   </div>
+
+  <div style="display: none;">
+    <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/dashboard"></audio>
+
+    <audio id="fx-slider" controls>
+      <source type="audio/mp3" src="/fx/effects/swoosh.mp3">
+    </audio>
+  </div>
 @endsection
 @push('javascript')
-<script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script src="/vendor/swiper/js/swiper-bundle.min.js"></script>
 <script>
+    var btnSlider = document.getElementById("fx-slider");
+    btnSlider.volume = 0.6;
+
     var swiper = new Swiper('.swiper-container', {
       pagination: {
         el: '.swiper-pagination',
@@ -59,15 +67,42 @@
         prevEl: '.swiper-button-prev',
       },
     });
+    // swiper.on('slideChange', function (e) {
+    //   console.log('slide changed' + e);
+    // });
+    // swiper.on('slideChangeTransitionStart', function (e) {
+    //   console.log('slideChangeTransitionStart' + e);
+    // });
+    // swiper.on('slideChangeTransitionEnd', function (e) {
+    //   console.log('slideChangeTransitionEnd' + e);
+    // });
+    swiper.on('slideNextTransitionStart', function (e) {
+      // console.log('slideNextTransitionStart' + e);
+      // btnBack.stop();
+      btnSlider.play();
+    });
+    swiper.on('slidePrevTransitionStart', function (e) {
+      // console.log('slidePrevTransitionStart' + e);
+      // btnBack.stop();
+      btnSlider.play();
+    });
+    
+
+
+    
+
 </script>
 <script>
-  var audio = document.getElementById("audio");
+  var btnBack = document.getElementById("fx-back");
   function buttonSound(){
-    audio.volume = 0.5;
-    audio.play();
+    btnBack.volume = 0.5;
+    btnBack.play();
   }
-  audio.addEventListener("ended", function(){
-    window.location.href = audio.dataset.url;
+  btnBack.addEventListener("ended", function(){
+    window.location.href = btnBack.dataset.url;
   });
 </script>
 @endpush
+
+
+

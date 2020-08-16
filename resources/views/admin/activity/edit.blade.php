@@ -56,7 +56,7 @@
               <input type="file" name="photo" value="{{$activity->photo}}" class="form-control" required="">
               </div>
 
-              <div class="form-group">
+              <div class="form-group row">
                 <label>{{trans('t.activity.create.scale')}}</label>
                 <select class="form-control select2" name="scale_id" required="">
                   @foreach ($scales as $s)
@@ -68,11 +68,15 @@
                   @endforeach
                 </select>
               </div>
-              <div class="form-group">
+              <div class="form-group row">
                 <label>{{trans('t.activity.create.categories')}}</label>
                 <select class="form-control select2" multiple="" name="categories[]" required="">
+                  
+               x
+                  
                   @foreach ($categories as $c)
-                  <option value="{{ $c->id }}">{{ $c->name }}</option>
+                  
+                        <option selected value="{{ $c->id }}">{{ $c->name }}</option>
                   @endforeach
                 </select>
               </div>
@@ -94,12 +98,3 @@
   </div>
 </section>
 @endsection
-@push('javascript')
-{{--Revisar--}}
-  <script>
-    iziToast.show({
-      title: 'Hey',
-      message: 'What would you like to add?'
-    });
-  </script>
-@endpush

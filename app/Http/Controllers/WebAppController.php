@@ -11,4 +11,8 @@ class WebAppController extends Controller
     return view('webapp.home');
   }
 
+  public function store(Request $request){
+    return $request;
+  }
+
 }

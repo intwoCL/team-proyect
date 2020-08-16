@@ -13,7 +13,7 @@
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
-              <table id="tableSelect" class="table table-striped table-sm table-hover">
+              <table id="tableSelect" class="table  table-sm table-hover">
                 <thead>
                 <tr>
                   <th>#</th>
@@ -25,10 +25,19 @@
                 <tbody>
                 @foreach ($users as $u)
                 <tr>
-                  <td>{{ $u->id }}</td>
-                  <td>{{ $u->getFullName() }}</td>
+                  <td>{{ $u->id }}
+                  </td>
+                  <td>{{ $u->getFullName() }}
+                    <div class="table-links">
+                      <a href="#">View</a>
+                      <div class="bullet"></div>
+                      <a href="#">Edit</a>
+                      <div class="bullet"></div>
+                      <a href="#" class="text-danger">Trash</a>
+                    </div>
+                  </td>
                   <td>{{ count($u->assignmentUsers)}}</td>
-                  <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td>
+                  <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success btn-sm">Asignados</a></td>
                   {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignar</a></td> --}}
                 </tr>
                 @endforeach

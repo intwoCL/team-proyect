@@ -26,21 +26,18 @@
                 </tr>
                 </thead>
                 <tbody>
-                @forelse ($user->assignmentUsers as $ass)
-                <tr>
-                  {{-- <td>{{ $u->id }}</td> --}}
-                  <td>{{ $ass->user->getFullName() }}</td>
-                  {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
-                  {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignar</a></td> --}}
-                </tr>
-                @empty
-                <tr>
-                  <td colspan="1" class="text-center">No tiene agregado</td>
-                </tr>
-                @endforelse
-
-                
-              
+                  @forelse ($user->assignmentUsers as $ass)
+                  <tr>
+                    {{-- <td>{{ $u->id }}</td> --}}
+                    <td>{{ $ass->user->getFullName() }}</td>
+                    {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
+                    {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignar</a></td> --}}
+                  </tr>
+                  @empty
+                  <tr>
+                    <td colspan="1" class="text-center">No tiene agregado</td>
+                  </tr>
+                  @endforelse
                 </tbody>
               </table>
             </div>

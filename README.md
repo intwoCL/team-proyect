@@ -50,3 +50,6 @@ add to lang -> t.php
 ```shell
 trans('t.message.success.create')
 ``` -->
+
+<!-- Tamaños https://laravel.com/docs/4.2/schema -->
+<!-- https://stackoverflow.com/questions/2023481/mysql-large-varchar-vs-text -->

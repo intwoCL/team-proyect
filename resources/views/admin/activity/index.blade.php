@@ -21,7 +21,8 @@
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
-                <th>Description</th>
+                <th>Objetivo</th>
+                <th></th>
                 <th></th>
                 <th></th>
               </tr>
@@ -29,9 +30,21 @@
               <tbody>
               @foreach ($activities as $a)
               <tr>
-                <td>{{ $a->id }}</td>
+                <td>{{ $a->id }}
+                  <div class="table-links">
+                  <a href="#">View</a>
+                  <div class="bullet"></div>
+                  <a href="#">Edit</a>
+                  <div class="bullet"></div>
+                  <a href="#" class="text-danger">Trash</a>
+                </div></td>
                 <td>{{ $a->name }}</td>
                 <td>{{ $a->objective}}</td>
+                <td>
+                  @foreach ($a->tagsCategories as $c)
+                  <div class="badge badge-success">{{ $c->category->name }}</div>
+                  @endforeach
+                </td>
                 <td><a href="{{route('activity.show',$a->id) }}" class="btn btn-primary">Contenidos</a></td>
                 <td><a href="{{route('activity.edit',$a->id)}}" class="btn btn-primary">Editar</a></td>
               </tr>
