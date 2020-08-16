@@ -6,15 +6,16 @@
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 @endpush
 @section('content')
-  {{-- <section class="section">
+  <section class="section">
     @include('partials._alert')
-
     <div class="section-header">
-      <h1>Dashboard</h1>
+      <a href="#" onclick="buttonSound()">
+        <audio id="audio" src="/fx/effects/bottle-cork.mp3" data-url="/dashboard"></audio>
+        <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
+      </a>
+      <h1>Dashboardasdasd</h1>
     </div>
-
-  
-  </section> --}}
+  </section>
   <div class="section">
     <div class="swiper-container">
       <div class="swiper-wrapper">
@@ -58,5 +59,15 @@
         prevEl: '.swiper-button-prev',
       },
     });
+</script>
+<script>
+  var audio = document.getElementById("audio");
+  function buttonSound(){
+    audio.volume = 0.5;
+    audio.play();
+  }
+  audio.addEventListener("ended", function(){
+    window.location.href = audio.dataset.url;
+  });
 </script>
 @endpush
