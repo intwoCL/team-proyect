@@ -5,10 +5,10 @@
 
 <section class="section">
   <div class="section-header">
-    <a href="{{ route('activity.show',$activity->id) }}">
+    <a href="{{route('activity.show',$content->activity->id)}}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>{{trans('t.content.create.title')}}</h1>
+    <h1>Editar Contenido</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -28,21 +28,16 @@
         @include('partials._alert')
         @include('partials.errors')
         <div class="card">       
-          <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data" >
+          <form action="{{route('content.edit',[$content->activity->id,$content->id])}}" method="POST" enctype="multipart/form-data" >
             @csrf
-            <input type="hidden" name="activity_id" value="{{$activity->id}}"> 
+            <input type="hidden" name="activity_id" value="{{$content->activity->id}}"> 
             <div class="card-header">
               <h4>Default Validation</h4>
             </div>
             <div class="card-body">
               <div class="form-group">
                 <label>Nombre contenido</label>
-                <input type="text" name="name" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
-              </div>
-
-              <div class="form-group">
-                <label>Objetivo</label>
-                <input type="text" name="objective" class="form-control" autocomplete="off" value="{{ old('objective')}}">
+                <input type="text" name="name" class="form-control" required="" autocomplete="off">
               </div>
 
               <div class="form-group">

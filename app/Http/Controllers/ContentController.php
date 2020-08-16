@@ -10,24 +10,13 @@ use App\Models\Item;
 class ContentController extends Controller
 {
   /**
-   * Display a listing of the resource.
-   *
-   * @return \Illuminate\Http\Response
-   */
-  public function index()
-  {
-    //$contents = Content::get();
-    //¿? return view('admin.activity.show',compact('','contents'));
-  }
-
-  /**
    * Show the form for creating a new resource.
    *
    * @return \Illuminate\Http\Response
    */
-  public function create($id)
+  public function create($activity_id)
   {
-    $activity = Activity::where('id',$id)->firstOrFail();
+    $activity = Activity::where('id',$activity_id)->firstOrFail();
     return view('admin.activity.content.create',compact('activity')); 
   }
 
@@ -43,6 +32,11 @@ class ContentController extends Controller
       $c = new Content();
       $c->activity_id = $request->input('activity_id');
       $c->name = $request->input('name');
+
+      if (!empty($request->input('objective'))) {
+        $c->objective = $request->input('objective');
+      }
+
       if (!empty($request->input('quiz'))) {
         $c->quiz = $request->input('quiz');
       }
@@ -59,9 +53,10 @@ class ContentController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show($activity_id,$id)
   {
-    //
+    $content = Content::where('id',$id)->where('activity_id',$activity_id)->firstOrFail();
+    return view('admin.activity.content.show',compact('content'));
   }
 
   /**
@@ -70,9 +65,10 @@ class ContentController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function edit($id)
+  public function edit($activity_id,$id)
   {
-    //
+    $content = Content::where('id',$id)->where('activity_id',$activity_id)->firstOrFail();
+    return view('admin.activity.content.edit',compact('content'));
   }
 
   /**

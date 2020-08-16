@@ -5,6 +5,9 @@
 
 <section class="section">
   <div class="section-header">
+    <a href="{{ route('activity.index') }}">
+      <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
+    </a>
     <h1>{{trans('t.activity.create.title')}}</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>

@@ -9,7 +9,9 @@ Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
   
   Route::resource('activity', 'ActivityController');
-  Route::get('activity/{id}/content/create', 'ContentController@create')->name('content.create');
+  Route::get('activity/{activity_id}/content/create', 'ContentController@create')->name('content.create');
+  Route::get('activity/{activity_id}/content/{id}/edit', 'ContentController@edit')->name('content.edit');
+  Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::resource('user', 'UserController');
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
