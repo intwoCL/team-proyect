@@ -9,11 +9,10 @@
         <h1>Listado de especialistas</h1>
       </div>
       <div class="section-body">
-        @include('partials._alert')
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
-              <table id="tableSelect" class="table  table-sm table-hover">
+              <table id="tableSelect" class="table table-sm table-hover">
                 <thead>
                 <tr>
                   <th>#</th>

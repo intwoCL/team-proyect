@@ -11,7 +11,6 @@
     </div>
     <div class="section-body">
       <h2 class="section-title">Usuario : {{ $user->getFullName() }}</h2>
-      @include('partials._alert')
       <form action="{{ route('assignment.store') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}" hidden>

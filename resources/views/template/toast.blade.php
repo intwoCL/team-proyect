@@ -7,7 +7,6 @@
     </div>
     
     <div class="section-body">
-      @include('partials._alert')
     </div>
   </section>
   <section class="section">

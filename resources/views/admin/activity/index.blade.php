@@ -12,11 +12,10 @@
     <div class="section-body">
       <h2 class="section-title">Lista de todas las actividades </h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
-      @include('partials._alert')
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-striped table-md ">
+            <table class="table table-hover table-md">
               <thead>
               <tr>
                 <th>#</th>
@@ -24,21 +23,22 @@
                 <th>Objetivo</th>
                 <th></th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody>
               @foreach ($activities as $a)
               <tr>
-                <td>{{ $a->id }}
+                <td>{{ $a->id }}</td>
+                <td>
+                  {{ $a->name }}
                   <div class="table-links">
-                  <a href="#">View</a>
-                  <div class="bullet"></div>
-                  <a href="#">Edit</a>
-                  <div class="bullet"></div>
-                  <a href="#" class="text-danger">Trash</a>
-                </div></td>
-                <td>{{ $a->name }}</td>
+                    <a href="#">View</a>
+                    <div class="bullet"></div>
+                    <a href="{{route('activity.edit',$a->id)}}">Editar</a>
+                    <div class="bullet"></div>
+                    <a href="#" class="text-danger">Trash</a>
+                  </div>
+                </td>
                 <td>{{ $a->objective}}</td>
                 <td>
                   @foreach ($a->tagsCategories as $c)
@@ -46,7 +46,6 @@
                   @endforeach
                 </td>
                 <td><a href="{{route('activity.show',$a->id) }}" class="btn btn-primary">Contenidos</a></td>
-                <td><a href="{{route('activity.edit',$a->id)}}" class="btn btn-primary">Editar</a></td>
               </tr>
               @endforeach
               </tbody>

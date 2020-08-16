@@ -6,7 +6,6 @@
 @endpush
 @section('content')
   <section class="section">
-    @include('partials._alert')
     <div class="section-header">
       <a href="#" onclick="buttonSound()">
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
