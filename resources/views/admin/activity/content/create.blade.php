@@ -28,7 +28,7 @@
         @include('partials._alert')
         @include('partials._errors')
         <div class="card">       
-          <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data" >
+          <form action="{{route('content.store',$activity->id)}}" method="POST" enctype="multipart/form-data" >
             @csrf
             <input type="hidden" name="activity_id" value="{{$activity->id}}"> 
             <div class="card-header">

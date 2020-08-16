@@ -11,7 +11,9 @@ Route::middleware('user')->group(function () {
   Route::resource('activity', 'ActivityController');
   Route::get('activity/{activity_id}/content/create', 'ContentController@create')->name('content.create');
   Route::get('activity/{activity_id}/content/{id}/edit', 'ContentController@edit')->name('content.edit');
+  Route::put('activity/{activity_id}/content/{id}/edit', 'ContentController@update')->name('content.update');
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
+  Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::resource('user', 'UserController');
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');

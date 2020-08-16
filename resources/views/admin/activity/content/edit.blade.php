@@ -26,10 +26,11 @@
       
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._alert')
-        @include('partials.errors')
+        @include('partials._errors')
         <div class="card">       
           <form action="{{route('content.edit',[$content->activity->id,$content->id])}}" method="POST" enctype="multipart/form-data" >
             @csrf
+            @method('PUT')
             <input type="hidden" name="activity_id" value="{{$content->activity->id}}"> 
             <div class="card-header">
               <h4>Default Validation</h4>
@@ -37,7 +38,12 @@
             <div class="card-body">
               <div class="form-group">
                 <label>Nombre contenido</label>
-                <input type="text" name="name" class="form-control" required="" autocomplete="off">
+                <input type="text" name="name" value="{{$content->name}}" class="form-control" required="" autocomplete="off">
+              </div>
+
+              <div class="form-group">
+                <label>Objetivo</label>
+                <input type="text" name="objective" value="{{$content->objective}}" class="form-control" autocomplete="off">
               </div>
 
               <div class="form-group">

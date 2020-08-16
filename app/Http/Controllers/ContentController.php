@@ -37,12 +37,17 @@ class ContentController extends Controller
         $c->objective = $request->input('objective');
       }
 
+      //position
+      $a = Activity::where('id',$c->activity_id)->firstOrFail();
+      $c->position = count($a->contents)+1;
+
       if (!empty($request->input('quiz'))) {
-        $c->quiz = $request->input('quiz');
+        $c->quiz = true;
       }
       $c->save();
-      return redirect()->route('activity.show')->with('success',trans('alert.success'));
+      return redirect()->route('activity.show',$a->id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
+      return $th;
       return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }

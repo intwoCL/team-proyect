@@ -21,7 +21,7 @@ class CreateContentsTable extends Migration
             $table->string('objective',100)->nullable();
             $table->integer('position');
             $table->integer('items_total')->default(0);
-            $table->boolean('quiz');
+            $table->boolean('quiz')->default(false);
             $table->timestamps();
         });
     }
