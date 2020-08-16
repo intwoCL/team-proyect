@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._alert')
-        @include('partials.errors')
+        @include('partials._errors')
         <div class="card">       
           <form action="{{route('calendar.store')}}" method="POST" enctype="multipart/form-data" >
             @csrf

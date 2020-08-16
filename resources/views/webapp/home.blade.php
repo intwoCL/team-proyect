@@ -19,6 +19,9 @@
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
+          @include('webapp.card._quiz')
+        </div>
+        <div class="swiper-slide">
           @include('webapp.card._gif')
         </div>
         <div class="swiper-slide">
