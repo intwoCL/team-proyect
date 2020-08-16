@@ -14,11 +14,11 @@
     </div>
   </section>
 @endsection
-@push('javascript')  
+{{-- @push('javascript')  
   <script>
     iziToast.show({
       title: 'Hey',
       message: 'What would you like to add?'
     });
   </script>
-@endpush
+@endpush --}}
