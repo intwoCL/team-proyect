@@ -24,7 +24,7 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         return [
-          'email' => 'required|email|min:4|max:100|unique:users,email',
+          'email' => 'required|email|min:4|max:100|unique:users,email,'.$this->route('user'),
           'password' => 'required|min:4|max:10',
           'lang' => 'required',
           'first_name' => 'required|min:4|max:100',

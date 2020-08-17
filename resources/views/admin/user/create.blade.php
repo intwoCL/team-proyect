@@ -88,8 +88,7 @@
                   <span class="custom-switch-description">Si</span>
                 </label>
               </div>
-
-
+              
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{ trans('button.save') }}</button>

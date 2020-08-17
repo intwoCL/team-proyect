@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('stylesheet')
+  <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.css">
+@endpush
 @section('content')
   <section class="section">
     <div class="section-header">
@@ -15,7 +17,7 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-striped table-sm table-hover">
+            <table id="tableSelect" class="table table-striped table-sm table-hover">
               <thead>
               <tr>
                 <th>#</th>
@@ -24,7 +26,6 @@
                 <th>{{ trans('t.user.index.table_email') }}</th>
                 <th>{{ trans('t.user.index.table_languages') }}</th>
                 <th class="text-center">{{ trans('t.user.index.table_privileges')}}</th>
-                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -32,7 +33,14 @@
               <tr>
                 <td>{{ $u->id }}</td>
                 <td>{{ $u->run }}</td>
-                <td>{{ $u->getFullName() }}</td>
+                <td>{{ $u->getFullName() }} 
+                  <div class="table-links">
+                  <a href="#">{{ trans('t.view') }}</a>
+                  <div class="bullet"></div>
+                  <a href="{{route('user.edit',$u->id)}}">{{ trans('t.edit') }}</a>
+                  <div class="bullet"></div>
+                  <a href="{{ route('user.destroy',$u->id) }}" class="text-danger">{{ trans('t.trash') }}</a>
+                </div></td>
                 <td>{{ $u->email }}</td>
                 <td>{{ $u->lang }}</td>
                 <td class="text-center">
@@ -43,7 +51,6 @@
                     <i class="fa fa-user-shield text-primary" title="administrador"></i>
                   @endif
                 </td>
-                <td><button onclick="window.location.href='{{ route('user.edit',$u->id) }}'" class="btn btn-primary">{{ trans('t.user.edit.edit') }}</button></td>
               </tr>
               @endforeach
               </tbody>
@@ -54,3 +61,12 @@
     </div>
   </section>
 @endsection
+@push('javascript')  
+<script src="/vendor/datatables/jquery.dataTables.js"></script>
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script>
+  $(function () {
+    $("#tableSelect").DataTable();
+  });
+</script>
+@endpush

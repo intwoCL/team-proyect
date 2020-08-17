@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','Auth\AuthUserController@index');
 Route::post('/', 'Auth\AuthUserController@login')->name('login');
+Route::get('password/reset','Auth\AuthUserController@resetPassword')->name('password.reset');
+Route::post('reset/password', 'Auth\AuthUserController@resetPassword')->name('reset.password');
 
 Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');

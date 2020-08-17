@@ -1,11 +1,16 @@
 <?php
 
 return [
+  'edit' => 'Editar',
+  'view' => 'Vista',
+  'trash' => 'Eliminar',
   'login' => [
     'title' => 'Bienvenidos a ',
     'email' => 'Correo electronico',
     'password' => 'Contraseña',
     'forgot'   => '¿He olvidado mi contraseña?',
+    'message' => 'Le enviaremos un correo para restablecer su contraseña',
+    'reset' => 'Restablecer Contraseña',
     'btn' => [
       'login' => 'Acceder'
     ]

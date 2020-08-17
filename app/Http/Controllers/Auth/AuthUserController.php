@@ -39,4 +39,10 @@ public function logout(){
     close_sessions();
     return redirect('/');
 }
+
+public function resetPassword ()
+{
+  return view('layouts.forgot-password');
+}
+
 }
