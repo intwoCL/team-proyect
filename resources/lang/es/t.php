@@ -29,7 +29,7 @@ return [
     ],
     'edit'=>[
       'title' => 'Editar actividad',
-      'code' => 'Codigo'
+      'code' => 'Código'
     ],
     'show' =>[
       'title' => 'Panel de contenidos',
