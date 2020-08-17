@@ -8,11 +8,11 @@
     <div class="d-sm-none d-lg-inline-block">Hi, {{ current_user()->getFullName() }}</div></a>
     <div class="dropdown-menu dropdown-menu-right">
       <div class="dropdown-title">Welcome, {{ current_user()->getFullName() }}</div>
-      <a href="#" class="dropdown-item has-icon">
+      <a href="{{ route('user.profile') }}" class="dropdown-item has-icon">
         <i class="far fa-user"></i> Profile Settings
       </a>
       <div class="dropdown-divider"></div>
-      <a href="#" class="dropdown-item has-icon text-danger">
+      <a href="{{ route('login') }}" class="dropdown-item has-icon text-danger">
         <i class="fas fa-sign-out-alt"></i> Logout salir
       </a>
     </div>

@@ -18,6 +18,7 @@ Route::middleware('user')->group(function () {
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::resource('user', 'UserController');
   Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
+  Route::get('user/profile','UserController@profile')->name('user.profile');
 
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');

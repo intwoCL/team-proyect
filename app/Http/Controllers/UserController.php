@@ -158,4 +158,9 @@ class UserController extends Controller
         return back()->with('danger',trans('alert.danger'));
       }
     }
+
+    public function profile()
+    {
+      return view('admin.user.profile');
+    }
 }
