@@ -7,7 +7,7 @@
  */
 function close_sessions(){
   if(Auth::guard('user')->check()){
-      Auth::guard('user')->logout();
+    Auth::guard('user')->logout();
   }
   // session()->forget('permisos');
   return true;

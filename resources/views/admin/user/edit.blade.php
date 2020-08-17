@@ -38,11 +38,6 @@
               </div>
 
               <div class="form-group">
-                <label>Contraseña<small class="text-danger">* (123456)</small></label>
-                <input type="password"  name="password" value="123456" class="form-control" required="" value="{{$user->password}}">
-              </div>
-
-              <div class="form-group">
                 <label>Rut <small class="text-danger">(opcional)</small></label>
                 <input type="text"  name="run" class="form-control" autocomplete="off" value="{{$user->run}}">
               </div>
@@ -98,7 +93,27 @@
           </form>
         </div>
       </div>
-      
+      <div class="col-12 col-md-6 col-lg-6">
+        @include('partials._errors')
+        <div class="card">
+          <form action="{{route('user.email', $user->id)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="card-header">
+              <h4>Default Validation</h4>
+            </div>
+            <div class="card-body">
+              <div class="form-group">
+                <label>Contraseña<small class="text-danger">* (123456)</small></label>
+                <input type="password"  name="password" value="123456" class="form-control" required="" value="{{$user->password}}">
+              </div>
+            </div>
+            <div class="card-footer text-right">
+              <button class="btn btn-primary">{{ trans('button.update') }}</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 </section>

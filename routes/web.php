@@ -4,8 +4,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','Auth\AuthUserController@index');
 Route::post('/', 'Auth\AuthUserController@login')->name('login');
-Route::get('password/reset','Auth\AuthUserController@resetPassword')->name('password.reset');
-Route::post('reset/password', 'Auth\AuthUserController@resetPassword')->name('reset.password');
+Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
+Route::post('password/reset', 'Auth\AuthUserController@resetPassword')->name('reset.password');
 
 Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
@@ -17,6 +17,8 @@ Route::middleware('user')->group(function () {
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::resource('user', 'UserController');
+  Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
+
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
   Route::resource('attention', 'AttentionController');

@@ -13,12 +13,12 @@
 
               <div class="card-body">
                 <p class="text-muted">{{ trans('t.login.message') }}</p>
-                <form method="POST">
+                <form method="POST" action="{{ route('reset.password') }}">
+                  @csrf
                   <div class="form-group">
                     <label for="email">Email</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
                   </div>
-
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
                       {{ trans('t.login.reset') }}

@@ -7,5 +7,5 @@ return [
   'info'    => '',
   'warning' => 'Algo ha salido mal.',
   'update'  => 'Se ha actualizado correctamente.',
-  'delete' => 'Se ha eliminado correctamente.',
+  'delete'  => 'Se ha eliminado correctamente.',
 ];

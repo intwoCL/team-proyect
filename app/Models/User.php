@@ -31,4 +31,14 @@ class User extends Authenticatable
     return $this->hasMany(Assignment::class,'specialist_id');
   }
 
+  public function changePassword($newPassword = ''){
+    if(empty($newPassword)){
+      $newPassword = helper_random_integer(4);
+    }
+    $encryPassword = hash('sha256', $newPassword);
+    $this->password = $encryPassword;
+    $this->update();
+    // return true;
+  }
+
 }

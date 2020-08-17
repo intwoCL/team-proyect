@@ -23,10 +23,10 @@ class AuthUserController extends Controller
       $pass = hash('sha256', $request->password);
       
       if($u->password==$pass){
-        Auth::guard('user')->loginUsingId($u->id);        
+        Auth::guard('user')->loginUsingId($u->id);
         return redirect()->route('dashboard.index');
       }else{
-        return $u;
+        return "usuario y contraseña no coinciden";
         // return back()->with('info','Error. Intente nuevamente.');
       }
     } catch (\Throwable $th) {
@@ -40,9 +40,23 @@ public function logout(){
     return redirect('/');
 }
 
-public function resetPassword ()
+public function reset()
 {
   return view('layouts.forgot-password');
+}
+
+public function resetPassword (Request $request)
+{
+  try {
+    $u = User::where('email',$request->email)->firstOrFail();
+    $u->changePassword();
+
+    return "ok";
+    
+  } catch (\Throwable $th) {
+    return $th;
+    return back()->with('info','Error. Intente nuevamente.');
+  }
 }
 
 }

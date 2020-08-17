@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use App\Http\Requests\UserStoreRequest as UsTRest;
+use App\Http\Requests\UserStoreRequest;
+use App\Http\Requests\UserUpdateRequest;
 
 class UserController extends Controller
 {
@@ -35,7 +36,7 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UsTRest $request)
+    public function store(UserStoreRequest $request)
     {
       //return $request;
       try {
@@ -103,17 +104,18 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UsTRest $request, $id)
+    public function update(UserUpdateRequest $request, $id)
     {
       try {
         $u = User::where('id',$id)->firstOrFail();
         $u->email = $request->input('email');
-        $u->password = hash('sha256', $request->input('password'));
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
         $u->lang = $request->input('lang');
         if (!empty($request->input('run'))) {
           $u->run = $request->input('run');
+        }else{
+          $u->run = "";
         }
         
         if (!empty($request->input('admin'))) {
@@ -128,11 +130,9 @@ class UserController extends Controller
           $u->specialist = false;
         }
         $u->update();
-        return redirect()->route('user.index')->with('success',trans('alert.success'));
+        return back()->with('success',trans('alert.update'));
       } catch (\Throwable $th) {
-        //throw $th;
-        //return $th;
-        return redirect()->back()->with('danger',trans('alert.danger'));
+        return back()->with('danger',trans('alert.danger'));
       }
     }
 
@@ -145,5 +145,17 @@ class UserController extends Controller
     public function destroy($id)
     {
       
+    }
+
+    public function updateEmail(Request $request, $id)
+    {
+      try {
+        $u = User::where('id',$id)->firstOrFail();
+        $newPassword = $request->input('password');
+        $u->changePassword($newPassword);
+        return back()->with('success',trans('alert.update'));
+      } catch (\Throwable $th) {
+        return back()->with('danger',trans('alert.danger'));
+      }
     }
 }
