@@ -23,6 +23,6 @@
     <li class="{{ active('calendar*') }}"><a href="{{ route('calendar.index') }}"><i class="fas fa-calendar-alt"></i> <span>Calendar</span></a></li>
 
     <hr>
-    <li><a href="/webapp"><i class="fas fa-mobile-alt"></i> <span>App</span></a></li>
+    <li><a href="/webapp" class="bg-success text-white"><i class="fas fa-mobile-alt"></i> <span>App</span></a></li>
   </ul>
 </aside>
