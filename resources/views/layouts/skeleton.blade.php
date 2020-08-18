@@ -6,7 +6,6 @@
   <title>@yield('title', 'Home') &mdash; {{ env('APP_NAME') }}</title>
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-  <link rel="stylesheet" href="/vendor/iziToast/css/iziToast.min.css">
   @stack('stylesheet')
 </head>
 <body>
@@ -16,7 +15,6 @@
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
 <script src="{{ mix('js/app.js') }}"></script>
-<script src="/vendor/iziToast/js/iziToast.min.js"></script>
 @include('partials._toast')
 @stack('javascript')
 </body>
