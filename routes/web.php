@@ -19,6 +19,7 @@ Route::middleware('user')->group(function () {
   Route::resource('user', 'UserController');
   Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
   Route::get('profile','UserController@profile')->name('user.profile');
+  Route::get('user/{user}','UserController@show')->name('user.show');
 
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');

@@ -1,6 +1,9 @@
 <?php
 
 return [
+  'profile_edit' => "Edit Profile",
+  'information' => 'Change information about yourself on this page.',
+  'profile' => 'Profile',
   'edit' => 'Edit',
   'view' => 'View',
   'trash' => 'Delete',

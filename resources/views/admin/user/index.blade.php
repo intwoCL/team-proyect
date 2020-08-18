@@ -35,7 +35,7 @@
                 <td>{{ $u->run }}</td>
                 <td>{{ $u->getFullName() }} 
                   <div class="table-links">
-                  <a href="#">{{ trans('t.view') }}</a>
+                  <a href="{{ route('user.show',$u->id) }}">{{ trans('t.view') }}</a>
                   <div class="bullet"></div>
                   <a href="{{route('user.edit',$u->id)}}">{{ trans('t.edit') }}</a>
                   <div class="bullet"></div>
