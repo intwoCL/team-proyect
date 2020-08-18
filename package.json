@@ -29,5 +29,7 @@
         "vue-template-compiler": "^2.6.11",
         "izitoast": "^1.4.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "swiper": "^6.1.2"
+    }
 }
