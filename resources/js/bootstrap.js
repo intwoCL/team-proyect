@@ -20,7 +20,7 @@ require('jquery.nicescroll');
 
 /* customers team */
 require('select2');
-require('izitoast');
+window.iziToast = require('izitoast');
 
 
 // require('./custom/custom');
