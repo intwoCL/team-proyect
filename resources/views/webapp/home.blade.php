@@ -62,6 +62,9 @@
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+    scrollbar: {
+    el: '.swiper-scrollbar',
+  },
   });
   swiper.on('slideNextTransitionStart', function () {
     btnSlider.play();
