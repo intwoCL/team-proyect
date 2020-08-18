@@ -16,7 +16,7 @@ class ContentController extends Controller
    */
   public function create($activity_id)
   {
-    $activity = Activity::where('id',$activity_id)->firstOrFail();
+    $activity = Activity::FindOrFail($activity_id);
     return view('admin.activity.content.create',compact('activity')); 
   }
 
@@ -38,7 +38,7 @@ class ContentController extends Controller
       }
 
       //position
-      $a = Activity::where('id',$c->activity_id)->firstOrFail();
+      $a = Activity::findOrFail($c->activity_id);
       $c->position = count($a->contents)+1;
 
       if (!empty($request->input('quiz'))) {
@@ -62,7 +62,7 @@ class ContentController extends Controller
    */
   public function show($activity_id,$id)
   {
-    $content = Content::where('id',$id)->where('activity_id',$activity_id)->firstOrFail();
+    $content = Content::where('activity_id',$activity_id)->findOrFail($id);
     return view('admin.activity.content.show',compact('content'));
   }
 
@@ -74,7 +74,7 @@ class ContentController extends Controller
    */
   public function edit($activity_id,$id)
   {
-    $content = Content::where('id',$id)->where('activity_id',$activity_id)->firstOrFail();
+    $content = Content::where('activity_id',$activity_id)->findOrFail($id);
     return view('admin.activity.content.edit',compact('content'));
   }
 
@@ -89,7 +89,7 @@ class ContentController extends Controller
   {
     //pendiente
     try {
-      $c = Content::where('id',$id)->where('activity_id',$activity_id)->firstOrFail();
+      $c = Content::where('activity_id',$activity_id)->findOrFail($id);
       $c->name = $request->input('name');
       if (!empty($request->input('objective'))) {
         $c->objective = $request->input('objective');

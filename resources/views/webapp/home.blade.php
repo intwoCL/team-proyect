@@ -44,52 +44,31 @@
 
   <div style="display: none;">
     <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/dashboard"></audio>
-
-    <audio id="fx-slider" controls>
-      <source type="audio/mp3" src="/fx/effects/swoosh.mp3">
-    </audio>
+    <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
   </div>
 @endsection
 @push('javascript')
 <script src="/vendor/swiper/js/swiper-bundle.min.js"></script>
 <script>
-    var btnSlider = document.getElementById("fx-slider");
-    btnSlider.volume = 0.6;
+  var btnSlider = document.getElementById("fx-slider");
+  btnSlider.volume = 0.6;
 
-    var swiper = new Swiper('.swiper-container', {
-      pagination: {
-        el: '.swiper-pagination',
-        type: 'fraction',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
-    // swiper.on('slideChange', function (e) {
-    //   console.log('slide changed' + e);
-    // });
-    // swiper.on('slideChangeTransitionStart', function (e) {
-    //   console.log('slideChangeTransitionStart' + e);
-    // });
-    // swiper.on('slideChangeTransitionEnd', function (e) {
-    //   console.log('slideChangeTransitionEnd' + e);
-    // });
-    swiper.on('slideNextTransitionStart', function (e) {
-      // console.log('slideNextTransitionStart' + e);
-      // btnBack.stop();
-      btnSlider.play();
-    });
-    swiper.on('slidePrevTransitionStart', function (e) {
-      // console.log('slidePrevTransitionStart' + e);
-      // btnBack.stop();
-      btnSlider.play();
-    });
-    
-
-
-    
-
+  var swiper = new Swiper('.swiper-container', {
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+  swiper.on('slideNextTransitionStart', function () {
+    btnSlider.play();
+  });
+  swiper.on('slidePrevTransitionStart', function () {
+    btnSlider.play();
+  });
 </script>
 <script>
   var btnBack = document.getElementById("fx-back");

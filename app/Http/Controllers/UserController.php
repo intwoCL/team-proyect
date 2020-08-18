@@ -93,7 +93,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-      $user = User::where('id',$id)->firstOrFail();
+      $user = User::findOrFail($id);
       return view('admin.user.edit', compact('user'));
     }
 
@@ -107,7 +107,7 @@ class UserController extends Controller
     public function update(UserUpdateRequest $request, $id)
     {
       try {
-        $u = User::where('id',$id)->firstOrFail();
+        $u = User::findOrFail($id);
         $u->email = $request->input('email');
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
@@ -150,7 +150,7 @@ class UserController extends Controller
     public function updateEmail(Request $request, $id)
     {
       try {
-        $u = User::where('id',$id)->firstOrFail();
+        $u = User::findOrFail($id);
         $newPassword = $request->input('password');
         $u->changePassword($newPassword);
         return back()->with('success',trans('alert.update'));

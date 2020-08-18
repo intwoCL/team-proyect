@@ -66,7 +66,7 @@ class AssignmentController extends Controller
      */
     public function show($id)
     {
-      $user = User::where('specialist',true)->where('id',$id)->firstOrFail();
+      $user = User::where('specialist',true)->findOrFail($id);
       return view('admin.assignment.show',compact('user'));
     }
 
@@ -78,7 +78,7 @@ class AssignmentController extends Controller
      */
     public function edit($id)
     {
-      $user = User::where('specialist',true)->where('id',$id)->firstOrFail();
+      $user = User::where('specialist',true)->findOrFail($id);
       $assigments = $user->assignmentUsers->pluck('user_id');
       if (count($assigments)>0){
         $users = User::where('id','<>',$id)->where('id','<>',$assigments)->get();

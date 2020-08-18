@@ -84,7 +84,7 @@ class ActivityController extends Controller
    */
   public function show($id)
   {
-    $a = Activity::where('id',$id)->FirstOrFail();
+    $a = Activity::FindOrFail($id);
     return view('admin.activity.show',compact('a'));
   }
 
@@ -99,7 +99,7 @@ class ActivityController extends Controller
     $status = array('1' => 'pending' , '2' => 'finished' );
     $scales = Scale::get();
     $categories = Category::get();
-    $activity = Activity::where('id',$id)->firstOrFail();
+    $activity = Activity::FindOrFail($id);
     return view('admin.activity.edit',compact('status','categories','scales','activity'));
   }
 
@@ -113,7 +113,7 @@ class ActivityController extends Controller
   public function update(ActivityStoreRequest $request, $id)
   {
     try {
-      $a = Activity::where('id',$id)->FirstOrFail(); 
+      $a = Activity::FindOrFail($id); 
       $a->name = $request->input('name');
       $a->objective = $request->input('objective');
       $a->scale_id = $request->input('scale_id');
