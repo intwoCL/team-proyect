@@ -49,12 +49,24 @@ return [
       'table_run' => 'Run',
       'table_privileges' => 'Privileges',
       'table_languages' => 'Languages',
+      'title' => 'User panel',
+      'list' => 'List of all users',
     ],
     'create'=>[
       'title'=> 'Create new user',
     ],
     'edit'=> [
       'edit' => 'Edit',
+    ],
+    'show' =>[
+      'title' => 'View user',
+    ],
+    'profile'=>[
+      'first_name' => 'Fist_name',
+      'last_name' => 'Last_name',
+      'email' => 'Email',
+      'run' => 'Run',
+      'lang' => 'Languages',
     ],
   ],
 

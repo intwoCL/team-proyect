@@ -60,19 +60,19 @@
         <div class="card">
           <form method="post" class="needs-validation" novalidate="">
             <div class="card-header">
-              <h4>{{ trans('t.profile_edit') }}</h4>
+              <h4>{{ trans('t.user.profile.profile_edit') }}</h4>
             </div>
             <div class="card-body">
                 <div class="row">
                   <div class="form-group col-md-6 col-12">
-                    <label>First Name</label>
+                    <label>{{ trans('t.user.profile.first_name') }}</label>
                     <input type="text" class="form-control" value="Ujang" required="">
                     <div class="invalid-feedback">
                       Please fill in the first name
                     </div>
                   </div>
                   <div class="form-group col-md-6 col-12">
-                    <label>Last Name</label>
+                    <label>{{ trans('t.user.profile.last_name') }}</label>
                     <input type="text" class="form-control" value="Maman" required="">
                     <div class="invalid-feedback">
                       Please fill in the last name
@@ -81,33 +81,54 @@
                 </div>
                 <div class="row">
                   <div class="form-group col-md-7 col-12">
-                    <label>Email</label>
+                    <label>{{ trans('t.user.profile.email') }}</label>
                     <input type="email" class="form-control" value="ujang@maman.com" required="">
                     <div class="invalid-feedback">
                       Please fill in the email
                     </div>
                   </div>
                   <div class="form-group col-md-5 col-12">
-                    <label>Rut</label>
+                    <label>{{ trans('t.user.profile.run') }}</label>
                     <input type="tel" class="form-control" value="">
                   </div>
                 </div>
-                <div class="row">
-                  <div class="form-group col-12">
-                    <label>Bio</label>
-                    <textarea class="form-control summernote-simple">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>
-                  </div>
+                <div class="form-group col-sm-6 col-md-12 col-6">
+                  <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
+                  <select class="form-control select2" name="lang" required="">
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                  </select>                
                 </div>
-                <div class="row">
-                  <div class="form-group mb-0 col-12">
-                    <div class="custom-control custom-checkbox">
-                      <input type="checkbox" name="remember" class="custom-control-input" id="newsletter">
-                      <label class="custom-control-label" for="newsletter">Subscribe to newsletter</label>
-                      <div class="text-muted form-text">
-                        You will get new information about products, offers and promotions
-                      </div>
-                    </div>
+
+                <div class="card-body">
+                  <div class="form-group">
+                    <label>Contraseña<small class="text-danger">* (123456)</small></label>
+                    <input type="password"  name="password" value="123456" class="form-control" required="" value="">
                   </div>
+
+                <div class="form-group">
+                  <div class="control-label">¿Es administrador? <small class="text-danger">*</small></div>
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="admin" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+                {{--Pendiente--}}
+                <div class="form-group">
+                  <div class="control-label">¿Es especialista? <small class="text-danger">*</small></div>
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="specialist" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+
+                <div class="form-group">
+                  <label>Foto <small class="text-danger">(opcional)</small></label>
+                  <input type="file"  name="photo" class="form-control">
                 </div>
             </div>
             <div class="card-footer text-right">

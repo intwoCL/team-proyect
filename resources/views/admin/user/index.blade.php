@@ -5,14 +5,14 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Panel de usuarios</h1>
+      <h1>{{ trans('t.user.index.title') }}</h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
         <button onClick="window.location.href='{{ route('user.create') }}'" class="btn btn-primary btn-sm">{{ trans('t.user.create.title') }}</button>
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Lista de todos los usuarios</h2>
+      <h2 class="section-title">{{ trans('t.user.index.list') }}</h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       <div class="card">
         <div class="card-body">

@@ -1,7 +1,6 @@
 <?php
 
 return [
-  'profile_edit' => "Editar Perfil",
   'information' => 'Cambie la información sobre ti en esta página.',
   'profile' => 'Perfil',
   'edit' => 'Editar',
@@ -52,12 +51,25 @@ return [
       'table_run' => 'Rut',
       'table_privileges' => 'Privilegios',
       'table_languages' => 'Idioma',
+      'title' => 'Panel de usuarios',
+      'list' => 'Lista de todos los usuarios',
     ],
     'create'=>[
       'title'=> 'Crear nuevo usuario',
     ],
     'edit'=> [
       'edit' => 'Editar',
+    ],
+    'show' =>[
+      'title' => 'Vista de usuario',
+    ],
+    'profile'=>[
+      'first_name' => 'Nombres',
+      'last_name' => 'Apellidos',
+      'email' => 'Email',
+      'run' => 'Rut',
+      'lang' => 'Idioma',
+      'profile_edit' => "Editar Perfil",
     ],
   ],
 

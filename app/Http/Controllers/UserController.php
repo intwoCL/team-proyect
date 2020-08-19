@@ -162,6 +162,7 @@ class UserController extends Controller
 
     public function profile()
     {
+      //$user = User::findOrFail($id);
       return view('admin.user.profile');
     }
 }
