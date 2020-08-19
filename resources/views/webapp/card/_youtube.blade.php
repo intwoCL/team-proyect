@@ -1,7 +1,7 @@
 <section class="">
-  <div class="section-header">
+  {{-- <div class="section-header">
     <h1>alsdlasldlasldlasldasd</h1>
-  </div>
+  </div> --}}
   <div class="section-body">
     {{-- <div class="row"> --}}
       <div class="tex-center">

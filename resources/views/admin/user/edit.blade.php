@@ -38,8 +38,8 @@
               </div>
 
               <div class="form-group">
-                <label>Rut <small class="text-danger">(opcional)</small></label>
-                <input type="text"  name="run" class="form-control" autocomplete="off" value="{{$user->run}}">
+                <label>Rut <small class="text-danger">*</small></label>
+                <input type="text"  name="run" class="form-control" autocomplete="off" value="{{$user->run}}"  autocomplete="off" required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)">
               </div>
 
               <div class="form-group">
@@ -56,29 +56,40 @@
                 <label>Foto <small class="text-danger">(opcional)</small></label>
                 <input type="file"  name="photo" class="form-control">
               </div>
-              {{--Pendiente, obtener información del idioma--}}
+      
               <div class="form-group col-sm-6 col-md-12 col-6">
                 <label>Idioma<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="">
-                  <option value="es">Español</option>
-                  <option value="en">Inglés</option>
+                  @if ($user->lang == "es")
+                    <option selected value="es">Español</option>
+                    <option value="en">Inglés</option>
+                  @else
+                    <option value="es">Español</option>
+                    <option selected value="en">Inglés</option>
+                  @endif
                 </select>                
               </div>
-              {{--Pendiente--}}
+              @php
+                $checkedA ='';
+                if($user->admin){$checkedA = 'checked';}
+              @endphp
               <div class="form-group">
                 <div class="control-label">¿Es administrador? <small class="text-danger">*</small></div>
                 <label class="custom-switch mt-2">
-                  <input type="checkbox" name="admin" class="custom-switch-input">
+                  <input type="checkbox" name="admin" {{ $checkedA }} class="custom-switch-input">
                   <span class="custom-switch-description mr-2">No</span>
                   <span class="custom-switch-indicator"></span>
                   <span class="custom-switch-description">Si</span>
                 </label>
               </div>
-              {{--Pendiente--}}
+              @php
+                $checkedS =''; 
+                if($user->specialist){$checkedS = 'checked';}
+              @endphp
               <div class="form-group">
                 <div class="control-label">¿Es especialista? <small class="text-danger">*</small></div>
                 <label class="custom-switch mt-2">
-                  <input type="checkbox" name="specialist" class="custom-switch-input">
+                  <input type="checkbox" name="specialist" {{ $checkedS }} class="custom-switch-input">
                   <span class="custom-switch-description mr-2">No</span>
                   <span class="custom-switch-indicator"></span>
                   <span class="custom-switch-description">Si</span>
@@ -94,7 +105,6 @@
         </div>
       </div>
       <div class="col-12 col-md-6 col-lg-6">
-        @include('partials._errors')
         <div class="card">
           <form action="{{route('user.email', $user->id)}}" method="POST">
             @csrf
@@ -118,3 +128,15 @@
   </div>
 </section>
 @endsection
+@push('javascript')
+  <script>
+  function validateRun(string) {
+    var out = '';
+    var filtro = '1234567890Kk';
+    for (var i = 0; i < string.length; i++)
+      if (filtro.indexOf(string.charAt(i)) != -1)
+        out += string.charAt(i).toUpperCase();
+    return out;
+  }
+  </script>
+@endpush

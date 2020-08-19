@@ -43,7 +43,7 @@
 
               <div class="form-group">
                 <label>Rut <small class="text-danger">(opcional)</small></label>
-                <input type="text"  name="run" class="form-control" autocomplete="off" value="{{ old('run') }}">
+                <input type="text"  name="run" class="form-control" autocomplete="off" value="{{ old('run') }}"  required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)">
               </div>
 
               <div class="form-group">
@@ -101,3 +101,15 @@
   </div>
 </section>
 @endsection
+@push('javascript')
+  <script>
+  function validateRun(string) {
+    var out = '';
+    var filtro = '1234567890Kk';
+    for (var i = 0; i < string.length; i++)
+      if (filtro.indexOf(string.charAt(i)) != -1)
+        out += string.charAt(i).toUpperCase();
+    return out;
+  }
+  </script>
+@endpush

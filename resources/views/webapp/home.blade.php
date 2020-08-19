@@ -3,6 +3,12 @@
 @section('title', 'Admin Dashboard')
 @push('stylesheet')
   <link rel="stylesheet" href="/vendor/swiper/css/swiper-bundle.min.css">
+  {{-- <style>
+    .swiper-container {
+      width: 600px;
+      height: 100%;
+    }
+  </style> --}}
 @endpush
 @section('content')
   <section class="section">
@@ -10,7 +16,7 @@
       <a href="#" onclick="buttonSound()">
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
-      <h1>Dashboardasdasd</h1>
+      <h1><div class="swiper-pagination"></div></h1>
     </div>
   </section>
   <div class="section">

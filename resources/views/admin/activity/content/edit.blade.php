@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-
 <section class="section">
   <div class="section-header">
     <a href="{{route('activity.show',$content->activity->id)}}">
@@ -23,7 +21,6 @@
     </p>
 
     <div class="row">
-      
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">       
@@ -49,10 +46,8 @@
                 <div class="control-label">¿Desea quiz al final? <small class="text-danger">*</small></div>
                 <label class="custom-switch mt-2">
                   @php
-                      $checked ='';
-                      if($content->quiz){
-                        $checked = 'checked';
-                      }
+                    $checked ='';
+                    if($content->quiz){$checked = 'checked';}
                   @endphp
                   <input type="checkbox" name="quiz" class="custom-switch-input" {{$checked}}>
                   <span class="custom-switch-description mr-2">No</span>

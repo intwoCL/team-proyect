@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('stylesheet')
+  <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.css">
+@endpush
 @section('content')
 <div class="col-md-12">
   <section class="section">
@@ -17,7 +19,7 @@
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
-              <table id="table" class="table table-md table-hover">
+              <table id="tableSelect" class="table table-md table-hover">
                 <thead>
                 <tr>
                   <th>#</th>
@@ -56,6 +58,12 @@
   </section>
 </div>
 @endsection
-@push('javascript')
-  
+@push('javascript')  
+<script src="/vendor/datatables/jquery.dataTables.js"></script>
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script>
+  $(function () {
+    $("#tableSelect").DataTable();
+  });
+</script>
 @endpush

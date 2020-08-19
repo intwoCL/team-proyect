@@ -1,9 +1,9 @@
 <section class="">
-  <div class="section-header">
+  {{-- <div class="section-header">
     <h1>{{trans('t.user.create.title')}}</h1>
     <div class="swiper-pagination"></div>
 
-  </div>
+  </div> --}}
   <div class="section-body">
     {{-- <div class="row"> --}}
       <div class="tex-center">

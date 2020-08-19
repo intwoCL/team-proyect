@@ -81,7 +81,7 @@ class AssignmentController extends Controller
       $user = User::where('specialist',true)->findOrFail($id);
       $assigments = $user->assignmentUsers->pluck('user_id');
       if (count($assigments)>0){
-        $users = User::where('id','<>',$id)->where('id','<>',$assigments)->get();
+        $users = User::where('id','<>',$id)->whereNotIn('id',$assigments)->get();
       }else{
         $users = User::where('id','<>',$id)->get();
       }

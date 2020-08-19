@@ -9,11 +9,11 @@
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>{{trans('t.activity.edit.title')}}</h1>
-    <div class="section-header-breadcrumb">
+    {{-- <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="#">Forms</a></div>
       <div class="breadcrumb-item">Form Validation</div>
-    </div>
+    </div> --}}
   </div>
 
   <div class="section-body">
@@ -23,7 +23,6 @@
     </p>
 
     <div class="row">
-      
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">          
@@ -70,12 +69,8 @@
               <div class="form-group row">
                 <label>{{trans('t.activity.create.categories')}}</label>
                 <select class="form-control select2" multiple="" name="categories[]" required="">
-                  
-               x
-                  
                   @foreach ($categories as $c)
-                  
-                        <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                  <option selected value="{{ $c->id }}">{{ $c->name }}</option>
                   @endforeach
                 </select>
               </div>
