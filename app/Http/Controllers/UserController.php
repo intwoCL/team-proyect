@@ -82,7 +82,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      $user = User::FindOrFail($id);
+      $user = User::findOrFail($id);
       return view('admin.user.show',compact('user'));
     }
 

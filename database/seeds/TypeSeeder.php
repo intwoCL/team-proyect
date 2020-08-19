@@ -14,7 +14,9 @@ class TypeSeeder extends Seeder
   {
     $types = [
       'url',
+      'video',
       'imagen',
+      'audio',
       'text'
     ];
 

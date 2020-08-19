@@ -33,12 +33,12 @@ class User extends Authenticatable
 
   public function changePassword($newPassword = ''){
     if(empty($newPassword)){
-      $newPassword = helper_random_integer(4);
+      $newPassword = helper_random_integer(6);
     }
     $encryPassword = hash('sha256', $newPassword);
     $this->password = $encryPassword;
     $this->update();
-    // return true;
+    return [$newPassword,$encryPassword];
   }
 
 }

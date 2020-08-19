@@ -30,6 +30,7 @@
         "izitoast": "^1.4.0"
     },
     "dependencies": {
+        "sortablejs": "^1.10.2",
         "swiper": "^6.1.2"
     }
 }
