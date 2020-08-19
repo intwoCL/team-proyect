@@ -16,7 +16,7 @@
                 <form method="POST" action="{{ route('reset.password') }}">
                   @csrf
                   <div class="form-group">
-                    <label for="email">Email</label>
+                    <label for="email">{{ trans('t.user.profile.email') }}</label>
                     <input id="email" type="email" class="form-control" name="email" tabindex="1" required autofocus>
                   </div>
                   <div class="form-group">

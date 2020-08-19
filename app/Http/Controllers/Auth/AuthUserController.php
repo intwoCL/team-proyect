@@ -51,7 +51,7 @@ public function resetPassword (Request $request)
     $u = User::where('email',$request->email)->firstOrFail();
     $u->changePassword();
 
-    return "ok";
+    return "Ok";
     
   } catch (\Throwable $th) {
     return $th;

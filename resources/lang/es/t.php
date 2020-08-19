@@ -1,6 +1,10 @@
 <?php
 
 return [
+  'hi' => 'Hola',
+  'logout' => 'Cerrar sesión',
+  'profile_settings' => 'Configuración',
+  'welcome' => 'Bienvenido',
   'information' => 'Cambie la información sobre ti en esta página.',
   'profile' => 'Perfil',
   'edit' => 'Editar',
@@ -13,8 +17,12 @@ return [
     'forgot'   => '¿He olvidado mi contraseña?',
     'message' => 'Le enviaremos un correo para restablecer su contraseña',
     'reset' => 'Restablecer Contraseña',
+    'confirm' => 'Confirmar contraseña',
+    'repeat' => "Repetir contraseña",
+    'new' => 'Nueva contraseña',
     'btn' => [
-      'login' => 'Acceder'
+      'login' => 'Acceder',
+      'reset' => 'Restablecer contraseña',
     ]
   ], 
 
@@ -70,6 +78,8 @@ return [
       'run' => 'Rut',
       'lang' => 'Idioma',
       'profile_edit' => "Editar Perfil",
+      'password' => 'Contraseña',
+      'photo' => 'Foto',
     ],
   ],
 

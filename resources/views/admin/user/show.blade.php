@@ -29,68 +29,80 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Default Validation</h4>
+              <h4>Horizontal Form</h4>
             </div>
             <div class="card-body">
-              <div class="form-group">
-                <label>Email<small class="text-danger">*</small></label>
-                <input type="email"  name="email" class="form-control" required="" autocomplete="off" value="{{$user->email}}" disabled="true">
+              <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.email') }}</label>
+                <div class="col-sm-9">
+                  <input type="email" class="form-control" id="inputEmail3" placeholder="{{ trans('t.user.profile.email') }}" required="" name="email" value="{{$user->email}}" disabled="true">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>Rut <small class="text-danger">(opcional)</small></label>
-                <input type="text"  name="run" class="form-control" autocomplete="off" value="{{$user->run}}" disabled="true">
+              <div class="form-group row">
+                <label for="inputRut" class="col-sm-3 col-form-label">{{ trans('t.user.profile.run') }}</label>
+                <div class="col-sm-9">
+                  <input type="text"  name="run" class="form-control" autocomplete="off" value="{{$user->run}}" required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)" placeholder="{{ trans('t.user.profile.run') }}" disabled="true">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>Nombres<small class="text-danger">*</small></label>
-                <input type="text"  name="first_name" class="form-control" required="" autocomplete="off" value="{{$user->first_name}}" disabled="true">
+              <div class="form-group row">
+                <label for="inputFirstName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.first_name') }}</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputFirstName" placeholder="{{ trans('t.user.profile.first_name') }}" required="" name="first_name" value="{{$user->first_name}}" disabled="true">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>Apellidos<small class="text-danger">*</small></label>
-                <input type="text"  name="last_name" class="form-control" required="" autocomplete="off" value="{{$user->last_name}}" disabled="true">
+              <div class="form-group row">
+                <label for="inputLastName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.last_name') }}</label>
+                <div class="col-sm-9">
+                  <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name" value="{{$user->last_name}}" disabled="true">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>Foto <small class="text-danger">(opcional)</small></label>
-                <input type="file"  name="photo" class="form-control" disabled="true">
+              <div class="form-group row">
+                <label for="inputPhoto" class="col-sm-3 col-form-label">{{ trans('t.user.profile.photo') }}</label>
+                <div class="col-sm-9">
+                  <input type="file" name="photo" id="inputPhoto" class="form-control" disabled="true">
+                </div>
               </div>
-              {{--Pendiente, obtener información del idioma--}}
-              <div class="form-group col-sm-6 col-md-12 col-6">
-                <label>Idioma<small class="text-danger">*</small></label>
-                <select class="form-control select2" name="lang" required="" disabled="true">
+
+              <fieldset class="form-group">
+                <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
+                <select class="form-control select2" name="lang" required="" value="{{$user->lang}}" disabled="true">
                   <option value="es">Español</option>
                   <option value="en">Inglés</option>
-                </select>                
-              </div>
-              {{--Pendiente--}}
-              <div class="form-group">
-                <div class="control-label">¿Es administrador? <small class="text-danger">*</small></div>
-                <label class="custom-switch mt-2">
-                  <input type="checkbox" name="admin" class="custom-switch-input" disabled="true">
-                  <span class="custom-switch-description mr-2">No</span>
-                  <span class="custom-switch-indicator"></span>
-                  <span class="custom-switch-description">Si</span>
-                </label>
-              </div>
-              {{--Pendiente--}}
-              <div class="form-group">
-                <div class="control-label">¿Es especialista? <small class="text-danger">*</small></div>
-                <label class="custom-switch mt-2">
-                  <input type="checkbox" name="specialist" class="custom-switch-input" disabled="true">
-                  <span class="custom-switch-description mr-2">No</span>
-                  <span class="custom-switch-indicator"></span>
-                  <span class="custom-switch-description">Si</span>
-                </label>
-              </div>
+                </select>  
+              </fieldset>
 
+              <fieldset class="form-group">
+                <div class="row">
+                  <div class="col-form-label col-sm-3 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="admin" class="custom-switch-input" value="{{$user->admin}}" disabled="true">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </fieldset>
 
-            </div>
+              <fieldset class="form-group">
+                <div class="row">
+                  <div class="col-form-label col-sm-3 pt-0">¿Es especialista? <small class="text-danger">*</small></div>
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="specialist" class="custom-switch-input" value="{{$user->speciaist}}" disabled="true">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </fieldset>
 
           </form>
         </div>
       </div>
+
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
@@ -98,12 +110,12 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Default Validation</h4>
+              <h4>Horizontal Form</h4>
             </div>
-            <div class="card-body">
-              <div class="form-group">
-                <label>Contraseña<small class="text-danger">* (123456)</small></label>
-                <input type="password"  name="password" value="123456" class="form-control" required="" value="{{$user->password}}" disabled="true">
+            <div class="form-group row">
+              <label for="inputPassword3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.password') }} * (123456)</label>
+              <div class="col-sm-9">
+                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="{{ trans('t.user.profile.password') }}" required="" value="123456" disabled="true">
               </div>
             </div>
 

@@ -5,15 +5,15 @@
 </form>
 <ul class="navbar-nav navbar-right">
   <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-    <div class="d-sm-none d-lg-inline-block">Hi, {{ current_user()->getFullName() }}</div></a>
+    <div class="d-sm-none d-lg-inline-block">{{ trans('t.hi') }}, {{ current_user()->getFullName() }}</div></a>
     <div class="dropdown-menu dropdown-menu-right">
-      <div class="dropdown-title">Welcome, {{ current_user()->getFullName() }}</div>
+      <div class="dropdown-title">{{ trans('t.welcome') }}, {{ current_user()->getFullName() }}</div>
       <a href="{{ route('user.profile') }}" class="dropdown-item has-icon">
-        <i class="far fa-user"></i> Profile Settings
+        <i class="far fa-user"></i>{{ trans('t.profile_settings') }}
       </a>
       <div class="dropdown-divider"></div>
       <a href="{{ route('login') }}" class="dropdown-item has-icon text-danger">
-        <i class="fas fa-sign-out-alt"></i> Logout salir
+        <i class="fas fa-sign-out-alt"></i>{{ trans('t.logout') }}
       </a>
     </div>
   </li>

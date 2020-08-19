@@ -1,6 +1,10 @@
 <?php
 
 return [
+  'hi' => 'Hi',
+  'logout' => 'Logout',
+  'profile_settings' => 'Profile Settings',
+  'welcome' => 'Welcome',
   'profile_edit' => "Edit Profile",
   'information' => 'Change information about yourself on this page.',
   'profile' => 'Profile',
@@ -13,9 +17,13 @@ return [
     'password' => 'Password',
     'forgot'   => 'Forgot Password?',
     'message' => 'We will send a email to reset your password',
-    'reset' => 'Restablecer Contraseña',
+    'reset' => 'Reset Password',
+    'confirm' => 'Confirm password',
+    'repeat' => "Repeat password",
+    'new' => 'New password',
     'btn' => [
-      'login' => 'Login'
+      'login' => 'Login',
+      'reset' => 'Reset password',
     ]
   ],
 
@@ -67,6 +75,8 @@ return [
       'email' => 'Email',
       'run' => 'Run',
       'lang' => 'Languages',
+      'password' => 'Password',
+      'photo' => 'Photo',
     ],
   ],
 

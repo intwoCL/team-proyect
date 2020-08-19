@@ -38,7 +38,7 @@ class User extends Authenticatable
     $encryPassword = hash('sha256', $newPassword);
     $this->password = $encryPassword;
     $this->update();
-    return [$newPassword,$encryPassword];
+    return [$newPassword,$encryPassword]; 
   }
 
 }
