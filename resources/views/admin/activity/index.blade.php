@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('stylesheet')
+  <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.css">
+@endpush
 @section('content')
   <section class="section">
     <div class="section-header">
@@ -15,12 +17,13 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover table-md">
+            <table id="tableSelect" class="table table-hover table-md">
               <thead>
               <tr>
                 <th>#</th>
                 <th>Nombre</th>
                 <th>Objetivo</th>
+                <th>Nivel</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -40,6 +43,7 @@
                   </div>
                 </td>
                 <td>{{ $a->objective}}</td>
+                <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
                 <td>
                   @foreach ($a->tagsCategories as $c)
                   <div class="badge badge-success">{{ $c->category->name }}</div>
@@ -56,3 +60,12 @@
     </div>
   </section>
 @endsection
+@push('javascript')  
+<script src="/vendor/datatables/jquery.dataTables.js"></script>
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script>
+  $(function () {
+    $("#tableSelect").DataTable();
+  });
+</script>
+@endpush

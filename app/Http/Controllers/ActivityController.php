@@ -53,15 +53,17 @@ class ActivityController extends Controller
       $a->code = $this->getCodeRandom();
       //Foto
       $a->photo = 'example.png';
-      $a->save();
+
       // if(!empty($request->file('photo'))){
       //   $request->validate([
       //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
       //   ]);
       //   $photo_name = time().'.'.$request->image->extension();  
       //   $request->image->move(public_path('/dir/formulario/'), $photo_name);
-      //   $a->foto = "/dir/formulario/$photo_name";
+      //   $a->photo = "/dir/formulario/$photo_name";
       // } 
+
+      $a->save();
       $categories = $request->input('categories');
       for ($i=0; $i < count($categories) ; $i++) { 
         $ac = new ActivityCategory();
