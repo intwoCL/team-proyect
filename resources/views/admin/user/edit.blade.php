@@ -22,7 +22,7 @@
       Form validation using default from Bootstrap 4
     </p> --}}
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
           <form action="{{route('user.update', $user->id)}}" method="POST" enctype="multipart/form-data" >
@@ -117,7 +117,7 @@
           </form>
         </div>
       </div>
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-md-6 col-lg-6">
         <div class="card">
           <form action="{{route('user.email', $user->id)}}" method="POST">
             @csrf
@@ -125,10 +125,12 @@
             <div class="card-header">
               <h4>Cambiar contraseña</h4>
             </div>
-            <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.password') }} * (123456)</label>
-              <div class="col-sm-9">
-                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="{{ trans('t.user.profile.password') }}" required="" value="123456">
+            <div class="card-body">
+              <div class="form-group row">
+                <label for="inputPassword3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.password') }} * (123456)</label>
+                <div class="col-sm-9">
+                  <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="{{ trans('t.user.profile.password') }}" required="" value="123456">
+                </div>
               </div>
             </div>
 
