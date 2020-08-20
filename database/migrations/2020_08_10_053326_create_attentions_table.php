@@ -17,9 +17,11 @@ class CreateAttentionsTable extends Migration
             $table->id();
             $table->foreignId('specialist_id')->references('id')->on('users');
             $table->foreignId('user_id')->references('id')->on('users');
-            $table->text('comment_in',300)->nullable();
-            $table->text('comment_out',300)->nullable();
-            $table->integer('status');
+            $table->date('attention_date');
+            $table->time('attention_time');
+            $table->string('comment_in',300)->nullable();
+            $table->string('comment_out',300)->nullable();
+            $table->enum('status',[1,2,3])->default(1);
             $table->timestamps();
         });
     }
