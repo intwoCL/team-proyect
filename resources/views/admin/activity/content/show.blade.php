@@ -9,6 +9,7 @@
       <h1>{{trans('t.activity.show.title')}} </h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
+        <button onClick="window.location.href='{{ route('item.create',[$content->activity->id,$content->id]) }}'" class="btn btn-primary">Nuevo Item</button>
       </div>
     </div>
     <div class="section-body">
@@ -21,11 +22,8 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Id Item</th>
                 <th>Titulo</th>
                 <th>Contenido</th>
-                <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody>

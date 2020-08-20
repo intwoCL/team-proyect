@@ -11,7 +11,7 @@ Route::view('forgot_password', 'auth.reset_password')->name('password.reset');
 
 Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
-  
+
   Route::resource('activity', 'ActivityController');
   Route::get('activity/{activity_id}/content/create', 'ContentController@create')->name('content.create');
   Route::get('activity/{activity_id}/content/{id}/edit', 'ContentController@edit')->name('content.edit');
@@ -26,12 +26,13 @@ Route::middleware('user')->group(function () {
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
   Route::resource('attention', 'AttentionController');
-  
-  
-  
+
+  Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
+  Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
 
 
-  
+
+
   Route::get('webapp', 'WebAppController@index');
 });
 
