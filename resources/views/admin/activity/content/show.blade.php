@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Lista de todos los Items</h2>
+      <h2 class="section-title">{{ trans('t.activity.item.item_list') }}</h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       <div class="card">
         <div class="card-body">
@@ -21,9 +21,9 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Id Item</th>
-                <th>Titulo</th>
-                <th>Contenido</th>
+                <th>{{ trans('t.activity.item.item_id') }}</th>
+                <th>{{ trans('t.activity.item.title') }}</th>
+                <th>{{ trans('t.activity.item.content') }}</th>
                 <th></th>
                 <th></th>
               </tr>

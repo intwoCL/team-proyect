@@ -8,7 +8,7 @@
     <a href="{{ route('user.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>{{trans('t.user.create.title')}}</h1>
+    <h1>{{trans('t.user.edit.title')}}</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -70,31 +70,31 @@
               <fieldset class="form-group">
                 <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="" value="{{$user->lang}}">
-                  <option value="es">Español</option>
-                  <option value="en">Inglés</option>
+                  <option value="es">{{ trans('t.spanish') }}</option>
+                  <option value="en">{{ trans('t.english') }}</option>
                 </select>  
               </fieldset>
 
               <fieldset class="form-group">
                 <div class="row">
-                  <div class="col-form-label col-sm-3 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
+                  <div class="col-form-label col-sm-3 pt-0">{{ trans('t.user.index.admin') }}<small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
                     <input type="checkbox" name="admin" class="custom-switch-input" value="{{$user->admin}}">
-                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
                     <span class="custom-switch-indicator"></span>
-                    <span class="custom-switch-description">Si</span>
+                    <span class="custom-switch-description">{{ trans('t.yes') }}</span>
                   </label>
                 </div>
               </fieldset>
 
               <fieldset class="form-group">
                 <div class="row">
-                  <div class="col-form-label col-sm-3 pt-0">¿Es especialista? <small class="text-danger">*</small></div>
+                  <div class="col-form-label col-sm-3 pt-0">{{ trans('t.user.index.specialist') }}<small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
                     <input type="checkbox" name="specialist" class="custom-switch-input" value="{{$user->speciaist}}">
-                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
                     <span class="custom-switch-indicator"></span>
-                    <span class="custom-switch-description">Si</span>
+                    <span class="custom-switch-description">{{ trans('t.yes') }}</span>
                   </label>
                 </div>
               </fieldset>
@@ -121,12 +121,10 @@
                   <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="{{ trans('t.user.profile.password') }}" required="" value="123456">
                 </div>
               </div>
+              <div class="card-footer text-right">
+                <button class="btn btn-primary">{{ trans('button.update') }}</button>
+              </div>
             </div>
-
-            <div class="card-footer text-right">
-              <button class="btn btn-primary">{{ trans('button.update') }}</button>
-            </div>
-
           </form>
         </div>
       </div>
