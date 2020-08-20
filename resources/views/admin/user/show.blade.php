@@ -102,26 +102,6 @@
           </form>
         </div>
       </div>
-
-      <div class="col-12 col-md-6 col-lg-6">
-        @include('partials._errors')
-        <div class="card">
-          <form action="{{route('user.email', $user->id)}}" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="card-header">
-              <h4>Horizontal Form</h4>
-            </div>
-            <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.password') }} * (123456)</label>
-              <div class="col-sm-9">
-                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="{{ trans('t.user.profile.password') }}" required="" value="123456" disabled="true">
-              </div>
-            </div>
-
-          </form>
-        </div>
-      </div>
     </div>
   </div>
 </section>
