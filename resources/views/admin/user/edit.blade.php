@@ -29,7 +29,7 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Horizontal Form</h4>
+              <h4>Actualizar Usuario <strong>{{ $user->email }}</strong></h4>
             </div>
             <div class="card-body">
               <div class="form-group row">
@@ -70,28 +70,39 @@
               <fieldset class="form-group">
                 <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="" value="{{$user->lang}}">
-                  <option value="es">Español</option>
-                  <option value="en">Inglés</option>
+                  @if ($user->lang == "es")
+                    <option selected value="es">Español</option>
+                    <option value="en">Inglés</option>
+                  @else
+                    <option value="es">Español</option>
+                    <option selected value="en">Inglés</option>
+                  @endif
                 </select>  
               </fieldset>
-
+              @php
+                $checkedA ='';
+                if($user->admin){$checkedA = 'checked';}
+              @endphp
               <fieldset class="form-group">
                 <div class="row">
                   <div class="col-form-label col-sm-3 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
-                    <input type="checkbox" name="admin" class="custom-switch-input" value="{{$user->admin}}">
+                    <input type="checkbox" name="admin" class="custom-switch-input" {{ $checkedA }}>
                     <span class="custom-switch-description mr-2">No</span>
                     <span class="custom-switch-indicator"></span>
                     <span class="custom-switch-description">Si</span>
                   </label>
                 </div>
-              </fieldset>
-
+              </fieldset> 
+              @php
+                $checkedS =''; 
+                if($user->specialist){$checkedS = 'checked';}
+              @endphp
               <fieldset class="form-group">
                 <div class="row">
                   <div class="col-form-label col-sm-3 pt-0">¿Es especialista? <small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
-                    <input type="checkbox" name="specialist" class="custom-switch-input" value="{{$user->speciaist}}">
+                    <input type="checkbox" name="specialist" class="custom-switch-input" {{ $checkedS }}>
                     <span class="custom-switch-description mr-2">No</span>
                     <span class="custom-switch-indicator"></span>
                     <span class="custom-switch-description">Si</span>
@@ -112,7 +123,7 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Horizontal Form</h4>
+              <h4>Cambiar contraseña</h4>
             </div>
             <div class="form-group row">
               <label for="inputPassword3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.password') }} * (123456)</label>
