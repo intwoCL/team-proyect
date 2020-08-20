@@ -6,8 +6,6 @@ Route::get('/','Auth\AuthUserController@index');
 Route::post('/', 'Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
 Route::post('password/reset', 'Auth\AuthUserController@resetPassword')->name('reset.password');
-Route::post('password/email', 'ForgotPasswordController@forgot')->name('password.reset');
-Route::view('forgot_password', 'auth.reset_password')->name('password.reset');
 
 Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
@@ -38,3 +36,4 @@ Route::middleware('user')->group(function () {
 Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
 
+Route::get('mail', 'MailController@sendEmail');

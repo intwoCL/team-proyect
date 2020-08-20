@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\User;
 
 use Auth;
+use App\Mail\ResetPasswordMail;
+use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\ResetPasswordRequest;
 
 
 class AuthUserController extends Controller
@@ -30,33 +33,32 @@ class AuthUserController extends Controller
         // return back()->with('info','Error. Intente nuevamente.');
       }
     } catch (\Throwable $th) {
-      return $th;
-      // return back()->with('info','Error. Intente nuevamente.'); 
+      // return $th;
+      return back()->with('info','Error. Intente nuevamente.'); 
     }
-}
-
-public function logout(){        
-    close_sessions();
-    return redirect('/');
-}
-
-public function reset()
-{
-  return view('layouts.forgot-password');
-}
-
-public function resetPassword (Request $request)
-{
-  try {
-    $u = User::where('email',$request->email)->firstOrFail();
-    $u->changePassword();
-
-    return "Ok";
-    
-  } catch (\Throwable $th) {
-    return $th;
-    return back()->with('info','Error. Intente nuevamente.');
   }
-}
 
+  public function logout(){        
+      close_sessions();
+      return redirect('/');
+  }
+
+  public function reset()
+  {
+    return view('layouts.reset');
+  }
+
+  public function resetPassword(ResetPasswordRequest $request)
+  {
+    try {
+      $u = User::where('email',$request->email)->firstOrFail();
+      $password = $u->changePassword();
+      $mail = new ResetPasswordMail($password[0]);  
+      Mail::to($u->email)->queue($mail);
+      return back()->with('success','Se ha enviado un correo.');
+    } catch (\Throwable $th) {
+      return $th;
+      // return back()->with('danger','Error intente nuevamente.');
+    }
+  }
 }
