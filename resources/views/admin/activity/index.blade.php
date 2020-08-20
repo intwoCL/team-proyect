@@ -5,14 +5,14 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Panel de actividades</h1>
+      <h1>{{ trans('t.activity_panel') }}</h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-        <button onClick="window.location.href='{{ route('activity.create') }}'" class="btn btn-primary">Crear nueva actividad</button>
+        <button onClick="window.location.href='{{ route('activity.create') }}'" class="btn btn-primary">{{ trans('t.create_activity') }}</button>
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Lista de todas las actividades </h2>
+      <h2 class="section-title">{{ trans('t.activity_list') }}</h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       <div class="card">
         <div class="card-body">
@@ -21,9 +21,9 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Nombre</th>
-                <th>Objetivo</th>
-                <th>Nivel</th>
+                <th>{{ trans('t.activity_name') }}</th>
+                <th>{{ trans('t.objetive') }}</th>
+                <th>{{ trans('t.level') }}</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -35,11 +35,11 @@
                 <td>
                   {{ $a->name }}
                   <div class="table-links">
-                    <a href="#">View</a>
+                    <a href="#">{{ trans('t.view') }}</a>
                     <div class="bullet"></div>
-                    <a href="{{route('activity.edit',$a->id)}}">Editar</a>
+                    <a href="{{route('activity.edit',$a->id)}}">{{ trans('t.edit') }}</a>
                     <div class="bullet"></div>
-                    <a href="#" class="text-danger">Trash</a>
+                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
                   </div>
                 </td>
                 <td>{{ $a->objective}}</td>
@@ -49,7 +49,7 @@
                   <div class="badge badge-success">{{ $c->category->name }}</div>
                   @endforeach
                 </td>
-                <td><a href="{{route('activity.show',$a->id) }}" class="btn btn-primary">Contenidos</a></td>
+                <td><a href="{{route('activity.show',$a->id) }}" class="btn btn-primary">{{ trans('t.activity.content.contents') }}</a></td>
               </tr>
               @endforeach
               </tbody>
