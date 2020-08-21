@@ -26,6 +26,6 @@ class UserSeeder extends Seeder
       'specialist' => true
     ]);
 
-    factory(App\Models\User::class, 1000)->create();
+    factory(App\Models\User::class, 100)->create();
   }
 }

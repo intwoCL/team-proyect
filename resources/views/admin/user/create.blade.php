@@ -74,17 +74,10 @@
                 </div>
 
                 <fieldset class="form-group">
-<<<<<<< HEAD
-                  <label class="col-form-label">{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
-                  <select class="form-control select2 col-sm-6 col-md-12" name="lang" required="">
-                    <option value="es">Español</option>
-                    <option value="en">Inglés</option>
-=======
                   <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                   <select class="form-control select2" name="lang" required="">
                     <option value="es">{{ trans('t.spanish') }}</option>
                     <option value="en">{{ trans('t.english') }}</option>
->>>>>>> f9a57f6c4c10c2a2705eda76d7498f9883363fe9
                   </select>  
                 </fieldset>
 

@@ -98,15 +98,11 @@
     btnSlider.play();
     value(this);
   });
-
   
   function value(s){
     var actual = s.activeIndex + 1;
     var largo = s.slidesGrid.length;
     var por = (actual/largo) * 100;
-    // console.log(actual + "/" + largo);
-
-
     $('#barProgress')[0].dataset['valuenow'] = por;
     $('#barProgress')[0].dataset['width'] = por+"%";
     $('#barProgress')[0].style.width = por+"%";
