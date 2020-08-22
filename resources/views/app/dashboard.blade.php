@@ -38,7 +38,7 @@
 @push('javascript')
 
 <script>
-      Sortable.create(demo1, {
+    Sortable.create(demo1, {
       animation: 100,
       group: 'list-1',
       draggable: '.list-group-item',

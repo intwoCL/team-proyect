@@ -11,17 +11,18 @@
   </style> --}}
 
   <style>
-
-#progress {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-color: #f3f3f3;
-    height: 10px;
-    z-index: 100;
-}
-
+    #progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: #f3f3f3;
+      height: 10px;
+      z-index: 100;
+    }
+    .face-shadow {
+      text-shadow: 0 0 10px #4b4a4a !important;
+    }
   </style>
 @endpush
 @section('content')
@@ -48,12 +49,15 @@
         <div class="swiper-slide">
           @include('webapp.card._youtube')
         </div>
-        {{-- <div class="swiper-slide">
+        <div class="swiper-slide">
           @include('webapp.card._youtube')
         </div>
         <div class="swiper-slide">
           @include('webapp.card._youtube')
-        </div> --}}
+        </div>
+        <div class="swiper-slide">
+          @include('webapp.card._quiz')
+        </div>
       </div>
       <!-- Add Pagination -->
       <!-- Add Arrows -->
@@ -74,12 +78,6 @@
   btnSlider.volume = 0.5;
 
   var swiper = new Swiper('.swiper-container', {
-    // pagination: {
-      // el: '.swiper-pagination',
-      // type: 'bullets',
-      // type: 'progressbar',
-      // type: 'fraction',
-    // },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
@@ -108,7 +106,6 @@
     $('#barProgress')[0].style.width = por+"%";
   }
   
-  value(swiper);
 
   // button back 
   var btnBack = document.getElementById("fx-back");
@@ -119,6 +116,24 @@
   btnBack.addEventListener("ended", function(){
     window.location.href = btnBack.dataset.url;
   });
+
+  $(document).ready(function() {
+
+
+    $(".face").hover(
+      function() {
+        $(this).addClass('face-shadow').css('cursor', 'pointer'); 
+      }, function() {
+        $(this).removeClass('face-shadow');
+      }
+    );
+
+    value(swiper);
+
+  });
+
+
+
 </script>
 @endpush
 @push('footerApp')
@@ -128,8 +143,8 @@
       <div class="progress-bar bg-success" id="barProgress" role="progressbar" data-width="20%" data-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
     </div>
   </div>
-  <a class="navbar-brand btn-sm mr-2 col-sm-2" href="#" onclick="buttonSound()" title="Search">
-    <i class="fas fa-times-circle"></i>
+  <a class="navbar-brand btn-sm mr-2 col-sm-2" href="#" onclick="buttonSound()" title="Volver">
+    <i class="fa fa-times fa-2x"></i>
   </a>
 </nav>
 <nav class="navbar fixed-bottom navbar-dark bg-primary d-none d-sm-block d-md-none d-flex justify-content-center" style="position: fixed; bottom: 0;left: 0; height: 50px;">
