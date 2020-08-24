@@ -22,8 +22,11 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Titulo</th>
-                <th>Contenido</th>
+                <th>{{ trans('t.activity.item.item_id') }}</th>
+                <th>{{ trans('t.activity.item.title') }}</th>
+                <th>{{ trans('t.activity.item.content') }}</th>
+                <th></th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
