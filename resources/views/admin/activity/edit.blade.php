@@ -51,8 +51,18 @@
 
               <div class="form-group">
                 <label>{{trans('t.activity.create.photo')}}</label>
-              <input type="file" name="photo" value="{{$activity->photo}}" class="form-control" required="">
-              </div>
+                <div class="input-group">
+                  {{-- <img src="{{route('photo',$activity->photo)}}" class='Responsive image img-thumbnail' required=""  width='200px' height='200px' alt=""> --}}
+                </div>
+              </div> 
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
+                  <br>
+                </div>
+              </div> 
+              {{-- <img src="{{ asset('storage/photo_activity/'.$activity->photo) }}" alt="" title=""></a> --}}
+              <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
 
               <div class="form-group row">
                 <label>{{trans('t.activity.create.scale')}}</label>
@@ -92,3 +102,4 @@
   </div>
 </section>
 @endsection
+<script src="/vendor/intwo/preview.js"></script>
