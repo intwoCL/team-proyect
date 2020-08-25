@@ -4,7 +4,7 @@
 
 <section class="section">
   <div class="section-header">
-    <a href="{{ route('calendar.index') }}">
+    <a href="{{ route('attention.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Creación de calendario </h1>
@@ -31,15 +31,21 @@
             </div>
             <div class="card-body">
               <div class="form-group row">
-                <label for="inputName" class="col-sm-3 col-form-label">Nombre</label>
+                <label for="inputDay" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.day') }}</label>
                 <div class="col-sm-9">
-                  <input type="text" name="name" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+                  <input type="text" name="day" class="form-control" required="" autocomplete="off" value="{{ old('day')}}">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputObjective" class="col-sm-3 col-form-label">Objetivo</label>
+                <label for="inputDate" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.date') }}</label>
                 <div class="col-sm-9">
                   <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="inputCommentIn" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.comment_in') }}</label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" rows="3" name="comment_in" id="comentario_entrada" placeholder="..." required>{{ old('comment_in') }}</textarea>
                 </div>
               </div>
             </div>

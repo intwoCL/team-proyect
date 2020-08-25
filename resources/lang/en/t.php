@@ -108,6 +108,15 @@ return [
       'password' => 'Password',
       'photo' => 'Photo',
     ],
+    'calendar'=> [
+      'panel_calendar' => 'Calendar panel',
+      'agenda' => 'Schedule time',
+      'historial' => 'History',
+      'title' => 'Calendar Form',
+      'day' => 'Day',
+      'date' => 'Date',
+      'comment_in' => 'Entry Comment',
+    ],
   ],
 
   'welcome' => 'Welcome',
