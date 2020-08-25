@@ -14,8 +14,8 @@ use App\Http\Requests\ResetPasswordRequest;
 
 class AuthUserController extends Controller
 {
-  public function index(){
-    
+
+  public function index(){  
     if(auth('user')->check()){
       if(is_admin() || is_specialist()){
         return redirect()->route('dashboard.index');
@@ -35,7 +35,7 @@ class AuthUserController extends Controller
       
       if($u->password==$pass){
         Auth::guard('user')->loginUsingId($u->id);
-        
+
         if(is_admin() || is_specialist()){
           return redirect()->route('dashboard.index');
         }
@@ -55,13 +55,11 @@ class AuthUserController extends Controller
       return redirect('/');
   }
 
-  public function reset()
-  {
+  public function reset(){
     return view('layouts.reset');
   }
 
-  public function resetPassword(ResetPasswordRequest $request)
-  {
+  public function resetPassword(ResetPasswordRequest $request){
     try {
       $u = User::where('email',$request->email)->firstOrFail();
       $password = $u->changePassword();
