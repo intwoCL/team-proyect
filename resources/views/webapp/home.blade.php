@@ -15,8 +15,7 @@
   <div class="section">
 
   </div>
-@endsection
-@push('footerApp')
+  @endsection
 @include('webapp.navbar.top')
 @include('webapp.navbar.bottom')
 @endpush

@@ -8,6 +8,9 @@ Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.passwo
 Route::post('password/reset', 'Auth\AuthUserController@resetPassword')->name('reset.password');
 
 Route::middleware('user')->group(function () {
+
+  Route::get('sign-out', 'Auth\AuthUserController@logout')->name('logout');
+
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
   
   Route::resource('activity', 'ActivityController');
@@ -30,7 +33,7 @@ Route::middleware('user')->group(function () {
 
 
   
-  Route::get('webapp', 'WebAppController@index');
+  Route::get('webapp', 'WebAppController@index')->name('webapp');
 });
 
 Route::get('demo', function () { return view('template.text'); });

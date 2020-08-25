@@ -219,7 +219,7 @@
     </div>
   </nav>
 
-  <div class="main-content" style="padding-top: 100px !important;">
+  <div class="" style="padding-top: 100px !important;">
     <section class="section">
       <div class="section-header">
         <h1>Top Navigation</h1>
@@ -233,7 +233,7 @@
     <div class="container">
       <div class="row">
 
-        @for ($i=0; $i < 100; $i++)
+        @for ($i=0; $i < 10; $i++)
           @include('webapp.components._card')
         @endfor
       </div>

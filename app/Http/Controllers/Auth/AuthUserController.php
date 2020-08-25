@@ -15,8 +15,16 @@ use App\Http\Requests\ResetPasswordRequest;
 class AuthUserController extends Controller
 {
   public function index(){
-    close_sessions();
-    return view('layouts.login');
+    
+    if(auth('user')->check()){
+      if(is_admin() || is_specialist()){
+        return redirect()->route('dashboard.index');
+      }else{
+        return redirect()->route('webapp');
+      }
+    }else{
+      return view('layouts.login');
+    }
   }
 
   public function login(Request $request){
@@ -27,10 +35,14 @@ class AuthUserController extends Controller
       
       if($u->password==$pass){
         Auth::guard('user')->loginUsingId($u->id);
-        return redirect()->route('dashboard.index');
+        
+        if(is_admin() || is_specialist()){
+          return redirect()->route('dashboard.index');
+        }
+        return redirect()->route('webapp');
       }else{
-        return "usuario y contraseña no coinciden";
-        // return back()->with('info','Error. Intente nuevamente.');
+        // return "usuario y contraseña no coinciden";
+        return back()->with('info','Error. Intente nuevamente.');
       }
     } catch (\Throwable $th) {
       // return $th;
