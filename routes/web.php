@@ -30,7 +30,7 @@ Route::middleware('user')->group(function () {
   // Route::get('attention/create', 'AttentionController@create')->name('attention.create');
   Route::get('attention/assigned', 'AttentionController@assigned')->name('attention.assigned');
   Route::get('attention/{user_id}/create', 'AttentionController@create')->name('attention.create');
-
+  Route::get('attention/{user_id}', 'AttentionController@show')->name('attention.control');
 
   
   Route::get('webapp', 'WebAppController@index')->name('webapp');
