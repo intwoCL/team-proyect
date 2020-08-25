@@ -8,7 +8,7 @@ class WebAppController extends Controller
 {
   public function index()
   {
-    return view('webapp.home');
+    return view('webapp.app');
   }
 
   public function store(Request $request){

@@ -1,19 +1,8 @@
 @extends('webapp.components.skeleton')
-@push('stylesheet')
 
-<style>
-  .card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-  }
-  .card-items-shadow {
-    box-shadow: 2px 1px 2px #716f6f !important;
-  }
-</style>
-@endpush
 @section('app')
 <div class="main-wrapper container">
-  <div class="navbar-bg" style="height: 70px !important;"></div>
+  <div class="navbar-bg"></div>
   <nav class="navbar navbar-expand-lg main-navbar container">
     {{-- <a href="index.html" class="navbar-brand sidebar-gone-hide">TEAM</a> --}}
     <div class="navbar-nav">
@@ -25,7 +14,8 @@
       </a>
       <ul class="navbar-nav">
         <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home mr-2"></i><strong>INICIO</strong></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-calendar-alt mr-2"></i><strong>CALENDAR</strong></a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Report Something</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Server Status</a></li>
       </ul>
     </div>
     <ul class="ml-auto navbar-nav navbar-right">
@@ -181,7 +171,7 @@
     </ul>
   </nav>
 
-  <nav class="navbar navbar-secondary navbar-expand-lg  d-none d-sm-block d-md-none d-flex">
+  <nav class="navbar navbar-secondary navbar-expand-lg">
     <div class="container">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -219,7 +209,8 @@
     </div>
   </nav>
 
-  <div class="main-content" style="padding-top: 100px !important;">
+  <!-- Main Content -->
+  <div class="main-content">
     <section class="section">
       <div class="section-header">
         <h1>Top Navigation</h1>
@@ -229,19 +220,29 @@
           <div class="breadcrumb-item">Top Navigation</div>
         </div>
       </div>
-    </section>
-    <div class="container">
-      <div class="row">
 
-        @for ($i=0; $i < 100; $i++)
-          @include('webapp.components._card')
-        @endfor
+      <div class="section-body">
+        <h2 class="section-title">This is Example Page</h2>
+        <p class="section-lead">This page is just an example for you to create your own page.</p>
+        <div class="card">
+          <div class="card-header">
+            <h4>Example Card</h4>
+          </div>
+          <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+              quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+              proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="card-footer bg-whitesmoke">
+            This is card footer
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   </div>
-
-
-
   <footer class="main-footer">
     <div class="footer-left">
       Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
@@ -255,23 +256,4 @@
 @push('footerNav')
 {{-- @include('webapp.navbar.top') --}}
 @include('webapp.components.bottom')
-@endpush
-@push('javascript')
-<script>
-  $(document).ready(function() {
-    $(".card-items").hover(
-      function() {
-        $(this).addClass('card-items-shadow').css('cursor', 'pointer'); 
-      }, function() {
-        $(this).removeClass('card-items-shadow');
-      }
-    );
-    value(swiper);
-  });
-
-
-  function activityShow(id){
-    alert('Error ' + id);
-  }
-</script>
 @endpush
