@@ -26,10 +26,10 @@ Route::middleware('user')->group(function () {
 
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
-  Route::resource('attention', 'AttentionController');
-  Route::get('attention/create', 'AttentionController@create')->name('attention.create');
-  
-  
+  Route::resource('attention', 'AttentionController', ['except'=>['show']]);
+  // Route::get('attention/create', 'AttentionController@create')->name('attention.create');
+  Route::get('attention/assigned', 'AttentionController@assigned')->name('attention.assigned');
+  Route::get('attention/{user_id}/create', 'AttentionController@create')->name('attention.create');
 
 
   

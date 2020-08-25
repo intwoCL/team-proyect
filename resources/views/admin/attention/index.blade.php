@@ -21,7 +21,7 @@
               </div> --}}
               <div class="card-body">
                 <div class="form-group">
-                  <a href="{{ route('attention.create') }}">{{ trans('t.user.calendar.agenda') }}</a>
+                  <a href="{{ route('attention.assigned') }}">{{ trans('t.user.calendar.agenda') }}</a>
                   <a href="">{{ trans('t.user.calendar.historial') }}</a><br>
                   <a href="">Nueva solcitud</a>
                 </div>
