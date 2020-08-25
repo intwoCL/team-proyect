@@ -12,15 +12,15 @@
         <div class="card-body">
           <div class="btn-group mb-3" role="group" aria-label="face group">
             <div class="mr-3">
-              <i class="fa fa-smile fa-4x text-danger face rounded" role="button"></i>
+              <i class="fa fa-smile fa-4x text-danger face" role="button"></i>
               <p>Normal</p>
             </div>
             <div class="mr-3">
-              <i class="fa fa-smile-beam fa-4x text-warning face rounded" role="button"></i>
+              <i class="fa fa-smile-beam fa-4x text-warning face" role="button"></i>
               <p>Bien</p>
             </div>
             <div class="mr-3">
-              <i class="fa fa-laugh-beam fa-4x text-success face rounded" role="button"></i>
+              <i class="fa fa-laugh-beam fa-4x text-success face" role="button"></i>
               <p>Muy Bien</p>
             </div>
           </div>

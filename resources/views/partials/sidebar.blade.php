@@ -19,17 +19,14 @@
     <li class="{{ active('activity*') }}"><a href="{{ route('activity.index') }}"><i class="fab fa-wpforms"></i> <span>{{ trans('t.activities') }}</span></a></li>
     <li class="{{ active('user*') }}"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>Usuarios</span></a></li>
     <li class="{{ active('assignment*') }}"><a href="{{ route('assignment.index') }}"><i class="fas fa-hands-helping"></i><span>{{ trans('t.specialist') }}</span></a></li>
-    <li class="{{ active('attention*') }}"><a href="{{ route('attention.index') }}"><i class="fas fa-hands-helping"></i><span>{{ trans('t.attention') }}</span></a></li>
     <li class="{{ active('calendar*') }}"><a href="{{ route('calendar.index') }}"><i class="fas fa-calendar-alt"></i> <span>{{ trans('t.calendar') }}</span></a></li>
       
     @if (is_specialist())
-    <li class="menu-header">Starter</li>
-    <li class="nav-item dropdown">
-      <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Layout</span></a>
+    <li class="menu-header">Especialista</li>
+    <li class="nav-item dropdown {{ active('attention*') }}">
+      <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Especialista</span></a>
       <ul class="dropdown-menu">
-        <li><a class="nav-link" href="layout-default.html">Default Layout</a></li>
-        <li><a class="nav-link" href="layout-transparent.html">Transparent Sidebar</a></li>
-        <li><a class="nav-link" href="layout-top-navigation.html">Top Navigation</a></li>
+        <li class="{{ active('attention*') }} nav-link"><a href="{{ route('attention.index') }}"><span>{{ trans('t.attention') }}</span></a></li>
       </ul>
     </li>  
     @endif

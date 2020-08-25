@@ -13,7 +13,7 @@ class AttentionController extends Controller
      */
     public function index()
     {
-        //
+      return view('admin.attention.index');
     }
 
     /**

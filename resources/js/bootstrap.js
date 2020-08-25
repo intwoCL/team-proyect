@@ -21,7 +21,8 @@ require('jquery.nicescroll');
 /* customers team */
 require('select2');
 window.iziToast = require('izitoast');
-
+// window.FullCalendar = require('@fullcalendar/core');
+// window.dayGrid = require('@fullcalendar/daygrid');
 
 // require('./custom/custom');
 
