@@ -113,6 +113,15 @@ return [
       'password' => 'Contraseña',
       'photo' => 'Foto',
     ],
+    'calendar'=> [
+      'panel_calendar' => 'Panel de calendarios',
+      'agenda' => 'Agendar hora',
+      'historial' => 'Historial',
+      'title' => 'Formulario de Calendario',
+      'day' => 'Día',
+      'date' => 'Fecha',
+      'comment_in' => 'Comentario de entrada',
+    ],
   ],
 
   'welcome' => 'Bienvenido',

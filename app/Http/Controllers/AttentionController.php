@@ -23,7 +23,7 @@ class AttentionController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.attention.create');
     }
 
     /**

@@ -7,7 +7,7 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Panel de calendarios</h1>
+      <h1>{{ trans('t.user.calendar.panel_calendar') }}</h1>
     </div>
     <div class="section-body">
       <div class="row">
@@ -21,8 +21,8 @@
               </div> --}}
               <div class="card-body">
                 <div class="form-group">
-                  <a href="">Nueva solcitud</a>
-                  <a href="">Nueva solcitud</a>
+                  <a href="{{ route('attention.create') }}">{{ trans('t.user.calendar.agenda') }}</a>
+                  <a href="">{{ trans('t.user.calendar.historial') }}</a><br>
                   <a href="">Nueva solcitud</a>
                 </div>
                 {{-- <div class="form-group row">
