@@ -113,7 +113,7 @@ return [
       'agenda' => 'Schedule time',
       'historial' => 'History',
       'title' => 'Calendar Form',
-      'day' => 'Day',
+      'hour' => 'Hour',
       'date' => 'Date',
       'comment_in' => 'Entry Comment',
     ],

@@ -27,19 +27,19 @@
           <form action="{{route('calendar.store')}}" method="POST" enctype="multipart/form-data" >
             @csrf
             <div class="card-header">
-              <h4>Formulario de Calendario</h4>
+              <h4>{{ trans('t.user.calendar.title') }}</h4>
             </div>
             <div class="card-body">
               <div class="form-group row">
-                <label for="inputDay" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.day') }}</label>
+                <label for="inputDate" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.date') }}</label>
                 <div class="col-sm-9">
-                  <input type="text" name="day" class="form-control" required="" autocomplete="off" value="{{ old('day')}}">
+                  <input type="text" name="date" class="form-control" required="" autocomplete="off" value="{{ old('date')}}">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputDate" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.date') }}</label>
+                <label for="inputHour" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.hour') }}</label>
                 <div class="col-sm-9">
-                  <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
+                  <input type="text" name="hour" class="form-control" required="" autocomplete="off" value="{{ old('hour')}}">
                 </div>
               </div>
               <div class="form-group row">

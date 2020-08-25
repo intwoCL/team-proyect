@@ -118,7 +118,7 @@ return [
       'agenda' => 'Agendar hora',
       'historial' => 'Historial',
       'title' => 'Formulario de Calendario',
-      'day' => 'Día',
+      'hour' => 'Hora',
       'date' => 'Fecha',
       'comment_in' => 'Comentario de entrada',
     ],
