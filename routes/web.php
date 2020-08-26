@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use Illuminate\Support\Facades\Storage;
+
+// Route::get('/photo_activity/{file}', function ($file){
+//     return Storage::response("photo_activity/$file");
+// })->name('photo');
 
 Route::get('/','Auth\AuthUserController@index');
 Route::post('/', 'Auth\AuthUserController@login')->name('login');
@@ -12,7 +17,7 @@ Route::middleware('user')->group(function () {
   Route::get('sign-out', 'Auth\AuthUserController@logout')->name('logout');
 
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
-  
+
   Route::resource('activity', 'ActivityController');
   Route::get('activity/{activity_id}/content/create', 'ContentController@create')->name('content.create');
   Route::get('activity/{activity_id}/content/{id}/edit', 'ContentController@edit')->name('content.edit');
@@ -26,6 +31,16 @@ Route::middleware('user')->group(function () {
 
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
+
+  Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
+  Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
+  Route::post('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@update')->name('item.update');
+  Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
+
+
+
+
+
   Route::resource('attention', 'AttentionController', ['except'=>['show']]);
   // Route::get('attention/create', 'AttentionController@create')->name('attention.create');
   Route::get('attention/assigned', 'AttentionController@assigned')->name('attention.assigned');
@@ -34,6 +49,7 @@ Route::middleware('user')->group(function () {
 
   
   Route::get('webapp', 'WebAppController@index')->name('webapp');
+
 });
 
 Route::get('demo', function () { return view('template.text'); });

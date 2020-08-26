@@ -22,124 +22,81 @@
       Form validation using default from Bootstrap 4
     </p>
 
-    <div class="row">
-      
+    <div class="row">  
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
           <div class="card-header">
             <h4>Horizontal Form</h4>
           </div>
-          <div class="card-body">
-            <div class="form-group row">
-              <label for="inputEmail3" class="col-sm-3 col-form-label">Email</label>
-              <div class="col-sm-9">
-                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-              </div>
-            </div>
-            <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-3 col-form-label">Password</label>
-              <div class="col-sm-9">
-                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-              </div>
-            </div>
-            <fieldset class="form-group">
-              <div class="row">
-                <div class="col-form-label col-sm-3 pt-0">Radios</div>
-                <div class="col-sm-9">
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked="">
-                    <label class="form-check-label" for="gridRadios1">
-                    First radio
-                    </label>
-                  </div>
-                  <div class="form-check">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                    <label class="form-check-label" for="gridRadios2">
-                      Second radio
-                    </label>
-                  </div>
-                  <div class="form-check disabled">
-                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled="">
-                    <label class="form-check-label" for="gridRadios3">
-                      Third disabled radio
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </fieldset>
-            <div class="form-group row">
-              <div class="col-sm-3">Checkbox</div>
-              <div class="col-sm-9">
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" id="gridCheck1">
-                  <label class="form-check-label" for="gridCheck1">
-                  Example checkbox
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="card-footer text-right">
-            <button class="btn btn-primary">{{trans('button.save')}}</button>
-          </div>
-        </div>
-        <div class="card">       
-          <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data" >
+          <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="card-header">
-              <h4>Default Validation</h4>
-            </div>
             <div class="card-body">
-              <div class="form-group">
-                <label>{{trans('t.activity.create.name')}}</label>
-                <input type="text" name="name" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+              <div class="form-group row">
+                <label for="inputName" class="col-sm-3 col-form-label">{{trans('t.activity.create.name')}}</label>
+                <div class="col-sm-9">
+                  <input type="text" name="name" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+                </div>
               </div>
-
-              <div class="form-group">
-                <label>{{trans('t.activity.create.objective')}}</label>
-                <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
+              <div class="form-group row">
+                <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.objective')}}</label>
+                <div class="col-sm-9">
+                  <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
+                </div>  
               </div>
-              
-              <div class="form-group">
-                <label>{{trans('t.activity.create.photo')}}</label>
-                <input type="file" name="photo" class="form-control" required="">
+  
+              <div class="form-group row">
+                <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.photo')}}</label>
+                <div class="col-sm-9">
+                  <!-- <img src=""  class='Responsive image img-thumbnail'  width='200px' height='200px' alt=""> -->
+                  <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
+                  <br>
+                </div>
+              </div>  
+              <div class="form-group center-text">
+                  <div id="preview"></div>
               </div>
-
-              <div class="form-group">
-                <label>{{trans('t.activity.create.scale')}}</label>
-                <select class="form-control select2" name="scale_id" required="">
-                  @foreach ($scales as $s)
-                  <option value="{{ $s->id }}">{{ $s->name }}</option>
-                  @endforeach
-                </select>
+  
+              <div class="form-group row">
+                <label for="inputScale" class="col-sm-3 col-form-label">{{trans('t.activity.create.scale')}}</label>
+                <div class="col-sm-9">
+                  <select class="form-control select2" name="scale_id" required="">
+                    @foreach ($scales as $s)
+                    <option value="{{ $s->id }}">{{ $s->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
-              <div class="form-group">
-                <label>{{trans('t.activity.create.categories')}}</label>
-                <select class="form-control select2" multiple="" name="categories[]" required="">
-                  @foreach ($categories as $c)
-                  <option value="{{ $c->id }}">{{ $c->name }}</option>
-                  @endforeach
-                </select>
+              <div class="form-group row">
+                <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
+                <div class="col-sm-9">
+                  <select class="form-control select2" multiple="" name="categories[]" required="">
+                    @foreach ($categories as $c)
+                    <option value="{{ $c->id }}">{{ $c->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
-
-              <div class="form-group">
-                <label>{{trans('t.activity.create.total_time')}}</label>
-                <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="{{ old('total_time')}}">
+              <div class="form-group row">
+                <label for="inputTotalTime" class="col-sm-3 col-form-label">{{trans('t.activity.create.total_time')}}</label>
+                <div class="col-sm-9">
+                  <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="{{ old('total_time')}}">
+                </div>
               </div>
-
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
             </div>
           </form>
+
+          
+
         </div>
       </div>
-      
     </div>
   </div>
 </section>
 @endsection
 @push('javascript')
-
+<script src="/vendor/intwo/preview.js"></script>
 @endpush

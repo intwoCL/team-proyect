@@ -32,30 +32,37 @@
               <h4>Default Validation</h4>
             </div>
             <div class="card-body">
-              <div class="form-group">
-                <label>{{ trans('t.activity.content.name_content') }}</label>
-                <input type="text" name="name" value="{{$content->name}}" class="form-control" required="" autocomplete="off">
+
+              <div class="form-group row">
+                <label for="inputName" class="col-sm-3 col-form-label">Nombre contenido</label>
+                <div class="col-sm-9">
+                  <input type="text" name="name" value="{{$content->name}}" class="form-control" required="" autocomplete="off">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>{{ trans('t.activity.content.objective') }}</label>
-                <input type="text" name="objective" value="{{$content->objective}}" class="form-control" autocomplete="off">
+              <div class="form-group row">
+                <label for="inputObjetive" class="col-sm-3 col-form-label">Objetivo</label>
+                <div class="col-sm-9">
+                  <input type="text" name="objective" value="{{$content->objective}}" class="form-control" autocomplete="off">
+                </div>
               </div>
 
-              <div class="form-group">
-                <div class="control-label">{{ trans('t.activity.content.quiz') }}<small class="text-danger">*</small></div>
-                <label class="custom-switch mt-2">
-                  @php
-                    $checked ='';
-                    if($content->quiz){$checked = 'checked';}
-                  @endphp
-                  <input type="checkbox" name="quiz" class="custom-switch-input" {{$checked}}>
-                  <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
-                  <span class="custom-switch-indicator"></span>
-                  <span class="custom-switch-description">{{ trans('t.yes') }}</span>
-                </label>
+              <div class="form-group row">
+                <div class="control-label">¿Desea quiz al final? <small class="text-danger">*</small></div>
+                <div class="col-sm-9">
+                  <label class="custom-switch mt-2">
+                    @php
+                      $checked ='';
+                      if($content->quiz){$checked = 'checked';}
+                    @endphp
+                    <input type="checkbox" name="quiz" class="custom-switch-input" {{$checked}}>
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
               </div>
-
+              
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
