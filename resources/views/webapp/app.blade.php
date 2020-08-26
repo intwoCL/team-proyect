@@ -271,7 +271,8 @@
 
 
   function activityShow(id){
-    alert('Error ' + id);
+    // alert('Error ' + id);
+    window.location.href = "{{ route('web') }}";
   }
 </script>
 @endpush

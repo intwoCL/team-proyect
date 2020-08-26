@@ -65,14 +65,17 @@
                     <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name">
                   </div>
                 </div>
-
                 <div class="form-group row">
-                  <label for="inputPhoto" class="col-sm-3 col-form-label">{{ trans('t.user.profile.photo') }}</label>
+                  <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.user.profile.photo')}}</label>
                   <div class="col-sm-9">
-                    <input type="file" name="photo" id="inputPhoto" class="form-control">
+                    <!-- <img src=""  class='Responsive image img-thumbnail'  width='200px' height='200px' alt=""> -->
+                    <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
+                    <br>
                   </div>
+                </div>  
+                <div class="form-group center-text">
+                    <div id="preview"></div>
                 </div>
-
                 <fieldset class="form-group">
                   <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                   <select class="form-control select2" name="lang" required="">
@@ -80,7 +83,6 @@
                     <option value="en">{{ trans('t.english') }}</option>
                   </select>  
                 </fieldset>
-
                 <fieldset class="form-group">
                   <div class="row">
                     <div class="col-form-label col-sm-6 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
@@ -118,14 +120,6 @@
 </section>
 @endsection
 @push('javascript')
-  <script>
-  function validateRun(string) {
-    var out = '';
-    var filtro = '1234567890Kk';
-    for (var i = 0; i < string.length; i++)
-      if (filtro.indexOf(string.charAt(i)) != -1)
-        out += string.charAt(i).toUpperCase();
-    return out;
-  }
-  </script>
+<script src="/vendor/intwo/validate-run.js"></script>
+<script src="/vendor/intwo/preview.js"></script>
 @endpush

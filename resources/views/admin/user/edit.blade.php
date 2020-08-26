@@ -144,14 +144,6 @@
 </section>
 @endsection
 @push('javascript')
-  <script>
-  function validateRun(string) {
-    var out = '';
-    var filtro = '1234567890Kk';
-    for (var i = 0; i < string.length; i++)
-      if (filtro.indexOf(string.charAt(i)) != -1)
-        out += string.charAt(i).toUpperCase();
-    return out;
-  }
-  </script>
+<script src="/vendor/intwo/validate-run.js"></script>
+<script src="/vendor/intwo/preview.js"></script>
 @endpush

@@ -66,7 +66,7 @@
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
                 </div>
-              </div> 
+              </div>
               {{-- <img src="{{ asset('storage/photo_activity/'.$activity->photo) }}" alt="" title=""></a> --}}
               <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
 

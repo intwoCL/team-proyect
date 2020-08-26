@@ -1,34 +1,41 @@
-@extends('webapp.components.skeleton')
+@extends('webapp.app')
+
+@section('title', 'Admin Dashboard')
 @push('stylesheet')
-<link rel="stylesheet" href="/vendor/swiper/css/swiper-bundle.min.css">
-{{-- <style>
-  .swiper-container {
-    width: 600px;
-    height: 100%;
-  }
-</style> --}}
+  <link rel="stylesheet" href="/vendor/swiper/css/swiper-bundle.min.css">
+  {{-- <style>
+    .swiper-container {
+      width: 600px;
+      height: 100%;
+    }
+  </style> --}}
 
-<style>
-  #progress {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    background-color: #f3f3f3;
-    height: 15px;
-    z-index: 100;
-  }
-  .face-shadow {
-    text-shadow: 1px 2px 4px #4b4a4a !important;
-  }
-</style>
+  <style>
+    #progress {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      background-color: #f3f3f3;
+      height: 15px;
+      z-index: 100;
+    }
+    .face-shadow {
+      text-shadow: 1px 2px 4px #4b4a4a !important;
+    }
+  </style>
 @endpush
-@section('app')
-<div class="main-wrapper container">
- 
-
+@section('content')
+  {{-- <section class="section">
+    <div class="section-header">
+      <a href="#" onclick="buttonSound()">
+        <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
+      </a>
+      <h1><div class="swiper-pagination"></div></h1>
+    </div>
+  </section> --}}
   <div class="section">
-    <div class="swiper-container swiper-slider" data-pagination-type='progress' style="margin-top: 100px;">
+    <div class="swiper-container swiper-slider" data-pagination-type='progress'>
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           @include('webapp.card._quiz')
@@ -60,18 +67,10 @@
   </div>
 
   <div style="display: none;">
-    <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/webapp"></audio>
+    <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/dashboard"></audio>
     <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
   </div>
-
-
-
-</div>
 @endsection
-@push('footerNav')
-@include('webapp.components.top')
-{{-- @include('webapp.components.bottom') --}}
-@endpush
 @push('javascript')
 <script src="/vendor/swiper/js/swiper-bundle.min.js"></script>
 <script>
@@ -130,3 +129,9 @@
   });
 </script>
 @endpush
+@push('footerApp')
+@include('webapp.navbar.top')
+{{-- @include('webapp.navbar.bottom') --}}
+@endpush
+
+
