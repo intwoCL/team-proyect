@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\Content;
 use App\Models\Item;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class ItemController extends Controller
@@ -28,7 +29,8 @@ class ItemController extends Controller
     {
         $a = Activity::FindOrFail($activity_id);
         $c = Content::FindOrFail($content_id);
-        return view("admin.activity.content.item.create",compact('a','c'));
+        $types =Type::all();
+        return view("admin.activity.content.item.create",compact('a','c','types'));
     }
 
     /**
@@ -44,6 +46,7 @@ class ItemController extends Controller
             $i->content_id = $request->input('content_id');
             $i->title = $request->input('title');
             $i->content = $request->input('content');
+            $i->type_id = $request->input('type');
             $i->position = Item::Where('content_id',$i->content_id)->count() + 1;
 
             //$i->types = new Type();
@@ -80,7 +83,7 @@ class ItemController extends Controller
     public function edit($activity_id,$content_id,$id)
     {
         $i = Item::FindOrFail($id);
-        return view("admin.activity.content.item.edit",compact('i'));
+        return view('admin.activity.content.item.edit',compact('i'));
     }
 
     /**
@@ -90,9 +93,28 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        try {
+            $i = Item::findOrFail($request->input('id'));
+            $i->content_id = $request->input('content_id');
+            $i->title = $request->input('title');
+            $i->content = $request->input('content');
+            $i->type_id = $request->input('type');
+            $i->position = Item::Where('content_id',$i->content_id)->count() + 1;
+
+            //$i->types = new Type();
+
+            $c = Content::findOrFail($i->content_id);
+            $a = Activity::findOrFail($c->activity_id);
+
+            $i->save();
+            return redirect()->route('content.show',[$a->id , $c->id]);
+
+        } catch (\Throwable $th) {
+            return $th;
+            return redirect()->back()->with('danger',trans('alert.danger'));
+        }
     }
 
     /**

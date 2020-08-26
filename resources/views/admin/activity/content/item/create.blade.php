@@ -44,21 +44,18 @@
               </div>
 
               <div class="form-group">
+                <label>Tipo</label>
+                <select class="form-control select2" name="type" required="">
+                  @foreach ($types as $t)
+                  <option value="{{ $t->id }}">{{ $t->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
                 <label>Contenido</label>
                 <textarea name="content" class="form-control" cols="30" rows="10" required="" autocomplete="off" value="{{ old('content')}}"></textarea>
               </div>
-
-
-
-              {{-- <div class="form-group">
-                <label>{{trans('t.activity.create.categories')}}</label>
-                <select class="form-control select2" multiple="" name="categories[]" required="">
-                  @foreach ($categories as $c)
-                  <option value="{{ $c->id }}">{{ $c->name }}</option>
-                  @endforeach
-                </select>
-              </div> --}}
-
 
 
             </div>
