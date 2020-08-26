@@ -83,7 +83,8 @@ class ItemController extends Controller
     public function edit($activity_id,$content_id,$id)
     {
         $i = Item::FindOrFail($id);
-        return view('admin.activity.content.item.edit',compact('i'));
+        $types = Type::all();
+        return view('admin.activity.content.item.edit',compact('i','types'));
     }
 
     /**

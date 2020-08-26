@@ -36,6 +36,7 @@
             <div class="card-body">
               <input type="hidden" name="content_id" value={{$c->id}}>
               <input type="hidden" name="activity_id" value={{$a->id}}>
+              
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
                 <div class="col-sm-9">
@@ -43,13 +44,15 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <label>Tipo</label>
-                <select class="form-control select2" name="type" required="">
-                  @foreach ($types as $t)
-                  <option value="{{ $t->id }}">{{ $t->name }}</option>
-                  @endforeach
-                </select>
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
+                <div class="col-sm-9">
+                  <select class="form-control select2" name="type" required="">
+                    @foreach ($types as $t)
+                    <option value="{{ $t->id }}">{{ $t->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
 
               <div class="form-group">

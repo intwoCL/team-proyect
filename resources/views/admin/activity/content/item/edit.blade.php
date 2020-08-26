@@ -38,28 +38,27 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
                 <div class="col-sm-9">
-                    <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{ old('title')}}">
+                    <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{$i->title}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
+                <div class="col-sm-9">
+                  <select class="form-control select2" name="type" required="">
+                    @foreach ($types as $t)
+                    <option @if ($i->type_id == $t->id)
+                        selected
+                    @endif value="{{ $t->id }}">{{ $t->name }}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
 
               <div class="form-group">
                 <label>Contenido</label>
-                <textarea name="content" class="form-control" cols="30" rows="10" required="" autocomplete="off" value="{{ old('content')}}"></textarea>
-
+                <textarea name="content" class="form-control" cols="30" rows="10" required="" autocomplete="off">{{$i->content}}</textarea>
               </div>
-
-
-
-              {{-- <div class="form-group">
-                <label>{{trans('t.activity.create.categories')}}</label>
-                <select class="form-control select2" multiple="" name="categories[]" required="">
-                  @foreach ($categories as $c)
-                  <option value="{{ $c->id }}">{{ $c->name }}</option>
-                  @endforeach
-                </select>
-              </div> --}}
-
-
 
             </div>
             <div class="card-footer text-right">
