@@ -18,6 +18,8 @@ cp .env.example .env
 
 ### Inicial con forma de seed
 ```shell
+php artisan storage:link
+
 composer dump-autoload
 php artisan migrate:fresh --seed
 ```
