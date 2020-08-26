@@ -74,9 +74,9 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputCommentIn" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.comment_in') }}</label>
-                <div class="col-sm-9">
-                  <textarea class="form-control" rows="3" name="comment_in" id="comentario_entrada" placeholder="..." required>{{ old('comment_in') }}</textarea>
+                <label for="inputCommentIn" class="col-sm-12 col-form-label">{{ trans('t.user.calendar.comment_in') }}</label>
+                <div class="col-sm-12">
+                  <textarea class="form-control" rows="3" name="comment_in" id="comentario_entrada" placeholder="..." required style="height: 100px">{{ old('comment_in') }}</textarea>
                 </div>
               </div>
             </div>

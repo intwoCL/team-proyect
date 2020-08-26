@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <section class="section">
       <div class="section-header">
-        <a href="{{ route('assignment.index') }}">
+        <a href="{{ route('attention.index') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
         <h1>Lista de usuarios asignados</h1>
@@ -33,7 +33,8 @@
                     <td>{{ $ass->user->email }}</td>
 
                     {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
-                    <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success">Tomar hora</a></td>
+                    <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success btn-sm">Tomar hora</a>
+                    <a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-primary btn-sm ml-2">Historial</a></td>
                   </tr>
                   @empty
                   <tr>

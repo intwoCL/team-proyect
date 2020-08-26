@@ -25,9 +25,10 @@
               </div> --}}
               <div class="card-body">
                 <div class="form-group">
-                  <a href="{{ route('attention.assigned') }}">{{ trans('t.user.calendar.agenda') }}</a>
-                  <a href="">{{ trans('t.user.calendar.historial') }}</a><br>
-                  <a href="">Nueva solcitud</a>
+                  {{-- <a href="{{ route('attention.assigned') }}">{{ trans('t.user.calendar.agenda') }}</a> --}}
+                  <a href="{{ route('attention.assigned') }}">Pacientes</a>
+                  {{-- <a href="">{{ trans('t.user.calendar.historial') }}</a><br> --}}
+                  {{-- <a href="">Nueva solcitud</a> --}}
                 </div>
                 {{-- <div class="form-group row">
                   <label for="inputObjective" class="col-sm-12 col-form-label">Objetivo</label>

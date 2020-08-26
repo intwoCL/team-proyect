@@ -23,12 +23,7 @@
       
     @if (is_specialist())
     <li class="menu-header">Especialista</li>
-    <li class="nav-item dropdown {{ active('attention*') }}">
-      <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Especialista</span></a>
-      <ul class="dropdown-menu">
-        <li class="{{ active('attention*') }} nav-link"><a href="{{ route('attention.index') }}"><span>{{ trans('t.attention') }}</span></a></li>
-      </ul>
-    </li>  
+    <li class="{{ active('attention*') }}"><a href="{{ route('attention.index') }}"><i class="fas fa-calendar-alt"></i> <span>{{ trans('t.attention') }}</span></a></li>
     @endif
  
  
