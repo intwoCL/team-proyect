@@ -14,12 +14,12 @@
 @section('app')
 <div class="main-wrapper container">
   <div class="navbar-bg" style="height: 70px !important;"></div>
-  <nav class="navbar navbar-expand-lg main-navbar container">
+  <nav class="navbar navbar-expand-lg main-navbar container ">
     {{-- <a href="index.html" class="navbar-brand sidebar-gone-hide">TEAM</a> --}}
     <div class="navbar-nav">
       <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
     </div>
-    <div class="nav-collapse">
+    <div class="nav-collapse d-none d-lg-block">
       <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
         <i class="fas fa-ellipsis-v"></i>
       </a>
@@ -181,7 +181,7 @@
     </ul>
   </nav>
 
-  <nav class="navbar navbar-secondary navbar-expand-lg  d-none d-sm-block d-md-none d-flex">
+  <nav class="navbar navbar-secondary navbar-expand-lg d-none d-sm-block d-md-none d-flex">
     <div class="container">
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
@@ -194,26 +194,6 @@
         </li>
         <li class="nav-item active">
           <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Top Navigation</span></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i class="far fa-clone"></i><span>Multiple
-              Dropdown</span></a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a href="#" class="nav-link">Not Dropdown Link</a></li>
-            <li class="nav-item dropdown"><a href="#" class="nav-link has-dropdown">Hover Me</a>
-              <ul class="dropdown-menu">
-                <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                <li class="nav-item dropdown"><a href="#" class="nav-link has-dropdown">Link 2</a>
-                  <ul class="dropdown-menu">
-                    <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link">Link</a></li>
-                  </ul>
-                </li>
-                <li class="nav-item"><a href="#" class="nav-link">Link 3</a></li>
-              </ul>
-            </li>
-          </ul>
         </li>
       </ul>
     </div>

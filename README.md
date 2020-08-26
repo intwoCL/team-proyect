@@ -20,6 +20,11 @@ cp .env.example .env
 ```shell
 php artisan storage:link
 
+mkdir public\storage\photo_activities
+mkdir public\storage\photo_contents
+mkdir public\storage\photo_items
+mkdir public\storage\photo_users
+
 composer dump-autoload
 php artisan migrate:fresh --seed
 ```
