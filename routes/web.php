@@ -49,7 +49,8 @@ Route::middleware('user')->group(function () {
 
   
   Route::get('webapp', 'WebAppController@index')->name('webapp');
-  Route::get('web', 'WebAppController@web')->name('web');
+  Route::get('activity', 'WebAppController@activity')->name('web');
+  Route::get('item', 'WebAppController@item')->name('item');
 
 });
 

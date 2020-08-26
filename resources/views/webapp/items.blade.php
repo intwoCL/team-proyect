@@ -60,7 +60,7 @@
   </div>
 
   <div style="display: none;">
-    <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/webapp"></audio>
+    <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/activity"></audio>
     <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
   </div>
 

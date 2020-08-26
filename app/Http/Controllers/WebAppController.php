@@ -14,9 +14,15 @@ class WebAppController extends Controller
     return $request;
   }
 
-  public function web(){
+
+  public function activity(){
+    return view('webapp.activity');
+  }
+
+  public function item(){
     return view('webapp.items');
   }
+
 
 
 
