@@ -17,7 +17,7 @@ class ContentController extends Controller
   public function create($activity_id)
   {
     $activity = Activity::FindOrFail($activity_id);
-    return view('admin.activity.content.create',compact('activity')); 
+    return view('admin.activity.content.create',compact('activity'));
   }
 
   /**
@@ -45,7 +45,7 @@ class ContentController extends Controller
         $c->quiz = true;
       }else{
         $c->quiz = false;
-      }  
+      }
       $c->save();
       return redirect()->route('activity.show',$a->id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
@@ -62,8 +62,11 @@ class ContentController extends Controller
    */
   public function show($activity_id,$id)
   {
+
     $content = Content::where('activity_id',$activity_id)->findOrFail($id);
-    return view('admin.activity.content.show',compact('content'));
+    $items = $content->items;
+    //return $items;
+    return view('admin.activity.content.show',compact('content','items'));
   }
 
   /**
@@ -98,7 +101,7 @@ class ContentController extends Controller
         $c->quiz = true;
       }else{
         $c->quiz = false;
-      }  
+      }
       $c->update();
       return redirect()->route('activity.show',$activity_id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
