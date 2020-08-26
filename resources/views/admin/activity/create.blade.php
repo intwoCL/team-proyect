@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputCategori" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
+                <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
                 <div class="col-sm-9">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
                     @foreach ($categories as $c)

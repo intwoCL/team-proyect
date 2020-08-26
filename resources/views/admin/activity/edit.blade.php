@@ -34,23 +34,29 @@
             </div>
             <div class="card-body">
 
-              <div class="form-group">
-                <label>{{trans('t.activity.edit.code')}}</label>
-                <input type="text" value="{{$activity->code}}" class="form-control" readonly autocomplete="off">
+              <div class="form-group row ">
+                <label for="inputCode" class="col-sm-3 col-form-label">{{trans('t.activity.edit.code')}}</label>
+                <div class="col-sm-9">
+                  <input type="text" value="{{$activity->code}}" class="form-control" readonly autocomplete="off">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>{{trans('t.activity.create.name')}}</label>
-                <input type="text" name="name" value="{{$activity->name}}" class="form-control" required="" autocomplete="off">
+              <div class="form-group row">
+                <label for="inputName" class="col-sm-3 col-form-label">{{trans('t.activity.create.name')}}</label>
+                <div class="col-sm-9">
+                  <input type="text" name="name" value="{{$activity->name}}" class="form-control" required="" autocomplete="off">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>{{trans('t.activity.create.objective')}}</label>
-              <input type="text" name="objective" value="{{$activity->objective}}" class="form-control" required="" autocomplete="off">
+              <div class="form-group row">
+                <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.objective')}}</label>
+                <div class="col-sm-9">
+                  <input type="text" name="objective" value="{{$activity->objective}}" class="form-control" required="" autocomplete="off">
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>{{trans('t.activity.create.photo')}}</label>
+              <div class="form-group row">
+                <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.photo')}}</label>
                 <div class="input-group">
                   {{-- <img src="{{route('photo',$activity->photo)}}" class='Responsive image img-thumbnail' required=""  width='200px' height='200px' alt=""> --}}
                 </div>
@@ -65,31 +71,37 @@
               <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
 
               <div class="form-group row">
-                <label>{{trans('t.activity.create.scale')}}</label>
-                <select class="form-control select2" name="scale_id" required="">
-                  @foreach ($scales as $s)
-                    @if ($activity->scale_id == $s->id)
-                      <option selected value="{{ $s->id }}">{{ $s->name }}</option>
-                    @else
-                      <option value="{{ $s->id }}">{{ $s->name }}</option>  
-                    @endif
-                  @endforeach
-                </select>
+                <label for="inputScale" class="col-sm-3 col-form-label">{{trans('t.activity.create.scale')}}</label>
+                <div class="col-sm-8 row">
+                  <select class="form-control select2" name="scale_id" required="">
+                    @foreach ($scales as $s)
+                      @if ($activity->scale_id == $s->id)
+                        <option selected value="{{ $s->id }}">{{ $s->name }}</option>
+                      @else
+                        <option value="{{ $s->id }}">{{ $s->name }}</option>  
+                      @endif
+                    @endforeach
+                  </select>
+                </div>
               </div>
+
               <div class="form-group row">
-                <label>{{trans('t.activity.create.categories')}}</label>
-                <select class="form-control select2" multiple="" name="categories[]" required="">
-                  @foreach ($categories as $c)
-                  <option selected value="{{ $c->id }}">{{ $c->name }}</option>
-                  @endforeach
-                </select>
+                <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
+                <div class="col-sm-12 row">
+                  <select class="form-control select2" multiple="" name="categories[]" required="">
+                    @foreach ($categories as $c)
+                    <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                    @endforeach
+                  </select>
+                </div>
               </div>
 
-              <div class="form-group">
-                <label>{{trans('t.activity.create.total_time')}}</label>
-                <input type="number" min="0" name="total_time" value="{{$activity->total_time}}" class="form-control" required="" autocomplete="off">
+              <div class="form-group row">
+                <label for="inputTotalTime" class="col-sm-3 col-form-label">{{trans('t.activity.create.total_time')}}</label>
+                <div class="col-sm-9">
+                  <input type="number" min="0" name="total_time" value="{{$activity->total_time}}" class="form-control" required="" autocomplete="off">
+                </div>
               </div>
-
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
