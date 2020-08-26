@@ -5,7 +5,7 @@
 
 <section class="section">
   <div class="section-header">
-    <a href="{{route('content.show',[$a->id,$c->id])}}">
+    <a href="{{route('content.show',[$i->content->activity->id,$i->content->id])}}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Crear nuevo item</h1>
@@ -28,24 +28,24 @@
         @include('partials._errors')
 
         <div class="card">
-          <form action="{{route('item.store',[$a->id,$c->id])}}" method="POST" >
+          <form action="{{route('item.update',$id)}}" method="POST" >
             @csrf
             <div class="card-header">
               <h4>Default Validation</h4>
             </div>
             <div class="card-body">
-              <input type="hidden" name="content_id" value={{$c->id}}>
-              <input type="hidden" name="activity_id" value={{$a->id}}>
+
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
                 <div class="col-sm-9">
-                    <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+                    <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{ old('title')}}">
                 </div>
               </div>
 
               <div class="form-group">
                 <label>Contenido</label>
-                <input type="text" name="content" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
+                <textarea name="content" class="form-control" cols="30" rows="10" required="" autocomplete="off" value="{{ old('content')}}"></textarea>
+
               </div>
 
 

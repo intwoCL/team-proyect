@@ -45,7 +45,7 @@
 
               <div class="form-group">
                 <label>Contenido</label>
-                <input type="text" name="content" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
+                <textarea name="content" class="form-control" cols="30" rows="10" required="" autocomplete="off" value="{{ old('content')}}"></textarea>
               </div>
 
 

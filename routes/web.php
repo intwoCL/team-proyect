@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 // use Illuminate\Support\Facades\Storage;
- 
+
 // Route::get('/photo_activity/{file}', function ($file){
 //     return Storage::response("photo_activity/$file");
 // })->name('photo');
@@ -33,6 +33,8 @@ Route::middleware('user')->group(function () {
   Route::resource('attention', 'AttentionController');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
+  Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
+  Route::post('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@update')->name('item.update');
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
 
 

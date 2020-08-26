@@ -27,7 +27,6 @@
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{ trans('t.activity.item.content') }}</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -37,8 +36,7 @@
                 <td>{{$i->id}}</td>
                 <td>{{$i->title}}</td>
                 <td>{{$i->content}}</td>
-                <td></td>
-                <td></td>
+                <td> <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}" class="btn btn-primary">Editar</a> </td>
               </tr>
               @endforeach
             </tbody>
