@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-  public function content(){
+  public function itemContent(){
     return $this->belongsTo(Content::class,'content_id');
   }
   
