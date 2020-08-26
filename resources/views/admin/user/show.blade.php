@@ -70,54 +70,34 @@
               <fieldset class="form-group">
                 <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="" value="{{$user->lang}}" disabled="true">
-                  <option value="es">Español</option>
-                  <option value="en">Inglés</option>
+                  <option value="es">{{ trans('t.spanish') }}</option>
+                  <option value="en">{{ trans('t.english') }}</option>
                 </select>  
               </fieldset>
 
               <fieldset class="form-group">
                 <div class="row">
-                  <div class="col-form-label col-sm-3 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
+                  <div class="col-form-label col-sm-3 pt-0">{{ trans('t.user.index.admin') }}<small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
                     <input type="checkbox" name="admin" class="custom-switch-input" value="{{$user->admin}}" disabled="true">
-                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
                     <span class="custom-switch-indicator"></span>
-                    <span class="custom-switch-description">Si</span>
+                    <span class="custom-switch-description">{{ trans('t.yes') }}</span>
                   </label>
                 </div>
               </fieldset>
 
               <fieldset class="form-group">
                 <div class="row">
-                  <div class="col-form-label col-sm-3 pt-0">¿Es especialista? <small class="text-danger">*</small></div>
+                  <div class="col-form-label col-sm-3 pt-0">{{ trans('t.user.index.specialist') }}<small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
                     <input type="checkbox" name="specialist" class="custom-switch-input" value="{{$user->speciaist}}" disabled="true">
-                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
                     <span class="custom-switch-indicator"></span>
-                    <span class="custom-switch-description">Si</span>
+                    <span class="custom-switch-description">{{ trans('t.yes') }}</span>
                   </label>
                 </div>
               </fieldset>
-
-          </form>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-6">
-        @include('partials._errors')
-        <div class="card">
-          <form action="{{route('user.email', $user->id)}}" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="card-header">
-              <h4>Horizontal Form</h4>
-            </div>
-            <div class="form-group row">
-              <label for="inputPassword3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.password') }} * (123456)</label>
-              <div class="col-sm-9">
-                <input type="password" name="password" class="form-control" id="inputPassword3" placeholder="{{ trans('t.user.profile.password') }}" required="" value="123456" disabled="true">
-              </div>
-            </div>
 
           </form>
         </div>

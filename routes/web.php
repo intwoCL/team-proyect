@@ -11,10 +11,11 @@ Route::get('/','Auth\AuthUserController@index');
 Route::post('/', 'Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
 Route::post('password/reset', 'Auth\AuthUserController@resetPassword')->name('reset.password');
-Route::post('password/email', 'ForgotPasswordController@forgot')->name('password.reset');
-Route::view('forgot_password', 'auth.reset_password')->name('password.reset');
 
 Route::middleware('user')->group(function () {
+
+  Route::get('sign-out', 'Auth\AuthUserController@logout')->name('logout');
+
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 
   Route::resource('activity', 'ActivityController');
@@ -30,7 +31,6 @@ Route::middleware('user')->group(function () {
 
   Route::resource('calendar', 'CalendarController');
   Route::resource('assignment', 'AssignmentController');
-  Route::resource('attention', 'AttentionController');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
@@ -40,9 +40,19 @@ Route::middleware('user')->group(function () {
 
 
 
-  Route::get('webapp', 'WebAppController@index');
+
+  Route::resource('attention', 'AttentionController', ['except'=>['show']]);
+  // Route::get('attention/create', 'AttentionController@create')->name('attention.create');
+  Route::get('attention/assigned', 'AttentionController@assigned')->name('attention.assigned');
+  Route::get('attention/{user_id}/create', 'AttentionController@create')->name('attention.create');
+  Route::get('attention/{user_id}', 'AttentionController@show')->name('attention.control');
+
+  
+  Route::get('webapp', 'WebAppController@index')->name('webapp');
+
 });
 
 Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
 
+Route::get('mail', 'MailController@sendEmail');

@@ -11,6 +11,10 @@ class Attention extends Model
   }
   
   public function user(){
-    return $this->hasMany(User::class,'user_id');
+    return $this->belongsTo(User::class,'user_id');
+  }
+
+  public function getAttentionDate(){
+		return date_format(date_create($this->attention_date . " " . $this->attention_time), 'd-m-Y h:m');
   }
 }

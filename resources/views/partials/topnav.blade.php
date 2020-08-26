@@ -12,7 +12,7 @@
         <i class="far fa-user"></i>{{ trans('t.profile_settings') }}
       </a>
       <div class="dropdown-divider"></div>
-      <a href="{{ route('login') }}" class="dropdown-item has-icon text-danger">
+      <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
         <i class="fas fa-sign-out-alt"></i>{{ trans('t.logout') }}
       </a>
     </div>

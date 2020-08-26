@@ -1,6 +1,22 @@
 <?php
 
 return [
+  'spanish' => 'Español',
+  'english' => 'Inglés',
+  'yes' => 'Si',
+  'no' => 'No',
+  'activity_list' => 'Lista de todas las actividades',
+  'create_activity' => 'Crear nueva actividad',
+  'activity_panel' => 'Panel de actividades',
+  'activity_name' => 'Nombre',
+  'objetive' => 'Objetivo',
+  'level' => 'Nivel',
+  'app' => 'App',
+  'dashboard' => 'Dashboard',
+  'activities' => 'Actividades',
+  'specialist' => 'Especialista',
+  'attention' => 'Atención',
+  'calendar' => 'Calendario',
   'hi' => 'Hola',
   'logout' => 'Cerrar sesión',
   'profile_settings' => 'Configuración',
@@ -35,7 +51,7 @@ return [
       'scale' => 'Escala',
       'categories'=> 'Categorias',
       'total_time' => 'Tiempo total',
-      'submit'=> "Enviar"
+      'submit'=> "Enviar",
     ],
     'edit'=>[
       'title' => 'Editar actividad',
@@ -43,7 +59,20 @@ return [
     ],
     'show' =>[
       'title' => 'Panel de contenidos',
-    ]
+    ],
+    'content' => [
+      'contents' => 'Contenidos',
+      'name_content' => 'Nombre contenido',
+      'objective' => 'Objetivo',
+      'quiz' => '¿Desea quiz al final?',
+    ],
+    'item' => [
+      'item_id' => 'Id Item',
+      'title' => 'Título',
+      'content' => 'Contenido',
+      'item_list' => 'Lista de todos los items',
+    ],
+
   ], 
 
   'content' =>[
@@ -61,12 +90,15 @@ return [
       'table_languages' => 'Idioma',
       'title' => 'Panel de usuarios',
       'list' => 'Lista de todos los usuarios',
+      'admin' => '¿Es administrador?',
+      'specialist' => '¿Es especialista?',
     ],
     'create'=>[
       'title'=> 'Crear nuevo usuario',
     ],
     'edit'=> [
       'edit' => 'Editar',
+      'title' => 'Editar usuario',
     ],
     'show' =>[
       'title' => 'Vista de usuario',
@@ -81,8 +113,16 @@ return [
       'password' => 'Contraseña',
       'photo' => 'Foto',
     ],
+    'calendar'=> [
+      'panel_calendar' => 'Panel de calendarios',
+      'agenda' => 'Agendar hora',
+      'historial' => 'Historial',
+      'title' => 'Formulario de Calendario',
+      'hour' => 'Hora',
+      'date' => 'Fecha',
+      'comment_in' => 'Comentario de entrada',
+    ],
   ],
-
 
   'welcome' => 'Bienvenido',
 ];

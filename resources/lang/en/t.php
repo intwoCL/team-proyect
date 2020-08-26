@@ -1,6 +1,21 @@
 <?php
 
 return [
+  'spanish' => 'Spanish',
+  'english' => 'English',
+  'yes' => 'Yes',
+  'no' => 'No',
+  'create_activity' => 'Create new activity',
+  'activity_panel' => 'Activities panel',
+  'activity_name' => 'Nombre',
+  'objetive' => 'Objetivo',
+  'level' => 'Nivel',
+  'app' => 'App',
+  'dashboard' => 'Dashboard',
+  'activities' => 'Activities',
+  'specialist' => 'Specialist',
+  'attention' => 'Attention',
+  'calendar' => 'Calendar',
   'hi' => 'Hi',
   'logout' => 'Logout',
   'profile_settings' => 'Profile Settings',
@@ -39,7 +54,7 @@ return [
       'scale' => 'Scale',
       'categories'=> 'Categories',
       'total_time' => 'Total Time',
-      'submit'=> "Submit"
+      'submit'=> "Submit",
     ],
     'edit'=>[
       'title' => 'Edit activity',
@@ -47,7 +62,19 @@ return [
     ],
     'show' =>[
       'title' => 'Content panel'
-    ]
+    ],
+    'content' => [
+      'contents' => 'Contenidos',
+      'name_content' => 'Name content',
+      'objective' => 'Objetive',
+      'quiz' => 'Do you want a quiz at the end?',
+    ],
+    'Item' => [
+      'item_id' => 'Id Item',
+      'title' => 'Title',
+      'content' => 'Content',
+      'item_list' => 'List of all items',
+    ],
   ],
 
   'user'=>[
@@ -59,12 +86,15 @@ return [
       'table_languages' => 'Languages',
       'title' => 'User panel',
       'list' => 'List of all users',
+      'admin' => 'Are you an administrator?',
+      'specialist' => 'Are you a specialist?',
     ],
     'create'=>[
       'title'=> 'Create new user',
     ],
     'edit'=> [
       'edit' => 'Edit',
+      'title' => 'Edit user',
     ],
     'show' =>[
       'title' => 'View user',
@@ -77,6 +107,15 @@ return [
       'lang' => 'Languages',
       'password' => 'Password',
       'photo' => 'Photo',
+    ],
+    'calendar'=> [
+      'panel_calendar' => 'Calendar panel',
+      'agenda' => 'Schedule time',
+      'historial' => 'History',
+      'title' => 'Calendar Form',
+      'hour' => 'Hour',
+      'date' => 'Date',
+      'comment_in' => 'Entry Comment',
     ],
   ],
 

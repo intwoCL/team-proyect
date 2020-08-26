@@ -21,6 +21,7 @@
         <div class="table-responsive">
           <table class="table table-striped table-md ">
             <thead>
+
               <tr>
                 <th>#</th>
                 <th>{{ trans('t.activity.item.item_id') }}</th>
