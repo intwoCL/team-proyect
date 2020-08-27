@@ -36,10 +36,22 @@
             <div class="card-body">
               <input type="hidden" name="content_id" value={{$c->id}}>
               <input type="hidden" name="activity_id" value={{$a->id}}>
+              
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
                 <div class="col-sm-9">
                     <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
+                <div class="col-sm-9">
+                  <select class="form-control select2" name="type" required="">
+                    @foreach ($types as $t)
+                    <option value="{{ $t->id }}">{{ $t->name }}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
 
@@ -49,21 +61,9 @@
               </div>
 
 
-
-              {{-- <div class="form-group">
-                <label>{{trans('t.activity.create.categories')}}</label>
-                <select class="form-control select2" multiple="" name="categories[]" required="">
-                  @foreach ($categories as $c)
-                  <option value="{{ $c->id }}">{{ $c->name }}</option>
-                  @endforeach
-                </select>
-              </div> --}}
-
-
-
             </div>
             <div class="card-footer text-right">
-              <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
+              <button class="btn btn-primary">{{trans('button.save')}}</button>
             </div>
           </form>
         </div>

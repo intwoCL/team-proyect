@@ -25,6 +25,7 @@
               <tr>
                 <th>#</th>
                 <th>{{ trans('t.activity.item.item_id') }}</th>
+                <th>{{trans('t.activity.item.type')}}</th>
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{ trans('t.activity.item.content') }}</th>
                 <th></th>
@@ -35,6 +36,7 @@
               <tr>
                 <td></td>
                 <td>{{$i->id}}</td>
+                <td>{{$i->itemType->name}}</td>
                 <td>{{$i->title}}</td>
                 <td>{{$i->content}}</td>
                 <td> <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}" class="btn btn-primary">Editar</a> </td>

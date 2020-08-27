@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Item extends Model
 {
-  public function content(){
+  public function itemContent(){
     return $this->belongsTo(Content::class,'content_id');
   }
-  
-  public function types(){
-    return $this->hasMany(DetailItem::class,'item_id');
+
+  public function itemType(){
+    return $this->belongsTo(Type::class,'type_id');
   }
 }
