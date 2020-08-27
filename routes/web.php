@@ -49,12 +49,11 @@ Route::middleware('user')->group(function () {
 
   
   Route::get('webapp','WebAppController@index')->name('webapp');
-  // Route::get('activity','WebAppController@activity')->name('web');
-  // Route::get('item','WebAppController@item')->name('item');
+  Route::get('webapp/activity','WebAppController@activity')->name('web');
+  Route::get('webapp/item','WebAppController@item')->name('item');
 
 });
 
 Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
-
 Route::get('mail','MailController@sendEmail');
