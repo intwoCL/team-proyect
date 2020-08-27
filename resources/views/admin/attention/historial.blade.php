@@ -9,7 +9,7 @@
         <a href="{{ route('attention.index') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
-        <h1>Lista de usuarios asignados</h1>
+        <h1>Historial</h1>
       </div>
       <div class="section-body">
         <h2 class="section-title">Usuario : {{ current_user()->getFullName() }}</h2>
@@ -20,21 +20,28 @@
                 <thead>
                 <tr>
                   {{-- <th>#</th> --}}
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th></th>
+                  <th>#</th>
+                  {{-- <th>Paciente</th> --}}
+                  <th>Especialista</th>
+                  <th>Día</th>
+                  <th>Fecha</th>
+                  <th>Comentario de entrada</th>
+                  <th>Comentario de salida</th>
+                  <th>Estado</th>
                 </tr>
                 </thead>
                 <tbody>
                   @forelse (current_user()->assignmentUsers as $ass)
                   <tr>
                     {{-- <td>{{ $u->id }}</td> --}}
+                    <td>{{ $ass->user->id }}</td>
                     <td>{{ $ass->user->getFullName() }}</td>
-                    <td>{{ $ass->user->email }}</td>
+                    <td>{{ $ass->user->id }}</td>
+                    <td></td>
 
                     {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
-                    <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success btn-sm">Tomar hora</a>
-                    <a href="{{ route('attention.historial', $ass->user->id) }}" class="btn btn-primary btn-sm ml-2">Historial</a></td>
+                      {{-- <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success btn-sm">Tomar hora</a>
+                      <a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-primary btn-sm ml-2">Historial</a></td> --}}
                   </tr>
                   @empty
                   <tr>

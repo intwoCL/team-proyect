@@ -134,4 +134,10 @@ class AttentionController extends Controller
     {
       return view('admin.attention.assigned');
     }
+
+    public function historial()
+    {
+      return view('admin.attention.historial');
+    }
+
 }

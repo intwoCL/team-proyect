@@ -46,7 +46,7 @@ Route::middleware('user')->group(function () {
   Route::get('attention/assigned','AttentionController@assigned')->name('attention.assigned');
   Route::get('attention/{user_id}/create','AttentionController@create')->name('attention.create');
   Route::get('attention/{user_id}','AttentionController@show')->name('attention.control');
-
+  Route::get('attention/{user_id}/historial', 'AttentionController@historial')->name('attention.historial');
   
   Route::get('webapp','WebAppController@index')->name('webapp');
   Route::get('webapp/activity','WebAppController@activity')->name('web');
