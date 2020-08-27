@@ -62,7 +62,9 @@
       onEnd: function(evt) {
         console.log(evt);
 
-        var newIndex = evt.newIndex;
+        var newIndex = evt.newIndex+1;
+        // fecth si es correcto hace un
+        location.reload(); 
       }
     });
 

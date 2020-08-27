@@ -93,7 +93,8 @@ class AttentionController extends Controller
      */
     public function show($id)
     {
-      return $id;
+      $a = Attention::findOrFail($id);
+      return $a;
     }
 
     /**
@@ -135,9 +136,11 @@ class AttentionController extends Controller
       return view('admin.attention.assigned');
     }
 
-    public function historial()
+    public function historial($id)
     {
-      return view('admin.attention.historial');
+      $attentions = Attention::where('user_id',$id)->get();
+      // return $attentions;
+      return view('admin.attention.historial', compact('attentions'));
     }
 
 }

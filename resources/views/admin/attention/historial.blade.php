@@ -20,24 +20,27 @@
                 <thead>
                 <tr>
                   {{-- <th>#</th> --}}
-                  <th>#</th>
+                  {{-- <th>#</th> --}}
                   {{-- <th>Paciente</th> --}}
                   <th>Especialista</th>
-                  <th>Día</th>
                   <th>Fecha</th>
+                  <th>Hora</th>
                   <th>Comentario de entrada</th>
                   <th>Comentario de salida</th>
                   <th>Estado</th>
                 </tr>
                 </thead>
                 <tbody>
-                  @forelse (current_user()->assignmentUsers as $ass)
+                  @forelse ($attentions as $a)
                   <tr>
                     {{-- <td>{{ $u->id }}</td> --}}
-                    <td>{{ $ass->user->id }}</td>
-                    <td>{{ $ass->user->getFullName() }}</td>
-                    <td>{{ $ass->user->id }}</td>
-                    <td></td>
+                    {{-- <td>{{ $a->user->id }}</td> --}}
+                    <td>{{ $a->specialist->getFullName() }}</td>
+                    <td>{{ $a->attention_date }}</td>
+                    <td>{{ $a->attention_time }}</td>
+                    <td>{{ $a->comment_in }}</td>
+                    <td>{{ $a->comment_out }}</td>
+                    <td>{{ $a->status}}</td>
 
                     {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
                       {{-- <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success btn-sm">Tomar hora</a>
