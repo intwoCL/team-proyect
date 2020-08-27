@@ -1,19 +1,26 @@
 @extends('layouts.app')
+@push('stylesheet')
+<link rel="stylesheet" href="/vendor/dropzone-5.7.0/dist/dropzone.css">
 
+<style>
+  .dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+@endpush
 @section('content')
-
-
 <section class="section">
   <div class="section-header">
     <a href="{{ route('user.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>{{trans('t.user.create.title')}}</h1>
-    {{-- <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Forms</a></div>
-      <div class="breadcrumb-item">Form Validation</div>
-    </div> --}}
   </div>
 
   <div class="section-body">
@@ -25,7 +32,7 @@
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
-          <form action="{{route('user.store')}}" method="POST" enctype="multipart/form-data" >
+          <form id="form-dropzone" action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="card-header">
                 <h4>Formulario nuevo usuario</h4>
@@ -73,7 +80,7 @@
                     <br>
                   </div>
                 </div>  
-                <div class="form-group center-text">
+                <div class="form-group center-text dropzone">
                     <div id="preview"></div>
                 </div>
                 <fieldset class="form-group">
@@ -114,7 +121,6 @@
           </form>
         </div>
       </div>
-      
     </div>
   </div>
 </section>

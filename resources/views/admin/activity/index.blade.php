@@ -42,7 +42,7 @@
                     <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
                   </div>
                 </td>
-                <td>{{ $a->objective}}</td>
+                <td>{!! $a->objective !!}</td>
                 <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
                 <td>
                   @foreach ($a->tagsCategories as $c)

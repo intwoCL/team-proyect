@@ -23,18 +23,18 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Id Actividad</th>
+                <th>Position</th>
                 <th>Nombre</th>
                 <th>Objetivo</th>
                 <th></th>
                 <th></th>
               </tr>
               </thead>
-              <tbody class="list-group" id="demo1">
+              <tbody id="items" data-activity="{{ $a->id }}">
               @foreach ($a->contents as $c)
-              <tr class="mlist-group-item">
+              <tr>
+                <td class="handle" data-id="{{ $c->id }}" data-position="{{ $c->position }}"><i class="fa fa-arrows-alt"></i></td>
                 <td>{{$c->position}}</td>
-                <td>{{$c->activity_id}}</td>
                 <td>{{$c->name}}</td>
                 <td></td>
                 <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td> 
@@ -48,41 +48,23 @@
       </div>
     </div>
   </section>
-
-
-  <section>
-    <ul id="items">
-      <li>item 1</li>
-      <li>item 2</li>
-      <li>item 3</li>
-    </ul>
-  </section>
-
 @endsection
 @push('javascript')
 
 <script>
   var el = document.getElementById('items');
-var sortable = Sortable.create(el);
-    // Sortable.create(demo1, {
-    //   animation: 100,
-    //   group: 'list-1',
-    //   draggable: '.list-group-item',
-    //   handle: '.list-group-item',
-    //   sort: true,
-    //   filter: '.sortable-disabled',
-    //   chosenClass: 'active'
-    // });
+  // var sortable = Sortable.create(el);
+    Sortable.create(el, {
+      animation: 300,
+      handle: '.handle',
+      sort: true,
+      chosenClass: 'active',
+      onEnd: function(evt) {
+        console.log(evt);
 
-
-    new Sortable(example5, {
-      handle: '.handle', // handle's class
-      animation: 150
+        var newIndex = evt.newIndex;
+      }
     });
-    // Sortable.create(demo2, {
-    //   group: 'list-1',
-    //   handle: '.list-group-item'
-    // });
 
 </script>
 @endpush
