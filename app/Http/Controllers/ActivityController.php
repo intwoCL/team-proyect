@@ -124,6 +124,14 @@ class ActivityController extends Controller
       $a->objective = $request->input('objective');
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
+      
+      $file = $request->file('photo');
+      if ($file != null) {
+        $filename = $a->name . time() .'.'.$file->getClientOriginalExtension();
+        $path = $file->storeAs('public/photo_activity',$filename);
+        $a->photo= $filename;
+      }
+       
       $a->update();
       return redirect()->route('activity.index')->with('success',trans('alert.success'));
     } catch (\Throwable $th) {

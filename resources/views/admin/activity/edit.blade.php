@@ -63,7 +63,9 @@
               </div>
               <div class="form-group">
                 <div class="input-group">
-                  <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
+                  <div id="preview">
+                    <img class="img-fluid" src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
+                  </div>
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
                 </div>
