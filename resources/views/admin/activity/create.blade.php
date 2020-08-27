@@ -85,7 +85,7 @@
               </div>
             </div>
             <div class="card-footer text-right">
-              <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
+              <button class="btn btn-primary">{{trans('button.save')}}</button>
             </div>
           </form>
 

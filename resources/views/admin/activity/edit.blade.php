@@ -92,7 +92,11 @@
                 <div class="col-sm-12 row">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
                     @foreach ($categories as $c)
-                    <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                      @if ($c->selected)
+                        <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                      @else
+                        <option value="{{ $c->id }}">{{ $c->name }}</option> 
+                      @endif
                     @endforeach
                   </select>
                 </div>
@@ -106,7 +110,7 @@
               </div>
             </div>
             <div class="card-footer text-right">
-              <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
+              <button class="btn btn-primary">{{trans('button.update')}}</button>
             </div>
           </form>
         </div>
