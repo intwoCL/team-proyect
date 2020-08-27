@@ -1,11 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-// use Illuminate\Support\Facades\Storage;
-
-// Route::get('/photo_activity/{file}', function ($file){
-//     return Storage::response("photo_activity/$file");
-// })->name('photo');
 
 Route::get('/','Auth\AuthUserController@index');
 Route::post('/','Auth\AuthUserController@login')->name('login');

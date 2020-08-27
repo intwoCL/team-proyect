@@ -11,6 +11,8 @@ class User extends Authenticatable
 
   use Notifiable;
 
+  private $folderImg = 'photo_activity';
+
   protected $guard = 'user';
 
   protected $hidden = [
@@ -41,4 +43,7 @@ class User extends Authenticatable
     return [$newPassword,$encryPassword]; 
   }
 
+  public function getPhoto(){
+    return \Storage::url("$this->folderImg/$this->photo");
+  }
 }
