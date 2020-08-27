@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
-        <div class="card">          
+        <div class="card">
           <form action="{{route('activity.update', $activity->id)}}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
@@ -60,15 +60,17 @@
                 <div class="input-group">
                   {{-- <img src="{{route('photo',$activity->photo)}}" class='Responsive image img-thumbnail' required=""  width='200px' height='200px' alt=""> --}}
                 </div>
-              </div> 
+              </div>
               <div class="form-group">
                 <div class="input-group">
+                  <div id="preview">
+                    <img class="img-fluid" src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
+                  </div>
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
                 </div>
               </div>
               {{-- <img src="{{ asset('storage/photo_activity/'.$activity->photo) }}" alt="" title=""></a> --}}
-              <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
 
               <div class="form-group row">
                 <label for="inputScale" class="col-sm-3 col-form-label">{{trans('t.activity.create.scale')}}</label>
@@ -78,7 +80,7 @@
                       @if ($activity->scale_id == $s->id)
                         <option selected value="{{ $s->id }}">{{ $s->name }}</option>
                       @else
-                        <option value="{{ $s->id }}">{{ $s->name }}</option>  
+                        <option value="{{ $s->id }}">{{ $s->name }}</option>
                       @endif
                     @endforeach
                   </select>
@@ -90,7 +92,11 @@
                 <div class="col-sm-12 row">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
                     @foreach ($categories as $c)
-                    <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                      @if ($c->selected)
+                        <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                      @else
+                        <option value="{{ $c->id }}">{{ $c->name }}</option> 
+                      @endif
                     @endforeach
                   </select>
                 </div>
@@ -104,12 +110,12 @@
               </div>
             </div>
             <div class="card-footer text-right">
-              <button class="btn btn-primary">{{trans('t.activity.create.submit')}}</button>
+              <button class="btn btn-primary">{{trans('button.update')}}</button>
             </div>
           </form>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>

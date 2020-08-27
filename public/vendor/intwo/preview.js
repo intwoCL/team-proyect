@@ -5,7 +5,7 @@ function preview(e){
       // El evento onload se ejecuta cada vez que se ha leido el archivo
       // correctamente
       reader.onload=function(e){   
-        document.getElementById("preview").innerHTML="<img src='"+e.target.result+"' class='Responsive image img-thumbnail' width='200px' height='200px' >";
+        document.getElementById("preview").innerHTML="<img src='"+e.target.result+"' class='Responsive image img-fluid'>";
       }
       // El evento onerror se ejecuta si ha encontrado un error de lectura
       reader.onerror=function(e){

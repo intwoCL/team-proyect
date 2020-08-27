@@ -18,6 +18,7 @@ class CreateItemsTable extends Migration
             // $table->integer('content_id');
             $table->foreignId('content_id')->references('id')->on('contents');
             $table->string('title',100);
+            $table->foreignId('type_id')->references('id')->on('types');
             $table->string('content',100);
             $table->integer('position');
             $table->timestamps();

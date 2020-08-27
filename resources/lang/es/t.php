@@ -40,7 +40,7 @@ return [
       'login' => 'Acceder',
       'reset' => 'Restablecer contraseña',
     ]
-  ], 
+  ],
 
   'activity' => [
     'create' => [
@@ -68,12 +68,13 @@ return [
     ],
     'item' => [
       'item_id' => 'Id Item',
+      'type' => 'Tipo',
       'title' => 'Título',
       'content' => 'Contenido',
       'item_list' => 'Lista de todos los items',
     ],
 
-  ], 
+  ],
 
   'content' =>[
     'create' => [
