@@ -11,7 +11,7 @@ class User extends Authenticatable
 
   use Notifiable;
 
-  private $folderImg = 'photo_activity';
+  private $folderImg = 'photo_users';
 
   protected $guard = 'user';
 

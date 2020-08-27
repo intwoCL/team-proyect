@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Content extends Model
 {
-  private $folderImg = 'photo_activity';
+  private $folderImg = 'photo_contents';
 
   public function activity(){
     return $this->belongsTo(Activity::class,'activity_id');
