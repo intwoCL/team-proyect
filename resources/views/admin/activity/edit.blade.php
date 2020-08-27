@@ -25,7 +25,7 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
-        <div class="card">          
+        <div class="card">
           <form action="{{route('activity.update', $activity->id)}}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
@@ -60,15 +60,15 @@
                 <div class="input-group">
                   {{-- <img src="{{route('photo',$activity->photo)}}" class='Responsive image img-thumbnail' required=""  width='200px' height='200px' alt=""> --}}
                 </div>
-              </div> 
+              </div>
               <div class="form-group">
                 <div class="input-group">
+                  <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
                 </div>
               </div>
               {{-- <img src="{{ asset('storage/photo_activity/'.$activity->photo) }}" alt="" title=""></a> --}}
-              <img src="{{ Storage::url('photo_activity/'.$activity->photo) }}" alt="" title=""></a>
 
               <div class="form-group row">
                 <label for="inputScale" class="col-sm-3 col-form-label">{{trans('t.activity.create.scale')}}</label>
@@ -78,7 +78,7 @@
                       @if ($activity->scale_id == $s->id)
                         <option selected value="{{ $s->id }}">{{ $s->name }}</option>
                       @else
-                        <option value="{{ $s->id }}">{{ $s->name }}</option>  
+                        <option value="{{ $s->id }}">{{ $s->name }}</option>
                       @endif
                     @endforeach
                   </select>
@@ -109,7 +109,7 @@
           </form>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
