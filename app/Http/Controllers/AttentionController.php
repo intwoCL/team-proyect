@@ -94,7 +94,8 @@ class AttentionController extends Controller
     public function show($id)
     {
       $a = Attention::findOrFail($id);
-      return $a;
+      // return $a;
+      return view('admin.attention.control', compact('a'));
     }
 
     /**
