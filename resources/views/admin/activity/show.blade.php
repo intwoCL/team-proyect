@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('stylesheet')
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+@endpush
 @section('content')
   <section class="section">
     <div class="section-header">
@@ -8,7 +10,6 @@
       </a>
       <h1>{{trans('t.activity.show.title')}} </h1>
       <div class="section-header-button">
-        {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
         <button onClick="window.location.href='{{ route('content.create',$a->id) }}'" class="btn btn-primary">Nuevos Contenidos</button>
       </div>
     </div>
@@ -18,7 +19,7 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-striped table-md ">
+            <table class="table table-hover table-md">
               <thead>
               <tr>
                 <th>#</th>
@@ -29,15 +30,15 @@
                 <th></th>
               </tr>
               </thead>
-              <tbody>
+              <tbody class="list-group" id="demo1">
               @foreach ($a->contents as $c)
-              <tr>
+              <tr class="mlist-group-item">
                 <td>{{$c->position}}</td>
                 <td>{{$c->activity_id}}</td>
                 <td>{{$c->name}}</td>
                 <td></td>
-                <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary">Items</a> </td> 
-                <td> <a href="{{route('content.edit',[$a->id,$c->id])}}" class="btn btn-primary">Editar</a> </td>
+                <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td> 
+                <td> <a href="{{route('content.edit',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Editar</a> </td>
               </tr>
               @endforeach
               </tbody>
@@ -47,4 +48,41 @@
       </div>
     </div>
   </section>
+
+
+  <section>
+    <ul id="items">
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+    </ul>
+  </section>
+
 @endsection
+@push('javascript')
+
+<script>
+  var el = document.getElementById('items');
+var sortable = Sortable.create(el);
+    // Sortable.create(demo1, {
+    //   animation: 100,
+    //   group: 'list-1',
+    //   draggable: '.list-group-item',
+    //   handle: '.list-group-item',
+    //   sort: true,
+    //   filter: '.sortable-disabled',
+    //   chosenClass: 'active'
+    // });
+
+
+    new Sortable(example5, {
+      handle: '.handle', // handle's class
+      animation: 150
+    });
+    // Sortable.create(demo2, {
+    //   group: 'list-1',
+    //   handle: '.list-group-item'
+    // });
+
+</script>
+@endpush

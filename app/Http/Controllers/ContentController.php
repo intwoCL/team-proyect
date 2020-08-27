@@ -65,7 +65,7 @@ class ContentController extends Controller
 
     $content = Content::where('activity_id',$activity_id)->findOrFail($id);
     $items = $content->items;
-    //return $items;
+    
     return view('admin.activity.content.show',compact('content','items'));
   }
 
