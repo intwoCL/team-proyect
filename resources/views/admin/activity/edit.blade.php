@@ -120,4 +120,6 @@
   </div>
 </section>
 @endsection
+@push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
+@endpush
