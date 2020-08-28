@@ -24,16 +24,16 @@
           <form method="POST" action="{{ route('login') }}" class="needs-validation" novalidate="">
             @csrf
             <div class="form-group floating-addon">
-            <label for="email">{{ trans('t.login.email') }}</label>
-            <div class="input-group">
-              <div class="input-group-prepend">
-              <div class="input-group-text">
-                <i class="fas fa-envelope"></i>
-              </div>
-              </div>
-              <input id="email" type="email" class="form-control" name="email" tabindex="1" value="admin@example.com" required autofocus>
+              <label for="email">{{ trans('t.login.email') }}</label>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                </div>
+                <input id="email" type="email" class="form-control" name="email" tabindex="1" value="admin@example.com" required autofocus>
 
-            </div>
+              </div>
             </div>
     
             <div class="form-group">
@@ -44,9 +44,9 @@
             </div>
 
             <div class="form-group text-right">
-            <button type="submit" class="btn btn-block btn-lg btn-primary">
-              {{ trans('t.login.btn.login') }}
-            </button>
+              <button type="submit" class="btn btn-block btn-lg btn-primary">
+                {{ trans('t.login.btn.login') }}
+              </button>
             </div>
             <div class="form-group text-right">
               <a href="{{ route('reset.password') }}" class="float-left mt-3">
@@ -55,7 +55,7 @@
             </div>
             @if (helper_integration_gmail())
             <div class="mt-5 text-center">
-            <a href="auth-register.html" class="btn btn-danger"><i class="fab fa-google"></i> Sign in google</a>
+              <a href="auth-register.html" class="btn btn-danger"><i class="fab fa-google"></i> Sign in google</a>
             </div>
             @endif
           </form>
