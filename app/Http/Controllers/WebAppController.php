@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class WebAppController extends Controller
 {
-  public function index(){
+  public function app(){
     return view('webapp.app');
   }
 
@@ -23,7 +23,9 @@ class WebAppController extends Controller
     return view('webapp.items');
   }
 
-
+  public function index(){
+    return view('webapp.welcome');
+  }
 
 
 }
