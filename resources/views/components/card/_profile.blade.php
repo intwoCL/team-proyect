@@ -1,6 +1,6 @@
 <div class="card profile-widget">
   <div class="profile-widget-header">
-  <img alt="image" src="{{ $u->getPhoto() }}" class="rounded-circle profile-widget-picture">
+  <img alt="image" src="{{ $user->getPhoto() }}" class="rounded-circle profile-widget-picture">
   <div class="profile-widget-items">
     <div class="profile-widget-item">
     <div class="profile-widget-item-label">Posts</div>

@@ -9,21 +9,16 @@
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>{{trans('t.user.show.title')}}</h1>
-    <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Forms</a></div>
-      <div class="breadcrumb-item">Form Validation</div>
-    </div>
   </div>
 
   <div class="section-body">
-    {{-- <h2 class="section-title">Formulario de usuario</h2>
-    <p class="section-lead">
-      Form validation using default from Bootstrap 4
-    </p> --}}
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
-        @include('partials._errors')
+        @include('components.card._profile')
+      </div>
+      
+      <div class="col-12 col-md-6 col-lg-6">
+        
         <div class="card">
           <form action="{{route('user.update', $user->id)}}" method="POST" enctype="multipart/form-data" >
             @csrf

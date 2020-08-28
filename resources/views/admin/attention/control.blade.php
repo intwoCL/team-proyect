@@ -5,137 +5,105 @@
 @extends('layouts.app')
 
 @push('stylesheet')
-<link rel="stylesheet" href="/vendor/clockpicker/css/bootstrap-clockpicker.min.css">
-<link rel="stylesheet" href="/vendor/datepicker2/css/bootstrap-datepicker3.css">
-  {{-- <link href="/vendor/datepicker/css/gijgo.min.css" rel="stylesheet" type="text/css" /> --}}
 @endpush
 @section('content')
-
 <section class="section">
   <div class="section-header">
     <a href="{{ route('attention.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>Información del Paciente </h1>
-    {{-- <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Forms</a></div>
-      <div class="breadcrumb-item">Form Validation</div>
-    </div> --}}
+    <h1>Tickets</h1>
   </div>
 
   <div class="section-body">
-    {{-- <h2 class="section-title">Form Validation</h2>
+    {{-- <h2 class="section-title">Help Your Customer</h2>
     <p class="section-lead">
-      Form validation using default from Bootstrap 4
+      Some customers need your help.
     </p> --}}
+
     <div class="row">
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-md-12">
         @include('partials._errors')
         <div class="card">
-          <form action="{{route('attention.historial', $a->id)}}" method="POST">
-            @csrf
-            <div class="card-header">
-              <h4>{{ trans('t.user.calendar.title') }}</h4>
-            </div>
-            <div class="card-body">
-              {{-- <div class="form-group row">
-                <label for="inputDate" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.date') }}</label>
-                <div class="col-sm-9">
-                  <input id="datepicker" width="276"/>
+          <div class="card-header">
+            <h4>Tickets</h4>
+          </div>
+          <div class="card-body">
+            <a href="#" class="btn btn-primary btn-icon icon-left btn-lg btn-block mb-4 d-md-none" data-toggle-slide="#ticket-items">
+              <i class="fas fa-list"></i> All Tickets
+            </a>
+            <div class="tickets">
+              <div class="ticket-items" id="ticket-items">
+                <div class="ticket-item active">
+                  <div class="ticket-title">
+                    <h4>{{ $a->getAttentionDate() }}</h4>
+                  </div>
+                  <div class="ticket-desc">
+                    <div><p>{{ $a->comment_in }}.</p></div>
+                  </div>
                 </div>
-              </div> --}}
-
-              {{-- <input type="hidden" name="user_id" value="{{ $user_id }}"> --}}
-
-              <div class="form-group row" id="data_1">
-                <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
-                <div class="input-group date col-sm-10">
-                  <span class="input-group-addon btn btn-info"><i class="fa fa-calendar"></i></span>
-                  <input type="text" class="form-control" readonly name="attention_date" id="fecha_agenda" required value="{{ $a->attention_date }}" disabled="true">
+                <div class="ticket-item">
+                  <div class="ticket-title">
+                    <h4>Información</h4>
+                  </div>
+                  <div class="ticket-desc">
+                    <div><a href=""></a></div>
+                  </div>
                 </div>
-                <div class="col-sm-12">    
-                    {!! $errors->first('fecha', '<small id="inputPassword" class="form-text text-danger">:message</small>') !!}
-                </div>  
+                {{-- <div class="ticket-item">
+                  <div class="ticket-title">
+                    <h4>Where is my mother?</h4>
+                  </div>
+                  <div class="ticket-desc">
+                    <div>Irwansyah Saputra</div>
+                    <div class="bullet"></div>
+                    <div>July 18, 2018</div>
+                  </div>
+                </div> --}}
               </div>
-
-              <div class="form-group row">
-                <label for="hora" class="col-sm-2 col-form-label">Hora</label>
-                <div class="input-group col-sm-10">                    
-                    <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-time"></span>
-                        </span>
-                        <input type="text" class="form-control" readonly value="{{ $a->attention_time }}" name="attention_time" id="attention_time" required disabled="true">
+              <div class="ticket-content">
+                <div class="ticket-header">
+                  <div class="ticket-sender-picture img-shadow">
+                    <img src="{{ $a->user->getPhoto() }}" alt="image">
+                  </div>
+                  <div class="ticket-detail">
+                    <div class="ticket-title">
+                      <h4>{{ $a->user->getFullName() }}</h4>
                     </div>
-                    <div class="col-sm-12">
-                        {!! $errors->first('hora', '<small class="form-text text-danger">:message</small>') !!}
+                    <div class="ticket-info">
+                      @php
+                        $state = "warning";
+                      @endphp
+                      <div class="font-weight-600"><div class="badge badge-{{ $state }}">{{ $a->getState() }}</div></div>
+                      <div class="bullet"></div>
+                      {{-- <div class="text-primary font-weight-600">2 min ago</div> --}}
                     </div>
+                  </div>
+                </div>
+                <div class="ticket-description">
+                  <div class="ticket-divider"></div>
+                  <div class="ticket-form">
+                    <form>
+                      <div class="form-group">
+                        <textarea class="summernote form-control" name="commnet_out" placeholder="Type a reply ..." style="height: 100px"></textarea>
+                      </div>
+                      <div class="form-group text-right">
+                        <button class="btn btn-primary btn-lg">
+                          Reply
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-
-              <div class="form-group row">
-                <label for="inputSpecialist" class="col-sm-12 col-form-label">Especialista</label>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" readonly value="{{ $a->specialist->getFullName() }}" name="specialist" id="specialist" required disabled="true">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="inputStatus" class="col-sm-12 col-form-label">Estado</label>
-                <div class="col-sm-12">
-                  <input type="text" class="form-control" readonly value="{{ $a->status }}" name="status" id="status" required disabled="true">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="inputCommentIn" class="col-sm-12 col-form-label">{{ trans('t.user.calendar.comment_in') }}</label>
-                <div class="col-sm-12">
-                  <textarea class="form-control" rows="3" name="comment_in" id="comentario_entrada" placeholder="..." required style="height: 100px" value="" disabled="true">{{ $a->comment_in }}</textarea>
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="inputCommentOut" class="col-sm-12 col-form-label">Comentario de salida</label>
-                <div class="col-sm-12">
-                  <textarea class="form-control" rows="3" name="comment_out" id="comentario_salida" placeholder="..." required style="height: 100px" value="" disabled="true">{{ $a->comment_out }}</textarea>
-                </div>
-              </div>
-
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
+
 @endsection
 @push('javascript')
-  {{-- <script src="/vendor/datepicker/js/gijgo.min.js" type="text/javascript"></script>
-  <script>
-      $('#datepicker').datepicker({
-          uiLibrary: 'bootstrap4'
-      });
-      $('#data_1 .input-group.date').datepicker({
-    language: "es",
-    format: 'dd-mm-yyyy',
-    orientation: "bottom",
-    showButtonPanel: true,
-    autoclose: true
-  });
-  </script> --}}
-<script src="/vendor/clockpicker/js/bootstrap-clockpicker.min.js"></script>  
-<script src="/vendor/datepicker2/js/bootstrap-datepicker.min.js"></script>
-<script src="/vendor/datepicker2/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
-<script type="text/javascript">
-    $('.clockpicker').clockpicker();
-
-  $('#data_1 .input-group.date').datepicker({
-    language: "es",
-    format: 'dd-mm-yyyy',
-    orientation: "bottom",
-    showButtonPanel: true,
-    autoclose: true
-  });
-</script>
 @endpush

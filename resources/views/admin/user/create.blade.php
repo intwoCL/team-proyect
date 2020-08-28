@@ -54,7 +54,7 @@
                 <div class="form-group row">
                   <label for="inputRut" class="col-sm-3 col-form-label">{{ trans('t.user.profile.run') }}<span class="text-danger">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text"  name="run" class="form-control" autocomplete="off" value="{{ old('run') }}"  required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)" placeholder="{{ trans('t.user.profile.run') }}">
+                    <input type="text"  name="run" class="form-control" autocomplete="off" value="{{ old('run') }}" required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)" placeholder="{{ trans('t.user.profile.run') }}">
                   </div>
                 </div>
 

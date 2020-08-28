@@ -38,7 +38,6 @@ class UserController extends Controller
      */
     public function store(UserStoreRequest $request)
     {
-      //return $request;
       try {
         $u = new User();
         $u->email = $request->input('email');
@@ -131,6 +130,16 @@ class UserController extends Controller
         }else {
           $u->specialist = false;
         }
+
+        if(!empty($request->file('photo'))){
+          $request->validate([
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+            $file = $request->file('photo');
+            $filename = time() .'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('public/photo_users',$filename);
+            $u->photo= $filename;
+        }
         $u->update();
         return back()->with('success',trans('alert.update'));
       } catch (\Throwable $th) {
@@ -164,7 +173,7 @@ class UserController extends Controller
     public function profile()
     {
       //$user = User::findOrFail($id);
-      $u = current_user();
-      return view('admin.user.profile',compact('u'));
+      $user = current_user();
+      return view('admin.user.profile',compact('user'));
     }
 }
