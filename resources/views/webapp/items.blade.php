@@ -31,25 +31,25 @@
     <div class="swiper-container swiper-slider" data-pagination-type='progress' style="margin-top: 100px;">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          @include('webapp.card._quiz')
+          @include('webapp.components.swiper._quiz')
         </div>
         <div class="swiper-slide">
-          @include('webapp.card._gif')
+          @include('webapp.components.swiper._gif')
         </div>
         <div class="swiper-slide">
-          @include('webapp.card._text')
+          @include('webapp.components.swiper._text')
         </div>
         <div class="swiper-slide">
-          @include('webapp.card._youtube')
+          @include('webapp.components.swiper._youtube')
         </div>
         <div class="swiper-slide">
-          @include('webapp.card._youtube')
+          @include('webapp.components.swiper._youtube')
         </div>
         <div class="swiper-slide">
-          @include('webapp.card._youtube')
+          @include('webapp.components.swiper._youtube')
         </div>
         <div class="swiper-slide">
-          @include('webapp.card._quiz')
+          @include('webapp.components.swiper._quiz')
         </div>
       </div>
       <!-- Add Pagination -->

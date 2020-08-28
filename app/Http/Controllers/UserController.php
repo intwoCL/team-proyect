@@ -58,15 +58,16 @@ class UserController extends Controller
         if (!empty($request->input('specialist'))) {
           $u->specialist = true;
         }
-        // if(!empty($request->file('photo'))){
-        //   $request->validate([
-        //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        //   ]);
-        //   $photo_name = time().'.'.$request->image->extension();  
-        //   $request->image->move(public_path('/dir/formulario/'), $photo_name);
-        //   $a->foto = "/dir/formulario/$photo_name";
-        // }
-        $u->photo = 'image.png';
+        if(!empty($request->file('photo'))){
+          $request->validate([
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+            $file = $request->file('photo');
+            $filename = time() .'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('public/photo_users',$filename);
+            $u->photo= $filename;
+        }
+        
         $u->save();
         return redirect()->route('user.index')->with('success',trans('alert.success'));
       } catch (\Throwable $th) {
@@ -163,6 +164,7 @@ class UserController extends Controller
     public function profile()
     {
       //$user = User::findOrFail($id);
-      return view('admin.user.profile');
+      $u = current_user();
+      return view('admin.user.profile',compact('u'));
     }
 }

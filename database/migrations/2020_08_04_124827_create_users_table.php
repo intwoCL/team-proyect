@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->json('account_token')->nullable(); // { google: [ token: xxx ] } 
             $table->boolean('admin')->default(false);
             $table->boolean('specialist')->default(false);
-            $table->string('photo')->default("/img/demo.png");
+            $table->string('photo')->default("/images/avatar.png");
             $table->timestamps();
         });
     }

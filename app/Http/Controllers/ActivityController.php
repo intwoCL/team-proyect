@@ -52,19 +52,9 @@ class ActivityController extends Controller
       $a->user_id = current_user()->id;
       $a->code = $this->getCodeRandom();
 
-      // if(!empty($request->file('photo'))){
-      //   $request->validate([
-      //     'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-      //   ]);
-      //   $photo_name = time().'.'.$request->image->extension();
-      //   $request->image->move(public_path('/dir/formulario/'), $photo_name);
-      //   $a->photo = "/dir/formulario/$photo_name";
-      // }
       $file = $request->file('photo');
       $filename = $a->name . time() .'.'.$file->getClientOriginalExtension();
       $path = $file->storeAs('public/photo_activity',$filename);
-
-      // storeAs('uploads', request()->file->getClientOriginalName());
 
       $a->photo= $filename;
       $a->save();

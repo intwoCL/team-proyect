@@ -17,7 +17,7 @@ class CreateActivitiesTable extends Migration
             $table->id();
             $table->string('name',50);
             $table->string('objective',100)->nullable();
-            $table->string('photo')->default('example.png');
+            $table->string('photo')->default('/images/gallery.jpg');
             $table->foreignId('scale_id')->references('id')->on('scales');
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('code')->unique();

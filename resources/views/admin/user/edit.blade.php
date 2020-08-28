@@ -1,19 +1,25 @@
 @extends('layouts.app')
-
+@push('stylesheet')
+<style>
+  .dropzone {
+    background: white;
+    border-radius: 5px;
+    border: 2px dashed rgb(0, 135, 247);
+    border-image: none;
+    max-width: 100%;
+    /* max-height: 40px; */
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+@endpush
 @section('content')
-
-
 <section class="section">
   <div class="section-header">
     <a href="{{ route('user.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>{{trans('t.user.edit.title')}}</h1>
-    <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Forms</a></div>
-      <div class="breadcrumb-item">Form Validation</div>
-    </div>
   </div>
 
   <div class="section-body">
@@ -59,14 +65,6 @@
                   <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name" value="{{$user->last_name}}">
                 </div>
               </div>
-
-              <div class="form-group row">
-                <label for="inputPhoto" class="col-sm-3 col-form-label">{{ trans('t.user.profile.photo') }}</label>
-                <div class="col-sm-9">
-                  <input type="file" name="photo" id="inputPhoto" class="form-control">
-                </div>
-              </div>
-
               <fieldset class="form-group">
                 <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="" value="{{$user->lang}}">
@@ -109,7 +107,23 @@
                   </label>
                 </div>
               </fieldset>
-              
+              <div class="form-group">
+                <label class="col-form-label" for="hf-rut">Imagen Actual <small>(Opcional)</small></label>
+                <div class="input-group">
+                  <img src="{{ $user->getPhoto() }}"  class='Responsive image img-thumbnail'  width='200px' height='200px' alt="">
+                </div>
+            </div> 
+              <div class="form-group row">
+                <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.user.profile.photo')}}</label>
+                <div class="col-sm-9">
+                  <!-- <img src=""  class='Responsive image img-thumbnail'  width='200px' height='200px' alt=""> -->
+                  <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
+                  <br>
+                </div>
+              </div>  
+              <div class="form-group center-text dropzone">
+                  <div id="preview"></div>
+              </div>
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{ trans('button.update') }}</button>

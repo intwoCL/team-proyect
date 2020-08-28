@@ -8,6 +8,8 @@ class Activity extends Model
 {
   protected $table = 'activities';
   private $folderImg = 'photo_activity';
+  private $imgDefault = '/images/gallery.jpg';
+
 
   public function contents(){
     return $this->hasMany(Content::class,'activity_id')->orderBy('position','asc');
@@ -26,6 +28,13 @@ class Activity extends Model
   }
 
   public function getPhoto(){
-    return \Storage::url("$this->folderImg/$this->photo");
+    try {
+      if($this->photo == $this->imgDefault){
+        return $this->photo;
+      }
+      return \Storage::url("$this->folderImg/$this->photo");
+    } catch (\Throwable $th) {
+      return $this->imgDefault;
+    }
   }
 }

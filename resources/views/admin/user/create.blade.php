@@ -1,14 +1,13 @@
 @extends('layouts.app')
 @push('stylesheet')
-<link rel="stylesheet" href="/vendor/dropzone-5.7.0/dist/dropzone.css">
-
 <style>
   .dropzone {
     background: white;
     border-radius: 5px;
     border: 2px dashed rgb(0, 135, 247);
     border-image: none;
-    max-width: 500px;
+    max-width: 100%;
+    /* max-height: 40px; */
     margin-left: auto;
     margin-right: auto;
 }
@@ -72,17 +71,6 @@
                     <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name">
                   </div>
                 </div>
-                <div class="form-group row">
-                  <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.user.profile.photo')}}</label>
-                  <div class="col-sm-9">
-                    <!-- <img src=""  class='Responsive image img-thumbnail'  width='200px' height='200px' alt=""> -->
-                    <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
-                    <br>
-                  </div>
-                </div>  
-                <div class="form-group center-text dropzone">
-                    <div id="preview"></div>
-                </div>
                 <fieldset class="form-group">
                   <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                   <select class="form-control select2" name="lang" required="">
@@ -113,6 +101,17 @@
                     </label>
                   </div>
                 </fieldset>
+                <div class="form-group row">
+                  <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.user.profile.photo')}}</label>
+                  <div class="col-sm-9">
+                    <!-- <img src=""  class='Responsive image img-thumbnail'  width='200px' height='200px' alt=""> -->
+                    <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
+                    <br>
+                  </div>
+                </div>  
+                <div class="form-group center-text dropzone">
+                    <div id="preview"></div>
+                </div>
               </div>
               <div class="card-footer text-right">
                 <button class="btn btn-primary">{{ trans('button.save') }}</button>

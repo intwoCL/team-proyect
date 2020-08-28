@@ -1,51 +1,178 @@
 @extends('layouts.app')
-
-@section('title', 'Admin Dashboard')
 @push('stylesheet')
-{{-- <link rel="stylesheet" href="/vendor/bootstrap-social/bootstrap-social.css"/> --}}
 
 @endpush
 @section('content')
-  <section class="section">
-    <div class="card author-box card-primary">
-      <div class="card-body">
-        <div class="author-box-left">
-          <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle author-box-picture">
-          <div class="clearfix"></div>
-          <a href="#" class="btn btn-primary mt-3 follow-btn" data-follow-action="alert('follow clicked');" data-unfollow-action="alert('unfollow clicked');">Follow</a>
-        </div>
-        <div class="author-box-details">
-          <div class="author-box-name">
-            <a href="#">Hasan Basri</a>
-          </div>
-          <div class="author-box-job">Web Developer</div>
-          <div class="author-box-description">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.</p>
-          </div>
-          <div class="mb-2 mt-3"><div class="text-small font-weight-bold">Follow Hasan On</div></div>
-          <a href="#" class="btn btn-social-icon mr-1 btn-facebook">
-            <i class="fab fa-facebook-f"></i>
-          </a>
-          <a href="#" class="btn btn-social-icon mr-1 btn-twitter">
-            <i class="fab fa-twitter"></i>
-          </a>
-          <a href="#" class="btn btn-social-icon mr-1 btn-github">
-            <i class="fab fa-github"></i>
-          </a>
-          <a href="#" class="btn btn-social-icon mr-1 btn-instagram">
-            <i class="fab fa-instagram"></i>
-          </a>
-          <div class="w-100 d-sm-none"></div>
-          <div class="float-right mt-sm-0 mt-3">
-            <a href="#" class="btn">View Posts <i class="fas fa-chevron-right"></i></a>
-          </div>
-        </div>
-      </div>
+<section class="section">
+  <div class="section-header">
+    <h1>Article</h1>
+    <div class="section-header-breadcrumb">
+      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
+      <div class="breadcrumb-item"><a href="#">Components</a></div>
+      <div class="breadcrumb-item">Article</div>
     </div>
   </div>
+
+  <div class="section-body">
+    <h2 class="section-title">Articles</h2>
+    <p class="section-lead">This article component is based on card and flexbox.</p>
+
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img08.jpg">
+            </div>
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+          </div>
+          <div class="article-details">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img04.jpg">
+            </div>
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+          </div>
+          <div class="article-details">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img09.jpg">
+            </div>
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+          </div>
+          <div class="article-details">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img12.jpg">
+            </div>
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+          </div>
+          <div class="article-details">
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#" class="btn btn-primary">Read More</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <h2 class="section-title">Article Style B</h2>
+    <div class="row">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article article-style-b">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img13.jpg">
+            </div>
+            <div class="article-badge">
+              <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> Trending</div>
+            </div>
+          </div>
+          <div class="article-details">
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#">Read More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article article-style-b">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img15.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#">Read More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article article-style-b">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img07.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#">Read More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+      <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+        <article class="article article-style-b">
+          <div class="article-header">
+            <div class="article-image" data-background="../assets/img/news/img02.jpg">
+            </div>
+          </div>
+          <div class="article-details">
+            <div class="article-title">
+              <h2><a href="#">Excepteur sint occaecat cupidatat non proident</a></h2>
+            </div>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. </p>
+            <div class="article-cta">
+              <a href="#">Read More <i class="fas fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+ 
+  </div>
+</section>
 </section>
 
 
