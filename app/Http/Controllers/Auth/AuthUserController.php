@@ -23,7 +23,7 @@ class AuthUserController extends Controller
         return redirect()->route('webapp');
       }
     }else{
-      return view('layouts.login');
+      return view('layouts.login2');
     }
   }
 
