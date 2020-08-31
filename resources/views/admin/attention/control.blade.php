@@ -39,8 +39,13 @@
                     <h4>{{ $a->getAttentionDate() }}</h4>
                   </div>
                   <div class="ticket-desc">
-                    <div><p>{{ $a->comment_in }}.</p></div>
+                    <div>Comentario de entrada: <p>{{ $a->comment_in }}.</p></div>
                   </div>
+
+                  <div class="ticket-desc">
+                    <div>Comentario de salida: <p>{{ $a->comment_out }}.</p></div>
+                  </div>
+
                 </div>
                 <div class="ticket-item">
                   <div class="ticket-title">
@@ -83,12 +88,14 @@
                 <div class="ticket-description">
                   <div class="ticket-divider"></div>
                   <div class="ticket-form">
-                    <form>
+                    <form action="{{route('attention.update', $a->id)}}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                      @method('PUT')
                       <div class="form-group">
                         <textarea class="summernote form-control" name="commnet_out" placeholder="Type a reply ..." style="height: 100px"></textarea>
                       </div>
                       <div class="form-group text-right">
-                        <button class="btn btn-primary btn-lg">
+                        <button  type="submit" class="btn btn-primary btn-lg">
                           Reply
                         </button>
                       </div>

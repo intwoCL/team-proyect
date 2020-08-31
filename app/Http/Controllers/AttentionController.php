@@ -118,7 +118,16 @@ class AttentionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try {
+        $a = Attention::findOrFail($id);
+        $a->comment_out = $request->input('comment_out');
+
+        $a->update();
+        return back()->with('success',trans('alert.update'));
+      } catch (\Throwable $th) {
+        //throw $th;
+        return back()->with('danger',trans('alert.danger'));
+      }
     }
 
     /**
