@@ -92,7 +92,7 @@
                       @csrf
                       @method('PUT')
                       <div class="form-group">
-                        <textarea class="form-control" name="comment_out" placeholder="Type a reply ..." style="height: 100px"></textarea>
+                        <textarea class="form-control" name="comment_out" placeholder="Comentario de salida ..." style="height: 100px"></textarea>
                       </div>
                       <div class="form-group text-right">
                         <button  type="submit" class="btn btn-primary btn-lg">
