@@ -47,7 +47,7 @@ class AttentionController extends Controller
             break;
       }
       return $color;
-  }
+    }
 
     /**
      * Show the form for creating a new resource.
