@@ -88,11 +88,11 @@
                 <div class="ticket-description">
                   <div class="ticket-divider"></div>
                   <div class="ticket-form">
-                    <form action="{{route('attention.update', $a->id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{route('attention.update', $a->id)}}" method="POST">
                       @csrf
                       @method('PUT')
                       <div class="form-group">
-                        <textarea class="summernote form-control" name="commnet_out" placeholder="Type a reply ..." style="height: 100px"></textarea>
+                        <textarea class="form-control" name="comment_out" placeholder="Type a reply ..." style="height: 100px"></textarea>
                       </div>
                       <div class="form-group text-right">
                         <button  type="submit" class="btn btn-primary btn-lg">
