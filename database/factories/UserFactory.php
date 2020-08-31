@@ -17,14 +17,26 @@ use Illuminate\Support\Str;
 |
 */
 
+// $factory->define(User::class, function (Faker $faker) {
+//   return [ 
+//     'run' => Str::random(10),
+//     'first_name' => $faker->name,
+//     'last_name' => '',
+//     'email' => $faker->unique()->safeEmail,
+//     'password' => '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
+//     'admin' => false,
+//     'specialist' => false
+//   ];
+// });
+
 $factory->define(User::class, function (Faker $faker) {
   return [ 
     'run' => Str::random(10),
-    'first_name' => $faker->name,
-    'last_name' => '',
+    'first_name' => 'Joseph',
+    'last_name' => 'Torres',
     'email' => $faker->unique()->safeEmail,
     'password' => '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92',
-    'admin' => false,
-    'specialist' => false
+    'admin' => true,
+    'specialist' => true
   ];
 });

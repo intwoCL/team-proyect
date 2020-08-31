@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/','Auth\AuthUserController@index');
+Route::get('/','Auth\AuthUserController@index')->name('index');
 Route::post('/','Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
 Route::post('password/reset','Auth\AuthUserController@resetPassword')->name('reset.password');

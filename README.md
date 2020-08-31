@@ -60,3 +60,15 @@ trans('t.message.success.create')
 
 <!-- Tamaños https://laravel.com/docs/4.2/schema -->
 <!-- https://stackoverflow.com/questions/2023481/mysql-large-varchar-vs-text -->
+
+
+
+
+<!-- TEST -->
+<!-- https://medium.com/@tonyfrenzy/part-2-testing-model-relationships-in-laravel-basic-8b606dd36c02 -->
+
+<!-- 
+
+vendor\bin\phpunit
+
+ -->
