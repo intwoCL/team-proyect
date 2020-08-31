@@ -24,7 +24,7 @@ class UserTest extends TestCase
     $u = new User();
     $u->first_name = "Bem";
     $u->last_name = "Mo 2";
-    $this->assertEquals("Bem Mo 2", $u->getFullName()); 
+    $this->assertFalse("error", $u->getFullName()); 
   }
 
 }

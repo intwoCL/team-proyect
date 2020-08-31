@@ -35,6 +35,10 @@ npm install
 npm run dev
 ```
 
+## Test
+```shell
+vendor\bin\phpunit
+```
 
 <!-- #### Inicial laravel-mix mode produccion
 ```shell
