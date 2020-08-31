@@ -121,6 +121,7 @@ class AttentionController extends Controller
       try {
         $a = Attention::findOrFail($id);
         $a->comment_out = $request->input('comment_out');
+        $a->status = $request->input('status');
 
         $a->update();
         return back()->with('success',trans('alert.update'));

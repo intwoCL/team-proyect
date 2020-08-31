@@ -91,9 +91,20 @@
                     <form action="{{route('attention.update', $a->id)}}" method="POST">
                       @csrf
                       @method('PUT')
+
+                      <fieldset class="form-group">
+                        <label>Estado<small class="text-danger">*</small></label>
+                        <select class="form-control select2" name="status" >
+                          <option value="1">Pendiente</option>
+                          <option value="2">Atendido</option>
+                          <option value="3">Cancelado</option>
+                        </select>  
+                      </fieldset>
+
                       <div class="form-group">
-                        <textarea class="form-control" name="comment_out" placeholder="Comentario de salida ..." style="height: 100px"></textarea>
+                        <textarea class="form-control" name="comment_out" placeholder="Comentario de salida ..." style="height: 100px">{{ $a->comment_out }}</textarea>
                       </div>
+
                       <div class="form-group text-right">
                         <button  type="submit" class="btn btn-primary btn-lg">
                           Reply
