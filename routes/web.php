@@ -25,6 +25,11 @@ Route::middleware('user')->group(function () {
   Route::get('user/{user}','UserController@show')->name('user.show');
 
   Route::resource('calendar','CalendarController');
+  Route::get('calendar/{id}/details','CalendarActivityController@index')->name('calendar.activity.index');
+  Route::get('calendar/{id}/details/edit','CalendarActivityController@edit')->name('calendar.activity.edit');
+  Route::get('calendar/{id}/details/{day}/create','CalendarActivityController@create')->name('calendar.activity.create');
+  Route::post('calendar/{id}/details/{day}/create','CalendarActivityController@store')->name('calendar.activity.store');
+
   Route::resource('assignment','AssignmentController');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');

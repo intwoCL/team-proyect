@@ -116,6 +116,12 @@ return [
       'hour' => 'Hour',
       'date' => 'Date',
       'comment_in' => 'Entry Comment',
+      'comment_out' => 'Exit Comment',
+      'pending' => 'Pending',
+      'complete' => 'Completa',
+      'canceled' => 'Canceled',
+      'information' => 'Information',
+      'status' => 'Status',
     ],
   ],
 

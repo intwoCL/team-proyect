@@ -43,7 +43,6 @@ class CalendarController extends Controller
         $c->user_id = current_user()->id;
         $c->name = $request->input('name');
         $c->objective = $request->input('objective');
-        $c->active = 0;
         $c->save();
         return redirect()->route('calendar.index')->with('success',trans('alert.success'));
       } catch (\Throwable $th) {
@@ -51,29 +50,7 @@ class CalendarController extends Controller
         return $th;
       }
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
+    
     /**
      * Update the specified resource in storage.
      *

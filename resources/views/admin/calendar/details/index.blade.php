@@ -3,9 +3,13 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <h1>Panel de calendarios</h1>
+      <a href="{{ route('calendar.index') }}">
+        <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
+      </a>
+      <h1>Panel de calendarios - {{ $c->name }}</h1>
       <div class="section-header-button">
-        <a href="{{ route('calendar.create') }}" class="btn btn-primary btn-sm">Crear calendario</a>
+        <a href="{{ route('calendar.activity.edit',$c->id) }}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="" class="btn btn-success btn-sm">Preview</a>
       </div>
     </div>
     <div class="section-body">
@@ -17,21 +21,24 @@
             <table class="table table-hover table-md ">
               <thead>
                 <tr>
-                  <th>#</th>
-                  <th>Name</th>
-                  <th>Objectivo</th>
-                  <th></th>
+                  <th>Lunes</th>
+                  <th>Martes</th>
+                  <th>Miercoles</th>
+                  <th>Jueves</th>
+                  <th>Viernes</th>
+                  <th>Sábado</th>
+                  <th>Domingo</th>
                 </tr>
               </thead>
               <tbody>
-              @foreach ($calendars as $ca)
               <tr>
-                <td>{{ $ca->id }}</td>
-                <td>{{ $ca->name }}</td>
-                <td>{{ $ca->objective }}</td>
-                <td><a href="{{ route('calendar.activity.index',$ca->id) }}" class="btn btn-sm btn-info">Ver</a></td>
-              </tr>
-              @endforeach
+                <td>Juego a la pelota</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
               </tbody>
             </table>
           </div>

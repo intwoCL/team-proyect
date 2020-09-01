@@ -84,6 +84,11 @@ class ItemController extends Controller
     {
         $i = Item::FindOrFail($id);
         $types = Type::all();
+        foreach ($types as $t) {
+            if($t->id == $i->type_id){
+                $t->select='selected';
+            }
+        }
         return view('admin.activity.content.item.edit',compact('i','types'));
     }
 

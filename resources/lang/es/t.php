@@ -122,6 +122,12 @@ return [
       'hour' => 'Hora',
       'date' => 'Fecha',
       'comment_in' => 'Comentario de entrada',
+      'comment_out' => 'Comentario de salida',
+      'pending' => 'Pendiente',
+      'complete' => 'Atendido',
+      'canceled' => 'Cancelado',
+      'information' => 'Información',
+      'status' => 'Estado',
     ],
   ],
 
