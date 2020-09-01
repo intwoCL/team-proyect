@@ -94,7 +94,7 @@
 
                       <fieldset class="form-group">
                         <label>Estado<small class="text-danger">*</small></label>
-                        <select class="form-control select2" name="status" >
+                        <select class="form-control select2" name="status" required>
                           <option value="1">Pendiente</option>
                           <option value="2">Atendido</option>
                           <option value="3">Cancelado</option>

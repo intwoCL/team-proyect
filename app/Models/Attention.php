@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attention extends Model
 {
-  private $states = ['Pending','Complete','Canceled'];
+  public $states = ['Pending','Complete','Canceled'];
 
   public function specialist(){
     return $this->belongsTo(User::class,'specialist_id');

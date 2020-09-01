@@ -19,7 +19,6 @@ class CreateCalendarsTable extends Migration
             $table->string('name',100);
             $table->string('objective',100);
             $table->integer('status')->default(1);
-            $table->boolean('active');
             $table->timestamps();
         });
     }
