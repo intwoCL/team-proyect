@@ -95,9 +95,13 @@
                       <fieldset class="form-group">
                         <label>Estado<small class="text-danger">*</small></label>
                         <select class="form-control select2" name="status" required>
-                          <option value="1">Pendiente</option>
-                          <option value="2">Atendido</option>
-                          <option value="3">Cancelado</option>
+                          @foreach ($a->states as $key => $value )
+                          @if($key==$a->status-1)
+                          <option selected value="{{ $key + 1 }}">{{ $value }}</option>
+                          @else
+                          <option value="{{ $key + 1 }}">{{ $value }}</option>
+                          @endif
+                          @endforeach
                         </select>  
                       </fieldset>
 
