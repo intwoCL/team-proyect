@@ -98,7 +98,6 @@ class ItemController extends Controller
     {
         try {
             $i = Item::findOrFail($request->input('id'));
-            $i->content_id = $request->input('content_id');
             $i->title = $request->input('title');
             $i->content = $request->input('content');
             $i->type_id = $request->input('type');

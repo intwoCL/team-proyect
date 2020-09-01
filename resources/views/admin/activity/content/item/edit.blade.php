@@ -30,6 +30,7 @@
         <div class="card">
           <form action="{{route('item.update',[$i->itemContent->activity->id,$i->itemContent->id,$i->id])}}" method="POST" >
             @csrf
+            <input type="hidden" name="id" value="{{$i->id}}">
             <div class="card-header">
               <h4>Default Validation</h4>
             </div>
