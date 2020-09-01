@@ -39,17 +39,17 @@
                     <h4>{{ $a->getAttentionDate() }}</h4>
                   </div>
                   <div class="ticket-desc">
-                    <div>Comentario de entrada: <p>{{ $a->comment_in }}.</p></div>
+                    <div>{{ trans('t.user.calendar.comment_in') }}: <p>{{ $a->comment_in }}.</p></div>
                   </div>
 
                   <div class="ticket-desc">
-                    <div>Comentario de salida: <p>{{ $a->comment_out }}.</p></div>
+                    <div>{{ trans('t.user.calendar.comment_out') }}: <p>{{ $a->comment_out }}.</p></div>
                   </div>
 
                 </div>
                 <div class="ticket-item">
                   <div class="ticket-title">
-                    <h4>Información</h4>
+                    <h4>{{ trans('t.user.calendar.information') }}</h4>
                   </div>
                   <div class="ticket-desc">
                     <div><a href=""></a></div>
@@ -93,21 +93,22 @@
                       @method('PUT')
 
                       <fieldset class="form-group">
-                        <label>Estado<small class="text-danger">*</small></label>
-                        <select class="form-control select2" name="status" required>
-                          <option value="1">Pendiente</option>
-                          <option value="2">Atendido</option>
-                          <option value="3">Cancelado</option>
+                        <label>{{ trans('t.user.calendar.status') }}<small class="text-danger">*</small></label>
+                        <select class="form-control select2" name="status" required="">
+                          <option value="1">{{ trans('t.user.calendar.pending') }}</option>
+                          <option value="2">{{ trans('t.user.calendar.complete') }}</option>
+                          <option value="3">{{ trans('t.user.calendar.canceled') }}</option>
                         </select>  
                       </fieldset>
 
                       <div class="form-group">
-                        <textarea class="form-control" name="comment_out" placeholder="Comentario de salida ..." style="height: 100px">{{ $a->comment_out }}</textarea>
+                        <label>{{ trans('t.user.calendar.comment_out') }}<small class="text-danger">*</small></label>
+                        <textarea class="form-control" name="comment_out" placeholder="Comentario de salida ..." style="height: 100px" required="">{{ $a->comment_out }}</textarea>
                       </div>
 
                       <div class="form-group text-right">
                         <button  type="submit" class="btn btn-primary btn-lg">
-                          Reply
+                          {{ trans('button.update') }}
                         </button>
                       </div>
                     </form>
