@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('stylesheet')
+<script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
+@endpush
+
 @section('content')
 <section class="section">
   <div class="section-header">
@@ -31,10 +35,10 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody id="items" data-content="{{ $content->id }}">
               @foreach ($items as $i)
               <tr>
-                <td></td>
+                <td class="handle" data-id="{{ $i->id }}" data-position="{{ $i->position }}"><i class="fa fa-arrows-alt"></i></td>
                 <td>{{$i->id}}</td>
                 <td>{{$i->itemType->name}}</td>
                 <td>{{$i->title}}</td>
@@ -50,3 +54,23 @@
   </div>
 </section>
 @endsection
+
+@push('javascript')
+<script>
+  var el = document.getElementById('items');
+  // var sortable = Sortable.create(el);
+    Sortable.create(el, {
+      animation: 300,
+      handle: '.handle',
+      sort: true,
+      chosenClass: 'active',
+      onEnd: function(evt) {
+        console.log(evt);
+
+        var newIndex = evt.newIndex+1;
+        // fecth si es correcto hace un
+        location.reload();
+      }
+    });
+</script>
+@endpush

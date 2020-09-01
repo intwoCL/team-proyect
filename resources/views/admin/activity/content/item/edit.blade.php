@@ -11,16 +11,16 @@
     <h1>Editar item</h1>
     <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Forms</a></div>
-      <div class="breadcrumb-item">Form Validation</div>
+      <div class="breadcrumb-item"><a href="#">Item</a></div>
+      <div class="breadcrumb-item">Editar Item</div>
     </div>
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Form Validation</h2>
-    <p class="section-lead">
+    <h2 class="section-title">Editar Item</h2>
+    {{-- <p class="section-lead">
       Form validation using default from Bootstrap 4
-    </p>
+    </p> --}}
 
     <div class="row">
 
@@ -31,9 +31,11 @@
           <form action="{{route('item.update',[$i->itemContent->activity->id,$i->itemContent->id,$i->id])}}" method="POST" >
             @csrf
             <div class="card-header">
-              <h4>Default Validation</h4>
+              <h4>Editar Item</h4>
             </div>
             <div class="card-body">
+
+              <input type="hidden" name="id" value={{$i->id}}>
 
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
@@ -47,9 +49,7 @@
                 <div class="col-sm-9">
                   <select class="form-control select2" name="type" required="">
                     @foreach ($types as $t)
-                    <option @if ($i->type_id == $t->id)
-                        selected
-                    @endif value="{{ $t->id }}">{{ $t->name }}</option>
+                    <option {{$t->select}} value="{{ $t->id }}">{{ $t->name }}</option>
                     @endforeach
                   </select>
                 </div>
