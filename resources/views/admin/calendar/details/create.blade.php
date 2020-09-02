@@ -4,82 +4,67 @@
   <link rel="stylesheet" href="/vendor/clockpicker/css/bootstrap-clockpicker.min.css">
 @endpush
 @section('content')
-<div class="col-md-12">
-  <section class="section">
-    <div class="section-header">
-      <a href="{{ route('calendar.activity.edit',$c->id) }}">
-        <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
-      </a>
-      <h1>Asignar usuarios al especialista</h1>
-    </div>
-    <div class="section-body">
-      <h2 class="section-title">Usuario : </h2>
-      <form action="{{ route('calendar.activity.store',[$c->id,$day]) }}" method="post">
-        @csrf
-        <div class="card">
+<section class="section">
+  <div class="section-header">
+    <a href="{{ route('calendar.activity.edit',$c->id)}}">
+      <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
+    </a>
+  <h1>Asignar Activiad al Dia {{$day}}</h1>
+  </div>
+  <div class="row">  
+    <div class="col-12 col-md-6 col-lg-6">
+      @include('partials._errors')
+      <div class="card">
+        
+        <form action="{{route('calendar.activity.store',[$c->id,$day])}}" method="POST">
+          @csrf
           <div class="card-body">
-            <div class="table-responsive">
-              <table id="tableSelect" class="table table-md table-hover">
-                <thead>
-                <tr>
-                  <th>Code</th>
-                  <th>Name</th>
-                  <th>Obejective</th>
-                  <th></th>
-                  <th></th>
-                  <th></th>
-                </tr>
-                </thead>
-                <tbody>
-                  @forelse ($activities as $a)
-                  <tr>
-                    <td>
-                      <div class="form-group">
-                        <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
-                          <span class="input-group-addon">
-                              <span class="glyphicon glyphicon-time"></span>
-                          </span>
-                          <input type="text" class="form-control" readonly value="8:00" name="time-{{ $a->id  }}" id="" required >
-                      </div>
-                      </div>
-                    </td>    
-                    <td>{{ $a->id }}</td>
-                    <td>
-                      {{ $a->name }}
-                      <div class="table-links">
-                        <a href="#">{{ trans('t.view') }}</a>
-                        <div class="bullet"></div>
-                        <a href="{{route('activity.edit',$a->id)}}">{{ trans('t.edit') }}</a>
-                        <div class="bullet"></div>
-                        <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                      </div>
-                    </td>
-                    <td>{!! $a->objective !!}</td>
-                    <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
-                    <td>
-                      @foreach ($a->tagsCategories as $c)
-                      <div class="badge badge-success">{{ $c->category->name }}</div>
-                      @endforeach
-                    </td>
-                    
-                  </tr>
-                  @empty
-                  <tr>
-                    <td colspan="2" class="text-center">No hay usuarios</td>
-                  </tr>
-                  @endforelse
-                </tbody>
-              </table>
+            <div class="form-group row">
+              <label for="hora" class="col-sm-2 col-form-label">Hora</label>
+              <div class="input-group col-sm-10">                    
+                  <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-time"></span>
+                      </span>
+                      <input type="text" class="form-control" readonly value="8:00" name="worktime" id="worktime" required >
+                  </div>
+                  <div class="col-sm-12">
+                      {!! $errors->first('hora', '<small class="form-text text-danger">:message</small>') !!}
+                  </div>
+              </div>
             </div>
+
+            <div class="form-group row">
+              <label for="inputScale" class="col-sm-3 col-form-label">Actividad</label>
+              <div class="col-sm-9">
+                <select class="form-control select2" name="activity_id" required="">
+                  @foreach ($activities as $a)
+                  <option value="{{ $a->id }}">{{$a->id." - ".$a->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>
+
+            {{-- <div class="form-group row">
+              <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
+              <div class="col-sm-9">
+                <select class="form-control select2" multiple="" name="categories[]" required="">
+                  @foreach ($activities as $a)
+                  <option value="{{ $a->id }}">{{$a->id." - ".$a->name }}</option>
+                  @endforeach
+                </select>
+              </div>
+            </div>  --}}
+
           </div>
-          <div class="card-footer">
-            <button type="submit" class="btn btn-success float-right">Asignar</button>
+          <div class="card-footer text-right">
+            <button class="btn btn-primary" type="submit">{{trans('button.save')}}</button>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
-  </section>
-</div>
+  </div>
+</section>
 @endsection
 @push('javascript')  
 <script src="/vendor/datatables/jquery.dataTables.js"></script>

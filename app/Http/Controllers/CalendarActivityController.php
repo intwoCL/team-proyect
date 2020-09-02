@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Calendar;
 use App\Models\Activity;
+use App\Models\CalendarActivity;
 
 // horario
 class CalendarActivityController extends Controller
@@ -28,7 +29,17 @@ class CalendarActivityController extends Controller
   }
 
   public function store($id,$day,Request $request){
-    return $request;
+    
+    try {
+      $ca  = new CalendarActivity();
+      $ca->worktime = $request->input('worktime');
+      $ca->activity_id = $request->input('activity_id');
+      $ca->weekday = $day;
+      $ca->calendar_id = $id;
+      $ca->save();
+    } catch (\Throwable $th) {
+      throw $th;
+    }
     // $c = Calendar::findOrFail($id);
     // $activities = Activity::get();
     // return view('admin.calendar.details.create',compact('c','day','activities'));

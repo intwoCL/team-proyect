@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class CalendarActivity extends Model
 {
-  protected $table = 'activities';
+  protected $table = 'calendars_activities';
 
   public function calendar(){ 
     return $this->belongsTo(User::class,'calendar_id');
