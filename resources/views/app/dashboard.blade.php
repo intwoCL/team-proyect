@@ -182,5 +182,5 @@
 
 @endsection
 @push('javascript')
-
+@include('partials._integrations')
 @endpush

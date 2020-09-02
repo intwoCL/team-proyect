@@ -72,7 +72,7 @@
         var newIndex = evt.newIndex+1;
         // location.reload();
         var params = {
-          newIndex,
+          newIndex
         };
 
         findFecth(url,params)
