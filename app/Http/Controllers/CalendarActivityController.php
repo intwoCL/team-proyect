@@ -37,6 +37,7 @@ class CalendarActivityController extends Controller
       $ca->weekday = $day;
       $ca->calendar_id = $id;
       $ca->save();
+      return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
       throw $th;
     }
