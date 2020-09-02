@@ -40,7 +40,6 @@ class AssignmentController extends Controller
      */
     public function store(AssignmentStoreRequest $request)
     {
-      return $request;
       try {
         $users_id = $request->input('users');
         $user_id  = $request->input('id');

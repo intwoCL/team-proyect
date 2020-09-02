@@ -77,4 +77,9 @@ vendor\bin\phpunit
 
  -->
 
- <!-- https://www.twilio.com/blog/unit-testing-laravel-api-phpunit -->
+ <!-- https://www.twilio.com/blog/unit-testing-laravel-api-phpunit 
+ 
+ https://styde.net/solicitudes-http-con-axios/
+
+ https://freesfx.co.uk/Default.aspx
+ -->

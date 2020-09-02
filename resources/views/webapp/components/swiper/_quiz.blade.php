@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="card-footer">
-            <button class="btn btn-success btn-block">FINALIZAR</button>
+            <button class="btn btn-success btn-block" onclick="buttonFinish()">FINALIZAR</button>
         </div>
       </div>
     </div>

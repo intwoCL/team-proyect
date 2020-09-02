@@ -28,12 +28,12 @@
  
 
   <div class="section">
-    <div class="swiper-container swiper-slider" data-pagination-type='progress' style="margin-top: 100px;">
+    <div class="swiper-container" data-pagination-type='progress' style="margin-top: 100px;">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
           @include('webapp.components.swiper._quiz')
         </div>
-        <div class="swiper-slide">
+        {{-- <div class="swiper-slide">
           @include('webapp.components.swiper._gif')
         </div>
         <div class="swiper-slide">
@@ -50,7 +50,7 @@
         </div>
         <div class="swiper-slide">
           @include('webapp.components.swiper._quiz')
-        </div>
+        </div> --}}
       </div>
       <!-- Add Pagination -->
       <!-- Add Arrows -->
@@ -60,8 +60,9 @@
   </div>
 
   <div style="display: none;">
-    <audio id="fx-back" src="/fx/effects/bottle-cork.mp3" data-url="/activity"></audio>
+    <audio id="fx-back" data-url="/webapp/activity"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
     <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
+    <audio id="fx-finish" data-url="/webapp/activity"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
   </div>
 
 
@@ -109,10 +110,22 @@
 
   // button back 
   var btnBack = document.getElementById("fx-back");
+  var btnFinish = document.getElementById("fx-finish");
+  
   function buttonSound(){
     btnBack.volume = 0.5;
     btnBack.play();
   }
+
+  function buttonFinish(){
+    var comment = document.getElementById("comment");
+    console.log(comment);
+    // btnFinish.volume = 0.5;
+    btnFinish.play();
+  }
+  btnFinish.addEventListener("ended", function(){
+    window.location.href = btnFinish.dataset.url;
+  });
 
   btnBack.addEventListener("ended", function(){
     window.location.href = btnBack.dataset.url;
