@@ -15,4 +15,12 @@ class CalendarActivity extends Model
   public function activity(){
     return $this->hasMany(Activity::class,'activity_id');
   }
+
+  public function scopeOrdenDay(){
+    return $this->ordenBy('weekday','asc');
+  }
+
+  public function scopeOrdenTime(){
+    return $this->ordenBy('weekday','asc');
+  }
 }

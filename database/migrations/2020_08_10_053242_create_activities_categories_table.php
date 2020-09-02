@@ -17,8 +17,6 @@ class CreateActivitiesCategoriesTable extends Migration
             $table->id();
             $table->foreignId('category_id')->references('id')->on('categories');
             $table->foreignId('activity_id')->references('id')->on('activities');
-            $table->integer('weekday');
-            $table->time('worktime');
             $table->timestamps();
         });
     }

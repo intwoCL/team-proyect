@@ -13,7 +13,12 @@ class Calendar extends Model
     return $this->belongsTo(User::class,'user_id');
   }
 
+  public function activities(){
+    return $this->hasMany(CalendarActivity::class,'calendar_id');
+  }
+
   public function getState(){
     return $this->states[$this->status-1];
   }
+  
 }

@@ -17,7 +17,8 @@ class CreateCalendarsActivitiesTable extends Migration
             $table->id();
             $table->foreignId('calendar_id')->references('id')->on('calendars');
             $table->foreignId('activity_id')->references('id')->on('activities');
-            $table->datetime('date');
+            $table->integer('weekday');
+            $table->time('worktime');
             $table->timestamps();
         });
     }

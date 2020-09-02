@@ -19,9 +19,9 @@
         <a href="" class="btn btn-success btn-sm">Preview</a>
       </div>
     </div>
-    <div class="section-body">
-      {{-- <h2 class="section-title">Lista de todas las actividades </h2> --}}
-      {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
+    {{-- <div class="section-body">
+      <h2 class="section-title">Lista de todas las actividades </h2>
+      <p class="section-lead">This page is for managing packages including questions and answers.</p>
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
@@ -111,255 +111,17 @@
 
                 </td>
               </tr>
-              <tr>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-              </tr>
-              <tr>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-              </tr>
-              <tr>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-              </tr>
               </tbody>
             </table>
           </div>
         </div>
       </div>
-    </div>
+      
+    </div> --}}
     <div class="section-body">
       <h2 class="section-title">Lista de todas las actividades </h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
-      <div class="col-sm-12">
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-header">
-              <h5>Lunes</h5>
-            </div>
-            <div class="card-body">
-             
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-2">
-          <div class="card">
-            <div class="card-header">
-              <h5>Lunes</h5>
-            </div>
-            <div class="card-body">
-             
-            </div>
-          </div>
-        </div>
+      <div class="row">
         <div class="col-sm-2">
           <div class="card">
             <div class="card-header">
@@ -371,7 +133,6 @@
           </div>
         </div>
       </div>
-    
     </div>
   </section>
   
