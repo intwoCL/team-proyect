@@ -13,7 +13,7 @@ class CalendarActivity extends Model
   }
   
   public function activity(){
-    return $this->hasMany(Activity::class,'activity_id');
+    return $this->belongsTo(Activity::class,'activity_id');
   }
 
   public function scopeOrdenDay(){

@@ -19,7 +19,27 @@ class CalendarActivityController extends Controller
 
   public function edit($id){
     $c = Calendar::findOrFail($id);
-    return view('admin.calendar.details.edit',compact('c'));
+
+    $calendarsActivities = CalendarActivity::where('calendar_id',$id)->get();
+    // return $calendarsActivities;
+    $calendars = array();
+    foreach ($calendarsActivities as $ca) {
+      $a = array(
+        'daysOfWeek' => [ $ca->weekday ],
+        'startTime' => $ca->worktime,
+        'title' => $ca->activity->name,
+        'backgroundColor' => 'green',
+        // 'borderColor' => $color ,
+        // 'url' => route('attention.control', $a->id),
+      
+      );
+      array_push($calendars,$a);
+    }
+
+    // return $calendars;
+    
+
+    return view('admin.calendar.details.edit',compact('c','calendars'));
   }
 
   public function create($id,$day){
