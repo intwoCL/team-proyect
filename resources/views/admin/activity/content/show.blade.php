@@ -29,8 +29,8 @@
               <tr>
                 <th>#</th>
                 <th>{{ trans('t.activity.item.item_id') }}</th>
-                <th>{{trans('t.activity.item.type')}}</th>
                 <th>{{ trans('t.activity.item.title') }}</th>
+                <th>{{trans('t.activity.item.type')}}</th>
                 <th>{{ trans('t.activity.item.content') }}</th>
                 <th></th>
               </tr>
@@ -40,10 +40,18 @@
               <tr>
                 <td class="handle" data-id="{{ $i->id }}" data-position="{{ $i->position }}"><i class="fa fa-arrows-alt"></i></td>
                 <td>{{$i->id}}</td>
-                <td>{{$i->itemType->name}}</td>
-                <td>{{$i->title}}</td>
+                <td>
+                  {{$i->title}}
+                  <div class="table-links">
+                    <a href="#">{{ trans('t.view') }}</a>
+                    <div class="bullet"></div>
+                    <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.edit') }}</a>
+                    <div class="bullet"></div>
+                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
+                  </div>
+                </td>
+                <td>{{ucfirst($i->itemType->name)}}</td>
                 <td>{{$i->content}}</td>
-                <td> <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}" class="btn btn-primary">Editar</a> </td>
               </tr>
               @endforeach
             </tbody>
@@ -68,7 +76,7 @@
         console.log(evt);
 
         var newIndex = evt.newIndex+1;
-        // fecth si es correcto hace un
+        // fetch a?
         location.reload();
       }
     });

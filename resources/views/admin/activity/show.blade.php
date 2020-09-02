@@ -27,7 +27,6 @@
                 <th>Nombre</th>
                 <th>Objetivo</th>
                 <th></th>
-                <th></th>
               </tr>
               </thead>
               <tbody id="items" data-activity="{{ $a->id }}">
@@ -35,10 +34,18 @@
               <tr>
                 <td class="handle" data-id="{{ $c->id }}" data-position="{{ $c->position }}"><i class="fa fa-arrows-alt"></i></td>
                 <td>{{$c->position}}</td>
-                <td>{{$c->name}}</td>
-                <td></td>
-                <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td> 
-                <td> <a href="{{route('content.edit',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Editar</a> </td>
+                <td>
+                  {{$c->name}}
+                  <div class="table-links">
+                    <a href="{{route('content.show',[$a->id,$c->id])}}">Items</a>
+                    <div class="bullet"></div>
+                    <a href="{{route('content.edit',[$a->id,$c->id])}}">{{ trans('t.edit') }}</a>
+                    <div class="bullet"></div>
+                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
+                  </div>
+                </td>
+                <td>{{$c->objective}}</td>
+                <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td>
               </tr>
               @endforeach
               </tbody>
@@ -63,8 +70,8 @@
         console.log(evt);
 
         var newIndex = evt.newIndex+1;
-        // fecth si es correcto hace un
-        location.reload(); 
+        // fetch a?
+        location.reload();
       }
     });
 
