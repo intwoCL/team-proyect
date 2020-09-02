@@ -43,7 +43,7 @@
                 <td>
                   {{$i->title}}
                   <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
+                    <a href="{{route('item.show',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.view') }}</a>
                     <div class="bullet"></div>
                     <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.edit') }}</a>
                     <div class="bullet"></div>
