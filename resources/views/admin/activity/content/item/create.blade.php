@@ -49,7 +49,7 @@
                 <div class="col-sm-9">
                   <select id="selectType" class="form-control select2" name="type" required="">
                     @foreach ($types as $t)
-                    <option value="{{ $t->id }}">{{ $t->name }}</option>
+                    <option value="{{ $t->id }}">{{ ucfirst($t->name) }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -81,7 +81,7 @@
         2: '<label>Video</label>\n<input type="text" name="content" class="form-control" required="" placeholder="Url de video" autocomplete="off">',
         3: '<label>Foto</label><input type="file" name="photo" accept="image/*" onchange="preview(this)"/> <div id="preview"></div>',
         4: '<label>Audio</label>\n<input type="text" name="content" class="form-control" required="" autocomplete="off">',
-        5: '<label>Texto</label>\n<textarea name="content" class="form-control" rows="5" required="" autocomplete="off"></textarea>'
+        5: '<label>Texto</label>\n<textarea style="height:auto;" name="content" class="form-control" rows="5" required="" autocomplete="off"></textarea>'
     };
 
     $(".select2").on('change',(e) => {

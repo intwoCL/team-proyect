@@ -34,9 +34,10 @@ Route::middleware('user')->group(function () {
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
-  Route::post('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@update')->name('item.update');
+  Route::get('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@show')->name('item.show');
+  Route::post('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@update')->name('item.update');
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
-
+  Route::post('activity/{activity_id}/content/{content_id}/item/{id}/delete','ItemController@delete')->name('item.delete');
 
 
 
