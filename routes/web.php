@@ -29,14 +29,18 @@ Route::middleware('user')->group(function () {
   Route::get('calendar/{id}/details/edit','CalendarActivityController@edit')->name('calendar.activity.edit');
   Route::get('calendar/{id}/details/{day}/create','CalendarActivityController@create')->name('calendar.activity.create');
   Route::post('calendar/{id}/details/{day}/create','CalendarActivityController@store')->name('calendar.activity.store');
+  //Create 2 CalenadarActivity
+  Route::get('calendar/{id}/details/create2','CalendarActivityController@create2')->name('calendar.activity.create2');
+  Route::post('calendar/{id}/details/create2','CalendarActivityController@store2')->name('calendar.activity.store2');
 
   Route::resource('assignment','AssignmentController');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
-  Route::post('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@update')->name('item.update');
+  Route::get('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@show')->name('item.show');
+  Route::post('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@update')->name('item.update');
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
-
+  Route::post('activity/{activity_id}/content/{content_id}/item/{id}/delete','ItemController@delete')->name('item.delete');
 
 
 

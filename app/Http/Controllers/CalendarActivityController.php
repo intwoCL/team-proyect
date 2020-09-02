@@ -54,6 +54,38 @@ class CalendarActivityController extends Controller
       $ca->calendar_id = $id;
       $ca->save();
       return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));
+    } catch (\Throwable $th){
+      throw $th;
+      return redirect()->back()->with('danger',trans('alert.danger'));
+    }
+    // $c = Calendar::findOrFail($id);
+    // $activities = Activity::get();
+    // return view('admin.calendar.details.create',compact('c','day','activities'));
+  }
+
+  //CREATE 2
+  public function create2($id){
+    $c = Calendar::findOrFail($id);
+    $activities = Activity::get();
+    return view('admin.calendar.details.create2',compact('c','activities'));
+  }
+
+  public function store2($id,Request $request){
+    
+    try {
+      $dias = $request->input('days');
+      
+      //el save
+      foreach ($dias as $d) {
+        $ca  = new CalendarActivity();
+        $ca->worktime = $request->input('worktime');
+        $ca->activity_id = $request->input('activity_id');
+        $ca->calendar_id = $id;
+        $ca->weekday = $d;
+        $ca->save();
+      }
+
+      return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
       throw $th;
     }
@@ -61,4 +93,5 @@ class CalendarActivityController extends Controller
     // $activities = Activity::get();
     // return view('admin.calendar.details.create',compact('c','day','activities'));
   }
+
 }

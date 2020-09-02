@@ -69,9 +69,11 @@ class ItemController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($activity_id,$content_id,$id)
     {
-        //
+        $a = Activity::FindOrFail($activity_id);
+        $c = Content::FindOrFail($content_id);
+        return view('admin.activity.content.item.show',compact('a','c'));
     }
 
     /**
