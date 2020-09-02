@@ -95,7 +95,6 @@
                       <fieldset class="form-group">
                         <label>{{ trans('t.user.calendar.status') }}<small class="text-danger">*</small></label>
 
-                        <label>Estado<small class="text-danger">*</small></label>
                         <select class="form-control select2" name="status" required>
                           @foreach ($a->states as $key => $value )
                           @if($key==$a->status-1)
