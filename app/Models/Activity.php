@@ -9,7 +9,7 @@ class Activity extends Model
   protected $table = 'activities';
   private $folderImg = 'photo_activity';
   private $imgDefault = '/images/gallery.jpg';
-
+  public $selected = false;
 
   public function contents(){
     return $this->hasMany(Content::class,'activity_id')->orderBy('position','asc');
