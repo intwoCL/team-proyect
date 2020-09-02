@@ -125,10 +125,10 @@
         <div class="col-sm-2">
           <div class="card">
             <div class="card-header">
-              <h5>Lunes</h5>
+              <h5><a href="{{ route('calendar.activity.create',[$c->id,1]) }}">Lunes</a></h5>
             </div>
             <div class="card-body">
-             
+
             </div>
           </div>
         </div>
