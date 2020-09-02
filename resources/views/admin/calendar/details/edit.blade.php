@@ -126,8 +126,19 @@
       <h2 class="section-title">Lista de todas las actividades </h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       <div class="row">
+        @foreach (helper_days() as $key => $value)        
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-header">
+              <h5><a href="{{ route('calendar.activity.create',[$c->id,$key]) }}">{{ $value }}</a></h5>
+            </div>
+            <div class="card-body">
 
-        
+            </div>
+          </div>
+        </div>
+        @endforeach
+
 
         <div class="col-sm-6">
           <div class="card">
@@ -136,9 +147,9 @@
             </div>
             <div class="card-body">
               @foreach ($calendars as $ca)
-                  @if ($ca['daysOfWeek'][0] == 1)
-                    <p>  {{$ca['title']}}</p><br>
-                  @endif
+                @if ($ca['daysOfWeek'][0] == 1)
+                  <p>  {{$ca['title']}}</p><br>
+                @endif
               @endforeach
             </div>
           </div>

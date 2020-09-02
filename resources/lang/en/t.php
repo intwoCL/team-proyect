@@ -41,6 +41,15 @@ return [
       'reset' => 'Reset password',
     ]
   ],
+  'days' =>[
+    '1' => 'monday',
+    '2' => 'martes',
+    '3' => 'miercoles',
+    '4' => 'jueves',
+    '5' => 'viernes',
+    '6' => 'saturday',
+    '7' => 'sunday'
+  ],
 
   'activity' => [
     'index' =>[

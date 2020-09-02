@@ -42,3 +42,12 @@ function helper_random_integer($longitud) {
   return $key;
 }
 
+function helper_days() {
+  $days = array();
+  for ($i=1; $i < 8; $i++) {
+    array_push($days,trans("t.days.$i"));
+  }
+  return $days;
+}
+
+

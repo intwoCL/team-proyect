@@ -35,11 +35,7 @@ class CalendarActivityController extends Controller
       );
       array_push($calendars,$a);
     }
-
-    // return $calendars;
-    
-
-    return view('admin.calendar.details.edit',compact('c','calendars'));
+    return view('admin.calendar.details.edit',compact('c','calendars','days'));
   }
 
   public function create($id,$day){
