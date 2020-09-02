@@ -10,6 +10,7 @@
 
   <link href='/vendor/timetablejs/dist/styles/timetablejs.css' rel='stylesheet' />
   <link href='/vendor/timetablejs/dist/styles/demo.css' rel='stylesheet' />
+  <link rel="stylesheet" href="/vendor/datatables-bs4/css/dataTables.bootstrap4.css">
 
 @endpush
 @section('content')
@@ -190,6 +191,51 @@
               <div class="timetable"></div>
 
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section col-md-6">
+    <div class="section-header">
+      <h1>Listado de especialistas</h1>
+    </div>
+    <div class="section-body">
+      <div class="card">
+        <div class="card-body">
+          <div class="table-responsive">
+            <table id="tableSelect" class="table table-hover table-sm">
+              <thead>
+              <tr>
+                <th>#</th>
+                <th>Día</th>
+                <th>Hora</th>
+                <th>Actividad</th>
+                <th></th>
+              </tr>
+              </thead>
+              <tbody>
+              @foreach ($calendarsActivities as $ca)
+              <tr>
+                {{-- <td>{{ $ca->id }}</td> --}}
+                <td>{{ $ca->weekday }}</td>
+                <td>{{ $ca->getDayWords() }}</td>
+                <td>{{ $ca->worktime }}</td>
+                <td>{{ $ca->activity->name}}
+                    <div class="table-links">
+                    {{-- <a href="#">View</a>
+                    <div class="bullet"></div>
+                    <a href="#">Edit</a> --}}
+                    <div class="bullet"></div>
+                    <a href="#" class="text-danger">Trash</a>
+                  </div>
+                </td>
+                <td><a href="" class="btn btn-danger btn-sm">Eliminar</a></td>
+              </tr>
+              @endforeach
+              </tbody>
+            </table>
           </div>
         </div>
       </div>

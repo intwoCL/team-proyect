@@ -23,4 +23,9 @@ class CalendarActivity extends Model
   public function scopeOrdenTime(){
     return $this->ordenBy('weekday','asc');
   }
+
+  public function getDayWords(){
+    return helper_days()[$this->weekday-1];
+  }
+
 }

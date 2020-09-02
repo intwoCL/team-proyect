@@ -16,8 +16,8 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
             $table->foreignId('activity_id')->references('id')->on('activities');
-            $table->string('name',50);
-            $table->string('objective',100)->nullable();
+            $table->string('name',100);
+            $table->longText('objective')>nullable();
             $table->integer('position');
             $table->integer('items_total')->default(0);
             $table->boolean('quiz')->default(false);
