@@ -130,7 +130,7 @@
         <div class="col-sm-6">
           <div class="card">
             <div class="card-header">
-              <h5><a href="{{ route('calendar.activity.create',[$c->id,$key]) }}">{{ $value }}</a></h5>
+              <h5><a href="{{ route('calendar.activity.create',[$c->id,$key]) }}">{{ strtoupper($value) }}</a></h5>
             </div>
             <div class="card-body">
 

@@ -22,34 +22,12 @@
 
             <div class="form-group">
               <label>Dias de Actividad</label>
+              @foreach (helper_days() as $key => $value)
               <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="1">
-                <label class="form-check-label">Lunes</label>
+                <input class="form-check-input" name="days[]" type="checkbox" value="{{ $key + 1 }}">
+                <label class="form-check-label">{{ strtoupper($value) }}</label>
               </div>
-              <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="2">
-                <label class="form-check-label">Martes</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="3">
-                <label class="form-check-label">Miercoles</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="4">
-                <label class="form-check-label">Jueves</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="5">
-                <label class="form-check-label">Viernes</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="6">
-                <label class="form-check-label">Sabado</label>
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" name="days[]" type="checkbox" value="7">
-                <label class="form-check-label">Domingo</label>
-              </div>
+              @endforeach
             </div>
 
             <div class="form-group row">
