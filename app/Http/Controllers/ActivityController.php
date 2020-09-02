@@ -96,17 +96,17 @@ class ActivityController extends Controller
     $scales = Scale::get();
     $categories = Category::get();
     $activity = Activity::FindOrFail($id);
-    $tags= $activity->tagsCategories; 
-      foreach ($categories as $c){
-        foreach ($tags as $t) {
-          if ($c->id == $t->category_id){
-            $c->selected = true;
-            break;
-          }     
-        }
-      }
-      // return $categories; 
 
+    // TODO: Buscar una forma de no hacer esto
+    $tags= $activity->tagsCategories; 
+    foreach ($categories as $c){
+      foreach ($tags as $t) {
+        if ($c->id == $t->category_id){
+          $c->selected = true;
+          break;
+        }     
+      }
+    }
     return view('admin.activity.edit',compact('status','categories','scales','activity','tags'));
   }
 
@@ -133,6 +133,7 @@ class ActivityController extends Controller
         $a->photo= $filename;
       }
 
+      // TODO: Buscar una forma de no hacer esto
       $a->tagsCategories()->delete();
       $categories = $request->input('categories');
       for ($i=0; $i < count($categories) ; $i++) {
@@ -142,9 +143,8 @@ class ActivityController extends Controller
         $ac->save();
       } 
       $a->update();
-      return redirect()->route('activity.index')->with('success',trans('alert.success'));
+      return redirect()->back()->with('success',trans('alert.update'));
     } catch (\Throwable $th) {
-      return $th;
       return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }

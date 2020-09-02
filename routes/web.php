@@ -19,6 +19,8 @@ Route::middleware('user')->group(function () {
   Route::put('activity/{activity_id}/content/{id}/edit','ContentController@update')->name('content.update');
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
+  Route::put('activity/{activity_id}/content','ContentController@changePosition')->name('content.changePosition');
+
   Route::resource('user','UserController');
   Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
   Route::get('profile','UserController@profile')->name('user.profile');

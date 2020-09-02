@@ -77,8 +77,11 @@
 
         var newIndex = evt.newIndex+1;
         // fetch a?
-        location.reload();
+        // location.reload();
       }
     });
+
+
+
 </script>
 @endpush

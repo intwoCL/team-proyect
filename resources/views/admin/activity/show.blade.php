@@ -32,7 +32,7 @@
               <tbody id="items" data-activity="{{ $a->id }}">
               @foreach ($a->contents as $c)
               <tr>
-                <td class="handle" data-id="{{ $c->id }}" data-position="{{ $c->position }}"><i class="fa fa-arrows-alt"></i></td>
+                <td class="handle" data-id="{{ $c->id }}" data-nombramiento="{{ $c->position }}"><i class="fa fa-arrows-alt"></i></td>
                 <td>{{$c->position}}</td>
                 <td>
                   {{$c->name}}
@@ -60,7 +60,8 @@
 
 <script>
   var el = document.getElementById('items');
-  // var sortable = Sortable.create(el);
+  let url = "{{ route('content.changePosition', $a->id ) }}";
+
     Sortable.create(el, {
       animation: 300,
       handle: '.handle',
@@ -68,12 +69,26 @@
       chosenClass: 'active',
       onEnd: function(evt) {
         console.log(evt);
-
         var newIndex = evt.newIndex+1;
-        // fetch a?
-        location.reload();
+        // location.reload();
+        var params = {
+          newIndex,
+        };
+
+        findFecth(url,params)
       }
     });
+
+    function findFecth(url,params){
+      axios.put(url, { params })
+      .then(response => {
+          // this.user = response.data;
+          console.log(response);
+      }).catch(e => {
+          console.log(e);
+      })
+    }
+
 
 </script>
 @endpush

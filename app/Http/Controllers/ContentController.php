@@ -62,10 +62,8 @@ class ContentController extends Controller
    */
   public function show($activity_id,$id)
   {
-
     $content = Content::where('activity_id',$activity_id)->findOrFail($id);
     $items = $content->items;
-    
     return view('admin.activity.content.show',compact('content','items'));
   }
 
@@ -103,10 +101,9 @@ class ContentController extends Controller
         $c->quiz = false;
       }
       $c->update();
-      return redirect()->route('activity.show',$activity_id)->with('success',trans('alert.success'));
+      return redirect()->back()->with('success',trans('alert.update'));
     } catch (\Throwable $th) {
-      return $th;
-      //return redirect()->back()->with('danger',trans('alert.danger'));
+      return redirect()->back()->with('danger',trans('alert.danger'));
     }
 
   }
@@ -120,5 +117,9 @@ class ContentController extends Controller
   public function destroy($id)
   {
     //
+  }
+
+  public function changePosition($id, Request $request){
+    return $request;
   }
 }

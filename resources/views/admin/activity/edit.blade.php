@@ -1,5 +1,15 @@
 @extends('layouts.app')
-
+@push('stylesheet')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<style>
+  .table.table-bordered td, .table.table-bordered th {
+    border-color: #000 !important;
+  }
+  .table-bordered, .table-bordered td, .table-bordered th {
+    border: 2px solid #000 !important;
+  }
+</style>    
+@endpush
 @section('content')
 
 
@@ -49,10 +59,10 @@
               </div>
 
               <div class="form-group row">
-                <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.objective')}}</label>
-                <div class="col-sm-9">
-                  <input type="text" name="objective" value="{{$activity->objective}}" class="form-control" required="" autocomplete="off">
-                </div>
+                <label for="inputObjetive" class="col-sm-12 col-form-label">{{trans('t.activity.create.objective')}}</label>
+                <div class="col-sm-12">
+                  <textarea name="objective" class="ckeditor" id="summernote" required>{!! $activity->objective !!}</textarea>
+                </div>  
               </div>
 
               <div class="form-group row">
@@ -122,4 +132,35 @@
 @endsection
 @push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+  $('#summernote').summernote({
+    placeholder: 'Hello stand alone ui',
+    tabsize: 10,
+    height: 120,
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'underline', 'clear']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+      // ['table', ['table']],
+      // ['insert', ['link', 'picture', 'video']],
+      // ['view', ['codeview', 'help']]
+    ],
+    styleTags: [
+    'p',
+    { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+    'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+	  ],
+    // airMode: true
+  });
+</script>
+  
+{{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+       $('.ckeditor').ckeditor();
+    });
+</script> --}}
 @endpush
+

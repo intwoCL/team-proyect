@@ -16,7 +16,7 @@ class CreateActivitiesTable extends Migration
         Schema::create('activities', function (Blueprint $table) {
             $table->id();
             $table->string('name',100);
-            $table->longText('objective')>nullable();
+            $table->longText('objective')->nullable();
             $table->string('photo')->default('/images/gallery.jpg');
             $table->foreignId('scale_id')->references('id')->on('scales');
             $table->foreignId('user_id')->references('id')->on('users');
