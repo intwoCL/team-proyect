@@ -41,15 +41,7 @@
               <td>{{ $ca->getDayWords() }}</td>
               <td>{{ $ca->worktime }}</td>
               <td>{{ $ca->activity->id }}</td>
-              <td>{{ $ca->activity->name}}
-                  <div class="table-links">
-                  {{-- <a href="#">View</a>
-                  <div class="bullet"></div>
-                  <a href="#">Edit</a> --}}
-                  <div class="bullet"></div>
-                  <a href="#" class="text-danger">Trash</a>
-                </div>
-              </td>
+              <td>{{ $ca->activity->name}}</td>
               <td>
                 <button type="button" class="btn btn-sm btn-danger" 
                   data-toggle="modal" 
