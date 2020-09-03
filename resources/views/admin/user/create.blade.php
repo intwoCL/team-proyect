@@ -59,6 +59,13 @@
                 </div>
 
                 <div class="form-group row">
+                  <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger">*</span></label>
+                  <div class="col-sm-9">
+                    <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" required="" value="">
+                  </div>
+                </div>
+
+                <div class="form-group row">
                   <label for="inputFirstName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.first_name') }}<span class="text-danger">*</span></label>
                   <div class="col-sm-9">
                     <input type="text" class="form-control" id="inputFirstName" placeholder="{{ trans('t.user.profile.first_name') }}" required="" name="first_name">

@@ -24,9 +24,9 @@ class AttentionRequest extends FormRequest
     public function rules()
     {
         return [
-            'attention_date' => 'date_format:d-m-Y',
-            'attention_time' => 'regex:/(\d+:\d+)/',
-            'comment_in' => 'min:4|max:500',
+            'attention_date' => 'required|date_format:d-m-Y',
+            'attention_time' => 'required|regex:/(\d+:\d+)/',
+            'comment_in' => 'required|min:4|max:500',
         ];
     }
 }

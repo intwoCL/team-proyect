@@ -121,6 +121,7 @@ return [
       'profile_edit' => "Editar Perfil",
       'password' => 'Contraseña',
       'photo' => 'Foto',
+      'specialty' => 'Especialidad',
     ],
     'calendar'=> [
       'panel_calendar' => 'Panel de calendarios',
