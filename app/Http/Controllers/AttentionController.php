@@ -17,10 +17,9 @@ class AttentionController extends Controller
     public function index()
     {
       $attentions = Attention::where('specialist_id', current_user()->id)->get();
-      // return $a;
       $calendario = array();
       foreach ($attentions as $a) {
-          $color = $this->color($a->status);
+          $color = $a->getColorCss();
           $a = array(
               'title' => $a->user->getFullName(),
               'start' => $a->attention_date . " " . $a->attention_time ,
@@ -30,24 +29,7 @@ class AttentionController extends Controller
           );
           array_push($calendario,$a);
       }
-      // return $calendario;
       return view('admin.attention.index', compact('calendario'));
-    }
-
-    private function color($status){
-      $color = "";
-      switch ($status) {
-          case 1: //pendiente
-            $color ="#f39c12";
-            break;
-          case 2: // Realizado
-            $color ="#00a65a";
-            break;
-          case 3: // Cancelado
-            $color ="#dd4b39";              
-            break;
-      }
-      return $color;
     }
 
     /**
@@ -55,9 +37,7 @@ class AttentionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($user_id)
-    {
-
+    public function create($user_id){
       return view('admin.attention.create', compact('user_id'));
     }
 

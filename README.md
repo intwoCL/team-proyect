@@ -82,4 +82,7 @@ vendor\bin\phpunit
  https://styde.net/solicitudes-http-con-axios/
 
  https://freesfx.co.uk/Default.aspx
+
+ 
+https://www.nigmacode.com/laravel/Subir-proyecto-laravel-a-hosting
  -->
