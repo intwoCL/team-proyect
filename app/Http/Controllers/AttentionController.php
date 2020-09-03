@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Attention;
 use App\Http\Requests\AttentionRequest;
+use App\Http\Requests\AttentionUpdateRequest;
 
 class AttentionController extends Controller
 {
@@ -116,7 +117,7 @@ class AttentionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(AttentionRequest $request, $id)
+    public function update(AttentionUpdateRequest $request, $id)
     {
       try {
         $a = Attention::findOrFail($id);

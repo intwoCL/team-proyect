@@ -23,4 +23,14 @@ class Attention extends Model
   public function getState(){
     return $this->states[$this->status-1];
   }
+  
+  public function getColor(){
+    $color = "warning";
+    if ($this->status == 2) {
+      $color = "success";
+    } elseif ($a->status == 3) {
+      $color = "danger";
+    }
+    return $color;
+  }
 }
