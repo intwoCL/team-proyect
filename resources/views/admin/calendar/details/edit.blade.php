@@ -20,8 +20,9 @@
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
       <h1>Panel de calendarios - {{ $c->name }} | {{ $c->id }}</h1>
+
       <div class="section-header-button">
-        <a href="" class="btn btn-success btn-sm">Preview</a>
+        <a href="{{route('calendar.activity.create2',$c->id)}}" class="btn btn-success btn-sm">Crear por Semana</a>
       </div>
     </div>
 
