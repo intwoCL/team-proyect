@@ -31,6 +31,8 @@ Route::middleware('user')->group(function () {
   Route::get('calendar/{id}/details/edit','CalendarActivityController@edit')->name('calendar.activity.edit');
   Route::get('calendar/{id}/details/{day}/create','CalendarActivityController@create')->name('calendar.activity.create');
   Route::post('calendar/{id}/details/{day}/create','CalendarActivityController@store')->name('calendar.activity.store');
+
+  Route::delete('calendaractivity/delete','CalendarActivityController@delete')->name('calendar.activity.delete');  
   //Create 2 CalenadarActivity
   Route::get('calendar/{id}/details/create2','CalendarActivityController@create2')->name('calendar.activity.create2');
   Route::post('calendar/{id}/details/create2','CalendarActivityController@store2')->name('calendar.activity.store2');

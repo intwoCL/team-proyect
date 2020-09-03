@@ -24,183 +24,12 @@
         <a href="" class="btn btn-success btn-sm">Preview</a>
       </div>
     </div>
-    {{-- <div class="section-body">
-      <h2 class="section-title">Lista de todas las actividades </h2>
-      <p class="section-lead">This page is for managing packages including questions and answers.</p>
-      <div class="card">
-        <div class="card-body">
-          <div class="table-responsive">
-            <table class="table table-hover table-md ">
-              <thead>
-                <tr>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,1]) }}">Lunes</a></th>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,2]) }}">Martes</a></th>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,3]) }}">Miercoles</a></th>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,4]) }}">Jueves</a></th>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,5]) }}">Viernes</a></th>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,6]) }}">Sábado</a></th>
-                  <th><a href="{{ route('calendar.activity.create',[$c->id,7]) }}">Domingo</a></th>
-                </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-                <td>Juego a la pelota
-                  <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
-                  </div>
-
-                </td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      
-    </div> --}}
-    <div class="section-body">
-      <h2 class="section-title">Lista de todas las actividades </h2>
-      <p class="section-lead">This page is for managing packages including questions and answers.</p>
-      <div class="row">
-        @foreach (helper_days() as $key => $value)        
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-header">
-              <h5><a href="{{ route('calendar.activity.create',[$c->id,$key]) }}">{{ strtoupper($value) }}</a></h5>
-            </div>
-            <div class="card-body">
-
-            </div>
-          </div>
-        </div>
-        @endforeach
-
-
-        <div class="col-sm-6">
-          <div class="card">
-            <div class="card-header">
-              <h5><a href="{{ route('calendar.activity.create',[$c->id,1]) }}">Lunes</a></h5>
-            </div>
-            <div class="card-body">
-              @foreach ($calendars as $ca)
-                @if ($ca['daysOfWeek'][0] == 1)
-                  <p>  {{$ca['title']}}</p><br>
-                @endif
-              @endforeach
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section class="section">
-    <div class="section-header">
-      <h1>{{ trans('t.user.calendar.panel_calendar') }}</h1>
-    </div>
-    <div class="section-body">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card card-primary">
-            <div class="card-body">
-
-              <div id='calendar'></div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section-header">
-      <h1>{{ trans('t.user.calendar.panel_calendar') }}</h1>
-    </div>
-    <div class="section-body">
-      <div class="row">
-        <div class="col-md-12">
-          <div class="card card-primary">
-            <div class="card-body">
-
-              <div class="timetable"></div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="section col-md-6">
     <div class="section-header">
       <h1>Listado de especialistas</h1>
     </div>
+
     <div class="section-body">
       <div class="card">
         <div class="card-body">
@@ -231,7 +60,14 @@
                     <a href="#" class="text-danger">Trash</a>
                   </div>
                 </td>
-                <td><a href="" class="btn btn-danger btn-sm">Eliminar</a></td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-danger" 
+                    data-toggle="modal" 
+                    data-target="#deleteModal" 
+                    data-activity="{{$ca->id}}">
+                      Eliminar
+                  </button>
+                </td>
               </tr>
               @endforeach
               </tbody>
@@ -242,7 +78,9 @@
     </div>
   </section>
 @endsection
-
+@push('outerDiv')
+  @include('components.modal._delete')    
+@endpush
 @push('javascript')  
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
 <script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script>
@@ -321,4 +159,16 @@ document.addEventListener('DOMContentLoaded', function() {
     calendar.render();
   });
 </script>
+<script>
+  $('#deleteModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var modal = $(this);
+    var id = button.data('activity');
+    var url = "{{route('calendar.activity.delete')}}";
+    modal.find('.modal-title').text('¿Desea Borrar esta Actividad?');
+    modal.find('.modal-body input').val(id);
+    modal.find('#formDelete').attr('action',url);
+  });
+</script>
 @endpush
+

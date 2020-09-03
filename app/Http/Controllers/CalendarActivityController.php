@@ -71,11 +71,8 @@ class CalendarActivityController extends Controller
   }
 
   public function store2($id,Request $request){
-    
     try {
       $dias = $request->input('days');
-      
-      //el save
       foreach ($dias as $d) {
         $ca  = new CalendarActivity();
         $ca->worktime = $request->input('worktime');
@@ -84,14 +81,20 @@ class CalendarActivityController extends Controller
         $ca->weekday = $d;
         $ca->save();
       }
-
       return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
       throw $th;
     }
-    // $c = Calendar::findOrFail($id);
-    // $activities = Activity::get();
-    // return view('admin.calendar.details.create',compact('c','day','activities'));
+  }
+
+  public function delete(Request $request){
+    try {
+      $id = $request->input('calendar_activity_id');
+      $c = CalendarActivity::findOrFail($id)->delete();
+      return redirect()->back()->with('success',trans('alert.delete'));
+    } catch (\Throwable $th) {
+      return redirect()->back()->with('danger',trans('alert.danger'));
+    }
   }
 
 }

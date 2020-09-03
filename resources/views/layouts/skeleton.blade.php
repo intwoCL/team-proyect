@@ -12,6 +12,7 @@
 <div id="app">
   @yield('app')
 </div>
+@stack('outerDiv')
 @stack('footerApp')
 <script src="{{ mix('js/manifest.js') }}"></script>
 <script src="{{ mix('js/vendor.js') }}"></script>
