@@ -73,10 +73,12 @@ class CalendarActivityController extends Controller
   public function store2($id,Request $request){
     try {
       $dias = $request->input('days');
+      $worktime = $request->input('worktime');
+      $activity_id = $request->input('activity_id');
       foreach ($dias as $d) {
-        $ca  = new CalendarActivity();
-        $ca->worktime = $request->input('worktime');
-        $ca->activity_id = $request->input('activity_id');
+        $ca = new CalendarActivity();
+        $ca->worktime = $worktime;
+        $ca->activity_id = $activity_id;
         $ca->calendar_id = $id;
         $ca->weekday = $d;
         $ca->save();
