@@ -76,10 +76,7 @@
                       <h4>{{ $a->user->getFullName() }}</h4>
                     </div>
                     <div class="ticket-info">
-                      @php
-                        $state = "warning";
-                      @endphp
-                      <div class="font-weight-600"><div class="badge badge-{{ $state }}">{{ $a->getState() }}</div></div>
+                      <div class="font-weight-600"><div class="badge badge-{{ $a->getColor() }}">{{ $a->getState() }}</div></div>
                       <div class="bullet"></div>
                       {{-- <div class="text-primary font-weight-600">2 min ago</div> --}}
                     </div>

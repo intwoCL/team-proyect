@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class AttentionRequest extends FormRequest
+class AttentionUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,8 @@ class AttentionRequest extends FormRequest
     public function rules()
     {
         return [
-            'attention_date' => 'date_format:d-m-Y',
-            'attention_time' => 'regex:/(\d+:\d+)/',
-            'comment_in' => 'min:4|max:500',
+          'comment_out' => 'required|min:4|max:500',
+          'status' => 'required|between:1,3',
         ];
     }
 }
