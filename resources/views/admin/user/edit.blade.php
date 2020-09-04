@@ -109,9 +109,9 @@
               </fieldset>
 
               <div class="form-group row">
-                <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger">*</span></label>
+                <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger"></span></label>
                 <div class="col-sm-9">
-                  <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" required="" value="{{ $user->specialty }}">
+                  <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" value="{{ $user->specialty }}">
                 </div>
               </div>
 

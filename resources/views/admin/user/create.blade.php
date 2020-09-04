@@ -110,7 +110,7 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.user.profile.photo')}}</label>
+                  <label for="inputPhoto" class="col-sm-3 col-form-label">{{trans('t.user.profile.photo')}}</label>
                   <div class="col-sm-9">
                     <!-- <img src=""  class='Responsive image img-thumbnail'  width='200px' height='200px' alt=""> -->
                     <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
