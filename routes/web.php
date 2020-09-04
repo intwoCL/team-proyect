@@ -32,7 +32,7 @@ Route::middleware('user')->group(function () {
   Route::get('calendar/{id}/details/{day}/create','CalendarActivityController@create')->name('calendar.activity.create');
   Route::post('calendar/{id}/details/{day}/create','CalendarActivityController@store')->name('calendar.activity.store');
 
-  Route::delete('calendaractivity/delete','CalendarActivityController@delete')->name('calendar.activity.delete');  
+  Route::delete('calendaractivity/delete','CalendarActivityController@delete')->name('calendar.activity.delete');
   //Create 2 CalenadarActivity
   Route::get('calendar/{id}/details/create2','CalendarActivityController@create2')->name('calendar.activity.create2');
   Route::post('calendar/{id}/details/create2','CalendarActivityController@store2')->name('calendar.activity.store2');
@@ -45,7 +45,7 @@ Route::middleware('user')->group(function () {
   Route::post('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@update')->name('item.update');
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
   Route::post('activity/{activity_id}/content/{content_id}/item/{id}/delete','ItemController@delete')->name('item.delete');
-
+  Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
 
 
 

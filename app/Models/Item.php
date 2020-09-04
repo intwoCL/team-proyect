@@ -27,4 +27,12 @@ class Item extends Model
       return $this->imgDefault;
     }
   }
+
+  public function filter(){
+    $diccionary = array('[:name]' => current_user()->getFullName() );
+
+    $texto = "bienvenidos a [:name]";
+    $result = str_replace('[:name]',current_user()->getFullName(),$this->content);
+    return $result;
+  }
 }

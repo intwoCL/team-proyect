@@ -116,6 +116,7 @@ return [
       'lang' => 'Languages',
       'password' => 'Password',
       'photo' => 'Photo',
+      'specialty' => 'Specialty',
     ],
     'calendar'=> [
       'panel_calendar' => 'Calendar panel',

@@ -28,7 +28,7 @@
 
               <tr>
                 <th>#</th>
-                <th>{{ trans('t.activity.item.item_id') }}</th>
+                <th>Posicion</th>
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{trans('t.activity.item.type')}}</th>
                 <th>{{ trans('t.activity.item.content') }}</th>
@@ -39,7 +39,7 @@
               @foreach ($items as $i)
               <tr>
                 <td class="handle" data-id="{{ $i->id }}" data-position="{{ $i->position }}"><i class="fa fa-arrows-alt"></i></td>
-                <td>{{$i->id}}</td>
+                <td>{{$i->position}}</td>
                 <td>
                   {{$i->title}}
                   <div class="table-links">
@@ -66,22 +66,35 @@
 @push('javascript')
 <script>
   var el = document.getElementById('items');
-  // var sortable = Sortable.create(el);
-    Sortable.create(el, {
-      animation: 300,
-      handle: '.handle',
-      sort: true,
-      chosenClass: 'active',
-      onEnd: function(evt) {
-        console.log(evt);
+  let url = "{{ route('item.changePosition', [$content->activity->id, $content->id] ) }}";
 
-        var newIndex = evt.newIndex+1;
-        // fetch a?
-        // location.reload();
-      }
-    });
+  Sortable.create(el, {
+    animation: 300,
+    handle: '.handle',
+    sort: true,
+    chosenClass: 'active',
+    onEnd: function(evt) {
+      console.log(evt.oldIndex +','+ evt.newIndex);
+      var newIndex = evt.newIndex+1;
+      var oldIndex = evt.oldIndex+1;
 
+      var params = {
+        oldIndex,
+        newIndex
+      };
 
+      findFetch(url,params);
+      location.reload();
+    }
+  });
 
+  function findFetch(url,params){
+    axios.put(url, { params })
+    .then(response => {
+        console.log(response);
+    }).catch(e => {
+        console.log(e);
+    })
+  }
 </script>
 @endpush

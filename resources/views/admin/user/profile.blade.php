@@ -54,6 +54,11 @@
                     <label>{{ trans('t.user.profile.run') }}</label>
                     <input type="tel" class="form-control" value="{{ current_user()->run }}">
                   </div>
+
+                  <div class="form-group col-md-5 col-12">
+                    <label>{{ trans('t.user.profile.specialty') }}</label>
+                    <input type="text" class="form-control" value="{{ current_user()->specialty }}">
+                  </div>
                 </div>
                 <div class="form-group col-sm-6 col-md-12 col-6">
                   <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>

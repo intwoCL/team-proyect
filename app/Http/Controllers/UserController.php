@@ -45,6 +45,7 @@ class UserController extends Controller
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
         $u->lang = $request->input('lang');
+        $u->specialty = $request->input('specialty');
 
         if (!empty($request->input('run'))) {
           $u->run = $request->input('run');
@@ -113,6 +114,7 @@ class UserController extends Controller
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
         $u->lang = $request->input('lang');
+        $u->specialty = $request->input('specialty');
         if (!empty($request->input('run'))) {
           $u->run = $request->input('run');
         }else{
@@ -175,5 +177,10 @@ class UserController extends Controller
       //$user = User::findOrFail($id);
       $user = current_user();
       return view('admin.user.profile',compact('user'));
+    }
+
+    public function sendEmail()
+    {
+      # code...
     }
 }

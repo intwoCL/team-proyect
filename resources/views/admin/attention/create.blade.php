@@ -52,7 +52,7 @@
                 <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
                 <div class="input-group date col-sm-10">
                   <span class="input-group-addon btn btn-info"><i class="fa fa-calendar"></i></span>
-                  <input type="text" class="form-control" readonly name="attention_date" id="fecha_agenda" required value="{{ $fecha }}">
+                  <input type="text" class="form-control" readonly name="attention_date" id="fecha_agenda" required="" value="{{ $fecha }}">
                 </div>
                 <div class="col-sm-12">    
                     {!! $errors->first('fecha', '<small id="inputPassword" class="form-text text-danger">:message</small>') !!}
@@ -66,7 +66,7 @@
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-time"></span>
                         </span>
-                        <input type="text" class="form-control" readonly value="8:00" name="attention_time" id="attention_time" required >
+                        <input type="text" class="form-control" readonly value="8:00" name="attention_time" id="attention_time" required="" >
                     </div>
                     <div class="col-sm-12">
                         {!! $errors->first('hora', '<small class="form-text text-danger">:message</small>') !!}
@@ -76,7 +76,7 @@
               <div class="form-group row">
                 <label for="inputCommentIn" class="col-sm-12 col-form-label">{{ trans('t.user.calendar.comment_in') }}</label>
                 <div class="col-sm-12">
-                  <textarea class="form-control" rows="3" name="comment_in" id="comentario_entrada" placeholder="..." required style="height: 100px">{{ old('comment_in') }}</textarea>
+                  <textarea class="form-control" rows="3" name="comment_in" id="comentario_entrada" placeholder="..." required="" style="height: 100px">{{ old('comment_in') }}</textarea>
                 </div>
               </div>
             </div>

@@ -68,18 +68,21 @@
       sort: true,
       chosenClass: 'active',
       onEnd: function(evt) {
-        console.log(evt);
+        console.log(evt.oldIndex +','+ evt.newIndex);
         var newIndex = evt.newIndex+1;
-        // location.reload();
+        var oldIndex = evt.oldIndex+1;
+
         var params = {
+          oldIndex,
           newIndex
         };
 
-        findFecth(url,params)
+        findFetch(url,params);
+        location.reload();
       }
     });
 
-    function findFecth(url,params){
+    function findFetch(url,params){
       axios.put(url, { params })
       .then(response => {
           // this.user = response.data;
@@ -88,7 +91,6 @@
           console.log(e);
       })
     }
-
 
 </script>
 @endpush

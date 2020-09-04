@@ -49,7 +49,28 @@ class ItemController extends Controller
             $i->type_id = $request->input('type');
             $i->position = Item::Where('content_id',$i->content_id)->count() + 1;
 
-            //$i->types = new Type();
+            if($i->type_id==1){
+                $i->url = $request->input('url');
+            }
+
+            if($i->type_id==2){
+                $i->video = $request->input('video');
+            }
+
+            if($i->type_id==3){
+                $file = $request->file('photo');
+                $filename = $i->title . time() .'.'.$file->getClientOriginalExtension();
+                $path = $file->storeAs('public/photo_items',$filename);
+                $i->photo= $filename;
+            }
+
+            if($i->type_id==4){
+                $i->audio = $request->input('audio');
+            }
+
+            if($i->type_id==5){
+                $i->text = $request->input('text');
+            }
 
             $c = Content::findOrFail($i->content_id);
             $a = Activity::findOrFail($c->activity_id);
@@ -110,6 +131,30 @@ class ItemController extends Controller
             $i->type_id = $request->input('type');
             $i->position = Item::Where('content_id',$i->content_id)->count() + 1;
 
+            if($i->type_id==1){
+                $i->url = $request->input('url');
+            }
+
+            if($i->type_id==2){
+                $i->video = $request->input('video');
+            }
+
+            if($i->type_id==3){
+                $file = $request->file('photo');
+                $filename = $i->title . time() .'.'.$file->getClientOriginalExtension();
+                $path = $file->storeAs('public/photo_items',$filename);
+                $i->photo= $filename;
+            }
+
+            if($i->type_id==4){
+                $i->audio = $request->input('audio');
+            }
+
+            if($i->type_id==5){
+                $i->text = $request->input('text');
+            }
+
+
             //$i->types = new Type();
 
             $c = Content::findOrFail($i->content_id);
@@ -135,9 +180,23 @@ class ItemController extends Controller
         //
     }
 
-    public function filter(){
-      $texto = "bienvenidos a [:name]";
-      $result = str_replace('[:name]',current_user()->getFullName(),$texto);
-      return $result;
-    }
+    public function changePosition($activity_id,$content_id, Request $request){
+        $oldIndex = $request->input('params.oldIndex');
+        $newIndex = $request->input('params.newIndex');
+
+        try {
+            $origin = Item::where('content_id',$content_id)->where('position',$oldIndex)->first();
+            $destiny = Item::where('content_id',$content_id)->where('position',$newIndex)->first();
+
+            $origin->position = $newIndex;
+            $destiny->position = $oldIndex;
+
+            $origin->save();
+            $destiny->save();
+
+            return $origin;
+        } catch (\Throwable $th) {
+            return $th;
+        }
+      }
 }
