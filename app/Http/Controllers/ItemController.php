@@ -194,7 +194,7 @@ class ItemController extends Controller
             $origin->save();
             $destiny->save();
 
-            return $origin;
+            return response()->json(['message' => 'Yup. This request succeeded.'], 200);
         } catch (\Throwable $th) {
             return $th;
         }

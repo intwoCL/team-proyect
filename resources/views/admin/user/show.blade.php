@@ -42,13 +42,6 @@
               </div>
 
               <div class="form-group row">
-                <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger"></span></label>
-                <div class="col-sm-9">
-                  <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" required="" value="{{$user->specialty}}" disabled>
-                </div>
-              </div>
-
-              <div class="form-group row">
                 <label for="inputFirstName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.first_name') }}</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" id="inputFirstName" placeholder="{{ trans('t.user.profile.first_name') }}" required="" name="first_name" value="{{$user->first_name}}" disabled="true">
@@ -59,13 +52,6 @@
                 <label for="inputLastName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.last_name') }}</label>
                 <div class="col-sm-9">
                   <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name" value="{{$user->last_name}}" disabled="true">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="inputPhoto" class="col-sm-3 col-form-label">{{ trans('t.user.profile.photo') }}</label>
-                <div class="col-sm-9">
-                  <input type="file" name="photo" id="inputPhoto" class="form-control" disabled="true">
                 </div>
               </div>
 
@@ -100,6 +86,13 @@
                   </label>
                 </div>
               </fieldset>
+
+              <div class="form-group row">
+                <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger"></span></label>
+                <div class="col-sm-9">
+                  <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" required="" value="{{$user->specialty}}" disabled>
+                </div>
+              </div>
 
           </form>
         </div>
