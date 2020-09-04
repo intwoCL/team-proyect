@@ -33,9 +33,16 @@
         <div class="swiper-slide">
           @include('webapp.components.swiper._quiz')
         </div>
-        {{-- <div class="swiper-slide">
+        <div class="swiper-slide">
+          @include('webapp.components.swiper._quiz')
+        </div>
+        <div class="swiper-slide">
+          @include('webapp.components.swiper._quiz')
+        </div>
+        <div class="swiper-slide">
           @include('webapp.components.swiper._gif')
         </div>
+          {{-- 
         <div class="swiper-slide">
           @include('webapp.components.swiper._text')
         </div>

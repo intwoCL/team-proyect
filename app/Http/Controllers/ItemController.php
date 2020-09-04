@@ -134,4 +134,10 @@ class ItemController extends Controller
     {
         //
     }
+
+    public function filter(){
+      $texto = "bienvenidos a [:name]";
+      $result = str_replace('[:name]',current_user()->getFullName(),$texto);
+      return $result;
+    }
 }
