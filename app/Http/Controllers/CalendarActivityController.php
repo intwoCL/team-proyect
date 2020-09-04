@@ -91,7 +91,7 @@ class CalendarActivityController extends Controller
 
   public function delete(Request $request){
     try {
-      $id = $request->input('calendar_activity_id');
+      $id = $request->input('id');
       $c = CalendarActivity::findOrFail($id)->delete();
       return redirect()->back()->with('success',trans('alert.delete'));
     } catch (\Throwable $th) {

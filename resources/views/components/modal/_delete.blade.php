@@ -11,7 +11,7 @@
          @csrf
          @method('DELETE');
         <div class="modal-body">
-          <input type="hidden" class="form-control" id="recipient-name" name="calendar_activity_id">
+          <input type="hidden" class="form-control" id="recipient-name" name="id">
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
