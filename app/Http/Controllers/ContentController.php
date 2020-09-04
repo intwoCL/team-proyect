@@ -120,6 +120,22 @@ class ContentController extends Controller
   }
 
   public function changePosition($id, Request $request){
-    return $request;
+    $oldIndex = $request->input('params.oldIndex');
+    $newIndex = $request->input('params.newIndex');
+
+    try {
+        $origin = Content::where('activity_id',$id)->where('position',$oldIndex)->first();
+        $destiny = Content::where('activity_id',$id)->where('position',$newIndex)->first();
+
+        $origin->position = $newIndex;
+        $destiny->position = $oldIndex;
+
+        $origin->save();
+        $destiny->save();
+
+        return $oldIndex . "<->" . $newIndex;
+    } catch (\Throwable $th) {
+        return $th;
+    }
   }
 }
