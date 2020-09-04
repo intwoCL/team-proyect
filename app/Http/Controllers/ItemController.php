@@ -49,7 +49,28 @@ class ItemController extends Controller
             $i->type_id = $request->input('type');
             $i->position = Item::Where('content_id',$i->content_id)->count() + 1;
 
-            //$i->types = new Type();
+            if($i->type_id==1){
+                $i->url = $request->input('url');
+            }
+
+            if($i->type_id==2){
+                $i->video = $request->input('video');
+            }
+
+            if($i->type_id==3){
+                $file = $request->file('photo');
+                $filename = $i->title . time() .'.'.$file->getClientOriginalExtension();
+                $path = $file->storeAs('public/photo_items',$filename);
+                $i->photo= $filename;
+            }
+
+            if($i->type_id==4){
+                $i->audio = $request->input('audio');
+            }
+
+            if($i->type_id==5){
+                $i->text = $request->input('text');
+            }
 
             $c = Content::findOrFail($i->content_id);
             $a = Activity::findOrFail($c->activity_id);
@@ -109,6 +130,30 @@ class ItemController extends Controller
             $i->content = $request->input('content');
             $i->type_id = $request->input('type');
             $i->position = Item::Where('content_id',$i->content_id)->count() + 1;
+
+            if($i->type_id==1){
+                $i->url = $request->input('url');
+            }
+
+            if($i->type_id==2){
+                $i->video = $request->input('video');
+            }
+
+            if($i->type_id==3){
+                $file = $request->file('photo');
+                $filename = $i->title . time() .'.'.$file->getClientOriginalExtension();
+                $path = $file->storeAs('public/photo_items',$filename);
+                $i->photo= $filename;
+            }
+
+            if($i->type_id==4){
+                $i->audio = $request->input('audio');
+            }
+
+            if($i->type_id==5){
+                $i->text = $request->input('text');
+            }
+
 
             //$i->types = new Type();
 

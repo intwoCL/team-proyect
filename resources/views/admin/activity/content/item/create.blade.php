@@ -1,14 +1,5 @@
 @extends('layouts.app')
 
-@push('stylesheet')
-<style>
-        #url,#video,#photo,#audio,#texto
-        {
-            display: none;
-        }
-</style>
-@endpush
-
 @section('content')
 <section class="section">
   <div class="section-header">
@@ -93,7 +84,7 @@
 
               <div id="texto" class="form-group">
                 <label>Texto adjunto</label>
-                <textarea style="height:auto;" name="content" class="form-control" rows="5" autocomplete="off"></textarea>
+                <textarea style="height:auto;" name="texto" class="form-control" rows="5" autocomplete="off"></textarea>
               </div>
 
             </div>
@@ -120,15 +111,19 @@
         'texto'
     ];
 
-    $(".select2").on('change',(e) => {
-        var tipoOptId = e.target.value;
+    function cambiarInput(formIds, optId){
         typeFormIds.forEach((tipo) => {
-            console.log(tipo);
           document.getElementById(tipo).style.display='none';
         }); // Desaparecen todos
-        var inputActivate = document.getElementById(typeFormIds[tipoOptId-1]);
-        inputActivate.style.display=null; // Aparece
+        var inputActivate = document.getElementById(formIds[optId-1]);
+        inputActivate.style.display=""; // Aparece
+    }
+
+    $(".select2").on('change',(e) => {
+        var tipoOptId = e.target.value;
+        cambiarInput(typeFormIds,tipoOptId);
     });
 
+    cambiarInput(typeFormIds,'url');
 </script>
 @endpush

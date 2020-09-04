@@ -98,13 +98,13 @@ class ActivityController extends Controller
     $activity = Activity::FindOrFail($id);
 
     // TODO: Buscar una forma de no hacer esto
-    $tags= $activity->tagsCategories; 
+    $tags= $activity->tagsCategories;
     foreach ($categories as $c){
       foreach ($tags as $t) {
         if ($c->id == $t->category_id){
           $c->selected = true;
           break;
-        }     
+        }
       }
     }
     return view('admin.activity.edit',compact('status','categories','scales','activity','tags'));
@@ -125,11 +125,11 @@ class ActivityController extends Controller
       $a->objective = $request->input('objective');
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
-      
+
       $file = $request->file('photo');
       if ($file != null) {
         $filename = $a->name . time() .'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('public/photo_activity',$filename);
+        $path = $file->storeAs('public/photo_items',$filename);
         $a->photo= $filename;
       }
 
@@ -141,7 +141,7 @@ class ActivityController extends Controller
         $ac->category_id = $categories[$i];
         $ac->activity_id = $a->id;
         $ac->save();
-      } 
+      }
       $a->update();
       return redirect()->back()->with('success',trans('alert.update'));
     } catch (\Throwable $th) {

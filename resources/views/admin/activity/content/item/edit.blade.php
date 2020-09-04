@@ -28,7 +28,7 @@
         @include('partials._errors')
 
         <div class="card">
-          <form action="{{route('item.update',[$i->itemContent->activity->id,$i->itemContent->id,$i->id])}}" method="POST" >
+          <form action="{{route('item.update',[$i->itemContent->activity->id,$i->itemContent->id,$i->id])}}" method="POST" enctype="multipart/form-data">
             @csrf
             <input type="hidden" name="id" value="{{$i->id}}">
             <div class="card-header">
@@ -45,6 +45,11 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label>Contenido</label>
+                <input type="text" name="content" class="form-control" required="" value="{{$i->content}}" autocomplete="off">
+              </div>
+
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
                 <div class="col-sm-9">
@@ -56,9 +61,34 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <label>Contenido</label>
-                <textarea name="content" class="form-control" cols="30" rows="10" required="" autocomplete="off">{{$i->content}}</textarea>
+              {{-- adjuntos (desaparecen con jquery) --}}
+
+              <div id="url" class="form-group">
+                <label>Vinculo URL adjunto</label>
+                <input type="text" name="url" class="form-control" placeholder="Link de sitio" autocomplete="off" value="{{$i->url}}">
+              </div>
+
+              <div id="video" class="form-group">
+                <label>Video adjunto</label>
+                <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off" value="{{$i->video}}">
+              </div>
+
+              <div id="photo" class="form-group">
+                <label>Foto adjunta</label>
+                <input class="form-control" type="file" name="photo" accept="image/*" onchange="preview(this)"/>
+                <div id="preview">
+                    <img class="img-fluid" src="{{ $i->getPhoto() }}" alt="" title="">
+                </div>
+              </div>
+
+              <div id="audio" class="form-group">
+                <label>Audio adjunto</label>
+                <input type="text" name="audio" class="form-control" autocomplete="off">
+              </div>
+
+              <div id="texto" class="form-group">
+                <label>Texto adjunto</label>
+              <textarea style="height:auto;" name="texto" class="form-control" rows="5" autocomplete="off">{{$i->text}}</textarea>
               </div>
 
             </div>
@@ -74,5 +104,29 @@
 </section>
 @endsection
 @push('javascript')
+<script src="/vendor/intwo/preview.js"></script>
+<script>
+    var typeFormIds = [
+        'url',
+        'video',
+        'photo',
+        'audio',
+        'texto'
+    ];
 
+    function cambiarInput(formIds, optId){
+        typeFormIds.forEach((tipo) => {
+          document.getElementById(tipo).style.display='none';
+        }); // Desaparecen todos
+        var inputActivate = document.getElementById(formIds[optId-1]);
+        inputActivate.style.display=""; // Aparece
+    }
+
+    $(".select2").on('change',(e) => {
+        var tipoOptId = e.target.value;
+        cambiarInput(typeFormIds,tipoOptId);
+    });
+
+    cambiarInput(typeFormIds,'{{$i->type_id}}');
+</script>
 @endpush
