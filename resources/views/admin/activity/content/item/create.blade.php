@@ -1,8 +1,15 @@
 @extends('layouts.app')
 
+@push('stylesheet')
+<style>
+        #url,#video,#photo,#audio,#texto
+        {
+            display: none;
+        }
+</style>
+@endpush
+
 @section('content')
-
-
 <section class="section">
   <div class="section-header">
     <a href="{{route('content.show',[$a->id,$c->id])}}">
@@ -28,7 +35,7 @@
         @include('partials._errors')
 
         <div class="card">
-          <form action="{{route('item.store',[$a->id,$c->id])}}" method="POST" >
+          <form action="{{route('item.store',[$a->id,$c->id])}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="card-header">
               <h4>Nuevo Item</h4>
@@ -44,10 +51,16 @@
                 </div>
               </div>
 
+              <div class="form-group">
+                <label>Contenido</label>
+                <input type="text" name="content" class="form-control" required="" autocomplete="off">
+              </div>
+
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
                 <div class="col-sm-9">
                   <select id="selectType" class="form-control select2" name="type" required="">
+
                     @foreach ($types as $t)
                     <option value="{{ $t->id }}">{{ ucfirst($t->name) }}</option>
                     @endforeach
@@ -55,13 +68,36 @@
                 </div>
               </div>
 
-              <div id="contenido" class="form-group">
-                <label>Contenido</label>
-                <input type="text" name="url" class="form-control" required="" autocomplete="off">
+              {{-- adjuntos (desaparecen con jquery) --}}
+
+              <div id="url" class="form-group">
+                <label>Vinculo URL adjunto</label>
+                <input type="text" name="url" class="form-control" placeholder="Link de sitio" autocomplete="off">
               </div>
 
+              <div id="video" class="form-group">
+                <label>Video adjunto</label>
+                <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off">
+              </div>
+
+              <div id="photo" class="form-group">
+                <label>Foto adjunta</label>
+                <input class="form-control" type="file" name="photo" accept="image/*" onchange="preview(this)"/>
+                <div id="preview"></div>
+              </div>
+
+              <div id="audio" class="form-group">
+                <label>Audio adjunto</label>
+                <input type="text" name="audio" class="form-control" autocomplete="off">
+              </div>
+
+              <div id="texto" class="form-group">
+                <label>Texto adjunto</label>
+                <textarea style="height:auto;" name="content" class="form-control" rows="5" autocomplete="off"></textarea>
+              </div>
 
             </div>
+
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.save')}}</button>
             </div>
@@ -76,18 +112,22 @@
 @push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
 <script>
-    var tipoForm = {
-        1: '<label>URL</label>\n<input type="text" name="content" class="form-control" required="" placeholder="Link de sitio" autocomplete="off">',
-        2: '<label>Video</label>\n<input type="text" name="content" class="form-control" required="" placeholder="Url de video" autocomplete="off">',
-        3: '<label>Foto</label><input type="file" name="photo" accept="image/*" onchange="preview(this)"/> <div id="preview"></div>',
-        4: '<label>Audio</label>\n<input type="text" name="content" class="form-control" required="" autocomplete="off">',
-        5: '<label>Texto</label>\n<textarea style="height:auto;" name="content" class="form-control" rows="5" required="" autocomplete="off"></textarea>'
-    };
+    var typeFormIds = [
+        'url',
+        'video',
+        'photo',
+        'audio',
+        'texto'
+    ];
 
     $(".select2").on('change',(e) => {
-        var idOpt = e.target.value;
-        var contenido = document.getElementById("contenido");
-        contenido.innerHTML = tipoForm[idOpt];
+        var tipoOptId = e.target.value;
+        typeFormIds.forEach((tipo) => {
+            console.log(tipo);
+          document.getElementById(tipo).style.display='none';
+        }); // Desaparecen todos
+        var inputActivate = document.getElementById(typeFormIds[tipoOptId-1]);
+        inputActivate.style.display=null; // Aparece
     });
 
 </script>
