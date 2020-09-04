@@ -11,11 +11,11 @@ class Content extends Model
   public function activity(){
     return $this->belongsTo(Activity::class,'activity_id');
   }
-  
+
   public function items(){
-    return $this->hasMany(Item::class,'content_id');
+    return $this->hasMany(Item::class,'content_id')->orderBy('position','asc');;
   }
-  
+
   public function getPhoto(){
     return \Storage::url("$this->folderImg/$this->photo");
   }

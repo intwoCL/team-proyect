@@ -179,4 +179,24 @@ class ItemController extends Controller
     {
         //
     }
+
+    public function changePosition($activity_id,$content_id, Request $request){
+        $oldIndex = $request->input('params.oldIndex');
+        $newIndex = $request->input('params.newIndex');
+
+        try {
+            $origin = Item::where('content_id',$content_id)->where('position',$oldIndex)->first();
+            $destiny = Item::where('content_id',$content_id)->where('position',$newIndex)->first();
+
+            $origin->position = $newIndex;
+            $destiny->position = $oldIndex;
+
+            $origin->save();
+            $destiny->save();
+
+            return $origin;
+        } catch (\Throwable $th) {
+            return $th;
+        }
+      }
 }

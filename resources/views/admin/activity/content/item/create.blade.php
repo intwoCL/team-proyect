@@ -124,6 +124,6 @@
         cambiarInput(typeFormIds,tipoOptId);
     });
 
-    cambiarInput(typeFormIds,'url');
+    cambiarInput(typeFormIds,1);
 </script>
 @endpush
