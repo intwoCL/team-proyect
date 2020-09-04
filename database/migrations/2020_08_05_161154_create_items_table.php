@@ -26,7 +26,6 @@ class CreateItemsTable extends Migration
             $table->string('photo')->default('/images/gallery.jpg');
             $table->string('audio')->nullable();
             $table->string('url')->nullable();
-            $table->longtext('text')->nullable();
 
             $table->timestamps();
         });

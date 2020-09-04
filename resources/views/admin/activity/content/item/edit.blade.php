@@ -1,8 +1,10 @@
 @extends('layouts.app')
 
+@push('stylesheet')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endpush
+
 @section('content')
-
-
 <section class="section">
   <div class="section-header">
     <a href="{{route('content.show',[$i->itemContent->activity->id,$i->itemContent->id])}}">
@@ -45,11 +47,6 @@
                 </div>
               </div>
 
-              <div class="form-group">
-                <label>Contenido</label>
-                <input type="text" name="content" class="form-control" required="" value="{{$i->content}}" autocomplete="off">
-              </div>
-
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
                 <div class="col-sm-9">
@@ -58,6 +55,13 @@
                     <option {{$t->select}} value="{{ $t->id }}">{{ $t->name }}</option>
                     @endforeach
                   </select>
+                </div>
+              </div>
+
+              <div id="texto" class="form-group">
+                <label>Contenido</label>
+                <div class="col-sm-12">
+                    <textarea name="content" class="ckeditor" id="summernote" rows="5" autocomplete="off">{{$i->text}}</textarea>
                 </div>
               </div>
 
@@ -86,10 +90,7 @@
                 <input type="text" name="audio" class="form-control" autocomplete="off">
               </div>
 
-              <div id="texto" class="form-group">
-                <label>Texto adjunto</label>
-              <textarea style="height:auto;" name="texto" class="form-control" rows="5" autocomplete="off">{{$i->text}}</textarea>
-              </div>
+
 
             </div>
             <div class="card-footer text-right">
@@ -105,21 +106,23 @@
 @endsection
 @push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
     var typeFormIds = [
         'url',
         'video',
         'photo',
-        'audio',
-        'texto'
+        'audio'
     ];
 
     function cambiarInput(formIds, optId){
         typeFormIds.forEach((tipo) => {
           document.getElementById(tipo).style.display='none';
         }); // Desaparecen todos
-        var inputActivate = document.getElementById(formIds[optId-1]);
-        inputActivate.style.display=""; // Aparece
+        if(optId<5){
+            var inputActivate = document.getElementById(formIds[optId-1]);
+            inputActivate.style.display=""; // Aparece
+        }
     }
 
     $(".select2").on('change',(e) => {
@@ -128,5 +131,23 @@
     });
 
     cambiarInput(typeFormIds,'{{$i->type_id}}');
+</script>
+<script>
+  $('#summernote').summernote({
+    placeholder: 'Hello stand alone ui',
+    tabsize: 10,
+    height: 120,
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'underline', 'clear']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+    ],
+    styleTags: [
+    'p',
+    { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+    'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+	  ],
+  });
 </script>
 @endpush

@@ -68,10 +68,6 @@ class ItemController extends Controller
                 $i->audio = $request->input('audio');
             }
 
-            if($i->type_id==5){
-                $i->text = $request->input('text');
-            }
-
             $c = Content::findOrFail($i->content_id);
             $a = Activity::findOrFail($c->activity_id);
 
@@ -150,12 +146,6 @@ class ItemController extends Controller
                 $i->audio = $request->input('audio');
             }
 
-            if($i->type_id==5){
-                $i->text = $request->input('text');
-            }
-
-
-            //$i->types = new Type();
 
             $c = Content::findOrFail($i->content_id);
             $a = Activity::findOrFail($c->activity_id);

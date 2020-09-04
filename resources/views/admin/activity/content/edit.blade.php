@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('stylesheet')
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+@endpush
+
 @section('content')
 <section class="section">
   <div class="section-header">
@@ -23,11 +27,11 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
-        <div class="card">       
+        <div class="card">
           <form action="{{route('content.edit',[$content->activity->id,$content->id])}}" method="POST" enctype="multipart/form-data" >
             @csrf
             @method('PUT')
-            <input type="hidden" name="activity_id" value="{{$content->activity->id}}"> 
+            <input type="hidden" name="activity_id" value="{{$content->activity->id}}">
             <div class="card-header">
               <h4>Default Validation</h4>
             </div>
@@ -43,7 +47,7 @@
               <div class="form-group row">
                 <label for="inputObjetive" class="col-sm-3 col-form-label">Objetivo</label>
                 <div class="col-sm-9">
-                  <input type="text" name="objective" value="{{$content->objective}}" class="form-control" autocomplete="off">
+                    <textarea name="objective" class="ckeditor" id="summernote">{{$content->objective}}</textarea>
                 </div>
               </div>
 
@@ -62,7 +66,7 @@
                   </label>
                 </div>
               </div>
-              
+
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.update')}}</button>
@@ -70,8 +74,29 @@
           </form>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
 @endsection
+@push('javascript')
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<script>
+  $('#summernote').summernote({
+    placeholder: 'Hello stand alone ui',
+    tabsize: 10,
+    height: 120,
+    toolbar: [
+      ['style', ['style']],
+      ['font', ['bold', 'underline', 'clear']],
+      ['color', ['color']],
+      ['para', ['ul', 'ol', 'paragraph']],
+    ],
+    styleTags: [
+    'p',
+    { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
+    'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
+	  ],
+  });
+</script>
+@endpush

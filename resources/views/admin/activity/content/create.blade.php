@@ -8,7 +8,7 @@
   .table-bordered, .table-bordered td, .table-bordered th {
     border: 2px solid #000 !important;
   }
-</style>    
+</style>
 @endpush
 @section('content')
 <section class="section">
@@ -32,10 +32,10 @@
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
-        <div class="card">       
+        <div class="card">
           <form action="{{route('content.store',$activity->id)}}" method="POST" enctype="multipart/form-data" >
             @csrf
-            <input type="hidden" name="activity_id" value="{{$activity->id}}"> 
+            <input type="hidden" name="activity_id" value="{{$activity->id}}">
             <div class="card-header">
               <h4>Default Validation</h4>
             </div>
@@ -52,7 +52,7 @@
                 <label for="inputObjetive" class="col-sm-12 col-form-label">Objetivo</label>
                 <div class="col-sm-12">
                   <textarea name="objective" class="ckeditor" id="summernote">{!! old('objective') !!}</textarea>
-                </div>  
+                </div>
               </div>
 
               <div class="form-group row">
@@ -74,7 +74,7 @@
           </form>
         </div>
       </div>
-      
+
     </div>
   </div>
 </section>
