@@ -19,12 +19,12 @@ class UserTest extends TestCase
   }
 
   /** @test */
-  public function it_should_error_full_name()
+  public function it_should_return_full_name_new_user()
   {
     $u = new User();
     $u->first_name = "Bem";
     $u->last_name = "Mo 2";
-    $this->assertFalse("error", $u->getFullName()); 
+    $this->assertEquals("Bem Mo 2",$u->getFullName()); 
   }
 
 }
