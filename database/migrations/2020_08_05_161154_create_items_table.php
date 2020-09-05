@@ -18,8 +18,15 @@ class CreateItemsTable extends Migration
             // $table->integer('content_id');
             $table->foreignId('content_id')->references('id')->on('contents');
             $table->string('title',100);
-            $table->string('content',100);
+            $table->foreignId('type_id')->references('id')->on('types');
+            $table->longText('content');
             $table->integer('position');
+
+            $table->string('video')->nullable();
+            $table->string('photo')->default('/images/gallery.jpg');
+            $table->string('audio')->nullable();
+            $table->string('url')->nullable();
+
             $table->timestamps();
         });
     }

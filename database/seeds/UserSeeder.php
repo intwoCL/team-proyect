@@ -14,12 +14,15 @@ class UserSeeder extends Seeder
   {
   
     DB::table('users')->insert([
-      'first_name' => Str::random(10),
-      'last_name' => Str::random(10),
-      'email' => 'admin@team.com',
+      'first_name' => 'Super',
+      'last_name' => 'Admin',
+      'email' => 'admin@example.com',
       'run' => Str::random(10),
-      // 'password' => Hash::make('password'),
-      'password' => hash('sha256', '123456')
+      'password' => hash('sha256', '123456'),
+      'admin' => true,
+      'specialist' => true
     ]);
+
+    factory(App\Models\User::class, 10)->create();
   }
 }

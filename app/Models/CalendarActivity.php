@@ -6,13 +6,26 @@ use Illuminate\Database\Eloquent\Model;
 
 class CalendarActivity extends Model
 {
-  protected $table = 'activities';
+  protected $table = 'calendars_activities';
 
   public function calendar(){ 
     return $this->belongsTo(User::class,'calendar_id');
   }
   
   public function activity(){
-    return $this->hasMany(Activity::class,'activity_id');
+    return $this->belongsTo(Activity::class,'activity_id');
   }
+
+  public function scopeOrdenDay(){
+    return $this->ordenBy('weekday','asc');
+  }
+
+  public function scopeOrdenTime(){
+    return $this->ordenBy('weekday','asc');
+  }
+
+  public function getDayWords(){
+    return helper_days()[$this->weekday-1];
+  }
+
 }

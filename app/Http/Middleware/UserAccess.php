@@ -16,7 +16,7 @@ class UserAccess
   public function handle($request, Closure $next)
   {
     if (auth('user')->check()){
-    return $next($request);   
+      return $next($request);   
     }
     return redirect('/');
     // return redirect()->route('auth.usuario.login')->with('danger','Usuario deshabilitado.'); 

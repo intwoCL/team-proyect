@@ -15,12 +15,12 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->id();
-            // $table->integer('activity_id');
             $table->foreignId('activity_id')->references('id')->on('activities');
-            $table->string('name',10);
+            $table->string('name',100);
+            $table->longText('objective')->nullable();
             $table->integer('position');
             $table->integer('items_total')->default(0);
-            $table->boolean('quiz');
+            $table->boolean('quiz')->default(false);
             $table->timestamps();
         });
     }
