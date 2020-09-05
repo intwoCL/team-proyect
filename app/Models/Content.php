@@ -13,7 +13,7 @@ class Content extends Model
   }
 
   public function items(){
-    return $this->hasMany(Item::class,'content_id')->orderBy('position','asc');;
+    return $this->hasMany(Item::class,'content_id')->orderBy('position','asc');
   }
 
   public function getPhoto(){
