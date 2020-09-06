@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Activity extends Model
 {
   protected $table = 'activities';
-  private $folderImg = 'photo_activity';
+  private $folderImg = 'photo_activities';
   private $imgDefault = '/images/gallery.jpg';
   public $selected = false;
 

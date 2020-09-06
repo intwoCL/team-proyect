@@ -212,10 +212,9 @@
     </section>
     <div class="container">
       <div class="row">
-
-        @for ($i=0; $i < 10; $i++)
+        @foreach ($activities as $a)
           @include('webapp.components._card')
-        @endfor
+        @endforeach
       </div>
     </div>
   </div>
@@ -248,11 +247,5 @@
     );
     value(swiper);
   });
-
-
-  function activityShow(id){
-    // alert('Error ' + id);
-    window.location.href = "{{ route('web') }}";
-  }
 </script>
 @endpush
