@@ -1,5 +1,5 @@
 <div class="col-md-4">
-  <div class="card card-items" role="button" onclick="{{ route('app.activity',$a->id) }}">
+  <div class="card card-items" role="button" onclick=" window.location='{{ route('app.activity',$a->id) }}'">
     <div class="card-horizontal">
       <div class="img-square-wrapper">
         <img class="img-responsive " width="150px" height="150px" src="{{ $a->getPhoto() }}"  alt="Card image cap">

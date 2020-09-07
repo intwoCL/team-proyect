@@ -7,7 +7,7 @@
     flex: 1 1 auto;
   }
   .card-items-shadow {
-    box-shadow: 2px 1px 2px #716f6f !important;
+    box-shadow: 2px 2px 2px #716f6f !important;
   }
 </style>
 @endpush
@@ -25,6 +25,7 @@
       <div class="row">
         @for ($i=0; $i < 5; $i++)
           @include('webapp.components._card')
+          {{-- @include('webapp.components._article') --}}
         @endfor
       </div>
     </div>

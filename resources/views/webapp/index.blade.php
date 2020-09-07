@@ -7,25 +7,32 @@
     flex: 1 1 auto;
   }
   .card-items-shadow {
-    box-shadow: 2px 1px 2px #716f6f !important;
+    box-shadow: 2px 2px 2px #716f6f !important;
   }
 </style>
 @endpush
 @section('app')
-<div class="main-wrapper container">
+<div class="main-wrapper">
   <div class="navbar-bg" style="height: 70px !important;"></div>
-  <nav class="navbar navbar-expand-lg main-navbar container ">
-    {{-- <a href="index.html" class="navbar-brand sidebar-gone-hide">TEAM</a> --}}
-    <div class="navbar-nav">
-      <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
-    </div>
+  <nav class="navbar navbar-expand-lg main-navbar ">
+    <a href="index.html" class="navbar-brand sidebar-gone-hide mr-5 ml-3">TEAM</a>
     <div class="nav-collapse d-none d-lg-block">
       <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
         <i class="fas fa-ellipsis-v"></i>
       </a>
       <ul class="navbar-nav">
-        <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home mr-2"></i><strong>INICIO</strong></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-calendar-alt mr-2"></i><strong>CALENDAR</strong></a></li>
+        <li class="nav-item active">
+          <a href="#" class="nav-link">
+            <i class="fa fa-home mr-2"></i>
+            <strong>INICIO</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="fa fa-calendar-alt mr-2"></i>
+            <strong>CALENDAR</strong>
+          </a>
+        </li>
       </ul>
     </div>
     <ul class="ml-auto navbar-nav navbar-right">
@@ -166,12 +173,6 @@
           <a href="features-profile.html" class="dropdown-item has-icon">
             <i class="far fa-user"></i> Profile
           </a>
-          <a href="features-activities.html" class="dropdown-item has-icon">
-            <i class="fas fa-bolt"></i> Activities
-          </a>
-          <a href="features-settings.html" class="dropdown-item has-icon">
-            <i class="fas fa-cog"></i> Settings
-          </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i> Logout
@@ -181,46 +182,26 @@
     </ul>
   </nav>
 
-  <nav class="navbar navbar-secondary navbar-expand-lg d-none d-sm-block d-md-none d-flex">
-    <div class="container">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i
-              class="fas fa-fire"></i><span>Dashboard</span></a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a href="index-0.html" class="nav-link">General Dashboard</a></li>
-            <li class="nav-item"><a href="index.html" class="nav-link">Ecommerce Dashboard</a></li>
-          </ul>
-        </li>
-        <li class="nav-item active">
-          <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Top Navigation</span></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="" style="padding-top: 100px !important;">
+  <div class="container" style="padding-top: 90px !important;">
     <section class="section">
       <div class="section-header">
-        <h1>Top Navigation</h1>
+        <h1>Actividades</h1>
         <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-          <div class="breadcrumb-item"><a href="#">Layout</a></div>
-          <div class="breadcrumb-item">Top Navigation</div>
+          <div class="breadcrumb-item">{{ date('d-m-Y') }}</div>
         </div>
       </div>
     </section>
-    <div class="container">
-      <div class="row">
-        @foreach ($activities as $a)
-          @include('webapp.components._card')
-        @endforeach
-      </div>
+    <div class="row">
+      @foreach ($activities as $a)
+        {{-- @include('webapp.components._card') --}}
+        @include('webapp.components._article')
+
+      @endforeach
     </div>
   </div>
 
 
-
+{{-- 
   <footer class="main-footer">
     <div class="footer-left">
       Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
@@ -228,7 +209,7 @@
     <div class="footer-right">
       2.3.0
     </div>
-  </footer>
+  </footer> --}}
 </div>
 @endsection
 @push('footerNav')
