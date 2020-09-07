@@ -181,8 +181,8 @@ class ItemController extends Controller
         $origin->position = $newIndex;
         $destiny->position = $oldIndex;
 
-        $origin->save();
-        $destiny->save();
+        $origin->update();
+        $destiny->update();
 
         return response()->json(['message' => 'Yup. This request succeeded.'], 200);
       } catch (\Throwable $th) {
