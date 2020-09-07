@@ -17,9 +17,9 @@ class CreateItemsTable extends Migration
             $table->id();
             // $table->integer('content_id');
             $table->foreignId('content_id')->references('id')->on('contents');
-            $table->string('title',100);
             $table->foreignId('type_id')->references('id')->on('types');
-            $table->longText('content');
+            $table->string('title',100);
+            $table->longText('content')->nullable();
             $table->integer('position');
 
             $table->string('video')->nullable();

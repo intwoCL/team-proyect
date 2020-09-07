@@ -71,7 +71,7 @@ class UserController extends Controller
         $u->save();
         return redirect()->route('user.index')->with('success',trans('alert.success'));
       } catch (\Throwable $th) {
-        return back()->with('danger',trans('alert.danger'));
+        return redirect()->back()->with('danger',trans('alert.danger'));
       }
     }
 

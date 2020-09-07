@@ -150,4 +150,19 @@
       // airMode: true
     });
   </script>
+
+  <script>
+    function validarExtensionArchivo(){
+      var fileInput = document.getElementById('file');
+      var filePath = fileInput.value;
+      var allowedExtensions = /(\.wav|\.mp3|\.mp4|\.mid)$/i;
+      if(!allowedExtensions.exec(filePath)){
+          alert('Solo se permite archivos de audio con esta extensión .wav/.mp3/.mp4/.mid .');
+          fileInput.value = '';
+          return false;
+      }else{
+          //Otro Código
+      }
+    }
+  </script>
 @endpush
