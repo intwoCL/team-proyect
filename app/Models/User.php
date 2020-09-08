@@ -6,13 +6,12 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+use App\Presenters\UserPresenter;
+
 class User extends Authenticatable
 {
 
   use Notifiable;
-
-  private $folderImg = 'photo_users';
-  private $imgDefault = '/images/avatar.png';
 
   protected $guard = 'user';
 
@@ -20,12 +19,12 @@ class User extends Authenticatable
     'password'
   ];
 
-  public function getFullName(){
-    return "{$this->first_name} {$this->last_name}";
-  }
-
   public function assignmentUsers(){
     return $this->hasMany(Assignment::class,'specialist_id');
+  }
+
+  public function getFullName(){
+    return "{$this->first_name} {$this->last_name}";
   }
 
   public function changePassword($newPassword = ''){
@@ -38,14 +37,8 @@ class User extends Authenticatable
     return [$newPassword,$encryPassword]; 
   }
 
-  public function getPhoto(){
-    try {
-      if($this->photo == $this->imgDefault){
-        return $this->photo;
-      }
-      return \Storage::url("$this->folderImg/$this->photo");
-    } catch (\Throwable $th) {
-      return $this->imgDefault;
-    }
+  public function present(){
+    return new UserPresenter($this);
   }
+
 }
