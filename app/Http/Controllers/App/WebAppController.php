@@ -2,16 +2,32 @@
 
 namespace App\Http\Controllers\App;
 
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Activity;
+use App\Models\Attention;
 
 class WebAppController extends Controller
 {
   public function index(){
     $activities = Activity::get();
     return view('webapp.index',compact('activities'));
+  }
+
+  public function calendar($month,$year){
+    $attentions = Attention::where('user_id',current_user()->id)->whereMonth('attention_date', $month)
+    ->whereYear('attention_date', $year)->get();
+    $date = Carbon::parse("$year-$month-01");
+    return view('webapp.calendar',compact('attentions','date'));
+  }
+
+  public function findCalendar(Request $request){
+    $date = Carbon::parse($request->input('date'));
+    $month = $date->month;
+    $year = $date->year;
+    return redirect()->route('app.calendar',[$month,$year]);
   }
 
   public function activity($id){
