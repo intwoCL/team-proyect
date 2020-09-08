@@ -29,7 +29,7 @@
                 <td>{{ $ca->id }}</td>
                 <td>{{ $ca->name }}</td>
                 <td>{{ $ca->objective }}</td>
-                <td><a href="{{ route('calendar.activity.index',$ca->id) }}" class="btn btn-sm btn-info">Ver</a></td>
+                <td><a href="{{ route('calendar.show',$ca->id) }}" class="btn btn-sm btn-info">Ver</a></td>
               </tr>
               @endforeach
               </tbody>

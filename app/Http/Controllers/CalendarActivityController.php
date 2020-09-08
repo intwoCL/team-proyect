@@ -11,17 +11,11 @@ use App\Models\CalendarActivity;
 // horario
 class CalendarActivityController extends Controller
 {
-
-  public function index($id){
-    $c = Calendar::findOrFail($id);
-    return view('admin.calendar.details.index',compact('c'));
-  }
-
+  
   public function edit($id){
     $c = Calendar::findOrFail($id);
 
     $calendarsActivities = CalendarActivity::where('calendar_id',$id)->get();
-    // return $calendarsActivities;
     $calendars = array();
     foreach ($calendarsActivities as $ca) {
       $a = array(

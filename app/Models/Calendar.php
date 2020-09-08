@@ -14,7 +14,7 @@ class Calendar extends Model
   }
 
   public function activities(){
-    return $this->hasMany(CalendarActivity::class,'calendar_id');
+    return $this->hasMany(CalendarActivity::class,'calendar_id')->orderBy('weekday','asc');
   }
 
   public function getState(){

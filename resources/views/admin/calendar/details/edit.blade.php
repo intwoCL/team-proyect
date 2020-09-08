@@ -9,7 +9,7 @@
 @section('content')
 <section class="section">
   <div class="section-header">
-    <a href="{{ route('calendar.activity.index',$c->id) }}">
+    <a href="{{ route('calendar.show',$c->id) }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Panel de calendarios - {{ $c->name }}</h1>

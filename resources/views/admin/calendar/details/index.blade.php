@@ -1,5 +1,7 @@
 @extends('layouts.app')
+@push('stylesheet')
 
+@endpush
 @section('content')
   <section class="section">
     <div class="section-header">
@@ -47,3 +49,6 @@
     </div>
   </section>
 @endsection
+@push('javascript')
+
+@endpush

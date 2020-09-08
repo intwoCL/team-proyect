@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Calendar;
 use App\Models\Activity;
+use App\Models\CalendarActivity;
 
 class CalendarController extends Controller
 {
@@ -49,6 +50,45 @@ class CalendarController extends Controller
         // return redirect()->back()->with('danger',trans('alert.danger'));
         return $th;
       }
+    }
+
+    public function show($id){
+      $c = Calendar::findOrFail($id);
+      // $ca = CalendarActivity::where('calendar_id',$c->id)->get();
+
+      $activities = $c->activities;
+
+      $calendars = [];
+      // $m = array();
+
+      for ($i=0; $i < count($activities) ; $i++) { 
+        switch ($activities[$i]->weekday) {
+          case 1:
+            $calendars[0][] = $activities[$i];
+            break;
+          case 2:
+            $calendars[1][] = $activities[$i];
+            break;
+          case 3:
+            $calendars[2][] = $activities[$i];
+            break;
+          case 4:
+            $calendars[3][] = $activities[$i];
+            break;
+          case 5:
+            $calendars[4][] = $activities[$i];
+            break;
+          case 6:
+            $calendars[5][] = $activities[$i];
+            break;
+          case 7:
+            $calendars[6][] = $activities[$i];
+            break;
+        }
+      }
+      return $calendars[0][0];
+
+      return view('admin.calendar.details.index',compact('c'));
     }
     
     /**
