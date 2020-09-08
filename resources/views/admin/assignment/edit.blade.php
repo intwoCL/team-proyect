@@ -12,7 +12,7 @@
       <h1>Asignar usuarios al especialista</h1>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Usuario : {{ $user->getFullName() }}</h2>
+      <h2 class="section-title">Usuario : {{ $user->present()->getFullName() }}</h2>
       <form action="{{ route('assignment.store') }}" method="post">
         @csrf
         <input type="hidden" name="id" value="{{ $user->id }}" hidden>
@@ -37,7 +37,7 @@
                         </div>
                       </div>
                     </td>
-                    <td>{{ $u->getFullName() }}</td>        
+                    <td>{{ $u->present()->getFullName() }}</td>        
                     <td>{{ $u->email }}</td>        
                   </tr>
                   @empty

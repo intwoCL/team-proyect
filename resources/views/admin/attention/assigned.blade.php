@@ -12,7 +12,7 @@
         <h1>Lista de usuarios asignados</h1>
       </div>
       <div class="section-body">
-        <h2 class="section-title">Usuario : {{ current_user()->getFullName() }}</h2>
+        <h2 class="section-title">Usuario : {{ current_user()->present()->getFullName() }}</h2>
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
@@ -29,7 +29,7 @@
                   @forelse (current_user()->assignmentUsers as $ass)
                   <tr>
                     {{-- <td>{{ $u->id }}</td> --}}
-                    <td>{{ $ass->user->getFullName() }}</td>
+                    <td>{{ $ass->user->present()->getFullName() }}</td>
                     <td>{{ $ass->user->email }}</td>
 
                     {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}

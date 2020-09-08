@@ -73,7 +73,7 @@
                   </div>
                   <div class="ticket-detail">
                     <div class="ticket-title">
-                      <h4>{{ $a->user->getFullName() }}</h4>
+                      <h4>{{ $a->user->present()->getFullName() }}</h4>
                     </div>
                     <div class="ticket-info">
                       <div class="font-weight-600"><div class="badge badge-{{ $a->getColor() }}">{{ $a->getState() }}</div></div>

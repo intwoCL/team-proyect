@@ -41,7 +41,7 @@ class Attention extends Model
 
   public function jsonCalendar(){
     return array(
-      'title' => $this->user->getFullName(),
+      'title' => $this->user->present()->getFullName(),
       'start' => $this->getAttentionDateTime(),
       'backgroundColor' => $this->getColorCss(),
       'borderColor' => $this->getColorCss(),

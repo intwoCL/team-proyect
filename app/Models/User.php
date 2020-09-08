@@ -23,10 +23,6 @@ class User extends Authenticatable
     return $this->hasMany(Assignment::class,'specialist_id');
   }
 
-  public function getFullName(){
-    return "{$this->first_name} {$this->last_name}";
-  }
-
   public function changePassword($newPassword = ''){
     if(empty($newPassword)){
       $newPassword = helper_random_integer(6);

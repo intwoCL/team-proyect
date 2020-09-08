@@ -46,7 +46,7 @@
                 <tr>
                   <td class="bg-{{ $a->getColor() }}">{{ $a->getState() }}</td>
                   <td>{{ $a->getAttentionDate() }}</td>
-                  <td>{{ $a->specialist()->getFullName() }}</td>
+                  <td>{{ $a->specialist()->present()->getFullName() }}</td>
                 </tr>
                 @empty
                 <tr>
