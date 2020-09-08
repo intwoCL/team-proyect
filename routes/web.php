@@ -57,22 +57,24 @@ Route::middleware('user')->group(function () {
   Route::get('attention/{user_id}/historial', 'AttentionController@historial')->name('attention.historial');
   // Route::put('attention/{attention}','AttentionController@update')->name('attention.update');
 
-  Route::get('webapp','WebAppController@app')->name('webapp');
-  Route::get('webapp/activity','WebAppController@activity')->name('web');
-  Route::get('webapp/item','WebAppController@item')->name('item');
+  Route::namespace('App')->prefix('webapp')->group(function () {
+    Route::get('/','WebAppController@index')->name('app.index');
+    Route::get('activity/{id}','WebAppController@activity')->name('app.activity');
+    Route::get('item','WebAppController@item')->name('item');
+    Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
+    Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
+    
+  });
 
 });
 
 
-Route::get('app','WebAppController@index')->name('app');
+// Route::get('app','WebAppController@index')->name('app');
 
 
 Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
 Route::get('mail','MailController@sendEmail');
-
-
-Route::get('filter','ItemController@filter');
 
 
 

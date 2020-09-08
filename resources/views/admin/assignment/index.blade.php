@@ -26,7 +26,7 @@
                 <tr>
                   <td>{{ $u->id }}
                   </td>
-                  <td>{{ $u->getFullName() }}
+                  <td>{{ $u->present()->getFullName() }}
                     <div class="table-links">
                       <a href="#">View</a>
                       <div class="bullet"></div>

@@ -12,7 +12,7 @@
         <h1>Historial</h1>
       </div>
       <div class="section-body">
-        <h2 class="section-title">Usuario : {{ current_user()->getFullName() }}</h2>
+        <h2 class="section-title">Usuario : {{ current_user()->present()->getFullName() }}</h2>
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">
@@ -35,7 +35,7 @@
                   <tr>
                     {{-- <td>{{ $u->id }}</td> --}}
                     {{-- <td>{{ $a->user->id }}</td> --}}
-                    <td>{{ $a->specialist->getFullName() }}</td>
+                    <td>{{ $a->specialist->present()->getFullName() }}</td>
                     <td>{{ $a->attention_date }}</td>
                     <td>{{ $a->attention_time }}</td>
                     <td>{{ $a->comment_in }}</td>

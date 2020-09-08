@@ -17,13 +17,13 @@ class AuthUserControllerTest extends TestCase
   }
   
   /** @test */
-  public function it_should_access_login()
-  {
-    $this->visit('/register')
-      ->type('benja', 'username')
-      ->type('123456', 'password')
-      // ->check('terms')
-      ->press('Register')
-      ->seePageIs('/dashboard');
-  }
+  // public function it_should_access_login()
+  // {
+  //   $this->visit('/register')
+  //     ->type('benja', 'username')
+  //     ->type('123456', 'password')
+  //     // ->check('terms')
+  //     ->press('Register')
+  //     ->seePageIs('/dashboard');
+  // }
 }
