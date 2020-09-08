@@ -21,6 +21,11 @@ class Attention extends Model
   public function getAttentionDate(){
 		return date_format(date_create($this->attention_date . " " . $this->attention_time), 'd-m-Y h:m');
   }
+  
+  public function getAttentionDateTime(){
+    return date_format(date_create($this->attention_date . " " . $this->attention_time), 'Y-m-d h:m');
+    // $this->attention_date . " " . $this->attention_time ,
+  }
 
   public function getState(){
     return $this->states[$this->status-1];
@@ -32,5 +37,15 @@ class Attention extends Model
 
   public function getColorCss(){
     return $this->colorCss[$this->status-1];
+  }
+
+  public function jsonCalendar(){
+    return array(
+      'title' => $this->user->present()->getFullName(),
+      'start' => $this->getAttentionDateTime(),
+      'backgroundColor' => $this->getColorCss(),
+      'borderColor' => $this->getColorCss(),
+      'url' => route('attention.control', $this->id),
+    );
   }
 }

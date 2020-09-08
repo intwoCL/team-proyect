@@ -20,7 +20,7 @@ class AuthUserController extends Controller
       if(is_admin() || is_specialist()){
         return redirect()->route('dashboard.index');
       }else{
-        return redirect()->route('webapp');
+        return redirect()->route('app.index');
       }
     }else{
       return view('layouts.login2');

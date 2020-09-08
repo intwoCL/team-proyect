@@ -49,7 +49,6 @@ class ContentController extends Controller
       $c->save();
       return redirect()->route('activity.show',$a->id)->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
-      return $th;
       return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }

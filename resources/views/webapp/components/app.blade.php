@@ -1,35 +1,32 @@
 @extends('webapp.components.skeleton')
-@push('stylesheet')
-
-<style>
-  .card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-  }
-  .card-items-shadow {
-    box-shadow: 2px 1px 2px #716f6f !important;
-  }
-</style>
-@endpush
 @section('app')
-<div class="main-wrapper container">
+    
+<div class="main-wrapper">
   <div class="navbar-bg" style="height: 70px !important;"></div>
-  <nav class="navbar navbar-expand-lg main-navbar container ">
-    {{-- <a href="index.html" class="navbar-brand sidebar-gone-hide">TEAM</a> --}}
-    <div class="navbar-nav">
-      <a href="#" class="nav-link sidebar-gone-show" data-toggle="sidebar"><i class="fas fa-bars"></i></a>
-    </div>
+  <nav class="navbar navbar-expand-lg main-navbar ">
+    {{-- sidebar-gone-hide  --}}
+    <a href="index.html" class="navbar-brand mr-5 ml-3">TEAM</a>
     <div class="nav-collapse d-none d-lg-block">
       <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
         <i class="fas fa-ellipsis-v"></i>
       </a>
       <ul class="navbar-nav">
-        <li class="nav-item active"><a href="#" class="nav-link"><i class="fa fa-home mr-2"></i><strong>INICIO</strong></a></li>
-        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-calendar-alt mr-2"></i><strong>CALENDAR</strong></a></li>
+        <li class="nav-item active">
+          <a href="{{ route('app.index') }}" class="nav-link">
+            <i class="fa fa-home mr-2"></i>
+            <strong>INICIO</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('app.calendar',[date('m'),date('Y')]) }}" class="nav-link">
+            <i class="fa fa-calendar-alt mr-2"></i>
+            <strong>CALENDAR</strong>
+          </a>
+        </li>
       </ul>
     </div>
     <ul class="ml-auto navbar-nav navbar-right">
-      <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+      {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
           class="nav-link nav-link-lg message-toggle beep"><i class="far fa-envelope"></i></a>
         <div class="dropdown-menu dropdown-list dropdown-menu-right">
           <div class="dropdown-header">Messages
@@ -95,8 +92,8 @@
             <a href="#">View All <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </li>
-      <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
+      </li> --}}
+      {{-- <li class="dropdown dropdown-list-toggle"><a href="#" data-toggle="dropdown"
           class="nav-link notification-toggle nav-link-lg beep"><i class="far fa-bell"></i></a>
         <div class="dropdown-menu dropdown-list dropdown-menu-right">
           <div class="dropdown-header">Notifications
@@ -155,22 +152,16 @@
             <a href="#">View All <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
-      </li>
+      </li> --}}
       <li class="dropdown"><a href="#" data-toggle="dropdown"
           class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-          <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-          <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div>
+          <img alt="image" src="{{ current_user()->present()->getPhoto() }}" class="rounded-circle mr-1">
+          <div class="d-sm-none d-lg-inline-block">{{ current_user()->present()->getFullName() }}</div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-title">Logged in 5 min ago</div>
           <a href="features-profile.html" class="dropdown-item has-icon">
             <i class="far fa-user"></i> Profile
-          </a>
-          <a href="features-activities.html" class="dropdown-item has-icon">
-            <i class="fas fa-bolt"></i> Activities
-          </a>
-          <a href="features-settings.html" class="dropdown-item has-icon">
-            <i class="fas fa-cog"></i> Settings
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item has-icon text-danger">
@@ -180,51 +171,10 @@
       </li>
     </ul>
   </nav>
-
-  <nav class="navbar navbar-secondary navbar-expand-lg d-none d-sm-block d-md-none d-flex">
-    <div class="container">
-      <ul class="navbar-nav">
-        <li class="nav-item dropdown">
-          <a href="#" data-toggle="dropdown" class="nav-link has-dropdown"><i
-              class="fas fa-fire"></i><span>Dashboard</span></a>
-          <ul class="dropdown-menu">
-            <li class="nav-item"><a href="index-0.html" class="nav-link">General Dashboard</a></li>
-            <li class="nav-item"><a href="index.html" class="nav-link">Ecommerce Dashboard</a></li>
-          </ul>
-        </li>
-        <li class="nav-item active">
-          <a href="#" class="nav-link"><i class="far fa-heart"></i><span>Top Navigation</span></a>
-        </li>
-      </ul>
-    </div>
-  </nav>
-
-  <div class="" style="padding-top: 100px !important;">
-    <section class="section">
-      <div class="section-header">
-        <h1>Top Navigation</h1>
-        <div class="section-header-breadcrumb">
-          <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-          <div class="breadcrumb-item"><a href="#">Layout</a></div>
-          <div class="breadcrumb-item">Top Navigation</div>
-        </div>
-      </div>
-    </section>
-    <div class="container">
-      <div class="row">
-
-        @for ($i=0; $i < 10; $i++)
-          @include('webapp.components._card')
-        @endfor
-      </div>
-    </div>
-  </div>
-
-
-
+  @yield('content')
   <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+      Copyright &copy; 2020 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
     </div>
     <div class="footer-right">
       2.3.0
@@ -232,27 +182,3 @@
   </footer>
 </div>
 @endsection
-@push('footerNav')
-{{-- @include('webapp.navbar.top') --}}
-@include('webapp.components.bottom')
-@endpush
-@push('javascript')
-<script>
-  $(document).ready(function() {
-    $(".card-items").hover(
-      function() {
-        $(this).addClass('card-items-shadow').css('cursor', 'pointer'); 
-      }, function() {
-        $(this).removeClass('card-items-shadow');
-      }
-    );
-    value(swiper);
-  });
-
-
-  function activityShow(id){
-    // alert('Error ' + id);
-    window.location.href = "{{ route('web') }}";
-  }
-</script>
-@endpush

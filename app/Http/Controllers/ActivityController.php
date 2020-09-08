@@ -52,11 +52,15 @@ class ActivityController extends Controller
       $a->user_id = current_user()->id;
       $a->code = $this->getCodeRandom();
 
-      $file = $request->file('photo');
-      $filename = $a->name . time() .'.'.$file->getClientOriginalExtension();
-      $path = $file->storeAs('public/photo_activity',$filename);
-
-      $a->photo= $filename;
+      if(!empty($request->file('photo'))){
+        $request->validate([
+          'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+        ]);
+        $file = $request->file('photo');
+        $filename = time() .'.'.$file->getClientOriginalExtension();
+        $path = $file->storeAs('public/photo_activities',$filename);
+        $a->photo= $filename;
+      }     
       $a->save();
       $categories = $request->input('categories');
       for ($i=0; $i < count($categories) ; $i++) {
@@ -126,10 +130,13 @@ class ActivityController extends Controller
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
 
-      $file = $request->file('photo');
-      if ($file != null) {
-        $filename = $a->name . time() .'.'.$file->getClientOriginalExtension();
-        $path = $file->storeAs('public/photo_items',$filename);
+      if(!empty($request->file('photo'))){
+        $request->validate([
+          'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+        ]);
+        $file = $request->file('photo');
+        $filename = time() .'.'.$file->getClientOriginalExtension();
+        $path = $file->storeAs('public/photo_activities',$filename);
         $a->photo= $filename;
       }
 
@@ -170,4 +177,8 @@ class ActivityController extends Controller
       return $code;
     }
   }
+
+  // private setActivity(){
+
+  // }
 }

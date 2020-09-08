@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="section-body">
-    <h2 class="section-title">{{ trans('t.hi') }}, {{ current_user()->getFullName() }}!</h2>
+    <h2 class="section-title">{{ trans('t.hi') }}, {{ current_user()->present()->getFullName() }}!</h2>
     <p class="section-lead">
     {{ trans('t.information') }}
     </p>

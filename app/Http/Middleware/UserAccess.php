@@ -19,6 +19,5 @@ class UserAccess
       return $next($request);   
     }
     return redirect('/');
-    // return redirect()->route('auth.usuario.login')->with('danger','Usuario deshabilitado.'); 
   }
 }

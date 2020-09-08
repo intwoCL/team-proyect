@@ -19,15 +19,7 @@ class AttentionController extends Controller
       $attentions = Attention::where('specialist_id', current_user()->id)->get();
       $calendario = array();
       foreach ($attentions as $a) {
-          $color = $a->getColorCss();
-          $a = array(
-              'title' => $a->user->getFullName(),
-              'start' => $a->attention_date . " " . $a->attention_time ,
-              'backgroundColor' => $color,
-              'borderColor' => $color ,
-              'url' => route('attention.control', $a->id),
-          );
-          array_push($calendario,$a);
+        array_push($calendario,$a->jsonCalendar());
       }
       return view('admin.attention.index', compact('calendario'));
     }
@@ -56,13 +48,10 @@ class AttentionController extends Controller
         $a->attention_date = date_format(date_create($request->input('attention_date')),'Y-m-d');
         $a->attention_time = $request->input('attention_time');
         $a->comment_in = $request->input('comment_in');
-        // $age->fecha_agenda = date_format(date_create($request->input('fecha_agenda')),'Y-m-d');
         $a->save();
         return redirect()->route('attention.index')->with('success',trans('alert.success'));
       } catch (\Throwable $th) {
-        //throw $th;
-        // return redirect()->back()->with('danger',trans('alert.danger'));
-        return $th;
+        return redirect()->back()->with('danger',trans('alert.danger'));
       }
     }
 
@@ -75,7 +64,6 @@ class AttentionController extends Controller
     public function show($id)
     {
       $a = Attention::findOrFail($id);
-      // return $a;
       return view('admin.attention.control', compact('a'));
     }
 
@@ -123,15 +111,12 @@ class AttentionController extends Controller
         //
     }
 
-    public function assigned()
-    {
+    public function assigned(){
       return view('admin.attention.assigned');
     }
 
-    public function historial($id)
-    {
+    public function historial($id){
       $attentions = Attention::where('user_id',$id)->get();
-      // return $attentions;
       return view('admin.attention.historial', compact('attentions'));
     }
 
