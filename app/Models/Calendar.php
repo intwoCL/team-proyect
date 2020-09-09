@@ -4,10 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Presenters\CalendarPresenter;
+
 class Calendar extends Model
 {
-
-  public $states = ['edition','revision','published'];
 
   public function user(){
     return $this->belongsTo(User::class,'user_id');
@@ -17,8 +17,8 @@ class Calendar extends Model
     return $this->hasMany(CalendarActivity::class,'calendar_id')->orderBy('weekday','asc');
   }
 
-  public function getState(){
-    return $this->states[$this->status-1];
+  public function present(){
+    return new CalendarPresenter($this);
   }
   
 }

@@ -54,43 +54,15 @@ class CalendarController extends Controller
 
     public function show($id){
       $c = Calendar::findOrFail($id);
-      // $ca = CalendarActivity::where('calendar_id',$c->id)->get();
-
-      $activities = $c->activities;
-
-      $calendars = [];
-      // $m = array();
-
-      for ($i=0; $i < count($activities) ; $i++) { 
-        switch ($activities[$i]->weekday) {
-          case 1:
-            $calendars[0][] = $activities[$i];
-            break;
-          case 2:
-            $calendars[1][] = $activities[$i];
-            break;
-          case 3:
-            $calendars[2][] = $activities[$i];
-            break;
-          case 4:
-            $calendars[3][] = $activities[$i];
-            break;
-          case 5:
-            $calendars[4][] = $activities[$i];
-            break;
-          case 6:
-            $calendars[5][] = $activities[$i];
-            break;
-          case 7:
-            $calendars[6][] = $activities[$i];
-            break;
-        }
+      $activities = $c->present()->getActivitiesTable();
+      $numbers = [];
+      foreach ($activities as $a) {
+        $numbers[] = count($a);
       }
-      return $calendars[0][0];
-
-      return view('admin.calendar.details.index',compact('c'));
+      $max = (!empty($numbers)) ? max($numbers) : 0;
+      return view('admin.calendar.details.index',compact('c','activities','max'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *

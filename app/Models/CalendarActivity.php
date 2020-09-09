@@ -28,4 +28,7 @@ class CalendarActivity extends Model
     return helper_days()[$this->weekday-1];
   }
 
+  public function getCodeNameTime(){
+    return $this->activity->present()->getCodeName()." ".$this->worktime;
+  }
 }

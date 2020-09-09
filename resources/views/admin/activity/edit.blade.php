@@ -74,7 +74,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <div id="preview">
-                    <img class="img-fluid" src="{{ $activity->getPhoto() }}" alt="" title=""></a>
+                    <img class="img-fluid" src="{{ $activity->present()->getPhoto() }}" alt="" title=""></a>
                   </div>
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>

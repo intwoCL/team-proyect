@@ -2,10 +2,10 @@
 
 namespace App\Presenters;
 
-class UserPresenter extends Presenter
+class ActivityPresenter extends Presenter
 {
-  private $folderImg = 'photo_users';
-  private $imgDefault = '/images/avatar.png';
+  private $folderImg = 'photo_activities';
+  private $imgDefault = '/images/gallery.jpg';
 
   public function getPhoto(){
     try {
@@ -17,9 +17,9 @@ class UserPresenter extends Presenter
       return $this->imgDefault;
     }
   }
-  
-  public function getFullName(){
-    return "{$this->model->first_name} {$this->model->last_name}";
+
+  public function getCodeName(){
+    return "{$this->model->id} {$this->model->name}";
   }
 
 }

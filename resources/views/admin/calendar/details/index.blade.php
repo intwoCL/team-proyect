@@ -1,6 +1,14 @@
 @extends('layouts.app')
 @push('stylesheet')
+<style>
+  table {
+  border-collapse: collapse !important;
+}
 
+table, th, td {
+  border: 1px solid #a09d9d !important;
+}
+</style>
 @endpush
 @section('content')
   <section class="section">
@@ -20,28 +28,27 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover table-md ">
+            <table class="table table-hover table-bordered">
               <thead>
                 <tr>
-                  <th>Lunes</th>
-                  <th>Martes</th>
-                  <th>Miercoles</th>
-                  <th>Jueves</th>
-                  <th>Viernes</th>
-                  <th>Sábado</th>
-                  <th>Domingo</th>
+                  <th scope="col">Lunes</th>
+                  <th scope="col">Martes</th>
+                  <th scope="col">Miercoles</th>
+                  <th scope="col">Jueves</th>
+                  <th scope="col">Viernes</th>
+                  <th scope="col">Sábado</th>
+                  <th scope="col">Domingo</th>
                 </tr>
               </thead>
               <tbody>
-              <tr>
-                <td>Juego a la pelota</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tbody>
+              @for ($i = 0; $i < $max; $i++)
+                <tr>
+                @for ($j = 0; $j < 7; $j++)
+                  <td>{{ !empty($activities[$j][$i]) ? $activities[$j][$i]->getCodeNameTime() : '' }}</td>
+                @endfor
+                </tr>
+              @endfor             
+              </tbody> 
             </table>
           </div>
         </div>
