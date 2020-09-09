@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <section class="section">
       <div class="section-header">
-        <h1>Listado de especialistas</h1>
+        <h1>{{ trans('t.assignment.edit.list_specialist') }}</h1>
       </div>
       <div class="section-body">
         <div class="card">
@@ -16,8 +16,8 @@
                 <thead>
                 <tr>
                   <th>#</th>
-                  <th>Nombre</th>
-                  <th>Numero Asociados</th>
+                  <th>{{ trans('t.assignment.edit.name') }}</th>
+                  <th>{{ trans('t.assignment.edit.number') }}</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -28,15 +28,15 @@
                   </td>
                   <td>{{ $u->present()->getFullName() }}
                     <div class="table-links">
-                      <a href="#">View</a>
+                      <a href="#">{{ trans('t.view') }}</a>
                       <div class="bullet"></div>
-                      <a href="#">Edit</a>
+                      <a href="#">{{ trans('t.edit') }}</a>
                       <div class="bullet"></div>
-                      <a href="#" class="text-danger">Trash</a>
+                      <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
                     </div>
                   </td>
                   <td>{{ count($u->assignmentUsers)}}</td>
-                  <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success btn-sm">Asignados</a></td>
+                  <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success btn-sm">{{ trans('t.assignment.edit.assigned') }}</a></td>
                   {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignar</a></td> --}}
                 </tr>
                 @endforeach

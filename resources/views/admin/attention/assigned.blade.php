@@ -9,7 +9,7 @@
         <a href="{{ route('attention.index') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
-        <h1>Lista de usuarios asignados</h1>
+        <h1>{{ trans('t.assignment.edit.list_users') }}</h1>
       </div>
       <div class="section-body">
         <h2 class="section-title">Usuario : {{ current_user()->present()->getFullName() }}</h2>
@@ -20,8 +20,8 @@
                 <thead>
                 <tr>
                   {{-- <th>#</th> --}}
-                  <th>Nombre</th>
-                  <th>Email</th>
+                  <th>{{ trans('t.assignment.edit.name') }}</th>
+                  <th>{{ trans('t.assignment.edit.email') }}</th>
                   <th></th>
                 </tr>
                 </thead>
@@ -33,12 +33,12 @@
                     <td>{{ $ass->user->email }}</td>
 
                     {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
-                    <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success btn-sm">Tomar hora</a>
-                    <a href="{{ route('attention.historial', $ass->user->id) }}" class="btn btn-primary btn-sm ml-2">Historial</a></td>
+                    <td><a href="{{ route('attention.create', $ass->user->id) }}" class="btn btn-success btn-sm">{{ trans('t.assignment.edit.take_time') }}</a>
+                    <a href="{{ route('attention.historial', $ass->user->id) }}" class="btn btn-primary btn-sm ml-2">{{ trans('t.assignment.edit.history') }}</a></td>
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="3" class="text-center">No tiene agregado</td>
+                    <td colspan="3" class="text-center">{{ trans('t.assignment.edit.not_added') }}</td>
                   </tr>
                   @endforelse
                 </tbody>

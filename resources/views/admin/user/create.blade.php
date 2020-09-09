@@ -34,7 +34,7 @@
           <form id="form-dropzone" action="{{route('user.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="card-header">
-                <h4>Formulario nuevo usuario</h4>
+                <h4>{{ trans('t.user.index.form_user') }}</h4>
               </div>
               <div class="card-body">
                 <div class="form-group row">
@@ -80,7 +80,7 @@
                 </fieldset>
                 <fieldset class="form-group">
                   <div class="row">
-                    <div class="col-form-label col-sm-6 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
+                    <div class="col-form-label col-sm-6 pt-0">{{ trans('t.user.index.admin') }}<small class="text-danger">*</small></div>
                     <label class="custom-switch mt-2">
                       <input type="checkbox" name="admin" class="custom-switch-input">
                       <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
@@ -92,7 +92,7 @@
 
                 <fieldset class="form-group">
                   <div class="row">
-                    <div class="col-form-label col-sm-6 pt-0">¿Es especialista? <small class="text-danger">*</small></div>
+                    <div class="col-form-label col-sm-6 pt-0">{{ trans('t.user.index.specialist') }}<small class="text-danger">*</small></div>
                     <label class="custom-switch mt-2">
                       <input type="checkbox" name="admin" class="custom-switch-input">
                       <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>

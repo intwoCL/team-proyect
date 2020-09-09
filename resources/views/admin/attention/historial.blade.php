@@ -22,12 +22,12 @@
                   {{-- <th>#</th> --}}
                   {{-- <th>#</th> --}}
                   {{-- <th>Paciente</th> --}}
-                  <th>Especialista</th>
-                  <th>Fecha</th>
-                  <th>Hora</th>
-                  <th>Comentario de entrada</th>
-                  <th>Comentario de salida</th>
-                  <th>Estado</th>
+                  <th>{{ trans('t.user.calendar.specialist') }}</th>
+                  <th>{{ trans('t.user.calendar.date') }}</th>
+                  <th>{{ trans('t.user.calendar.hour') }}</th>
+                  <th>{{ trans('t.user.calendar.comment_in') }}</th>
+                  <th>{{ trans('t.user.calendar.comment_out') }}</th>
+                  <th>{{ trans('t.user.calendar.status') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -48,7 +48,7 @@
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="1" class="text-center">No tiene agregado</td>
+                    <td colspan="1" class="text-center">{{ trans('t.assignment.edit.not_added') }}</td>
                   </tr>
                   @endforelse
                 </tbody>

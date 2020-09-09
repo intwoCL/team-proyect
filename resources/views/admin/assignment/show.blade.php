@@ -9,9 +9,9 @@
         <a href="{{ route('assignment.index') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
-        <h1>Lista de usuarios asignados</h1>
+        <h1>{{ trans('t.assignment.edit.list_users') }}</h1>
         <div class="section-header-button">
-          <a href="{{ route('assignment.edit',$user->id)  }}" class="btn btn-primary btn-sm">Asignar</a>
+          <a href="{{ route('assignment.edit',$user->id)  }}" class="btn btn-primary btn-sm">{{ trans('button.assign') }}</a>
         </div>
       </div>
       <div class="section-body">
@@ -23,8 +23,8 @@
                 <thead>
                 <tr>
                   {{-- <th>#</th> --}}
-                  <th>Nombre</th>
-                  <th>Email</th>
+                  <th>{{ trans('t.assignment.edit.name') }}</th>
+                  <th>{{ trans('t.assignment.edit.email') }}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,7 +39,7 @@
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="1" class="text-center">No tiene agregado</td>
+                    <td colspan="1" class="text-center">{{ trans('t.assignment.edit.not_added') }}</td>
                   </tr>
                   @endforelse
                 </tbody>

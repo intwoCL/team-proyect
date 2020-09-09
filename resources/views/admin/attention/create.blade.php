@@ -16,7 +16,7 @@
     <a href="{{ route('attention.assigned') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>Creación de calendario </h1>
+    <h1>{{ trans('t.user.calendar.create_calendar') }}</h1>
     {{-- <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -49,7 +49,7 @@
               <input type="hidden" name="user_id" value="{{ $user_id }}">
 
               <div class="form-group row" id="data_1">
-                <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
+                <label for="fecha" class="col-sm-2 col-form-label">{{ trans('t.user.calendario.date') }}</label>
                 <div class="input-group date col-sm-10">
                   <span class="input-group-addon btn btn-info"><i class="fa fa-calendar"></i></span>
                   <input type="text" class="form-control" readonly name="attention_date" id="fecha_agenda" required="" value="{{ $fecha }}">
@@ -60,7 +60,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="hora" class="col-sm-2 col-form-label">Hora</label>
+                <label for="hora" class="col-sm-2 col-form-label">{{ trans('t.user.calendar.hour') }}</label>
                 <div class="input-group col-sm-10">                    
                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <span class="input-group-addon">

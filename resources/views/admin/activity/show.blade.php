@@ -10,11 +10,11 @@
       </a>
       <h1>{{trans('t.activity.show.title')}} </h1>
       <div class="section-header-button">
-        <button onClick="window.location.href='{{ route('content.create',$a->id) }}'" class="btn btn-primary">Nuevos Contenidos</button>
+        <button onClick="window.location.href='{{ route('content.create',$a->id) }}'" class="btn btn-primary">{{ trans('t.activity.content.new_content') }}</button>
       </div>
     </div>
     <div class="section-body">
-      <h2 class="section-title">Lista de todos los contenidos</h2>
+      <h2 class="section-title">{{ trans('t.activity.content.list_content') }}</h2>
       <p class="section-lead">This page is for managing packages including questions and answers.</p>
       <div class="card">
         <div class="card-body">
@@ -23,9 +23,9 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>Position</th>
-                <th>Nombre</th>
-                <th>Objetivo</th>
+                <th>{{ trans('t.activity.content.position') }}</th>
+                <th>{{ trans('t.activity.content.name') }}</th>
+                <th>{{ trans('t.activity.content.objective') }}</th>
                 <th></th>
               </tr>
               </thead>
@@ -45,7 +45,7 @@
                   </div>
                 </td>
                 <td>{{$c->objective}}</td>
-                <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td>
+                <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">{{ trans('t.activity.item.items') }}</a> </td>
               </tr>
               @endforeach
               </tbody>

@@ -116,7 +116,7 @@
               </div>
 
               <div class="form-group">
-                <label class="col-form-label" for="hf-rut">Imagen Actual <small>(Opcional)</small></label>
+                <label class="col-form-label" for="hf-rut">{{ trans('t.user.edit.current_image') }}<small>(Opcional)</small></label>
                 <div class="input-group">
                   <img src="{{ $user->present()->getPhoto() }}"  class='Responsive image img-thumbnail'  width='200px' height='200px' alt="">
                 </div>

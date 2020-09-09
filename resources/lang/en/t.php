@@ -1,6 +1,7 @@
 <?php
 
 return [
+  'user' => 'User',
   'spanish' => 'Spanish',
   'english' => 'English',
   'yes' => 'Yes',
@@ -77,12 +78,17 @@ return [
       'name_content' => 'Name content',
       'objective' => 'Objetive',
       'quiz' => 'Do you want a quiz at the end?',
+      'new content'=> 'New content',
+      'position' => 'Position',
+      'name' => 'Name',
+      'list_content' => 'List of all contents',
     ],
     'Item' => [
       'item_id' => 'Id Item',
       'title' => 'Title',
       'content' => 'Content',
       'item_list' => 'List of all items',
+      'items' => 'Items',
     ],
   ],
 
@@ -97,6 +103,7 @@ return [
       'list' => 'List of all users',
       'admin' => 'Are you an administrator?',
       'specialist' => 'Are you a specialist?',
+      'form_user' => 'New user form',
     ],
     'create'=>[
       'title'=> 'Create new user',
@@ -104,6 +111,7 @@ return [
     'edit'=> [
       'edit' => 'Edit',
       'title' => 'Edit user',
+      'current_image' => 'Current image',
     ],
     'show' =>[
       'title' => 'View user',
@@ -117,6 +125,10 @@ return [
       'password' => 'Password',
       'photo' => 'Photo',
       'specialty' => 'Specialty',
+      'first_fill' => 'Please fill in the first name field',
+      'last_fill' => 'Please fill in the last name field',
+      'email_fill' => 'Please fill in the email field',
+      'optional' => 'Optional',
     ],
     'calendar'=> [
       'panel_calendar' => 'Calendar panel',
@@ -132,6 +144,25 @@ return [
       'canceled' => 'Canceled',
       'information' => 'Information',
       'status' => 'Status',
+      'create_calendar' => 'Creation of calendars',
+      'specialist' => 'Specialist',
+      'patients' => 'Patients',
+    ],
+  ],
+
+  'assignment' => [
+    'edit' => [
+      'name' => 'Name',
+      'email' => 'Email',
+      'no_users' => 'No users',
+      'assign_users' => 'Assign users to the specialist',
+      'assigned' => 'Assigned',
+      'number' => 'Number Associated',
+      'list_users' => 'List of assigned users',
+      'not_added' => 'No added',
+      'take_time' => 'Take time',
+      'history' => 'History',
+      'list_specialist' => 'List of specialists',
     ],
   ],
 

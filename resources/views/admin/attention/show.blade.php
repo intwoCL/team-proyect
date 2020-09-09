@@ -49,7 +49,7 @@
               <input type="hidden" name="user_id" value="{{ $user_id }}">
 
               <div class="form-group row" id="data_1">
-                <label for="fecha" class="col-sm-2 col-form-label">Fecha</label>
+                <label for="fecha" class="col-sm-2 col-form-label">{{ trans('t.user.calendar.date') }}</label>
                 <div class="input-group date col-sm-10">
                   <span class="input-group-addon btn btn-info"><i class="fa fa-calendar"></i></span>
                   <input type="text" class="form-control" readonly name="attention_date" id="fecha_agenda" required value="{{ $fecha }}">
@@ -60,7 +60,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="hora" class="col-sm-2 col-form-label">Hora</label>
+                <label for="hora" class="col-sm-2 col-form-label">{{ trans('t.user.calendar.hour') }}</label>
                 <div class="input-group col-sm-10">                    
                     <div class="input-group clockpicker" data-placement="bottom" data-align="top" data-autoclose="true">
                         <span class="input-group-addon">
@@ -77,7 +77,7 @@
 
               </div>
               <div class="form-group row">
-                <label for="inputCommentIn" class="col-sm-3 col-form-label">Comentario de salida</label>
+                <label for="inputCommentIn" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.comment_out') }}</label>
                 <div class="col-sm-9">
                   <textarea class="form-control" rows="3" name="comment_out" id="comentario_entrada" placeholder="..." required>{{ old('comment_out') }}</textarea>
                 </div>

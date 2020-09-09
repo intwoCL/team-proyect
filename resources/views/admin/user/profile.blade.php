@@ -31,14 +31,14 @@
                     <label>{{ trans('t.user.profile.first_name') }}</label>
                     <input type="text" class="form-control" value="{{ current_user()->first_name }}" required="">
                     <div class="invalid-feedback">
-                      Please fill in the first name
+                      {{ trans('t.user.profile.first_fill') }}
                     </div>
                   </div>
                   <div class="form-group col-md-6 col-12">
                     <label>{{ trans('t.user.profile.last_name') }}</label>
                     <input type="text" class="form-control" value="{{ current_user()->last_name }}" required="">
                     <div class="invalid-feedback">
-                      Please fill in the last name
+                      {{ trans('t.user.profile.last_fill') }}
                     </div>
                   </div>
                 </div>
@@ -47,7 +47,7 @@
                     <label>{{ trans('t.user.profile.email') }}</label>
                     <input type="email" class="form-control" value="{{ current_user()->email }}" required="">
                     <div class="invalid-feedback">
-                      Please fill in the email
+                      {{ trans('t.user.profile.email_fill') }}
                     </div>
                   </div>
                   <div class="form-group col-md-5 col-12">
@@ -63,13 +63,13 @@
                 <div class="form-group col-sm-6 col-md-12 col-6">
                   <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                   <select class="form-control select2" name="lang" required="">
-                    <option value="es">Español</option>
-                    <option value="en">Inglés</option>
+                    <option value="es">{{ trans('t.spanish') }}</option>
+                    <option value="en">{{ trans('t.english') }}</option>
                   </select>                
                 </div>
 
                 <div class="form-group">
-                  <label>{{ trans('t.user.profile.photo') }} <small class="text-danger">(opcional)</small></label>
+                  <label>{{ trans('t.user.profile.photo') }} <small class="text-danger">({{ trans('t.user.profile.optional') }})</small></label>
                   <input type="file"  name="photo" class="form-control">
                 </div>
             </div>

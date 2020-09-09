@@ -1,6 +1,7 @@
 <?php
 
 return [
+  'user' => 'Usuario',
   'spanish' => 'Español',
   'english' => 'Inglés',
   'yes' => 'Si',
@@ -73,6 +74,10 @@ return [
       'name_content' => 'Nombre contenido',
       'objective' => 'Objetivo',
       'quiz' => '¿Desea quiz al final?',
+      'new_content'=> 'Nuevo contenido',
+      'position' => 'Posición',
+      'name' => 'Nombre',
+      'list_content' => 'Lista de todos los contenidos',
     ],
     'item' => [
       'item_id' => 'Id Item',
@@ -80,6 +85,7 @@ return [
       'title' => 'Título',
       'content' => 'Contenido',
       'item_list' => 'Lista de todos los items',
+      'items' => 'Items',
     ],
 
   ],
@@ -101,6 +107,7 @@ return [
       'list' => 'Lista de todos los usuarios',
       'admin' => '¿Es administrador?',
       'specialist' => '¿Es especialista?',
+      'form_user' => 'Formulaio de nuevo usuario',
     ],
     'create'=>[
       'title'=> 'Crear nuevo usuario',
@@ -108,6 +115,7 @@ return [
     'edit'=> [
       'edit' => 'Editar',
       'title' => 'Editar usuario',
+      'current_image' => 'Imagen actual',
     ],
     'show' =>[
       'title' => 'Vista de usuario',
@@ -122,6 +130,10 @@ return [
       'password' => 'Contraseña',
       'photo' => 'Foto',
       'specialty' => 'Especialidad',
+      'first_fill' => 'Por favor, rellene el campo primer nombre',
+      'last_fill' => 'Por favor, rellene el campo apellido',
+      'email_fill' => 'Por favor, rellene el campo correo',
+      'optional' => 'Opcional',
     ],
     'calendar'=> [
       'panel_calendar' => 'Panel de calendarios',
@@ -137,8 +149,25 @@ return [
       'canceled' => 'Cancelado',
       'information' => 'Información',
       'status' => 'Estado',
+      'create_calendar' => 'Creación de calendario',
+      'specialist' => 'Especialista',
+      'patients' => 'Pacientes',
     ],
   ],
-
+  'assignment' => [
+    'edit' => [
+      'name' => 'Nombre',
+      'email' => 'Correo',
+      'no_users' => 'No hay usuarios',
+      'assign_users' => 'Asignar usuarios al especialista',
+      'assigned' => 'Asignados',
+      'number' => 'Numero Asociados',
+      'list_users' => 'Lista de usuarios asociados',
+      'not_added' => 'No tiene agregado',
+      'take_time' => 'Tomar hora',
+      'history' => 'Historial',
+      'list_specialist' => 'Listado de especialistas',
+    ],
+  ],
   'welcome' => 'Bienvenido',
 ];
