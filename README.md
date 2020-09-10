@@ -27,6 +27,7 @@ mkdir public\storage\photo_users
 
 composer dump-autoload
 php artisan migrate:fresh --seed
+# php artisan make:migration create_nombre_tabla_table --create=nombre_tabla
 ```
 
 ### Inicial laravel-mix mode dev

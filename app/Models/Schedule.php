@@ -6,13 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Schedule extends Model
 {
-    protected $table = 'schedules';
 
-    public function activities(){
-      return $this->belongsTo(Activity::class,'activity_id');
+    public function calendar(){
+      return $this->belongsTo(Calendar::class,'calendar_id');
     }
 
-    public function users(){
+    public function specialist(){
+      return $this->belongsTo(User::class,'specialist_id');
+    }
+  
+    public function user(){
       return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function schedulesActivities(){
+      return $this->hasMany(ScheduleActivity::class,'schedule_id');
     }
 }

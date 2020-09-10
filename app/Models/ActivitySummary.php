@@ -8,11 +8,15 @@ class ActivitySummary extends Model
 {
     protected $table = 'activity_summaries';
 
-    public function schedude(){
-      return $this->belongsTo(Schedude::class,'schedude_id');
+    public function schedule_activity(){
+      return $this->belongsTo(ScheduleActivity::class,'schedule_activity_id');
     }
 
     public function contents(){
-      return $this->belongsTo(Contents::class,'content_id');
+      return $this->belongsTo(Content::class,'content_id');
+    }
+
+    public function user(){
+      return $this->belongsTo(User::class,'user_id');
     }
 }
