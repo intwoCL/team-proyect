@@ -40,6 +40,7 @@ Route::middleware('user')->group(function () {
   Route::post('calendar/{id}/details/create2','CalendarActivityController@store2')->name('calendar.activity.store2');
 
   Route::resource('assignment','AssignmentController');
+  Route::resource('enrollment','EnrollmentController');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');

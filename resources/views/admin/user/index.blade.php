@@ -35,12 +35,13 @@
                 <td>{{ $u->run }}</td>
                 <td>{{ $u->present()->getFullName() }} 
                   <div class="table-links">
-                  <a href="{{ route('user.show',$u->id) }}">{{ trans('t.view') }}</a>
-                  <div class="bullet"></div>
-                  <a href="{{route('user.edit',$u->id)}}">{{ trans('t.edit') }}</a>
-                  <div class="bullet"></div>
-                  <a href="{{ route('user.destroy',$u->id) }}" class="text-danger">{{ trans('t.trash') }}</a>
-                </div></td>
+                    <a href="{{ route('user.show',$u->id) }}">{{ trans('t.view') }}</a>
+                    <div class="bullet"></div>
+                    <a href="{{route('user.edit',$u->id)}}">{{ trans('t.edit') }}</a>
+                    <div class="bullet"></div>
+                    <a href="{{ route('user.destroy',$u->id) }}" class="text-danger">{{ trans('t.trash') }}</a>
+                  </div>
+                </td>
                 <td>{{ $u->email }}</td>
                 <td>{{ $u->lang }}</td>
                 <td class="text-center">
