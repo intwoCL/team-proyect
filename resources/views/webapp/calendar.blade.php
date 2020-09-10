@@ -20,9 +20,9 @@
         <div class="form-group row" id="data_1">
           <label for="fecha" class="col-sm-2 col-12 col-form-label">Date</label>
           <div class="input-group date col-sm-12 col-12">
-            <input type="month" name="date" id="date" class="form-control" value="{{$date}}">
+            <input type="month" name="date" id="date" class="form-control" value="{{ $date }}" onchange="this.form.submit()">
           </div>
-          <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+          {{-- <button type="submit" class="btn btn-primary btn-sm">Enviar</button> --}}
         </div>
       </form>
     </div>

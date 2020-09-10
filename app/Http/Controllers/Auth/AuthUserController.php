@@ -27,6 +27,12 @@ class AuthUserController extends Controller
     }
   }
 
+  
+  public function android(){
+    // sesion laravel
+    return redirect()->route('index');
+  }
+
   public function login(Request $request){
     try {
       close_sessions();

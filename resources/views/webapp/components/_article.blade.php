@@ -1,7 +1,7 @@
 <div class="col-12 col-sm-6 col-md-6 col-lg-3">
   <article class="article card-items">
     <div class="article-header">
-      <div class="article-image" data-background="{{ $a->getPhoto() }}">
+      <div class="article-image" data-background="{{ $a->present()->getPhoto() }}">
       </div>
       <div class="article-title">
         <h2><a href="#">{{ $a->name }}</a></h2>

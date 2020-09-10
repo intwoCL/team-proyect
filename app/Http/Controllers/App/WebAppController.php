@@ -19,7 +19,7 @@ class WebAppController extends Controller
   public function calendar($month,$year){
     $attentions = Attention::where('user_id',current_user()->id)->whereMonth('attention_date', $month)
     ->whereYear('attention_date', $year)->get();
-    $date = Carbon::parse("$year-$month-01");
+    $date = date_format(Carbon::parse("$year-$month-01"),'Y-m');
     return view('webapp.calendar',compact('attentions','date'));
   }
 

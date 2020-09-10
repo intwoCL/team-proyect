@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Calendar;
 use App\Models\Activity;
+use App\Models\CalendarActivity;
 
 class CalendarController extends Controller
 {
@@ -50,7 +51,18 @@ class CalendarController extends Controller
         return $th;
       }
     }
-    
+
+    public function show($id){
+      $c = Calendar::findOrFail($id);
+      $activities = $c->present()->getActivitiesTable();
+      $numbers = [];
+      foreach ($activities as $a) {
+        $numbers[] = count($a);
+      }
+      $max = (!empty($numbers)) ? max($numbers) : 0;
+      return view('admin.calendar.details.index',compact('c','activities','max'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

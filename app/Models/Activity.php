@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
+use App\Presenters\ActivityPresenter;
 use Illuminate\Database\Eloquent\Model;
 
 class Activity extends Model
 {
   protected $table = 'activities';
-  private $folderImg = 'photo_activities';
-  private $imgDefault = '/images/gallery.jpg';
+
   public $selected = false;
 
   public function contents(){
@@ -27,14 +27,8 @@ class Activity extends Model
     return $this->belongsTo(User::class,'user_id');
   }
 
-  public function getPhoto(){
-    try {
-      if($this->photo == $this->imgDefault){
-        return $this->photo;
-      }
-      return \Storage::url("$this->folderImg/$this->photo");
-    } catch (\Throwable $th) {
-      return $this->imgDefault;
-    }
+  public function present(){
+    return new ActivityPresenter($this);
   }
+
 }

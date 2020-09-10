@@ -11,17 +11,11 @@ use App\Models\CalendarActivity;
 // horario
 class CalendarActivityController extends Controller
 {
-
-  public function index($id){
-    $c = Calendar::findOrFail($id);
-    return view('admin.calendar.details.index',compact('c'));
-  }
-
+  
   public function edit($id){
     $c = Calendar::findOrFail($id);
 
     $calendarsActivities = CalendarActivity::where('calendar_id',$id)->get();
-    // return $calendarsActivities;
     $calendars = array();
     foreach ($calendarsActivities as $ca) {
       $a = array(
@@ -75,12 +69,14 @@ class CalendarActivityController extends Controller
       $dias = $request->input('days');
       $worktime = $request->input('worktime');
       $activity_id = $request->input('activity_id');
+      $times = $request->input('times');
       foreach ($dias as $d) {
         $ca = new CalendarActivity();
         $ca->worktime = $worktime;
         $ca->activity_id = $activity_id;
         $ca->calendar_id = $id;
         $ca->weekday = $d;
+        $ca->times = $times;
         $ca->save();
       }
       return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));
