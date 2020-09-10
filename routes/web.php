@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('sign_in/android/','Auth\AuthUserController@android')->name('index.app');
+
 Route::get('/','Auth\AuthUserController@index')->name('index');
 Route::post('/','Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');

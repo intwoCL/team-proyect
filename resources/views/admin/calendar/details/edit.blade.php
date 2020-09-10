@@ -28,6 +28,7 @@
               <th>#</th>
               <th>Día</th>
               <th>Hora</th>
+              <th>Veces</th>
               <th>Code</th>
               <th>Actividad</th>
               <th></th>
@@ -40,6 +41,7 @@
               <td>{{ $ca->weekday }}</td>
               <td>{{ $ca->getDayWords() }}</td>
               <td>{{ $ca->worktime }}</td>
+              <td>{{ $ca->times }}</td>
               <td>{{ $ca->activity->id }}</td>
               <td>{{ $ca->activity->name}}</td>
               <td>

@@ -44,11 +44,11 @@ table, th, td {
               @for ($i = 0; $i < $max; $i++)
                 <tr>
                 @for ($j = 0; $j < 7; $j++)
-                  <td>{{ !empty($activities[$j][$i]) ? $activities[$j][$i]->getCodeNameTime() : '' }}</td>
+                  <td>{!! !empty($activities[$j][$i]) ? $activities[$j][$i]->getCodeNameTimeHTML() : '' !!}</td>
                 @endfor
                 </tr>
-              @endfor             
-              </tbody> 
+              @endfor
+              </tbody>
             </table>
           </div>
         </div>

@@ -69,12 +69,14 @@ class CalendarActivityController extends Controller
       $dias = $request->input('days');
       $worktime = $request->input('worktime');
       $activity_id = $request->input('activity_id');
+      $times = $request->input('times');
       foreach ($dias as $d) {
         $ca = new CalendarActivity();
         $ca->worktime = $worktime;
         $ca->activity_id = $activity_id;
         $ca->calendar_id = $id;
         $ca->weekday = $d;
+        $ca->times = $times;
         $ca->save();
       }
       return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));
