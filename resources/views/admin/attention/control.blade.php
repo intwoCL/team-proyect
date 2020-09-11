@@ -69,7 +69,7 @@
               <div class="ticket-content">
                 <div class="ticket-header">
                   <div class="ticket-sender-picture img-shadow">
-                    <img src="{{ $a->user->getPhoto() }}" alt="image">
+                    <img src="{{ $a->user->present()->getPhoto() }}" alt="image">
                   </div>
                   <div class="ticket-detail">
                     <div class="ticket-title">
@@ -88,7 +88,6 @@
                     <form action="{{route('attention.update', $a->id)}}" method="POST">
                       @csrf
                       @method('PUT')
-
                       <fieldset class="form-group">
                         <label>{{ trans('t.user.calendar.status') }}<small class="text-danger">*</small></label>
 
