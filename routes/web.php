@@ -42,6 +42,8 @@ Route::middleware('user')->group(function () {
   Route::resource('assignment','AssignmentController',['except'=>['destroy']]);
   Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
   Route::resource('enrollment','EnrollmentController');
+  Route::get('schedule/{id}','ScheduleController@index')->name('schedule.index');
+
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
