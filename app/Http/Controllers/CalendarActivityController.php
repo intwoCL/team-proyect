@@ -60,7 +60,7 @@ class CalendarActivityController extends Controller
   //CREATE 2
   public function create2($id){
     $c = Calendar::findOrFail($id);
-    $activities = Activity::get();
+    $activities = Activity::where('status',3)->get();
     return view('admin.calendar.details.create2',compact('c','activities'));
   }
 
