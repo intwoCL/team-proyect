@@ -48,7 +48,7 @@
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="1" class="text-center">No tiene agregado</td>
+                    <td colspan="6" class="text-center">No tiene agregado</td>
                   </tr>
                   @endforelse
                 </tbody>

@@ -20,6 +20,7 @@
                   <th>#</th>
                   <th>Name</th>
                   <th>Objectivo</th>
+                  <th>Status</th>
                   <th></th>
                 </tr>
               </thead>
@@ -29,7 +30,13 @@
                 <td>{{ $ca->id }}</td>
                 <td>{{ $ca->name }}</td>
                 <td>{{ $ca->objective }}</td>
-                <td><a href="{{ route('calendar.show',$ca->id) }}" class="btn btn-sm btn-info">Ver</a></td>
+                <td>
+                  <small class="badge badge-{{ $ca->present()->getColor() }}">{{$ca->present()->getState()}}</small>
+                </td>
+                <td>
+                  <a href="{{ route('calendar.edit',$ca->id) }}" class="btn btn-sm btn-primary">editar</a>
+                  <a href="{{ route('calendar.show',$ca->id) }}" class="btn btn-sm btn-info">Ver</a>
+                </td>
               </tr>
               @endforeach
               </tbody>

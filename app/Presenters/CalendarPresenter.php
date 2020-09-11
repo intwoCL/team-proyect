@@ -6,9 +6,14 @@ class CalendarPresenter extends Presenter
 {
   
   public $states = ['edition','revision','published'];
+  private $colorState = ['info','warning','success'];
 
   public function getState(){
     return $this->states[$this->model->status-1];
+  }
+
+  public function getColor(){
+    return $this->colorState[$this->model->status-1];
   }
   
   public function getActivitiesTable(){
