@@ -11,11 +11,6 @@
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Crear item</h1>
-    <div class="section-header-breadcrumb">
-      <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-      <div class="breadcrumb-item"><a href="#">Forms</a></div>
-      <div class="breadcrumb-item">Form Validation</div>
-    </div>
   </div>
 
   <div class="section-body">
@@ -26,7 +21,7 @@
 
     <div class="row">
 
-      <div class="col-12 col-md-6 col-lg-6">
+      <div class="col-12 col-md-12 col-lg-12">
         @include('partials._errors')
 
         <div class="card">
@@ -35,60 +30,62 @@
             <div class="card-header">
               <h4>Nuevo Item</h4>
             </div>
-            <div class="card-body">
+            <div class="card-body row">
               <input type="hidden" name="content_id" value={{$c->id}}>
               <input type="hidden" name="activity_id" value={{$a->id}}>
-
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
-                <div class="col-sm-9">
-                    <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+              <div class="col">
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" for="inputTitulo">Titulo</label>
+                  <div class="col-sm-9">
+                      <input id="inputTitulo" type="text" name="title" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
+                  </div>
                 </div>
-              </div>
-
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
-                <div class="col-sm-9">
-                  <select id="selectType" class="form-control select2" name="type" required="">
-
-                    @foreach ($types as $t)
-                    <option value="{{ $t->id }}">{{ ucfirst($t->name) }}</option>
-                    @endforeach
-                  </select>
+                <div class="form-group">
+                  <label>Contenido</label>
+                  <textarea style="height:auto;" name="content" class="form-control ckeditor" id="summernote" rows="5" autocomplete="off"></textarea>
                 </div>
+
               </div>
+              <div class="col">
+  
+                <div class="form-group row">
+                  <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
+                  <div class="col-sm-9">
+                    <select id="selectType" class="form-control select2" name="type" required="">
+                      @foreach ($types as $t)
+                      <option value="{{ $t->id }}">{{ ucfirst($t->name) }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
 
-              <div class="form-group">
-                <label>Contenido</label>
-                <textarea style="height:auto;" name="content" class="form-control ckeditor" id="summernote" rows="5" autocomplete="off"></textarea>
+
+                {{-- adjuntos (desaparecen con jquery) --}}
+
+                <div id="url" class="form-group">
+                  <label>Vinculo URL adjunto</label>
+                  <input type="text" name="url" class="form-control" placeholder="Link de sitio" autocomplete="off">
+                </div>
+
+                <div id="video" class="form-group">
+                  <label>Video adjunto</label>
+                  <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off">
+                </div>
+
+                <div id="photo" class="form-group">
+                  <label>Foto adjunta</label>
+                  <input class="form-control" type="file" name="photo" accept="image/*" onchange="preview(this)"/>
+                  <div id="preview"></div>
+                </div>
+
+                <div id="audio" class="form-group">
+                  <label>Audio adjunto</label>
+                  <input type="file" name="audio" class="form-control" onchange="return validarExtensionArchivo()">
+                </div>
+
+
               </div>
-
-
-              {{-- adjuntos (desaparecen con jquery) --}}
-
-              <div id="url" class="form-group">
-                <label>Vinculo URL adjunto</label>
-                <input type="text" name="url" class="form-control" placeholder="Link de sitio" autocomplete="off">
-              </div>
-
-              <div id="video" class="form-group">
-                <label>Video adjunto</label>
-                <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off">
-              </div>
-
-              <div id="photo" class="form-group">
-                <label>Foto adjunta</label>
-                <input class="form-control" type="file" name="photo" accept="image/*" onchange="preview(this)"/>
-                <div id="preview"></div>
-              </div>
-
-              <div id="audio" class="form-group">
-                <label>Audio adjunto</label>
-                <input type="text" name="audio" class="form-control" autocomplete="off">
-              </div>
-
             </div>
-
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.save')}}</button>
             </div>
