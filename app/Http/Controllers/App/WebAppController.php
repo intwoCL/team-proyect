@@ -30,6 +30,11 @@ class WebAppController extends Controller
     return redirect()->route('app.calendar',[$month,$year]);
   }
 
+  public function profile(){
+    $user = current_user();
+    return view('webapp.profile',compact('user'));
+  }
+
   public function activity($id){
     $activity = Activity::findOrFail($id);
     return view('webapp.activity',compact('activity'));
