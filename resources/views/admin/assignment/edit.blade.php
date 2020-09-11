@@ -42,7 +42,7 @@
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="2" class="text-center">No hay usuarios</td>
+                    <td rowspan="3" class="text-center">No hay usuarios</td>
                   </tr>
                   @endforelse
                 </tbody>

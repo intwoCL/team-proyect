@@ -24,8 +24,7 @@
                 <tbody>
                 @foreach ($users as $u)
                 <tr>
-                  <td>{{ $u->id }}
-                  </td>
+                  <td>{{ $u->id }}</td>
                   <td>{{ $u->present()->getFullName() }}
                     <div class="table-links">
                       <a href="#">View</a>

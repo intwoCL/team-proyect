@@ -22,24 +22,30 @@
               <table id="tableSelect" class="table table-sm table-hover">
                 <thead>
                 <tr>
-                  {{-- <th>#</th> --}}
                   <th>Nombre</th>
                   <th>Email</th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
                   @forelse ($user->assignmentUsers as $ass)
                   <tr>
-                    {{-- <td>{{ $u->id }}</td> --}}
                     <td>{{ $ass->user->present()->getFullName() }}</td>
                     <td>{{ $ass->user->email }}</td>
-
-                    {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignados</a></td> --}}
-                    {{-- <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success">Asignar</a></td> --}}
+                    <td>
+                      <button type="button" class="btn btn-sm btn-danger"
+                        data-toggle="modal"
+                        data-target="#deleteModal"
+                        data-user="{{$ass->user->id}}"
+                        data-specialist="{{$user->id}}"
+                        data-assignment="{{$ass->id}}">
+                          Eliminar
+                      </button>
+                    </td>
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="1" class="text-center">No tiene agregado</td>
+                    <td colspan="3" class="text-center">No tiene agregado</td>
                   </tr>
                   @endforelse
                 </tbody>
@@ -51,12 +57,24 @@
     </section>
   </div>
 @endsection
+@push('outerDiv')
+  @include('components.modal._delete')
+@endpush
 @push('javascript')  
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
 <script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
 <script>
   $(function () {
     $("#tableSelect").DataTable();
+    $('#deleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      var id = button.data('user')+"-"+button.data('specialist')+"-"+button.data('assignment');
+      var url = "{{route('assignment.delete')}}";
+      modal.find('.modal-title').text('¿Desea desvincular al usuario?');
+      modal.find('.modal-body input').val(id);
+      modal.find('#formDelete').attr('action',url);
+    });
   });
 </script>
 @endpush

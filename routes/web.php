@@ -39,7 +39,8 @@ Route::middleware('user')->group(function () {
   Route::get('calendar/{id}/details/create2','CalendarActivityController@create2')->name('calendar.activity.create2');
   Route::post('calendar/{id}/details/create2','CalendarActivityController@store2')->name('calendar.activity.store2');
 
-  Route::resource('assignment','AssignmentController');
+  Route::resource('assignment','AssignmentController',['except'=>['destroy']]);
+  Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
   Route::resource('enrollment','EnrollmentController');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
