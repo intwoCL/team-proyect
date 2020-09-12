@@ -43,6 +43,8 @@ Route::middleware('user')->group(function () {
   Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
   Route::resource('enrollment','EnrollmentController');
   Route::get('schedule/{id}','ScheduleController@index')->name('schedule.index');
+  Route::get('schedule/{id}/create','ScheduleController@create')->name('schedule.create');
+  Route::post('schedule/{id}','ScheduleController@store')->name('schedule.store');
 
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');

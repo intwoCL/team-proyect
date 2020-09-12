@@ -19,7 +19,7 @@ class ScheduleController extends Controller
     public function index($id)
     {
       $schedules = Schedule::where('user_id',$id)->get();
-      return view('admin.schedule.index', compact('schedules'));
+      return view('admin.schedule.index', compact('schedules','id'));
     }
 
     /**
@@ -27,9 +27,12 @@ class ScheduleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($user_id)
     {
-        //
+        //$activity = Activity::FindOrFail($activity_id);
+        $user = User::FindOrFail($user_id); 
+        $calendars =Calendar::get();
+        return view('admin.schedule.create',compact('user','calendars'));
     }
 
     /**
@@ -38,9 +41,12 @@ class ScheduleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$user_id)
     {
-        //
+        $nuevoSchedule = new Schedule();
+
+        $calendar_id = $request->input('id');
+
     }
 
     /**
