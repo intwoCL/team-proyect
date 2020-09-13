@@ -82,16 +82,14 @@
         oldIndex,
         newIndex
       };
-
       findFetch(url,params);
-      location.reload();
     }
   });
 
   function findFetch(url,params){
     axios.put(url, { params })
     .then(response => {
-        console.log(response);
+      location.reload();
     }).catch(e => {
         console.log(e);
     })

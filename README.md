@@ -86,4 +86,9 @@ vendor\bin\phpunit
 
  
 https://www.nigmacode.com/laravel/Subir-proyecto-laravel-a-hosting
+
+
+
+
+https://api.drupal.org/api/drupal/vendor%21symfony%21http-foundation%21Response.php/8.2.x
  -->

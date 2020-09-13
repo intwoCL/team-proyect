@@ -7,6 +7,8 @@ use App\Models\Content;
 use App\Models\Activity;
 use App\Models\Item;
 
+use Illuminate\Http\Response;
+
 class ContentController extends Controller
 {
   /**
@@ -123,18 +125,23 @@ class ContentController extends Controller
     $newIndex = $request->input('params.newIndex');
 
     try {
-        $origin = Content::where('activity_id',$id)->where('position',$oldIndex)->first();
-        $destiny = Content::where('activity_id',$id)->where('position',$newIndex)->first();
+      $origin = Content::where('activity_id',$id)->where('position',$oldIndex)->first();
+      $destiny = Content::where('activity_id',$id)->where('position',$newIndex)->first();
 
-        $origin->position = $newIndex;
-        $destiny->position = $oldIndex;
+      $origin->position = $newIndex;
+      $destiny->position = $oldIndex;
 
-        $origin->save();
-        $destiny->save();
+      $origin->save();
+      $destiny->save();
 
-        return $oldIndex . "<->" . $newIndex;
+      return \response()->json([
+        'status' => '201',
+        'message' => 'update'], Response::HTTP_CREATED);
     } catch (\Throwable $th) {
-        return $th;
+      // return $th;
+      return \response()->json([
+        'status' => '400',
+        'message' => 'error'], Response::HTTP_BAD_REQUEST);
     }
   }
 }
