@@ -43,10 +43,11 @@ class ScheduleController extends Controller
      */
     public function store(Request $request,$user_id)
     {
-        $nuevoSchedule = new Schedule();
 
-        $calendar_id = $request->input('id');
+        $s = new Schedule();
 
+        $s->calendar_id = $request->input('id');
+        $s->user_id = $user_id
     }
 
     /**
