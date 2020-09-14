@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Presenters;
+use Storage;
 
 class ActivityPresenter extends Presenter
 {

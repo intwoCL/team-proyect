@@ -41,6 +41,13 @@ npm run dev
 vendor\bin\phpunit
 ```
 
+## Code
+```shell
+vendor\bin\phpstan analyse
+
+vendor\bin\phpstan analyse app
+vendor\bin\phpstan analyse resource
+ ```
 <!-- #### Inicial laravel-mix mode produccion
 ```shell
 npm install
