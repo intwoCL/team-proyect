@@ -13,12 +13,12 @@ table, th, td {
 @section('content')
   <section class="section">
     <div class="section-header">
-      <a href="{{ route('calendar.index') }}">
+      <a href="{{ url()->previous() }}">
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
-      <h1>Panel de calendarios - {{ $c->name }}</h1>
+      <h1>Panel de calendarios - {{ $sch->name }}</h1>
       <div class="section-header-button">
-        <a href="{{ route('calendar.activity.edit',$c->id) }}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-primary btn-sm">Editar</a>
       </div>
     </div>
     <div class="section-body">
@@ -43,7 +43,7 @@ table, th, td {
               @for ($i = 0; $i < $max; $i++)
                 <tr>
                 @for ($j = 0; $j < 7; $j++)
-                  <td>{!! !empty($activities[$j][$i]) ? $activities[$j][$i]->getCodeNameTimeHTML() : '' !!}</td>
+                  <td>{!! !empty($sch_activities[$j][$i]) ? $sch_activities[$j][$i]->getCodeNameTimeHTML() : '' !!}</td>
                 @endfor
                 </tr>
               @endfor

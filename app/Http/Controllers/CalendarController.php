@@ -101,14 +101,5 @@ class CalendarController extends Controller
         //
     }
     //Show para mostrar un calendario seleccionado
-    public function showPreview($id){
-      $c = Calendar::findOrFail($id);
-      $activities = $c->present()->getActivitiesTable();
-      $numbers = [];
-      foreach ($activities as $a) {
-        $numbers[] = count($a);
-      }
-      $max = (!empty($numbers)) ? max($numbers) : 0;
-      return view('admin.schedule.preview',compact('c','activities','max'));
-    }
+
 }

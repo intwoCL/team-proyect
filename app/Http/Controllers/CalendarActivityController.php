@@ -11,7 +11,7 @@ use App\Models\CalendarActivity;
 // horario
 class CalendarActivityController extends Controller
 {
-  
+
   public function edit($id){
     $c = Calendar::findOrFail($id);
 
@@ -25,11 +25,12 @@ class CalendarActivityController extends Controller
         'backgroundColor' => 'green',
         // 'borderColor' => $color ,
         // 'url' => route('attention.control', $a->id),
-      
+
       );
       array_push($calendars,$a);
     }
-    return view('admin.calendar.details.edit',compact('c','calendars','days','calendarsActivities'));
+    //return view('admin.calendar.details.edit',compact('c','calendars','days','calendarsActivities')); // variable days esta sobrando
+    return view('admin.calendar.details.edit',compact('c','calendars','calendarsActivities'));
   }
 
   public function create($id,$day){
@@ -39,7 +40,7 @@ class CalendarActivityController extends Controller
   }
 
   public function store($id,$day,Request $request){
-    
+
     try {
       $ca  = new CalendarActivity();
       $ca->worktime = $request->input('worktime');

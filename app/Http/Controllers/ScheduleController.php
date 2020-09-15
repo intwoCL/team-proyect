@@ -8,6 +8,7 @@ use App\Models\Calendar;
 use App\Models\Activity;
 use App\Models\CalendarActivity;
 use App\Models\Schedule;
+use App\Models\ScheduleActivity;
 
 class ScheduleController extends Controller
 {
@@ -30,8 +31,8 @@ class ScheduleController extends Controller
     public function create($user_id)
     {
         //$activity = Activity::FindOrFail($activity_id);
-        $user = User::FindOrFail($user_id); 
-        $calendars =Calendar::get();
+        $user = User::FindOrFail($user_id);
+        $calendars = Calendar::get();
         return view('admin.schedule.create',compact('user','calendars'));
     }
 
@@ -43,11 +44,37 @@ class ScheduleController extends Controller
      */
     public function store(Request $request,$user_id)
     {
+        try {
+            $sch = new Schedule();
+            $cal = Calendar::FindOrFail($request->input('id'));
+            $sch->calendar_id = $cal->id;
+            $sch->user_id = $user_id;
+            $sch->specialist_id = current_user()->id;
+            $sch->name = $cal->name;
+            $sch->status = $cal->status;
+            $sch->objective = $cal->objective;
+            $sch->comment = '';
+            $sch->save();
 
-        $s = new Schedule();
+            // Crear los Schedules Activities
+            foreach ($cal->activities as $ca) {
+                $sa = new ScheduleActivity();
+                $sa->schedule_id = $sch->id; // ??
+                $sa->calendar_id = $cal->id;
+                $sa->activity_id = $ca->id;
+                $sa->weekday = $ca->weekday;
+                $sa->worktime = $ca->worktime;
+                $sa->times = $ca->times;
+                $sa->save();
+            }
 
-        $s->calendar_id = $request->input('id');
-        $s->user_id = $user_id
+            return redirect()->route('schedule.index',$user_id);
+
+        } catch (\Throwable $th) {
+            // return redirect()->back()->with('danger',trans('alert.danger'));
+            return $th;
+        }
+
     }
 
     /**
@@ -58,7 +85,15 @@ class ScheduleController extends Controller
      */
     public function show($id)
     {
-        //
+        $sch = Schedule::findOrFail($id);
+        $sch_activities = $sch->present()->getActivitiesTable();
+        $numbers = [];
+        foreach ($sch_activities as $day_of_activities) {
+          $numbers[] = count($day_of_activities);
+        }
+        $max = (!empty($numbers)) ? max($numbers) : 0;
+        return view('admin.schedule.details.index',compact('sch','sch_activities','max'));
+        // return compact('sch','sch_activities','max');
     }
 
     /**
@@ -69,7 +104,15 @@ class ScheduleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sch = Schedule::findOrFail($id);
+        // $activities = $c->present()->getActivitiesTable();
+        // $numbers = [];
+        // foreach ($activities as $a) {
+        //   $numbers[] = count($a);
+        // }
+        // $max = (!empty($numbers)) ? max($numbers) : 0;
+        // return view('admin.schedule.edit',compact('c','activities','max'));
+        return $sch->schedulesActivities;
     }
 
     /**
