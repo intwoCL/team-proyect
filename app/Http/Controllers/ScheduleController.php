@@ -105,13 +105,22 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         $sch = Schedule::findOrFail($id);
-        // $activities = $c->present()->getActivitiesTable();
-        // $numbers = [];
-        // foreach ($activities as $a) {
-        //   $numbers[] = count($a);
+
+        // $calendarsActivities = CalendarActivity::where('calendar_id',$id)->get();
+        // $calendars = array();
+        // foreach ($calendarsActivities as $ca) {
+        //   $a = array(
+        //     'daysOfWeek' => [ $ca->weekday ],
+        //     'startTime' => $ca->worktime,
+        //     'title' => $ca->activity->name,
+        //     'backgroundColor' => 'green',
+        //     // 'borderColor' => $color ,
+        //     // 'url' => route('attention.control', $a->id),
+        //   );
+        //   array_push($calendars,$a);
         // }
-        // $max = (!empty($numbers)) ? max($numbers) : 0;
-        // return view('admin.schedule.edit',compact('c','activities','max'));
+
+        // return view('admin.schedule.details.edit',compact('c','calendars','calendarsActivities'));
         return $sch->schedulesActivities;
     }
 
