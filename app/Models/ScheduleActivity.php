@@ -27,4 +27,8 @@ class ScheduleActivity extends Model
   public function getCodeNameTimeHTML(){
     return $this->activity->present()->getCodeName() . "<span class='ml-4 badge badge-primary'>{$this->times}</span>";
   }
+
+  public function getDayWords(){
+    return helper_days()[$this->weekday-1];
+  }
 }

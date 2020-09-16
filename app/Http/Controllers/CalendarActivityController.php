@@ -29,7 +29,6 @@ class CalendarActivityController extends Controller
       );
       array_push($calendars,$a);
     }
-    //return view('admin.calendar.details.edit',compact('c','calendars','days','calendarsActivities')); // variable days esta sobrando
     return view('admin.calendar.details.edit',compact('c','calendars','calendarsActivities'));
   }
 

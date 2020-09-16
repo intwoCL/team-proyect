@@ -106,21 +106,7 @@ class ScheduleController extends Controller
     {
         $sch = Schedule::findOrFail($id);
 
-        // $calendarsActivities = CalendarActivity::where('calendar_id',$id)->get();
-        // $calendars = array();
-        // foreach ($calendarsActivities as $ca) {
-        //   $a = array(
-        //     'daysOfWeek' => [ $ca->weekday ],
-        //     'startTime' => $ca->worktime,
-        //     'title' => $ca->activity->name,
-        //     'backgroundColor' => 'green',
-        //     // 'borderColor' => $color ,
-        //     // 'url' => route('attention.control', $a->id),
-        //   );
-        //   array_push($calendars,$a);
-        // }
 
-        // return view('admin.schedule.details.edit',compact('c','calendars','calendarsActivities'));
         return $sch->schedulesActivities;
     }
 
@@ -145,5 +131,26 @@ class ScheduleController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function details($id)
+    {
+        $sch = Schedule::findOrFail($id);
+
+        $sch_activities = ScheduleActivity::where('schedule_id',$id)->get();
+        $schedules = array();
+        foreach ($sch_activities as $sa) {
+          $a = array(
+            'daysOfWeek' => [ $sa->weekday ],
+            'startTime' => $sa->worktime,
+            'title' => $sa->activity->name,
+            'backgroundColor' => 'green',
+            // 'borderColor' => $color ,
+            // 'url' => route('attention.control', $a->id),
+
+          );
+          array_push($schedules,$a);
+        }
+        return view('admin.schedule.details.edit',compact('sch','schedules','sch_activities'));
     }
 }
