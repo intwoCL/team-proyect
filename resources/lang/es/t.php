@@ -1,6 +1,7 @@
 <?php
 
 return [
+  'see' => 'Ver',
   'user' => 'Usuario',
   'spanish' => 'Español',
   'english' => 'Inglés',
@@ -15,7 +16,6 @@ return [
   'app' => 'App',
   'dashboard' => 'Dashboard',
   'activities' => 'Actividades',
-  'specialist' => 'Especialista',
   'attention' => 'Atención',
   'calendar' => 'Calendario',
   'hi' => 'Hola',
@@ -27,6 +27,7 @@ return [
   'edit' => 'Editar',
   'view' => 'Vista',
   'trash' => 'Eliminar',
+  'preview' => 'Vista previa',
   'login' => [
     'title' => 'Bienvenidos a ',
     'email' => 'Correo electronico',
@@ -43,15 +44,18 @@ return [
     ]
   ],
   'days' =>[
-    '1' => 'lunes',
-    '2' => 'martes',
-    '3' => 'miercoles',
-    '4' => 'jueves',
-    '5' => 'viernes',
-    '6' => 'sábado',
-    '7' => 'domingo'
+    '1' => 'Lunes',
+    '2' => 'Martes',
+    '3' => 'Miércoles',
+    '4' => 'Jueves',
+    '5' => 'Viernes',
+    '6' => 'Sábado',
+    '7' => 'Domingo'
   ],
   'activity' => [
+    'index' =>[
+      'title' => 'Actividades',
+    ],
     'create' => [
       'title' => 'Crear nueva Actividad',
       'name' => 'Nombre actividad',
@@ -61,6 +65,9 @@ return [
       'categories'=> 'Categorias',
       'total_time' => 'Tiempo total',
       'submit'=> "Enviar",
+      'activity' => 'Actividad',
+      'assign_activity' => 'Asignar Actividad del Día',
+      'activity_days' => 'Días de Actividad',
     ],
     'edit'=>[
       'title' => 'Editar actividad',
@@ -108,6 +115,8 @@ return [
       'admin' => '¿Es administrador?',
       'specialist' => '¿Es especialista?',
       'form_user' => 'Formulaio de nuevo usuario',
+      'update_user' => 'Actualizar Usuario',
+      'change_password' => 'Cambiar Contraseña',
     ],
     'create'=>[
       'title'=> 'Crear nuevo usuario',
@@ -152,6 +161,11 @@ return [
       'create_calendar' => 'Creación de calendario',
       'specialist' => 'Especialista',
       'patients' => 'Pacientes',
+      'register' => 'No tiene registros',
+      'day'=> 'Día',
+      'code' => 'Código',
+      'create_week' => 'Crear por Semana',
+      'name' => 'Nombre',
     ],
   ],
   'assignment' => [

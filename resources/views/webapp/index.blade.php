@@ -15,7 +15,7 @@
 <div class="container" style="padding-top: 90px !important;">
   <section class="section">
     <div class="section-header">
-      <h1>Actividades</h1>
+      <h1>{{ trans('t.activities') }}</h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item">{{ date('d-m-Y') }}</div>
       </div>

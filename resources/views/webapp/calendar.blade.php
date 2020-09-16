@@ -18,18 +18,18 @@
       <form action="{{ route('app.findCalendar') }}" method="post" class="">
         @csrf
         <div class="form-group row" id="data_1">
-          <label for="fecha" class="col-sm-2 col-12 col-form-label">Date</label>
+          <label for="fecha" class="col-sm-2 col-12 col-form-label">{{ trans('t.user.calendar.date') }}</label>
           <div class="input-group date col-sm-12 col-12">
             <input type="month" name="date" id="date" class="form-control" value="{{$date}}">
           </div>
-          <button type="submit" class="btn btn-primary btn-sm">Enviar</button>
+          <button type="submit" class="btn btn-primary btn-sm">{{ trans('t.activity.submit') }}</button>
         </div>
       </form>
     </div>
   </section>
   <section class="section">
     <div class="section-body">
-      <h2 class="section-title">Fecha: </h2>
+      <h2 class="section-title">{{ trans('t.user.calendar.date') }}: </h2>
       <div class="card">
         <div class="card-body">
           <div class="">
@@ -37,8 +37,8 @@
               <thead>
               <tr>
                 <th></th>
-                <th>Fecha</th>
-                <th>Especialista</th>
+                <th>{{ trans('t.user.calendar.date') }}</th>
+                <th>{{ trans('t.user.calendar.specialist') }}</th>
               </tr>
               </thead>
               <tbody>
@@ -50,7 +50,7 @@
                 </tr>
                 @empty
                 <tr>
-                  <td colspan="3" class="text-center">No tiene registros</td>
+                  <td colspan="3" class="text-center">{{ trans('t.user.calendar.register') }}</td>
                 </tr>
                 @endforelse
               </tbody>

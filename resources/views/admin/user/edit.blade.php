@@ -35,7 +35,7 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Actualizar Usuario <strong>{{ $user->email }}</strong></h4>
+              <h4>{{ trans('t.user.index.update_user') }} <strong>{{ $user->email }}</strong></h4>
             </div>
             <div class="card-body">
               <div class="form-group row">
@@ -145,7 +145,7 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Cambiar contraseña</h4>
+              <h4>{{ trans('t.user.index.change_password') }}</h4>
             </div>
             <div class="card-body">
               <div class="form-group row">

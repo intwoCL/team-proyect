@@ -18,8 +18,8 @@
               <thead>
                 <tr>
                   <th>#</th>
-                  <th>Name</th>
-                  <th>Objectivo</th>
+                  <th>{{ trans('t.user.calendar.name') }}</th>
+                  <th>{{ trans('t.activity.content.objective') }}</th>
                   <th></th>
                 </tr>
               </thead>
@@ -29,7 +29,7 @@
                 <td>{{ $ca->id }}</td>
                 <td>{{ $ca->name }}</td>
                 <td>{{ $ca->objective }}</td>
-                <td><a href="{{ route('calendar.show',$ca->id) }}" class="btn btn-sm btn-info">Ver</a></td>
+                <td><a href="{{ route('calendar.show',$ca->id) }}" class="btn btn-sm btn-info">{{ trans('t.see') }}</a></td>
               </tr>
               @endforeach
               </tbody>

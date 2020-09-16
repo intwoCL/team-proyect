@@ -12,10 +12,10 @@
     <a href="{{ route('calendar.show',$c->id) }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>Panel de calendarios - {{ $c->name }}</h1>
+    <h1>{{ trans('t.user.calendar.panel_calendar') }} - {{ $c->name }}</h1>
 
     <div class="section-header-button">
-      <a href="{{route('calendar.activity.create2',$c->id)}}" class="btn btn-success btn-sm">Crear por Semana</a>
+      <a href="{{route('calendar.activity.create2',$c->id)}}" class="btn btn-success btn-sm">{{ trans('t.user.calendar.create_week') }}</a>
     </div>
   </div>
   <div class="section-body">
@@ -26,10 +26,10 @@
             <thead>
             <tr>
               <th>#</th>
-              <th>Día</th>
-              <th>Hora</th>
-              <th>Code</th>
-              <th>Actividad</th>
+              <th>{{ trans('t.user.calendar.day') }}</th>
+              <th>{{ trans('t.user.calendar.hour') }}</th>
+              <th>{{ trans('t.user.calendar.code') }}</th>
+              <th>{{ trans('t.activity.create.activity') }}</th>
               <th></th>
             </tr>
             </thead>
@@ -47,7 +47,7 @@
                   data-toggle="modal" 
                   data-target="#deleteModal" 
                   data-activity="{{$ca->id}}">
-                    Eliminar
+                    {{ trans('t.trash') }}
                 </button>
               </td>
             </tr>

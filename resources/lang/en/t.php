@@ -1,6 +1,7 @@
 <?php
 
 return [
+  'see' => 'See',
   'user' => 'User',
   'spanish' => 'Spanish',
   'english' => 'English',
@@ -14,7 +15,6 @@ return [
   'app' => 'App',
   'dashboard' => 'Dashboard',
   'activities' => 'Activities',
-  'specialist' => 'Specialist',
   'attention' => 'Attention',
   'calendar' => 'Calendar',
   'hi' => 'Hi',
@@ -27,6 +27,7 @@ return [
   'edit' => 'Edit',
   'view' => 'View',
   'trash' => 'Delete',
+  'preview' => 'Preview',
   'login' => [
     'title' => 'Welcome to',
     'email' => 'Email',
@@ -43,13 +44,13 @@ return [
     ]
   ],
   'days' =>[
-    '1' => 'monday',
-    '2' => 'tuesday',
-    '3' => 'wednesday',
-    '4' => 'thursday',
-    '5' => 'friday',
-    '6' => 'saturday',
-    '7' => 'sunday'
+    '1' => 'Monday',
+    '2' => 'Tuesday',
+    '3' => 'Wednesday',
+    '4' => 'Thursday',
+    '5' => 'Friday',
+    '6' => 'Saturday',
+    '7' => 'Sunday'
   ],
 
   'activity' => [
@@ -65,6 +66,9 @@ return [
       'categories'=> 'Categories',
       'total_time' => 'Total Time',
       'submit'=> "Submit",
+      'activity' => 'Actividad',
+      'assign activity' => 'Assign Activity of the Day',
+      'activity_days' => 'Activity Days',
     ],
     'edit'=>[
       'title' => 'Edit activity',
@@ -104,6 +108,8 @@ return [
       'admin' => 'Are you an administrator?',
       'specialist' => 'Are you a specialist?',
       'form_user' => 'New user form',
+      'update_user' => 'Update User',
+      'change_password' => 'Change Password',
     ],
     'create'=>[
       'title'=> 'Create new user',
@@ -147,6 +153,11 @@ return [
       'create_calendar' => 'Creation of calendars',
       'specialist' => 'Specialist',
       'patients' => 'Patients',
+      'register' => 'No records',
+      'day'=> 'Day',
+      'code' => 'Code',
+      'create_week' => 'Create by Week',
+      'name' => 'Name',
     ],
   ],
 

@@ -27,17 +27,17 @@
           <form action="{{route('calendar.store')}}" method="POST" enctype="multipart/form-data" >
             @csrf
             <div class="card-header">
-              <h4>Formulario de Calendario</h4>
+              <h4>{{ trans('t.user.calendar.title') }}</h4>
             </div>
             <div class="card-body">
               <div class="form-group row">
-                <label for="inputName" class="col-sm-3 col-form-label">Nombre</label>
+                <label for="inputName" class="col-sm-3 col-form-label">{{ trans('t.user.calendar.name') }}</label>
                 <div class="col-sm-9">
                   <input type="text" name="name" class="form-control" required="" autocomplete="off" value="{{ old('name')}}">
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputObjective" class="col-sm-3 col-form-label">Objetivo</label>
+                <label for="inputObjective" class="col-sm-3 col-form-label">{{ trans('t.activity.content.objective') }}</label>
                 <div class="col-sm-9">
                   <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}">
                 </div>

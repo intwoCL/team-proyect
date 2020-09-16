@@ -45,7 +45,7 @@
                 <td>{{ $u->lang }}</td>
                 <td class="text-center">
                   @if ($u->specialist)
-                    <i class="fas fa-user-clock text-success mr-2" title="Especialista"></i>
+                    <i class="fas fa-user-clock text-success mr-2" title="especialista"></i>
                   @endif
                   @if ($u->admin)
                     <i class="fa fa-user-shield text-primary" title="administrador"></i>
