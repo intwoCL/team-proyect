@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class ScheduleActivity extends Model
 {
   protected $table = 'schedules_activities';
-  
+
   public function schedule(){
     return $this->belongsTo(Schedule::class,'schedule_id');
   }
@@ -22,5 +22,13 @@ class ScheduleActivity extends Model
 
   public function activitiesSummaries(){
     return $this->hasMany(ActivitySummaries::class,'schedule_activity_id');
+  }
+
+  public function getCodeNameTimeHTML(){
+    return $this->activity->present()->getCodeName() . "<span class='ml-4 badge badge-primary'>{$this->times}</span>";
+  }
+
+  public function getDayWords(){
+    return helper_days()[$this->weekday-1];
   }
 }

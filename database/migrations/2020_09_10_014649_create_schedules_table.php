@@ -21,7 +21,7 @@ class CreateSchedulesTable extends Migration
             $table->integer('status')->default(1);
             $table->string('comment',100);
             $table->string('name',100);
-            $table->string('objective',100);
+            $table->string('objective',100)->nullable();
             $table->timestamps();
         });
     }

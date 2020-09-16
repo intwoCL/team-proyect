@@ -3,7 +3,7 @@
 @section('content')
   <section class="section">
     <div class="section-header">
-      <a href="{{route('schedule.index',$user->id)}}"> 
+      <a href="{{route('schedule.index',$user->id)}}">
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
       <h1>Elegir Calendario</h1>
@@ -37,15 +37,14 @@
                   <small class="badge badge-{{ $ca->present()->getColor() }}">{{$ca->present()->getState()}}</small>
                 </td>
                 <td>
-                  <button type="button" class="btn btn-sm btn-success" 
-                    data-toggle="modal" 
-                    data-target="#assignModal" 
+                  <button type="button" class="btn btn-sm btn-success"
+                    data-toggle="modal"
+                    data-target="#assignModal"
                     data-calendar="{{$ca->id}}">
                     Asignar
                   </button>
 
-
-                  <a href="#" class="btn btn-sm btn-info">Ver</a>
+                  {{-- <a href="#" class="btn btn-sm btn-info">Ver</a> --}}
                 </td>
               </tr>
               @endforeach
@@ -58,18 +57,18 @@
   </section>
 @endsection
 @push('outerDiv')
-  @include('components.modal._assignet')
+  @include('components.modal._assign')
 @endpush
-@push('javascript')  
+@push('javascript')
 <script>
-  // 
+  //
   $(function () {
-    
+
     $('#assignModal').on('show.bs.modal', function (event) {
       var button = $(event.relatedTarget);
       var modal = $(this);
       var id = button.data('calendar');
-      var url = "{{route('schedule.store',$user->id)}}"; 
+      var url = "{{route('schedule.store',$user->id)}}";
       modal.find('.modal-title').text('¿Desea asignar este horario al usuario?');
       modal.find('.modal-body input').val(id);
       modal.find('#formAssign').attr('action',url);

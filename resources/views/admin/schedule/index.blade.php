@@ -8,7 +8,7 @@
       </a>
       <h1>Calendarios Asignados</h1>
       <div class="section-header-button">
-        <a href="{{route('schedule.create',$id)}}" class="btn btn-primary btn-sm">Asignar calendario</a>  
+        <a href="{{route('schedule.create',$id)}}" class="btn btn-primary btn-sm">Asignar calendario</a>
       </div>
     </div>
     <div class="section-body">
@@ -25,14 +25,14 @@
                 </tr>
               </thead>
               <tbody>
-              @foreach ($schedules as $ca)
+              @foreach ($schedules as $sch)
               <tr>
-                <td>{{ $ca->calendar->id}}</td>
-                <td>{{ $ca->calendar->name}}</td>
-                <td>{{ $ca->calendar->objective}}</td>
+                <td>{{ $sch->calendar->id}}</td>
+                <td>{{ $sch->calendar->name}}</td>
+                <td>{{ $sch->calendar->objective}}</td>
                 <td>
-                  <a href="{{ route('calendar.edit',$ca->id) }}" class="btn btn-sm btn-primary">editar</a>
-                  <a href="{{ route('calendar.show',$ca->id) }}" class="btn btn-sm btn-info">Ver</a>
+                  {{-- <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">editar</a> --}}
+                  <a href="{{ route('schedule.show',$sch->id) }}" class="btn btn-sm btn-info">Ver</a>
                 </td>
               </tr>
               @endforeach

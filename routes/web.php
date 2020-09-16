@@ -42,10 +42,15 @@ Route::middleware('user')->group(function () {
   Route::resource('assignment','AssignmentController',['except'=>['destroy']]);
   Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
   Route::resource('enrollment','EnrollmentController');
-  Route::get('schedule/{id}','ScheduleController@index')->name('schedule.index');
-  Route::get('schedule/{id}/create','ScheduleController@create')->name('schedule.create');
-  Route::post('schedule/{id}','ScheduleController@store')->name('schedule.store');
-
+  Route::get('schedule/user/{user_id}','ScheduleController@index')->name('schedule.index');
+  Route::get('schedule/user/{user_id}/create','ScheduleController@create')->name('schedule.create');
+  Route::post('schedule/user/{user_id}/create','ScheduleController@store')->name('schedule.store');
+  Route::get('schedule/{id}/edit','ScheduleController@edit')->name('schedule.edit');
+  Route::get('schedule/{id}/details','ScheduleController@show')->name('schedule.show');
+  Route::get('schedule/{id}/details/edit','ScheduleController@details')->name('schedule.details.edit');
+  Route::get('schedule/{id}/details/create','ScheduleActivityController@create')->name('schedule.activity.create');
+  Route::delete('schedule/activity/delete','ScheduleActivityController@delete')->name('schedule.activity.delete');
+  Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
 
   Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
@@ -72,7 +77,7 @@ Route::middleware('user')->group(function () {
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
     Route::get('profile','WebAppController@profile')->name('app.profile');
-    
+
   });
 
 });
