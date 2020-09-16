@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Models\ScheduleActivity;
+use App\Models\Activity;
 
 class ScheduleActivityController extends Controller
 {
@@ -22,9 +24,11 @@ class ScheduleActivityController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        return "holi :3";
+        $sch = Schedule::findOrFail($id);
+        $activities = Activity::where('status',3)->get();
+        return view('admin.schedule.details.create',compact('sch','activities'));
     }
 
     /**
@@ -35,7 +39,28 @@ class ScheduleActivityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $dias = $request->input('days');
+            $worktime = $request->input('worktime');
+            $activity_id = $request->input('activity_id');
+            $times = $request->input('times');
+            $schedule_id = $request->input('schedule_id');
+            $calendar_id = Schedule::findOrFail($schedule_id)->calendar_id;
+
+            foreach ($dias as $d) {
+              $ca = new ScheduleActivity();
+              $ca->worktime = $worktime;
+              $ca->activity_id = $activity_id;
+              $ca->schedule_id = $schedule_id;
+              $ca->calendar_id = $calendar_id;
+              $ca->weekday = $d;
+              $ca->times = $times;
+              $ca->save();
+            }
+            return redirect()->route('schedule.details.edit',$schedule_id)->with('success',trans('alert.success'));
+          } catch (\Throwable $th) {
+            throw $th;
+          }
     }
 
     /**
