@@ -37,7 +37,7 @@
                 <td>
                   {{$c->name}}
                   <div class="table-links">
-                    <a href="{{route('content.show',[$a->id,$c->id])}}">Items</a>
+                    <a href="{{route('content.show',[$a->id,$c->id])}}">{{ trans('t.activity.items.items') }}</a>
                     <div class="bullet"></div>
                     <a href="{{route('content.edit',[$a->id,$c->id])}}">{{ trans('t.edit') }}</a>
                     <div class="bullet"></div>

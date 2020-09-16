@@ -14,13 +14,13 @@
         <li class="nav-item active">
           <a href="{{ route('app.index') }}" class="nav-link">
             <i class="fa fa-home mr-2"></i>
-            <strong>INICIO</strong>
+            <strong>{{ trans('t.home') }}</strong>
           </a>
         </li>
         <li class="nav-item">
           <a href="{{ route('app.calendar',[date('m'),date('Y')]) }}" class="nav-link">
             <i class="fa fa-calendar-alt mr-2"></i>
-            <strong>CALENDAR</strong>
+            <strong>{{ trans('t.calendar_index') }}</strong>
           </a>
         </li>
       </ul>
@@ -161,11 +161,11 @@
         <div class="dropdown-menu dropdown-menu-right">
           <div class="dropdown-title">Logged in 5 min ago</div>
           <a href="features-profile.html" class="dropdown-item has-icon">
-            <i class="far fa-user"></i> Profile
+            <i class="far fa-user"></i> {{ trans('t.profile') }}
           </a>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item has-icon text-danger">
-            <i class="fas fa-sign-out-alt"></i> Logout
+            <i class="fas fa-sign-out-alt"></i> {{ trans('t.logout') }}
           </a>
         </div>
       </li>

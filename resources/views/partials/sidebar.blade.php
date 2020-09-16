@@ -18,7 +18,7 @@
     <li class="{{ active('dashboard') }}"><a class="nav-link" href="{{ route('dashboard.index') }}"><i class="fas fa-columns"></i> <span>{{ trans('t.dashboard') }}</span></a></li>
     <li class="{{ active('activity*') }}"><a href="{{ route('activity.index') }}"><i class="fab fa-wpforms"></i> <span>{{ trans('t.activities') }}</span></a></li>
     <li class="{{ active('user*') }}"><a href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>Usuarios</span></a></li>
-    <li class="{{ active('assignment*') }}"><a href="{{ route('assignment.index') }}"><i class="fas fa-hands-helping"></i><span>{{ trans('t.specialist') }}</span></a></li>
+    <li class="{{ active('assignment*') }}"><a href="{{ route('assignment.index') }}"><i class="fas fa-hands-helping"></i><span>{{ trans('t.user.calendar.specialist') }}</span></a></li>
     <li class="{{ active('calendar*') }}"><a href="{{ route('calendar.index') }}"><i class="fas fa-calendar-alt"></i> <span>{{ trans('t.calendar') }}</span></a></li>
       
     @if (is_specialist())

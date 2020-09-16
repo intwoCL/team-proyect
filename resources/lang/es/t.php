@@ -1,6 +1,8 @@
 <?php
 
 return [
+  'calendar_index' => 'CALENDARIO',
+  'home' => 'INICIO',
   'see' => 'Ver',
   'user' => 'Usuario',
   'spanish' => 'Español',
@@ -28,6 +30,7 @@ return [
   'view' => 'Vista',
   'trash' => 'Eliminar',
   'preview' => 'Vista previa',
+  'close' => 'Cerrar',
   'login' => [
     'title' => 'Bienvenidos a ',
     'email' => 'Correo electronico',

@@ -22,7 +22,7 @@
           <div class="input-group date col-sm-12 col-12">
             <input type="month" name="date" id="date" class="form-control" value="{{$date}}">
           </div>
-          <button type="submit" class="btn btn-primary btn-sm">{{ trans('t.activity.submit') }}</button>
+          <button type="submit" class="btn btn-primary btn-sm">{{ trans('t.activity.create.submit') }}</button>
         </div>
       </form>
     </div>
