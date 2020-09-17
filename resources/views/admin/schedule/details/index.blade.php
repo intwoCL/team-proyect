@@ -13,12 +13,12 @@ table, th, td {
 @section('content')
   <section class="section">
     <div class="section-header">
-      <a href="{{ url()->previous() }}">
+      <a href="{{ route('schedule.index',$sch->user_id) }}">
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
       <h1>Panel de calendarios - {{ $sch->name }}</h1>
       <div class="section-header-button">
-        <a href="{{ route('schedule.index',$sch->id) }}" class="btn btn-primary btn-sm">Editar</a>
+        <a href="{{ route('schedule.details.edit',$sch->id) }}" class="btn btn-primary btn-sm">Editar</a>
       </div>
     </div>
     <div class="section-body">
