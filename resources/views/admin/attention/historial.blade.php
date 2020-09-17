@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <section class="section">
       <div class="section-header">
-        <a href="{{ route('attention.assigned') }}">
+        <a href="{{ route('enrollment.index') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
         <h1>Historial</h1>
