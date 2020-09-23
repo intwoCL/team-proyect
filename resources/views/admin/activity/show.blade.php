@@ -44,7 +44,7 @@
                     <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
                   </div>
                 </td>
-                <td>{{$c->objective}}</td>
+                <td>{!! $c->objective !!}</td>
                 <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td>
               </tr>
               @endforeach

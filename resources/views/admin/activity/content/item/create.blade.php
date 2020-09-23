@@ -11,6 +11,8 @@
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Crear item</h1>
+    
+    <a href="{{ route('item.preview',{}) }}" class="btn btn-success">Preview</a>
   </div>
 
   <div class="section-body">
@@ -18,9 +20,7 @@
     <p class="section-lead">
       Crear nuevo item para contenido
     </p>
-
     <div class="row">
-
       <div class="col-12 col-md-12 col-lg-12">
         @include('partials._errors')
 
@@ -42,7 +42,7 @@
                 </div>
                 <div class="form-group">
                   <label>Contenido</label>
-                  <textarea style="height:auto;" name="content" class="form-control ckeditor" id="summernote" rows="5" autocomplete="off"></textarea>
+                  <textarea style="height:auto;" name="content" class="form-control ckeditor" id="summernote" rows="5" autocomplete="off">{{ $i->body }}</textarea>
                 </div>
 
               </div>
@@ -96,44 +96,16 @@
     </div>
   </div>
 </section>
-
-<section class="">
-  <div class="section-body">
-    <div class="tex-center">
-      <div class="card">
-        <div class="card-header">
-          <h4>Default Validation</h4>
-        </div>
-        <div class="card-body">
-          <div class="form-group">
-            <img src="https://www.iebschool.com/blog/wp-content/uploads/2016/02/Taco_Party_4.gif" width="250px" alt="">
-          </div>
-
-          <div class="form-group">
-            <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h4>
-          </div>
-
-          <div class="form-group">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident voluptate consectetur inventore eligendi placeat iusto ullam dolores beatae optio qui! Odit tempore ducimus, similique fugit esse dicta repellat eos voluptas.</p>
-          </div>
-        </div>
-        <div class="card-footer text-right">
-          <button class="btn btn-primary">{{ trans('button.save') }}</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 @endsection
-@push('javascript')
+@push('javascript')  
 <script src="/vendor/intwo/preview.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
     var typeFormIds = [
         'url',
         'video',
-        'photo',
-        'audio'
+        'foto',
+        'texto'
     ];
 
     function cambiarInput(formIds, optId){

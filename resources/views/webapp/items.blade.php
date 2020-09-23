@@ -11,17 +11,47 @@
 <style>
   #progress {
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
+    left: 15%;
+    right: 15%;
+    top: 25px;
     background-color: #f3f3f3;
-    height: 15px;
+    height: 25px;
     z-index: 100;
   }
   .face-shadow {
     text-shadow: 1px 2px 4px #4b4a4a !important;
   }
+
 </style>
+
+<style>
+  .balloon{
+  border-radius: 5px;
+  background-color: chocolate;
+  color: floralwhite;
+  padding: 10px;
+  width: 420px;
+  font-family: 'Indie Flower', cursive;
+  font-size: 2em
+  }
+  
+  .balloon:before {
+  content:"";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-bottom: 20px solid chocolate;
+  border-right: 18px solid transparent;
+  border-left: 18px solid transparent;
+  margin: -30px 0 0 40px;
+  }
+  
+  .clasecualquiera:before {
+  content: 'esto se agregará';
+  color: red;
+  }
+  
+  </style>
 @endpush
 @section('app')
 <div class="main-wrapper container">
@@ -31,22 +61,21 @@
     <div class="swiper-container" data-pagination-type='progress' style="margin-top: 100px;">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          @include('webapp.components.swiper._quiz')
+          @include('webapp.components.swiper._dialogue')
         </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._quiz')
-        </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._quiz')
-        </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._gif')
-        </div>
-          {{-- 
         <div class="swiper-slide">
           @include('webapp.components.swiper._text')
         </div>
         <div class="swiper-slide">
+          @include('webapp.components.swiper._gif')
+        </div>
+        <div class="swiper-slide">
+          @include('webapp.components.swiper._text')
+        </div>
+        <div class="swiper-slide">
+          @include('webapp.components.swiper._text')
+        </div>
+        {{-- <div class="swiper-slide">
           @include('webapp.components.swiper._youtube')
         </div>
         <div class="swiper-slide">
@@ -67,9 +96,9 @@
   </div>
 
   <div style="display: none;">
-    <audio id="fx-back" data-url="/webapp/activity"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
+    <audio id="fx-back" data-url="/webapp"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
     <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
-    <audio id="fx-finish" data-url="/webapp/activity"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
+    <audio id="fx-finish" data-url="/webapp"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
   </div>
 
 

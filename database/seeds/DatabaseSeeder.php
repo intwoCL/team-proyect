@@ -14,7 +14,6 @@ class DatabaseSeeder extends Seeder
   {
     $this->truncateTables([
       'users',
-      'types',
       'scales',
       'categories',
       'activities',
@@ -23,7 +22,7 @@ class DatabaseSeeder extends Seeder
     ]);
     
     $this->call(UserSeeder::class);
-    $this->call(TypeSeeder::class);
+    $this->call(ScaleSeeder::class);
     $this->call(CategorySeeder::class);
     $this->call(ActivitySeeder::class);
     $this->call(ContentSeeder::class);

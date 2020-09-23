@@ -63,7 +63,7 @@
 
   function activityShow(id){
     // alert('Error ' + id);
-    window.location.href = "{{ route('item') }}";
+    // window.location.href = "{{ route('app.item') }}";
   }
 </script>
 @endpush

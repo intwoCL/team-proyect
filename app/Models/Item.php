@@ -3,29 +3,19 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Presenters\ItemPresenter;
+use App\Presenters\Data\ItemData;
 
 class Item extends Model
 {
-  private $folderImg = 'photo_items';
-  private $imgDefault = '/images/gallery.jpg';
+  protected $table = 'items';
 
   public function itemContent(){
     return $this->belongsTo(Content::class,'content_id');
   }
-
-  public function itemType(){
-    return $this->belongsTo(Type::class,'type_id');
-  }
-
-  public function getPhoto(){
-    try {
-      if($this->photo == $this->imgDefault){
-        return $this->photo;
-      }
-      return \Storage::url("$this->folderImg/$this->photo");
-    } catch (\Throwable $th) {
-      return $this->imgDefault;
-    }
+  
+  public function present(){
+    return new ItemPresenter($this);
   }
 
   public function filter(){

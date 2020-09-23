@@ -32,7 +32,7 @@ class ScheduleController extends Controller
     {
         //$activity = Activity::FindOrFail($activity_id);
         $user = User::FindOrFail($user_id);
-        $calendars = Calendar::get();
+        $calendars = Calendar::where('status',3)->get();
         return view('admin.schedule.create',compact('user','calendars'));
     }
 
