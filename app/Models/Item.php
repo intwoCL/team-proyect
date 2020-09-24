@@ -18,18 +18,9 @@ class Item extends Model
     return new ItemPresenter($this);
   }
 
-  public function getData(){
-    $this->attributes['data'];
-  }
-
-  /**
-   * The attributes that should be casted to native types.
-   *
-   * @var array
-   */
-  protected $casts = [
-    'data' => 'array'
-  ];
+  // public function getData(){
+  //   $this->attributes['data'];
+  // }
 
   public function setSound($value){
     $this->data['sound'] = $value;
@@ -40,7 +31,9 @@ class Item extends Model
   }
 
   public function setUrl($value){
-    $this->data['url'] = $value;
+    $d = $this->data;
+    $d['url'] = $value;
+    $this->data = $d;
   }
   
   public function getUrl(){
@@ -55,11 +48,10 @@ class Item extends Model
     return $this->data['video'];
   }
 
-  
   public function setPhoto($value){
     $this->data['photo'] = $value;
   }
-  
+
   public function getPhoto(){
     return $this->data['photo'];
   }

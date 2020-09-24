@@ -69,7 +69,7 @@
                   <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off" value="{{ ($i->type==2) ? $i->body : '' }}">
                 </div>
 
-                <div id="photo" class="form-group">
+                <div id="imagen" class="form-group">
                   <label>Foto adjunta</label>
                   <input class="form-control" type="file" name="photo" accept="image/*" onchange="preview(this)"/>
                   <div id="preview">
@@ -106,7 +106,7 @@
     var typeFormIds = [
       'url',
       'video',
-      'photo',
+      'imagen',
       'audio'
     ];
 

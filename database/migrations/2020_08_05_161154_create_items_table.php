@@ -17,11 +17,11 @@ class CreateItemsTable extends Migration
             $table->id();
             $table->string('name',100)->nullable();
             $table->foreignId('content_id')->references('id')->on('contents');
-            $table->integer('type')->default(0);
+            $table->integer('type')->default(5);
             $table->string('title',100)->nullable();
             $table->longText('body')->nullable();
             $table->integer('position');
-            $table->json('data')->defaul('{}');
+            $table->json('data')->nullable();
             $table->timestamps();
         });
     }
