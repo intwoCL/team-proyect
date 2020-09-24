@@ -14,9 +14,9 @@
         <div class="card-body">
           <div class="row">
             <div class="col-sm-12 col-md-6 col-xs-12">
-              <img src="https://i.pinimg.com/originals/f4/5b/d9/f45bd9afa34729cdd851db0c7fb66381.gif"  height="240px" alt="">
+              {{-- <img src="https://i.pinimg.com/originals/f4/5b/d9/f45bd9afa34729cdd851db0c7fb66381.gif"  height="240px" alt=""> --}}
+              <iframe width="100%" height="250px" src="https://www.youtube.com/embed/E3tCHMagPOY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
-            
             <div class="text-justify col-sm-12 col-md-6 col-xs-12">
                 <h3 class="text-center mt-2"> Titulo </h3>
                 <p>

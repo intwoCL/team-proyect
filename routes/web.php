@@ -96,6 +96,8 @@ Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
 Route::get('mail','MailController@sendEmail');
 
-
+// Route::get('/debug-sentry', function () {
+//   throw new Exception('My first Sentry error!');
+// });
 
 

@@ -75,18 +75,15 @@
         <div class="swiper-slide">
           @include('webapp.components.swiper._text')
         </div>
+        <div class="swiper-slide">
+          @include('webapp.components.swiper._youtube')
+        </div>
+        <div class="swiper-slide">
+          @include('webapp.components.swiper._video')
+        </div>
         {{-- <div class="swiper-slide">
-          @include('webapp.components.swiper._youtube')
-        </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._youtube')
-        </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._youtube')
-        </div>
-        <div class="swiper-slide">
           @include('webapp.components.swiper._quiz')
-        </div> --}}
+        </div>  --}}
       </div>
       <!-- Add Pagination -->
       <!-- Add Arrows -->

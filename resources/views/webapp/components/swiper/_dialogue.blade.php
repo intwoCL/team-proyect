@@ -15,14 +15,12 @@
             </div>
             <div class="text-justify col">
                 {{-- <h3 class="text-center mt-2"> Titulo </h3> --}}
-                
-                
-                <div class="balloon">
-                  Ohhhhh!!! anda la OSA!
-                  </div>
-                  {{-- <p class="clasecualquiera">
-                  Esto es un párrafo
-                  </p> --}}
+              <div class="balloon">
+                Ohhhhh!!! anda la OSA!
+              </div>
+                {{-- <p class="clasecualquiera">
+                Esto es un párrafo
+                </p> --}}
 
 
 

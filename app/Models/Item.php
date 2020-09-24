@@ -10,6 +10,28 @@ class Item extends Model
 {
   protected $table = 'items';
 
+  protected $casts = [
+    'data' => 'array'
+  ];
+
+  protected $fillable = [
+    'data'
+  ];
+
+
+  public function setMetaAttribute($value)
+  {
+      $list = [];
+
+      foreach ($value as $array_item) {
+          if (!is_null($array_item['key'])) {
+              $list[] = $array_item;
+          }
+      }
+
+      $this->attributes['list'] = json_encode($list);
+  }
+
   public function itemContent(){
     return $this->belongsTo(Content::class,'content_id');
   }

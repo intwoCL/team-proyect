@@ -73,8 +73,20 @@ class ItemController extends Controller
   public function update($id,Request $request)
   {
     try {
+      // TODO: ACA
       $i = Item::findOrFail($id);
-      return $i->data["url"];
+
+      $options = $i->data;
+
+      $options['url'] = 'value';
+
+      $i->data = $options;
+
+      return $i->data;
+      // $data = $i->setMetaAttribute('url');
+      // $i->data['url'] = "updload";
+      // return json_encode($i->data);
+      return $data['url'];
       $i->name = $request->input('name');
       $i->title = $request->input('title');
       $i->type = $request->input('type');
