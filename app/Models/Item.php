@@ -18,6 +18,52 @@ class Item extends Model
     return new ItemPresenter($this);
   }
 
+  public function getData(){
+    $this->attributes['data'];
+  }
+
+  /**
+   * The attributes that should be casted to native types.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'data' => 'array'
+  ];
+
+  public function setSound($value){
+    $this->data['sound'] = $value;
+  }
+
+  public function getSound(){
+    return $this->data['sound'];
+  }
+
+  public function setUrl($value){
+    $this->data['url'] = $value;
+  }
+  
+  public function getUrl(){
+    return $this->data['url'];
+  }
+
+  public function setVideo($value){
+    $this->data['video'] = $value;
+  }
+  
+  public function getVideo(){
+    return $this->data['video'];
+  }
+
+  
+  public function setPhoto($value){
+    $this->data['photo'] = $value;
+  }
+  
+  public function getPhoto(){
+    return $this->data['photo'];
+  }
+
   public function filter(){
     $diccionary = array('[:name]' => current_user()->present()->getFullName() );
 
@@ -25,4 +71,5 @@ class Item extends Model
     $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->content);
     return $result;
   }
+  
 }

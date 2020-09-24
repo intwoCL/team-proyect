@@ -52,52 +52,6 @@ class ItemController extends Controller
       return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }
-  /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request  $request
-   * @return \Illuminate\Http\Response
-   */
-  // public function store(Request $request)
-  // {
-  //     try {
-
-  //         $c = Content::findOrFail($request->input('content_id'));
-  //         $a = Activity::findOrFail($c->activity_id);
-
-  //         $i = new Item();
-  //         $i->content_id = $c->content_id;
-  //         $i->title = $request->input('title');
-  //         $i->content = $request->input('content');
-  //         $i->type = $request->input('type');
-  //         $i->position = Item::where('content_id',$i->content_id)->count() + 1;
-
-  //         if($i->type==1){
-  //           $i->body = $request->input('url');
-  //         }elseif($i->type==2){
-  //           $i->body = $request->input('video');
-  //         } else if($i->type==3){
-  //           $file = $request->file('photo');
-  //           $filename = trim($i->title) . time() .'.'.$file->getClientOriginalExtension();
-  //           $path = $file->storeAs('public/photo_items',$filename);
-  //           $i->body = $filename;
-  //         }else{
-  //           $i->audio = $request->input('audio');
-  //           $file = $request->file('audio');
-  //           $filename = trim($i->title) . time() .'.'.$file->getClientOriginalExtension();
-  //           $path = $file->storeAs('public/audio_items',$filename);
-  //           $i->body = $filename;
-  //         }
-
-
-  //         $i->save();
-  //         return redirect()->route('content.show',[$a->id , $c->id]);
-
-  //     } catch (\Throwable $th) {
-  //         return $th;
-  //         return redirect()->back()->with('danger',trans('alert.danger'));
-  //     }
-  // }
 
   /**
    * Display the specified resource.
@@ -138,14 +92,13 @@ class ItemController extends Controller
       $i = Item::findOrFail($id);
       $i->name = $request->input('name');
       $i->title = $request->input('title');
-      $i->content = $request->input('content');
       $i->type = $request->input('type');
       $i->body = $request->input('body');
 
       if($i->type == 1){
-        $i->body = $request->input('url'); 
+        $i->content = $request->input('url'); 
       }elseif($i->type == 2){
-        $i->body = $request->input('video'); 
+        $i->content = $request->input('video'); 
       }elseif($i->type == 3){
         if(!empty($request->file('photo'))){
         $request->validate([
@@ -154,7 +107,7 @@ class ItemController extends Controller
         $file = $request->file('photo');
         $filename = trim($i->title) . time() .'.'.$file->getClientOriginalExtension();
         $path = $file->storeAs('public/photo_items',$filename);
-        $i->body = $filename;
+        $i->content = $filename;
         }else{
           return redirect()->back()->with('warning',trans('alert.warning'));
         }
@@ -164,7 +117,7 @@ class ItemController extends Controller
         $file = $request->file('audio');
         $filename = trim($i->title) . time() .'.'.$file->getClientOriginalExtension();
         $path = $file->storeAs('public/audio_items',$filename);
-        $i->body = $filename;
+        $i->content = $filename;
         }else{
           return redirect()->back()->with('warning',trans('alert.warning'));
         }

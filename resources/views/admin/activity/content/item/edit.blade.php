@@ -42,7 +42,7 @@
                 <div class="form-group">
                   <label>Contenido</label>
                   <div class="col-sm-12">
-                      <textarea name="content" class="ckeditor" id="summernote" rows="5" autocomplete="off">{{$i->text}}</textarea>
+                      <textarea name="content" class="ckeditor" id="summernote" rows="5" autocomplete="off">{{$i->body}}</textarea>
                   </div>
                 </div>
   
@@ -80,13 +80,13 @@
                 <div id="audio" class="form-group">
                   <label>Audio adjunto</label>
                   <input class="form-control" type="file" name="audio"  accept="mp3/*" class="form-control">
-                  <div>
-                    <audio src="{{ ($i->type==4) ? $i->present()->getAudio() : '' }}">
-                      <p>Tu navegador no implementa el elemento audio.</p>
-                      </audio>
-                  </div>
+                  {{-- <div> --}}
+                    <video id="audio_listen">  
+                      <source src="{{ ($i->type==4) ? $i->present()->getAudio() : '' }}">   
+                    </video> 
+                    <input type="button" id="boton" value="Reproducir"> 
+                  {{-- </div> --}}
                 </div>
-
               </div>
             </div>
             <div class="card-footer text-right">
@@ -145,4 +145,15 @@
 	  ],
   });
 </script>
+<script> 
+  function iniciar() { 
+     var boton=document.getElementById('boton'); 
+     boton.addEventListener('click', presionar, false); 
+  } 
+  function presionar() { 
+     var video=document.getElementById('audio_listen'); 
+     video.play(); 
+  } 
+  window.addEventListener('load', iniciar, false); 
+  </script> 
 @endpush

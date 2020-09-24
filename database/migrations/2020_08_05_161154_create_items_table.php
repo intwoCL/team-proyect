@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('title',100)->nullable();
             $table->longText('body')->nullable();
             $table->integer('position');
-            $table->string('content')->nullable();
+            $table->json('data')->defaul('{}');
             $table->timestamps();
         });
     }
