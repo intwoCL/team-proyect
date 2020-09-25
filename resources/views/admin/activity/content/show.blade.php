@@ -13,8 +13,16 @@
     <h1>{{trans('t.activity.show.title')}} </h1>
     <div class="section-header-button">
       {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-      <button onClick="window.location.href='{{ route('item.create',[$content->activity->id,$content->id]) }}'"
-        class="btn btn-primary">Nuevo Item</button>
+      {{-- <button onClick="window.location.href='{{ route('item.create',[$content->activity->id,$content->id]) }}'"
+        class="btn btn-primary">Nuevo Item</button> --}}
+
+        
+      <button type="button" class="btn btn-sm btn-primary" 
+        data-toggle="modal" 
+        data-target="#createModal">
+          Nuevo Item
+      </button>
+      <a href="" class="btn btn-success btn-sm">Preview</a>
     </div>
   </div>
   <div class="section-body">
@@ -23,15 +31,13 @@
     <div class="card">
       <div class="card-body">
         <div class="table-responsive">
-          <table class="table table-striped table-md ">
+          <table class="table table-hover table-md ">
             <thead>
-
               <tr>
                 <th>#</th>
                 <th>Posicion</th>
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{trans('t.activity.item.type')}}</th>
-                <th>{{ trans('t.activity.item.content') }}</th>
                 <th></th>
               </tr>
             </thead>
@@ -41,7 +47,7 @@
                 <td class="handle" data-id="{{ $i->id }}" data-position="{{ $i->position }}"><i class="fa fa-arrows-alt"></i></td>
                 <td>{{$i->position}}</td>
                 <td>
-                  {{$i->title}}
+                  {{$i->name}}
                   <div class="table-links">
                     <a href="{{route('item.show',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.view') }}</a>
                     <div class="bullet"></div>
@@ -50,8 +56,18 @@
                     <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
                   </div>
                 </td>
-                <td>{{ucfirst($i->itemType->name)}}</td>
-                <td>{{$i->content}}</td>
+                <td>{{ $i->present()->getType() }}</td>
+                <td>
+                  <a href="{{ route('item.edit',$i->id) }}" class="btn btn-info btn-sm">Editar</a>
+                  <a href="" class="btn btn-success btn-sm">Preview</a>
+
+                  {{-- <button type="button" class="btn btn-sm btn-danger"
+                  data-toggle="modal"
+                  data-target="#deleteModal"
+                  data-id="{{$i->id}}">
+                    Eliminar
+                  </button> --}}
+                </td>
               </tr>
               @endforeach
             </tbody>
@@ -62,8 +78,34 @@
   </div>
 </section>
 @endsection
+@push('outerDiv')
+  @include('admin.activity.content.item._modal_create')
+  @include('components.modal._delete')
+@endpush
+@push('javascript')  
+<script>
+  $(function () {
+    $('#createModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      var id = "{{ $content->id }}";
+      var url = "{{route('item.store',[$content->activity->id,$content->id])}}";
+      modal.find('.modal-title').text('¿Desea crear un ítem?');
+      $('#id_value').val(id);
+      modal.find('#formPOST').attr('action',url);
+    });
 
-@push('javascript')
+    $('#deleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      var id = button.data('id');
+      var url = "{{route('item.delete')}}";
+      modal.find('.modal-title').text('¿Desea eliminar al item?');
+      modal.find('.modal-body input').val(id);
+      modal.find('#formDelete').attr('action',url);
+    });
+  });
+</script>
 <script>
   var el = document.getElementById('items');
   let url = "{{ route('item.changePosition', [$content->activity->id, $content->id] ) }}";
@@ -82,16 +124,14 @@
         oldIndex,
         newIndex
       };
-
       findFetch(url,params);
-      location.reload();
     }
   });
 
   function findFetch(url,params){
     axios.put(url, { params })
     .then(response => {
-        console.log(response);
+      location.reload();
     }).catch(e => {
         console.log(e);
     })

@@ -55,13 +55,20 @@ Route::middleware('user')->group(function () {
   Route::delete('schedule/activity/delete','ScheduleActivityController@delete')->name('schedule.activity.delete');
   Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
 
-  Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
-  Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
-  Route::get('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@show')->name('item.show');
-  Route::post('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@update')->name('item.update');
+  // Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
-  Route::post('activity/{activity_id}/content/{content_id}/item/{id}/delete','ItemController@delete')->name('item.delete');
+  Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
+  Route::put('item/{id}','ItemController@update')->name('item.update');
+  Route::delete('item','ItemController@delete')->name('item.delete');
+
+
+  Route::get('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@show')->name('item.show');
+
+  
   Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
+
+  Route::get('item/preview/{id}','ItemController@preview')->name('item.preview');
+  
 
 
 
@@ -76,11 +83,10 @@ Route::middleware('user')->group(function () {
   Route::namespace('App')->prefix('webapp')->group(function () {
     Route::get('/','WebAppController@index')->name('app.index');
     Route::get('activity/{id}','WebAppController@activity')->name('app.activity');
-    Route::get('item','WebAppController@item')->name('item');
+    Route::get('item','WebAppController@item')->name('app.item');
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
-    Route::get('profile','WebAppController@profile')->name('app.profile');
-
+    Route::get('profile','WebAppController@profile')->name('app.profile');    
   });
 
 });
@@ -93,6 +99,8 @@ Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
 Route::get('mail','MailController@sendEmail');
 
-
+// Route::get('/debug-sentry', function () {
+//   throw new Exception('My first Sentry error!');
+// });
 
 

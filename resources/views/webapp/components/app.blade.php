@@ -167,6 +167,10 @@
           {{-- <a href="#" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i> Logout
           </a> --}}
+          <div class="custom-control custom-switch nav-link">
+            <input type="checkbox" class="custom-control-input" id="darkSwitch">
+            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
+          </div>
           <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i>{{ trans('t.logout') }}
           </a>

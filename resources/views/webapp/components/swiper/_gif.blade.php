@@ -1,4 +1,4 @@
-<section class="">
+<section class="ml-2 mr-2 row">
   {{-- <div class="section-header">
     <h1>{{trans('t.user.create.title')}}</h1>
     <div class="swiper-pagination"></div>
@@ -14,7 +14,6 @@
           <div class="form-group">
               <img src="https://www.iebschool.com/blog/wp-content/uploads/2016/02/Taco_Party_4.gif" width="250px" alt="">
             </div>
-
             <div class="form-group">
               <h4>Lorem ipsum, dolor sit amet consectetur adipisicing elit. </h4>
             </div>

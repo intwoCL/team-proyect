@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 
 use Auth;
 use Socialite;
@@ -29,7 +30,7 @@ class IntegrationController extends Controller
   public function handleGoogleCallback()
   {
     try {
-      close_sessions();
+      $this->close_sessions();
       $user = Socialite::driver('google')->user();
       $id = $user->getId();
       $email = $user->getEmail();
@@ -49,6 +50,11 @@ class IntegrationController extends Controller
         // return redirect()->to('/')->with('info','Gmail no responde.');
     }
   }
-
+  
+  private function close_sessions(){
+    if(\Auth::guard('user')->check()){
+      \Auth::guard('user')->logout();
+    }
+  }
 
 }

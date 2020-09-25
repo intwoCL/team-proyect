@@ -31,6 +31,7 @@
               <th>Veces</th>
               <th>Code</th>
               <th>Actividad</th>
+              <th>Nivel</th>
               <th></th>
             </tr>
             </thead>
@@ -44,6 +45,7 @@
               <td>{{ $ca->times }}</td>
               <td>{{ $ca->activity->id }}</td>
               <td>{{ $ca->activity->name}}</td>
+              <td>{{ $ca->activity->scale_id}}</td>
               <td>
                 <button type="button" class="btn btn-sm btn-danger" 
                   data-toggle="modal" 

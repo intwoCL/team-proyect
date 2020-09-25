@@ -1,4 +1,4 @@
-<section class="">
+<section class="ml-2 mr-2 row">
   {{-- <div class="section-header">
     <h1>{{trans('t.user.create.title')}}</h1>
     <div class="swiper-pagination"></div>
