@@ -123,11 +123,12 @@ class ScheduleController extends Controller
         $s->name = $request->input('name');
         $s->objective = $request->input('objective');
         $s->status = $request->input('status');
-        $s->comment = $request->input('comment');
+        $s->comment = !empty($request->input('comment')) ? $request->input('comment') : '' ;
+        
         $s->update();
         return redirect()->back()->with('success',trans('alert.update'));
       } catch(\Throwable $th){
-        //return $th;
+        return $th;
         return redirect()->back()->with('danger',trans('alert.danger'));
       }
     }

@@ -87,7 +87,11 @@
                 <div class="col-sm-8 row">
                   <select class="form-control select2" name="scale_id" required="">
                     @foreach ($scales as $s)
-                      <option {{ ($activity->scale_id == $s->id) ? 'selected' : '' }} value="{{ $s->id }}">{{ $s->name }}</option>
+                      @if ($activity->scale_id == $s->id)
+                        <option selected value="{{ $s->id }}">{{ $s->name }}</option>
+                      @else
+                        <option value="{{ $s->id }}">{{ $s->name }}</option>
+                      @endif
                     @endforeach
                   </select>
                 </div>
@@ -98,7 +102,11 @@
                 <div class="col-sm-12 row">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
                     @foreach ($categories as $c)
-                      <option {{ $c->selected ? 'selected' : '' }} selected value="{{ $c->id }}">{{ $c->name }}</option>
+                      @if ($c->selected)
+                        <option selected value="{{ $c->id }}">{{ $c->name }}</option>
+                      @else
+                        <option value="{{ $c->id }}">{{ $c->name }}</option> 
+                      @endif
                     @endforeach
                   </select>
                 </div>
@@ -108,6 +116,17 @@
                 <label for="inputTotalTime" class="col-sm-3 col-form-label">{{trans('t.activity.create.total_time')}}</label>
                 <div class="col-sm-9">
                   <input type="number" min="0" name="total_time" value="{{$activity->total_time}}" class="form-control" required="" autocomplete="off">
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="inputScale" class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                  <select class="form-control select2" name="status" required="">
+                    @foreach ($activity->present()->states as $key => $value)
+                    <option {{ ($key == $activity->status) ? 'selected' : '' }} value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
+                  </select>
                 </div>
               </div>
             </div>
@@ -155,3 +174,4 @@
     });
 </script> --}}
 @endpush
+

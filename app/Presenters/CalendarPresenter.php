@@ -18,7 +18,11 @@ class CalendarPresenter extends Presenter
   );
 
   public function getState(){
-    return $this->states[$this->model->status-1];
+    return $this->states[$this->model->status];
+  }
+
+  public function getColor(){
+    return $this->colorState[$this->model->status];
   }
   
   public function getActivitiesTable(){

@@ -19,7 +19,7 @@ class CreateSchedulesTable extends Migration
             $table->foreignId('specialist_id')->references('id')->on('users');
             $table->foreignId('calendar_id')->references('id')->on('calendars');
             $table->integer('status')->default(1);
-            $table->string('comment',100);
+            $table->string('comment',100)->nullable();
             $table->string('name',100);
             $table->string('objective',100)->nullable();
             $table->timestamps();
