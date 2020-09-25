@@ -45,7 +45,10 @@ Route::middleware('user')->group(function () {
   Route::get('schedule/user/{user_id}','ScheduleController@index')->name('schedule.index');
   Route::get('schedule/user/{user_id}/create','ScheduleController@create')->name('schedule.create');
   Route::post('schedule/user/{user_id}/create','ScheduleController@store')->name('schedule.store');
+
   Route::get('schedule/{id}/edit','ScheduleController@edit')->name('schedule.edit');
+  Route::put('schedule/{id}/edit','ScheduleController@update')->name('schedule.update');
+
   Route::get('schedule/{id}/details','ScheduleController@show')->name('schedule.show');
   Route::get('schedule/{id}/details/edit','ScheduleController@details')->name('schedule.details.edit');
   Route::get('schedule/{id}/details/create','ScheduleActivityController@create')->name('schedule.activity.create');

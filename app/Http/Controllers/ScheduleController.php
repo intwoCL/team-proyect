@@ -105,9 +105,8 @@ class ScheduleController extends Controller
     public function edit($id)
     {
         $sch = Schedule::findOrFail($id);
-
-
-        return $sch->schedulesActivities;
+        //return $sch->schedulesActivities;
+        return view('admin.schedule.edit',compact('sch'));
     }
 
     /**
@@ -119,7 +118,16 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try{
+        $s = Schedule::findOrFail($id);
+        $s->name = $request->input('name');
+        $s->objective = $request->input('objective');
+        $s->update();
+        return redirect()->back()->with('success',trans('alert.update'));
+      } catch(\Throwable $th){
+        //return $th;
+        return redirect()->back()->with('danger',trans('alert.danger'));
+      }
     }
 
     /**
