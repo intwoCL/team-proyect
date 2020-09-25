@@ -35,10 +35,10 @@
 
   <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; 2018 <div class="bullet"></div>
+      Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
     </div>
     <div class="footer-right">
-      0.1.1
+      2.3.0
     </div>
   </footer>
 </div>
@@ -63,7 +63,7 @@
 
   function activityShow(id){
     // alert('Error ' + id);
-    // window.location.href = "{{ route('app.item') }}";
+    window.location.href = "{{ route('item') }}";
   }
 </script>
 @endpush

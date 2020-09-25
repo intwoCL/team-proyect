@@ -13,7 +13,7 @@
 
 <section class="section">
   <div class="section-header">
-    <a href="{{ route('enrollment.index') }}">
+    <a href="{{ route('attention.assigned') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Creación de calendario </h1>

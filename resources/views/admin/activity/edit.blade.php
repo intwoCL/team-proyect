@@ -110,22 +110,6 @@
                   <input type="number" min="0" name="total_time" value="{{$activity->total_time}}" class="form-control" required="" autocomplete="off">
                 </div>
               </div>
-
-              <div class="form-group row">
-                <label for="inputScale" class="col-sm-3 col-form-label">Status</label>
-                <div class="col-sm-6">
-                  <select class="form-control select2" name="status" required="">
-                    @foreach ($activity->present()->states as $key => $value)
-                    @if (($key+1) == $activity->status)
-                    <h1>a</h1>
-                    <option selected value="{{ $key+1 }}">{{ $value }}</option>
-                    @else
-                    <option value="{{ $key+1 }}">{{ $value }}</option>
-                    @endif
-                    @endforeach
-                  </select>
-                </div>
-              </div>
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.update')}}</button>

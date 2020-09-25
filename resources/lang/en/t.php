@@ -134,4 +134,6 @@ return [
       'status' => 'Status',
     ],
   ],
+
+  'welcome' => 'Welcome',
 ];

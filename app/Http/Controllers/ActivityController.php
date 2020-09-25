@@ -129,8 +129,7 @@ class ActivityController extends Controller
       $a->objective = $request->input('objective');
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
-      $a->status = $request->input('status');
-      
+
       if(!empty($request->file('photo'))){
         $request->validate([
           'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',

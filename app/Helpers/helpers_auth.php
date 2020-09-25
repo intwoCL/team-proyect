@@ -1,5 +1,17 @@
 
 <?php
+/**
+ * close all sessions actives
+ *
+ * @return only true
+ */
+function close_sessions(){
+  if(Auth::guard('user')->check()){
+    Auth::guard('user')->logout();
+  }
+  // session()->forget('permisos');
+  return true;
+}
 
 /**
  * session user

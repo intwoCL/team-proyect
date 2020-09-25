@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Presenters;
-use Storage;
 
 class ActivityPresenter extends Presenter
-{
-  
+{  
   public $states = array(
     1 => 'Edición',
     2 => 'Revisión',
@@ -43,6 +41,10 @@ class ActivityPresenter extends Presenter
     // return "<i class='fas fa-thumbs-up bg-success'></i>";
     return "<i class='fa-2x fa {$this->getIcons()} text-{$this->getColor()}' title='{$this->getState()}'></i>";    
   }
+
+
+  private $folderImg = 'photo_activities';
+  private $imgDefault = '/images/gallery.jpg';
 
   public function getPhoto(){
     try {
