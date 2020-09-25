@@ -55,7 +55,7 @@
             </div>
 
             {{-- solo android --}}
-            {{-- <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" /> --}}
+            <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
       
             @if (helper_integration_gmail())
             <div class="mt-5 text-center">

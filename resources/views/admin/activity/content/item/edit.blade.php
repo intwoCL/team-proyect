@@ -45,7 +45,6 @@
                       <textarea name="content" class="ckeditor" id="summernote" rows="5" autocomplete="off">{{$i->body}}</textarea>
                   </div>
                 </div>
-  
               </div>
               <div class="col-md-6">
                 <div class="form-group row">
@@ -77,15 +76,33 @@
                   </div>
                 </div>
 
-                <div id="audio" class="form-group">
-                  <label>Audio adjunto</label>
-                  <input class="form-control" type="file" name="audio"  accept="mp3/*" class="form-control">
-                  {{-- <div> --}}
-                    <video id="audio_listen">  
-                      <source src="{{ ($i->type==4) ? $i->present()->getAudio() : '' }}">   
-                    </video> 
-                    <input type="button" id="boton" value="Reproducir"> 
-                  {{-- </div> --}}
+                <div id="audio">
+                  <div class="form-group">
+                  
+                    <label>Audio adjunto</label>
+                    <input type="file" name="audio"  accept="mp3/*" class="form-control">
+                  </div>
+
+                  <div class="text-center">
+                    <div class="mp3-audio">
+                      <audio controls class="mp3-auido">
+                        <source src="{{ ($i->type==4) ? $i->present()->getAudio() : '' }}">
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                  </div>             
+                  
+                  <div class="form-group">
+                    <label>Imagen (opcional)</label>
+                    <input class="form-control" type="file" name="image" accept="image/*" onchange="preview2(this)"/>
+
+                    <div class="form-group center-text">
+                      <div id="preview2"></div>
+                    </div>
+                    <div class="form-group center-text">
+                      <img class="img-fluid" src="{{ ($i->type==2) ? $i->present()->getPhoto() : '' }}" alt="" title="">
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -101,6 +118,7 @@
 @endsection
 @push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
+<script src="/vendor/intwo/preview2.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
     var typeFormIds = [
@@ -145,15 +163,4 @@
 	  ],
   });
 </script>
-<script> 
-  function iniciar() { 
-     var boton=document.getElementById('boton'); 
-     boton.addEventListener('click', presionar, false); 
-  } 
-  function presionar() { 
-     var video=document.getElementById('audio_listen'); 
-     video.play(); 
-  } 
-  window.addEventListener('load', iniciar, false); 
-  </script> 
 @endpush

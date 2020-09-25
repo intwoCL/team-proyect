@@ -5,13 +5,11 @@ namespace App\Presenters\Data;
 
 class TypeData{
   public $types = [
-    1 => 'url',
-    2 => 'video',
-    3 => 'imagen',
-    4 => 'audio',
-    5 => 'text',
+    1 => 'URL',
+    2 => 'Video',
+    3 => 'Imagen',
+    4 => 'Audio',
+    5 => 'Texto',
   ];
-
-
 
 }

@@ -36,8 +36,17 @@ class ItemPresenter extends Presenter
     }
   }
 
-
   public function getType(){
     return (new TypeData())->types[$this->model->type];
+  }
+
+  public function filter(){
+    $diccionary = array(
+      '[:name]' => current_user()->present()->getFullName()
+    );
+
+    // $texto = "bienvenidos a [:name]";
+    $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->body);
+    return $result;
   }
 }

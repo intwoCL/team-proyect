@@ -9,27 +9,17 @@ use App\Presenters\Data\ItemData;
 class Item extends Model
 {
   protected $table = 'items';
+  protected $casts = ['data' => 'array'];
+  protected $fillable = ['data'];
 
-  protected $casts = [
-    'data' => 'array'
-  ];
-
-  protected $fillable = [
-    'data'
-  ];
-
-
-  public function setMetaAttribute($value)
-  {
-      $list = [];
-
-      foreach ($value as $array_item) {
-          if (!is_null($array_item['key'])) {
-              $list[] = $array_item;
-          }
+  public function setMetaAttribute($value){
+    $list = [];
+    foreach ($value as $array_item) {
+      if (!is_null($array_item['key'])) {
+        $list[] = $array_item;
       }
-
-      $this->attributes['list'] = json_encode($list);
+    }
+    $this->attributes['data'] = json_encode($list);
   }
 
   public function itemContent(){
@@ -45,11 +35,14 @@ class Item extends Model
   // }
 
   public function setSound($value){
-    $this->data['sound'] = $value;
+    $options = $this->data;
+    $options['url'] = $value;
+    $this->data = $options;
   }
 
   public function getSound(){
-    return $this->data['sound'];
+    $options = $this->data;
+    return $options['sound'];
   }
 
   public function setUrl($value){
@@ -63,7 +56,9 @@ class Item extends Model
   }
 
   public function setVideo($value){
-    $this->data['video'] = $value;
+    $d = $this->data;
+    $d['video'] = $value;
+    $this->data = $d;
   }
   
   public function getVideo(){
@@ -71,19 +66,15 @@ class Item extends Model
   }
 
   public function setPhoto($value){
-    $this->data['photo'] = $value;
+    $d = $this->data;
+    $d['video'] = $value;
+    $this->data = $d;
   }
 
   public function getPhoto(){
     return $this->data['photo'];
   }
 
-  public function filter(){
-    $diccionary = array('[:name]' => current_user()->present()->getFullName() );
 
-    $texto = "bienvenidos a [:name]";
-    $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->content);
-    return $result;
-  }
   
 }

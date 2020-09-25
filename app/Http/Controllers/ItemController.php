@@ -76,11 +76,7 @@ class ItemController extends Controller
       // TODO: ACA
       $i = Item::findOrFail($id);
 
-      $options = $i->data;
-
-      $options['url'] = 'value';
-
-      $i->data = $options;
+    
 
       return $i->data;
       // $data = $i->setMetaAttribute('url');
