@@ -8,7 +8,8 @@ class CalendarPresenter extends Presenter
   public $states = array(
     1 => 'Edición',
     2 => 'Revisión',
-    3 => 'Publicado');
+    3 => 'Publicado'
+  );
 
   private $colorState = array( 
     1 => 'info',

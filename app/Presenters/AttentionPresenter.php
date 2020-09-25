@@ -4,10 +4,23 @@ namespace App\Presenters;
 
 class AttentionPresenter extends Presenter
 {
+  public $states = array(
+    1 => 'Pending',
+    2 => 'Complete',
+    3 => 'Canceled'
+  );
   
-  public $states = ['Pending','Complete','Canceled'];
-  private $colorCss = ['#f39c12','#00a65a','#dd4b39'];
-  private $colorState = ['warning','success','danger'];
+  private $colorCss = array(
+    1 => '#f39c12',
+    2 => '#00a65a',
+    3 => '#dd4b39'
+  );
+
+  private $colorState = array(
+    1 => 'warning',
+    2 => 'success',
+    3 => 'danger'
+  );
 
   public function getAttentionDate(){
 		return date_format($this->getDateCreate(), 'd-m-Y h:m');
@@ -18,15 +31,15 @@ class AttentionPresenter extends Presenter
   }
 
   public function getState(){
-    return $this->states[$this->model->status-1];
+    return $this->states[$this->model->status];
   }
 
   public function getColor(){
-    return $this->colorState[$this->model->status-1];
+    return $this->colorState[$this->model->status];
   }
 
   public function getColorCss(){
-    return $this->colorCss[$this->model->status-1];
+    return $this->colorCss[$this->model->status];
   }
 
   public function jsonCalendar(){

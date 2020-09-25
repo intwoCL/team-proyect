@@ -6,23 +6,37 @@ use Storage;
 class ActivityPresenter extends Presenter
 {
   
-  public $states = ['edition','revision','published'];
-  private $colorState = ['info','warning','success'];
-  private $colorIcons = [' fa-pen-square','fa-pause-circle','fa-check-circle'];
+  public $states = array(
+    1 => 'Edición',
+    2 => 'Revisión',
+    3 => 'Publicado'
+  );
+
+  private $colorState = array(
+    1 => 'info',
+    2 => 'warning',
+    3 => 'success'
+  );
+
+  private $colorIcons = array(
+    1 => 'fa-pen-square',
+    2 => 'fa-pause-circle',
+    3 => 'fa-check-circle'
+  );
 
   private $folderImg = 'photo_activities';
   private $imgDefault = '/images/gallery.jpg';
 
   public function getState(){
-    return $this->states[$this->model->status-1];
+    return $this->states[$this->model->status];
   }
 
   public function getColor(){
-    return $this->colorState[$this->model->status-1];
+    return $this->colorState[$this->model->status];
   }
 
   public function getIcons(){
-    return $this->colorIcons[$this->model->status-1];
+    return $this->colorIcons[$this->model->status];
   }
 
   public function getIconsHTML(){

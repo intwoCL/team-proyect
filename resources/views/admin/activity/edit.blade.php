@@ -87,11 +87,7 @@
                 <div class="col-sm-8 row">
                   <select class="form-control select2" name="scale_id" required="">
                     @foreach ($scales as $s)
-                      @if ($activity->scale_id == $s->id)
-                        <option selected value="{{ $s->id }}">{{ $s->name }}</option>
-                      @else
-                        <option value="{{ $s->id }}">{{ $s->name }}</option>
-                      @endif
+                      <option {{ ($activity->scale_id == $s->id) ? 'selected' : '' }} value="{{ $s->id }}">{{ $s->name }}</option>
                     @endforeach
                   </select>
                 </div>
@@ -102,11 +98,7 @@
                 <div class="col-sm-12 row">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
                     @foreach ($categories as $c)
-                      @if ($c->selected)
-                        <option selected value="{{ $c->id }}">{{ $c->name }}</option>
-                      @else
-                        <option value="{{ $c->id }}">{{ $c->name }}</option> 
-                      @endif
+                      <option {{ $c->selected ? 'selected' : '' }} selected value="{{ $c->id }}">{{ $c->name }}</option>
                     @endforeach
                   </select>
                 </div>
