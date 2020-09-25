@@ -38,12 +38,7 @@
                 <div class="col-sm-9">
                   <select class="form-control select2" name="status" required="">
                     @foreach ($calendar->present()->states as $key => $value)
-                    @if (($key+1) == $calendar->status)
-                    <h1>a</h1>
-                    <option selected value="{{ $key+1 }}">{{ $value }}</option>
-                    @else
-                    <option value="{{ $key+1 }}">{{ $value }}</option>
-                    @endif
+                    <option {{ ($key == $calendar->status) ? 'selected' : '' }} value="{{ $key }}">{{ $value }}</option>
                     @endforeach
                   </select>
                 </div>

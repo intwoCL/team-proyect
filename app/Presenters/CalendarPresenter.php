@@ -5,15 +5,23 @@ namespace App\Presenters;
 class CalendarPresenter extends Presenter
 {
   
-  public $states = ['edition','revision','published'];
-  private $colorState = ['info','warning','success'];
+  public $states = array(
+    1 => 'Edición',
+    2 => 'Revisión',
+    3 => 'Publicado');
+
+  private $colorState = array( 
+    1 => 'info',
+    2 => 'warning',
+    3 => 'success'
+  );
 
   public function getState(){
-    return $this->states[$this->model->status-1];
+    return $this->states[$this->model->status];
   }
 
   public function getColor(){
-    return $this->colorState[$this->model->status-1];
+    return $this->colorState[$this->model->status];
   }
   
   public function getActivitiesTable(){
