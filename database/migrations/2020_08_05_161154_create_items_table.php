@@ -15,13 +15,18 @@ class CreateItemsTable extends Migration
     {
         Schema::create('items', function (Blueprint $table) {
             $table->id();
-            $table->string('name',100)->nullable();
+            // $table->integer('content_id');
             $table->foreignId('content_id')->references('id')->on('contents');
-            $table->integer('type')->default(5);
-            $table->string('title',100)->nullable();
-            $table->longText('body')->nullable();
+            $table->foreignId('type_id')->references('id')->on('types');
+            $table->string('title',100);
+            $table->longText('content')->nullable();
             $table->integer('position');
-            $table->json('data')->nullable();
+
+            $table->string('video')->nullable();
+            $table->string('photo')->default('/images/gallery.jpg');
+            $table->string('audio')->nullable();
+            $table->string('url')->nullable();
+
             $table->timestamps();
         });
     }

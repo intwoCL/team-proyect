@@ -5,7 +5,7 @@
   <div class="navbar-bg" style="height: 70px !important;"></div>
   <nav class="navbar navbar-expand-lg main-navbar ">
     {{-- sidebar-gone-hide  --}}
-    <a href="{{ route('app.index') }}" class="navbar-brand mr-5 ml-3">TEAM</a>
+    <a href="index.html" class="navbar-brand mr-5 ml-3">TEAM</a>
     <div class="nav-collapse d-none d-lg-block">
       <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
         <i class="fas fa-ellipsis-v"></i>
@@ -159,20 +159,13 @@
           <div class="d-sm-none d-lg-inline-block">{{ current_user()->present()->getFullName() }}</div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-          {{-- <div class="dropdown-title">Logged in 5 min ago</div> --}}
-          <a href="{{ route('app.profile') }}" class="dropdown-item has-icon">
+          <div class="dropdown-title">Logged in 5 min ago</div>
+          <a href="features-profile.html" class="dropdown-item has-icon">
             <i class="far fa-user"></i> Profile
           </a>
           <div class="dropdown-divider"></div>
-          {{-- <a href="#" class="dropdown-item has-icon text-danger">
+          <a href="#" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i> Logout
-          </a> --}}
-          <div class="custom-control custom-switch nav-link">
-            <input type="checkbox" class="custom-control-input" id="darkSwitch">
-            <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-          </div>
-          <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
-            <i class="fas fa-sign-out-alt"></i>{{ trans('t.logout') }}
           </a>
         </div>
       </li>
@@ -181,10 +174,10 @@
   @yield('content')
   <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; 2018 <div class="bullet"></div>
+      Copyright &copy; 2020 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
     </div>
     <div class="footer-right">
-      0.1.1
+      2.3.0
     </div>
   </footer>
 </div>

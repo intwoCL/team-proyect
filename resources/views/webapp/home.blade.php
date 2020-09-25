@@ -15,9 +15,10 @@
   <div class="section">
 
   </div>
-@endsection
+  @endsection
 @include('webapp.navbar.top')
 @include('webapp.navbar.bottom')
+@endpush
 
 
 

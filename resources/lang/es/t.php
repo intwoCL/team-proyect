@@ -139,4 +139,6 @@ return [
       'status' => 'Estado',
     ],
   ],
+
+  'welcome' => 'Bienvenido',
 ];

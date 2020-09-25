@@ -27,7 +27,6 @@ mkdir public\storage\photo_users
 
 composer dump-autoload
 php artisan migrate:fresh --seed
-# php artisan make:migration create_nombre_tabla_table --create=nombre_tabla
 ```
 
 ### Inicial laravel-mix mode dev
@@ -41,13 +40,6 @@ npm run dev
 vendor\bin\phpunit
 ```
 
-## Code
-```shell
-vendor\bin\phpstan analyse
-
-vendor\bin\phpstan analyse app
-vendor\bin\phpstan analyse resource
- ```
 <!-- #### Inicial laravel-mix mode produccion
 ```shell
 npm install
@@ -93,9 +85,4 @@ vendor\bin\phpunit
 
  
 https://www.nigmacode.com/laravel/Subir-proyecto-laravel-a-hosting
-
-
-
-
-https://api.drupal.org/api/drupal/vendor%21symfony%21http-foundation%21Response.php/8.2.x
  -->
