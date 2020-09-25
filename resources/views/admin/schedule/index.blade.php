@@ -6,7 +6,7 @@
       <a href="{{route('enrollment.index')}}">
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
-      <h1>Calendarios Asignados</h1>
+      <h1>Horarios Asignados</h1>
       <div class="section-header-button">
         <a href="{{route('schedule.create',$id)}}" class="btn btn-primary btn-sm">Asignar calendario</a>
       </div>
@@ -27,12 +27,12 @@
               <tbody>
               @foreach ($schedules as $sch)
               <tr>
-                <td>{{ $sch->calendar->id}}</td>
-                <td>{{ $sch->calendar->name}}</td>
-                <td>{{ $sch->calendar->objective}}</td>
+                <td>{{ $sch->id}}</td>
+                <td>{{ $sch->name}}</td>
+                <td>{{ $sch->objective}}</td>
                 <td>
-                  {{-- <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">editar</a> --}}
                   <a href="{{ route('schedule.show',$sch->id) }}" class="btn btn-sm btn-info">Ver</a>
+                  <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">editar</a>
                 </td>
               </tr>
               @endforeach
