@@ -53,6 +53,10 @@
                 {{ trans('t.login.forgot') }}
               </a>
             </div>
+
+            {{-- solo android --}}
+            <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+      
             @if (helper_integration_gmail())
             <div class="mt-5 text-center">
               <a href="auth-register.html" class="btn btn-danger"><i class="fab fa-google"></i> Sign in google</a>
@@ -78,6 +82,11 @@
   <script src="{{ mix('js/manifest.js') }}"></script>
   <script src="{{ mix('js/vendor.js') }}"></script>
   <script src="{{ mix('js/app.js') }}"></script>
+  <script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.showToast(toast);
+    }
+</script>
 </body>
 </html>
 

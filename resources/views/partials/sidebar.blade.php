@@ -24,6 +24,8 @@
     @if (is_specialist())
     <li class="menu-header">Especialista</li>
     <li class="{{ active('attention*') }}"><a href="{{ route('attention.index') }}"><i class="fas fa-calendar-alt"></i> <span>{{ trans('t.attention') }}</span></a></li>
+    <li class="{{ active('enrollment*') }} {{ active('schedule*') }}"><a href="{{ route('enrollment.index') }}"><i class="fas fa-users"></i> <span>Usuarios</span></a></li>
+
     @endif
  
  
