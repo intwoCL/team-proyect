@@ -4,6 +4,26 @@ namespace App\Presenters;
 
 class SchedulePresenter extends Presenter
 {
+  public $states = array(
+    1 => 'Construyendo',
+    2 => 'Asignado',
+    3 => 'Cerrado'
+  );
+
+  private $colorState = array( 
+    1 => 'info',
+    2 => 'warning',
+    3 => 'success'
+  );
+
+  public function getState(){
+    return $this->states[$this->model->status];
+  }
+
+  public function getColor(){
+    return $this->colorState[$this->model->status];
+  }
+
   public function getActivitiesTable()
   {
     $activities = $this->model->schedulesActivities;
@@ -35,4 +55,6 @@ class SchedulePresenter extends Presenter
     }
     return $calendars;
   }
+
+
 }
