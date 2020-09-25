@@ -6,7 +6,7 @@
   <div class="col-md-12">
     <section class="section">
       <div class="section-header">
-        <a href="{{ route('enrollment.index') }}">
+        <a href="{{ route('attention.assigned') }}">
           <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
         </a>
         <h1>Historial</h1>
@@ -48,7 +48,7 @@
                   </tr>
                   @empty
                   <tr>
-                    <td colspan="6" class="text-center">No tiene agregado</td>
+                    <td colspan="1" class="text-center">No tiene agregado</td>
                   </tr>
                   @endforelse
                 </tbody>

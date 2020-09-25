@@ -100,17 +100,14 @@ class AssignmentController extends Controller
         //
     }
 
-
-    public function delete(Request $request){
-      try {
-        $validate = explode('-',$request->id);
-        $user_id = $validate[0];
-        $specialist_id = $validate[1];
-        $id = $validate[2];
-        $c = Assignment::where('specialist_id',$specialist_id)->where('user_id',$user_id)->findOrFail($id)->delete();
-        return redirect()->back()->with('success',trans('alert.delete'));
-      } catch (\Throwable $th) {
-        return redirect()->back()->with('danger',trans('alert.danger'));
-      }
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
     }
 }
