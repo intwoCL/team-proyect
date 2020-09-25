@@ -122,6 +122,8 @@ class ScheduleController extends Controller
         $s = Schedule::findOrFail($id);
         $s->name = $request->input('name');
         $s->objective = $request->input('objective');
+        $s->status = $request->input('status');
+        $s->comment = $request->input('comment');
         $s->update();
         return redirect()->back()->with('success',trans('alert.update'));
       } catch(\Throwable $th){
