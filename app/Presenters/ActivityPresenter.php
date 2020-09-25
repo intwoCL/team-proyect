@@ -43,10 +43,6 @@ class ActivityPresenter extends Presenter
     return "<i class='fa-2x fa {$this->getIcons()} text-{$this->getColor()}' title='{$this->getState()}'></i>";    
   }
 
-
-  private $folderImg = 'photo_activities';
-  private $imgDefault = '/images/gallery.jpg';
-
   public function getPhoto(){
     try {
       if($this->model->photo == $this->imgDefault){
