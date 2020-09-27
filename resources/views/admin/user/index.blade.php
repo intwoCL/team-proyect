@@ -13,7 +13,7 @@
     </div>
     <div class="section-body">
       <h2 class="section-title">{{ trans('t.user.index.list') }}</h2>
-      <p class="section-lead">This page is for managing packages including questions and answers.</p>
+      {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
@@ -21,8 +21,8 @@
               <thead>
               <tr>
                 <th>#</th>
-                <th>{{ trans('t.user.index.table_run') }}</th>
                 <th>{{ trans('t.user.index.table_name') }}</th>
+                <th>Nombre niño</th>
                 <th>{{ trans('t.user.index.table_email') }}</th>
                 <th>{{ trans('t.user.index.table_languages') }}</th>
                 <th class="text-center">{{ trans('t.user.index.table_privileges')}}</th>
@@ -32,7 +32,6 @@
               @foreach ($users as $u)
               <tr>
                 <td>{{ $u->id }}</td>
-                <td>{{ $u->run }}</td>
                 <td>{{ $u->present()->getFullName() }} 
                   <div class="table-links">
                     <a href="{{ route('user.show',$u->id) }}">{{ trans('t.view') }}</a>
@@ -42,6 +41,7 @@
                     <a href="{{ route('user.destroy',$u->id) }}" class="text-danger">{{ trans('t.trash') }}</a>
                   </div>
                 </td>
+                <td>{{ $u->child_name }}</td>
                 <td>{{ $u->email }}</td>
                 <td>{{ $u->lang }}</td>
                 <td class="text-center">

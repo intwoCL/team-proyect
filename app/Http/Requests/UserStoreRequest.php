@@ -29,7 +29,7 @@ class UserStoreRequest extends FormRequest
           'lang' => 'required',
           'first_name' => 'required|min:4|max:100',
           'last_name' => 'required|min:4|max:100',
-          'run' => 'regex:/^\d{7,8}[0-9K]{1}$/',
+          // 'run' => 'regex:/^\d{7,8}[0-9K]{1}$/',
           'specialty' => 'required',
         ];
     }
