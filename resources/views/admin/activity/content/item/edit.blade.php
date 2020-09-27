@@ -42,10 +42,11 @@
                 <div class="form-group">
                   <label>Contenido</label>
                   <div class="col-sm-12">
-                      <textarea name="content" class="ckeditor" id="summernote" rows="5" autocomplete="off">{{$i->body}}</textarea>
+                      <textarea name="body" class="ckeditor" id="summernote" rows="5" autocomplete="off">{{$i->body}}</textarea>
                   </div>
                 </div>
               </div>
+
               <div class="col-md-6">
                 <div class="form-group row">
                   <label class="col-sm-3 col-form-label" for="inputType">Tipo</label>
@@ -60,19 +61,19 @@
                 
                 <div id="url" class="form-group">
                   <label>Vinculo URL adjunto</label>
-                  <input type="text" name="url" class="form-control" placeholder="Link de sitio" autocomplete="off" value="{{ ($i->type==1) ? $i->body : '' }}">
+                  <input type="text" name="url" class="form-control" placeholder="Link de sitio" autocomplete="off" value="{{ ($i->type==1) ? $i->data : '' }}">
                 </div>
 
                 <div id="video" class="form-group">
                   <label>Video adjunto</label>
-                  <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off" value="{{ ($i->type==2) ? $i->body : '' }}">
+                  <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off" value="{{ ($i->type==2) ? $i->data : '' }}">
                 </div>
 
                 <div id="imagen" class="form-group">
                   <label>Foto adjunta</label>
                   <input class="form-control" type="file" name="photo" accept="image/*" onchange="preview(this)"/>
                   <div id="preview">
-                      <img class="img-fluid" src="{{ ($i->type==2) ? $i->present()->getPhoto() : '' }}" alt="" title="">
+                      <img class="img-fluid" src="{{ ($i->type==3) ? $i->present()->getPhoto() : '' }}" alt="" title="">
                   </div>
                 </div>
 
@@ -90,8 +91,8 @@
                         Your browser does not support the audio element.
                       </audio>
                     </div>
-                  </div>             
-                  
+                  </div>
+
                   <div class="form-group">
                     <label>Imagen (opcional)</label>
                     <input class="form-control" type="file" name="image" accept="image/*" onchange="preview2(this)"/>
@@ -100,7 +101,7 @@
                       <div id="preview2"></div>
                     </div>
                     <div class="form-group center-text">
-                      <img class="img-fluid" src="{{ ($i->type==2) ? $i->present()->getPhoto() : '' }}" alt="" title="">
+                      <img class="img-fluid" src="{{ ($i->type==4) ? $i->present()->getPhoto() : '' }}" alt="" title="">
                     </div>
                   </div>
                 </div>

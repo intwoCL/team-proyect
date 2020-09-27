@@ -16,6 +16,9 @@
       </div>
       <div class="section-body">
         <h2 class="section-title">Usuario : {{ $user->present()->getFullName() }}</h2>
+        <p class="section-lead">
+          {{ $user->specialty }}
+        </p>
         <div class="card">
           <div class="card-body">
             <div class="table-responsive">

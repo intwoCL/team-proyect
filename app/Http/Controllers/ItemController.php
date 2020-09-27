@@ -19,17 +19,8 @@ class ItemController extends Controller
     $c = Content::where('activity_id',$id)->findOrFail($request->input('id'));
     $i = new Item();
     $i->content_id = $c->id;
-    $i->type = 5;
     $i->name = $request->input('name');
-    $i->position = Item::where('content_id',$i->content_id)->count() + 1;
-    
-    $data = array(
-      'url' => null , 
-      'video' => null , 
-      'imagen' => null , 
-      'audio' => null  
-    );
-    $i->data = $data;
+    $i->position = Item::where('content_id',$i->content_id)->count() + 1;    
     $i->save();
     return redirect()->back()->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
@@ -73,45 +64,50 @@ class ItemController extends Controller
   public function update($id,Request $request)
   {
     try {
-      // TODO: ACA
       $i = Item::findOrFail($id);
-
-    
-
-      return $i->data;
-      // $data = $i->setMetaAttribute('url');
-      // $i->data['url'] = "updload";
-      // return json_encode($i->data);
-      return $data['url'];
       $i->name = $request->input('name');
       $i->title = $request->input('title');
-      $i->type = $request->input('type');
       $i->body = $request->input('body');
+      $i->type = $request->input('type');
 
+      // 1 => 'URL', 2 => 'Video', 3 => 'Imagen', 4 => 'Audio', 5 => 'Texto',
       if($i->type == 1){
-        $i->setUrl($request->input('url'));
+        $i->data = $request->input('url');
       }elseif($i->type == 2){
-        $i->setVideo($request->input('video'));
+        $i->data = $request->input('video');
       }elseif($i->type == 3){
         if(!empty($request->file('photo'))){
-          $request->validate([
+          $validator = $request->validate([
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
           ]);
+          if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)
+            ->withInput();
+          }
+
           $file = $request->file('photo');
-          $filename = trim($i->title) . time() .'.'.$file->getClientOriginalExtension();
+          $filename = time().'.'.$file->getClientOriginalExtension();
           $path = $file->storeAs('public/photo_items',$filename);
-          $i->setPhoto($filename);
+          $i->image = $filename;
         }else{
           return redirect()->back()->with('warning',trans('alert.warning'));
         }
       }elseif($i->type == 4){
         if(!empty($request->file('audio'))){
           $file = $request->file('audio');
-          $filename = trim($i->title) . time() .'.'.$file->getClientOriginalExtension();
+          $filename = time().'.'.$file->getClientOriginalExtension();
           $path = $file->storeAs('public/audio_items',$filename);
-          $i->setAudio($filename);
-        }else{
-          return redirect()->back()->with('warning',trans('alert.warning'));
+          $i->data = $filename;
+
+          if(!empty($request->file('image'))){
+            $request->validate([
+              'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+            ]);
+            $file1 = $request->file('image');
+            $filename1 = time().'.'.$file1->getClientOriginalExtension();
+            $path1 = $file1->storeAs('public/photo_items',$filename1);
+            $i->image = $filename1;
+          }
         }
       }
 

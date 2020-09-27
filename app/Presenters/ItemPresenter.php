@@ -15,10 +15,10 @@ class ItemPresenter extends Presenter
 
   public function getPhoto(){
     try {
-      if($this->model->content == $this->imgDefault){
+      if($this->model->image == $this->imgDefault){
         return $this->imgDefault;
       }
-      return \Storage::url("{$this->folderImg}/{$this->model->content}");
+      return \Storage::url("{$this->folderImg}/{$this->model->image}");
     } catch (\Throwable $th) {
       return $this->imgDefault;
     }
@@ -26,8 +26,8 @@ class ItemPresenter extends Presenter
 
   public function getAudio(){
     try {
-      if(!empty($this->model->content)){
-        return \Storage::url("{$this->folderAudio}/{$this->model->content}");
+      if(!empty($this->model->data)){
+        return \Storage::url("{$this->folderAudio}/{$this->model->data}");
       }else{
         return '';
       }

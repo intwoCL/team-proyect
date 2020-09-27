@@ -20,8 +20,9 @@ class CreateItemsTable extends Migration
             $table->integer('type')->default(5);
             $table->string('title',100)->nullable();
             $table->longText('body')->nullable();
+            $table->string('image')->nullable();
+            $table->string('data')->nullable(); //link url, link youtube, audio
             $table->integer('position');
-            $table->json('data')->nullable();
             $table->timestamps();
         });
     }

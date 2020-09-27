@@ -19,14 +19,7 @@
             
             <div class="col-sm-12 col-md-6 col-xs-12">
               <img src="https://i.pinimg.com/originals/f4/5b/d9/f45bd9afa34729cdd851db0c7fb66381.gif"  height="240px" alt="">
-              <div class="text-center">
-                <div class="mp3-audio">
-                  <audio controls class="mp3-auido">
-                    <source src="{{ ($i->type==4) ? $i->present()->getAudio() : '' }}">
-                    Your browser does not support the audio element.
-                  </audio>
-                </div>
-              </div>   
+              
             </div>
 
             <div class="text-justify col-sm-12 col-md-6 col-xs-12 mt-2">
