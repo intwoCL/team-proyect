@@ -149,6 +149,7 @@
     placeholder: 'Hello stand alone ui',
     tabsize: 10,
     height: 120,
+    disableDragAndDrop: true,
     toolbar: [
       ['style', ['style']],
       ['font', ['bold', 'underline', 'clear']],

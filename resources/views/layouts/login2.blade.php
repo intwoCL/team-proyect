@@ -55,7 +55,7 @@
             </div>
 
             {{-- solo android --}}
-            <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+            {{-- <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" /> --}}
       
             @if (helper_integration_gmail())
             <div class="mt-5 text-center">
@@ -82,11 +82,11 @@
   <script src="{{ mix('js/manifest.js') }}"></script>
   <script src="{{ mix('js/vendor.js') }}"></script>
   <script src="{{ mix('js/app.js') }}"></script>
-  <script type="text/javascript">
+  {{-- <script type="text/javascript">
     function showAndroidToast(toast) {
         Android.showToast(toast);
     }
-</script>
+</script> --}}
 </body>
 </html>
 

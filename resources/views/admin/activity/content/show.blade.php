@@ -10,7 +10,7 @@
     <a href="{{ route('activity.show',$content->activity->id) }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>{{trans('t.activity.show.title')}} </h1>
+    <h1>Panel de items</h1>
     <div class="section-header-button">
       {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
       {{-- <button onClick="window.location.href='{{ route('item.create',[$content->activity->id,$content->id]) }}'"
@@ -22,12 +22,12 @@
         data-target="#createModal">
           Nuevo Item
       </button>
-      <a href="" class="btn btn-success btn-sm">Preview</a>
+      <a href="{{ route('preview.content',$content->id) }}" class="btn btn-success btn-sm">Preview</a>
     </div>
   </div>
   <div class="section-body">
     <h2 class="section-title">Lista de todos los Items</h2>
-    <p class="section-lead">This page is for managing packages including questions and answers.</p>
+    {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
     <div class="card">
       <div class="card-body">
         <div class="table-responsive">
@@ -35,7 +35,7 @@
             <thead>
               <tr>
                 <th>#</th>
-                <th>Posicion</th>
+                <th>Posición</th>
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{trans('t.activity.item.type')}}</th>
                 <th></th>
@@ -49,17 +49,17 @@
                 <td>
                   {{$i->name}}
                   <div class="table-links">
-                    <a href="{{route('item.show',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
-                    <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
+                    {{-- <a href="{{route('item.show',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.view') }}</a> --}}
+                    {{-- <div class="bullet"></div> --}}
+                    {{-- <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.edit') }}</a> --}}
+                    {{-- <div class="bullet"></div> --}}
+                    {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
                 </td>
                 <td>{{ $i->present()->getType() }}</td>
                 <td>
                   <a href="{{ route('item.edit',$i->id) }}" class="btn btn-info btn-sm">Editar</a>
-                  <a href="" class="btn btn-success btn-sm">Preview</a>
+                  <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm">Preview</a>
 
                   {{-- <button type="button" class="btn btn-sm btn-danger"
                   data-toggle="modal"

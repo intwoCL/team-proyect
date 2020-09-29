@@ -40,13 +40,21 @@ class ItemPresenter extends Presenter
     return (new TypeData())->types[$this->model->type];
   }
 
+  public function getText(){
+    return $this->filter();
+  }
+  
+  // $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->body);
   public function filter(){
     $diccionary = array(
-      '[:name]' => current_user()->present()->getFullName()
+      '[:name]' => current_user()->present()->getFullName(),
+      '[:child]' => current_user()->child,
     );
 
-    // $texto = "bienvenidos a [:name]";
-    $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->body);
-    return $result;
+    $text = $this->model->body;
+    foreach ($diccionary as $key => $value) {
+      $text = str_replace($key,$value,$text);
+    }
+    return $text;
   }
 }

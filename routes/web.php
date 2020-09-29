@@ -22,6 +22,16 @@ Route::middleware('user')->group(function () {
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::put('activity/{activity_id}/content','ContentController@changePosition')->name('content.changePosition');
+  
+  Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
+  Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
+  Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
+  Route::put('item/{id}','ItemController@update')->name('item.update');
+  Route::delete('item','ItemController@delete')->name('item.delete');  
+
+  Route::get('preview/item/{id}','PreviewController@item')->name('preview.item');
+  Route::get('preview/content/{id}','PreviewController@content')->name('preview.content');
+
 
   Route::resource('user','UserController');
   Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
@@ -55,19 +65,6 @@ Route::middleware('user')->group(function () {
   Route::delete('schedule/activity/delete','ScheduleActivityController@delete')->name('schedule.activity.delete');
   Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
 
-  // Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
-  Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
-  Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
-  Route::put('item/{id}','ItemController@update')->name('item.update');
-  Route::delete('item','ItemController@delete')->name('item.delete');
-
-
-  Route::get('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@show')->name('item.show');
-
-  
-  Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
-
-  Route::get('item/preview/{id}','ItemController@preview')->name('item.preview');
   
 
 

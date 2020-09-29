@@ -29,19 +29,6 @@ class ItemController extends Controller
   }
 
   /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function show($activity_id,$content_id,$id)
-  {
-    $a = Activity::FindOrFail($activity_id);
-    $c = Content::FindOrFail($content_id);
-    return view('admin.activity.content.item.show',compact('a','c'));
-  }
-
-  /**
    * Show the form for editing the specified resource.
    *
    * @param  int  $id
@@ -80,17 +67,11 @@ class ItemController extends Controller
           $validator = $request->validate([
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
           ]);
-          if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)
-            ->withInput();
-          }
 
           $file = $request->file('photo');
           $filename = time().'.'.$file->getClientOriginalExtension();
           $path = $file->storeAs('public/photo_items',$filename);
           $i->image = $filename;
-        }else{
-          return redirect()->back()->with('warning',trans('alert.warning'));
         }
       }elseif($i->type == 4){
         if(!empty($request->file('audio'))){

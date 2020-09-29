@@ -7,10 +7,24 @@
 @section('content')
 <section class="section">
   <div class="section-header">
-    <a href="{{route('content.show',[$i->itemContent->activity->id,$i->itemContent->id])}}">
+    <a href="{{route('content.show',[$i->content->activity->id,$i->content->id])}}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Editar item</h1>
+    <div class="section-header-breadcrumb">
+      {{-- <button class="breadcrumb-item btn btn-info">Información --}}
+        {{-- <i class="fa fa-question mr-2 text-danger pull-right"></i> --}}
+      {{-- </button> --}}
+      
+      <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#infoModal">
+        Información
+      </button>
+      <button type="button" class="btn btn-sm btn-info ml-2" data-toggle="modal" data-target="#dataModal">
+        Data
+      </button>
+      <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm ml-2">Preview</a>
+    </div>
+    {{-- <br> --}}
   </div>
 
   <div class="section-body">
@@ -65,8 +79,8 @@
                 </div>
 
                 <div id="video" class="form-group">
-                  <label>Video adjunto</label>
-                  <input type="text" name="video" class="form-control"  placeholder="Url de video" autocomplete="off" value="{{ ($i->type==2) ? $i->data : '' }}">
+                  <label>Video adjunto <small>(ejemplo: https://www.youtube.com/watch?v=<strong>kJQP7kiw5Fk</strong>)</small></label>
+                  <input type="text" name="video" class="form-control"  placeholder="" autocomplete="off" value="{{ ($i->type==2) ? $i->data : '' }}">
                 </div>
 
                 <div id="imagen" class="form-group">
@@ -117,6 +131,10 @@
   </div>
 </section>
 @endsection
+@push('outerDiv')
+  @include('admin.activity.content.item._modal_info')
+  @include('admin.activity.content.item._modal_data')
+@endpush
 @push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
 <script src="/vendor/intwo/preview2.js"></script>
@@ -151,6 +169,7 @@
     placeholder: 'Hello stand alone ui',
     tabsize: 10,
     height: 120,
+    disableDragAndDrop: true,
     toolbar: [
       ['style', ['style']],
       ['font', ['bold', 'underline', 'clear']],
