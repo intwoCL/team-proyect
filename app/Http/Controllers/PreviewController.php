@@ -11,8 +11,10 @@ use App\Models\Item;
 class PreviewController extends Controller
 {
   public function content($id){
-    // return $id;
-    return view('preview.item',compact('id'));
+    $content = Content::findOrFail($id);
+    // return $content->items;
+    $back = route('content.show',[$content->activity_id,$id]);
+    return view('preview.content',compact('content','back'));
   }
 
   public function item($id){

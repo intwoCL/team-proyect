@@ -1,40 +1,6 @@
-{{-- @extends('layouts.app')
-
-@push('stylesheet')
-
-@endpush
-@section('content')
-<section class="section">
-  <div class="section-header">
-    <a href="">
-      <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
-    </a>
-    <h1>Editar item</h1>
-  </div>
-
-  <div class="section-body">
-    <div class="row">
-      <div class="col-md-12">
-
-      </div>
-    </div>
-  </div>
-</section>
-@endsection
-@push('javascript')
-
-@endpush --}}
-
 @extends('webapp.components.skeleton')
 @push('stylesheet')
 <link rel="stylesheet" href="/vendor/swiper/css/swiper-bundle.min.css">
-{{-- <style>
-  .swiper-container {
-    width: 600px;
-    height: 100%;
-  }
-</style> --}}
-
 <style>
   #progress {
     position: absolute;
@@ -48,86 +14,46 @@
   .face-shadow {
     text-shadow: 1px 2px 4px #4b4a4a !important;
   }
-
 </style>
-
-<style>
-  .balloon{
-  border-radius: 5px;
-  background-color: chocolate;
-  color: floralwhite;
-  padding: 10px;
-  width: 420px;
-  font-family: 'Indie Flower', cursive;
-  font-size: 2em
-  }
-  
-  .balloon:before {
-  content:"";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-bottom: 20px solid chocolate;
-  border-right: 18px solid transparent;
-  border-left: 18px solid transparent;
-  margin: -30px 0 0 40px;
-  }
-  
-  .clasecualquiera:before {
-  content: 'esto se agregará';
-  color: red;
-  }
-  
-  </style>
 @endpush
 @section('app')
 <div class="main-wrapper container">
- 
-
   <div class="section">
     <div class="swiper-container" data-pagination-type='progress' style="margin-top: 100px;">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._dialogue')
-        </div>
-        {{-- <div class="swiper-slide">
-          @include('webapp.components.swiper._text')
-        </div> --}}
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._gif')
-        </div>
-        {{-- <div class="swiper-slide">
-          @include('webapp.components.swiper._text')
-        </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._text')
-        </div> --}}
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._youtube')
-        </div>
-        <div class="swiper-slide">
-          @include('webapp.components.swiper._video')
-        </div>
-        {{-- <div class="swiper-slide">
-          @include('webapp.components.swiper._quiz')
-        </div>  --}}
+        {{-- 1 => 'URL', 2 => 'Video', 3 => 'Imagen', 4 => 'Audio', 5 => 'Texto', --}}
+        @foreach ($content->items as $item)
+          <div class="swiper-slide">
+            @switch($item->type)
+            @case(1)
+              @include('webapp.components.swiper._url')
+              @break
+            @case(2)
+              @include('webapp.components.swiper._youtube')
+              @break
+            @case(3)
+              @include('webapp.components.swiper._image')
+              @break
+            @case(4)
+              @include('webapp.components.swiper._audio')
+              @break
+            @case(5)
+              @include('webapp.components.swiper._text')
+              @break
+            @endswitch  
+          </div>
+          @endforeach
       </div>
-      <!-- Add Pagination -->
-      <!-- Add Arrows -->
-      {{-- <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div> --}}
     </div>
   </div>
-
-  <div style="display: none;">
-    <audio id="fx-back" data-url="/webapp"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
-    <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
-    <audio id="fx-finish" data-url="/webapp"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
-  </div>
-
-
-
 </div>
+
+<div style="display: none;">
+  <audio id="fx-back"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
+  <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
+  <audio id="fx-finish" data-url="/webapp"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
+</div>
+
 @endsection
 @push('footerNav')
 @include('webapp.components.top')
@@ -166,6 +92,8 @@
     $('#barProgress')[0].dataset['valuenow'] = por;
     $('#barProgress')[0].dataset['width'] = por+"%";
     $('#barProgress')[0].style.width = por+"%";
+
+    console.log("a " + actual + "  - largo " + largo + "  por" + por);
   }
 
   // button back 
@@ -188,7 +116,8 @@
   });
 
   btnBack.addEventListener("ended", function(){
-    window.location.href = btnBack.dataset.url;
+    // window.location.href = btnBack.dataset.url;
+    window.location.href = "{{ $back }}";
   });
 
   $(document).ready(function() {

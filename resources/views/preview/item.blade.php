@@ -56,7 +56,7 @@
           {{-- 1 => 'URL', 2 => 'Video', 3 => 'Imagen', 4 => 'Audio', 5 => 'Texto', --}}
           @switch($item->type)
             @case(1)
-              @include('webapp.components.swiper._text')
+              @include('webapp.components.swiper._url')
               @break
             @case(2)
               @include('webapp.components.swiper._youtube')
