@@ -11,7 +11,7 @@ $col = !empty($item->body) ? 'col-md-6' : 'col-md-12';
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h3>{{ $item->content->name }}</h3>
+              <h3 class="text-center">{{ $item->title }}</h3>
             </div>
             <div class="col-sm-12 {{ $col }} col-xs-12">
               <iframe width="100%" height="250px" src="https://www.youtube.com/embed/{{ $item->data }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

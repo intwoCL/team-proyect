@@ -1,5 +1,5 @@
 @php
-  $col = !empty($item->body) ? 'col-md-6' : 'col-md-12';
+  $col = empty($item->body) ? 'col-md-12' : 'col-md-6';
 @endphp
 <section class="ml-2 mr-2 row">
   <div class="section-body">
@@ -18,7 +18,7 @@
             <div class="col-sm-12 {{ $col }} col-xs-12">
               <img src="{{ $item->present()->getPhoto() }}" height="240px" alt="">  
             </div>
-            @endif
+            @endif         
             <div class="col-sm-12 col-md-6 col-xs-12">
               {!! $item->present()->getText() !!}
             </div>
