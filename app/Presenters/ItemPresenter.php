@@ -2,6 +2,7 @@
 
 namespace App\Presenters;
 use Storage;
+use Carbon\Carbon;
 
 use App\Presenters\Data\TypeData;
 
@@ -46,9 +47,14 @@ class ItemPresenter extends Presenter
   
   // $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->body);
   public function filter(){
+    $dt = Carbon::now();
+
     $diccionary = array(
       '[:name]' => current_user()->present()->getFullName(),
+      '[:email]' => current_user()->email,
       '[:child]' => current_user()->child,
+      '[:today]' => "$dt->day/$dt->month/$dt->year",
+      '[:time]' =>  $dt->format('h:i'),
     );
 
     $text = $this->model->body;
