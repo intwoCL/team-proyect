@@ -54,9 +54,8 @@ class ItemController extends Controller
       $i = Item::findOrFail($id);
       $i->name = $request->input('name');
       $i->title = $request->input('title');
-      $i->body = $request->input('body');
+      $i->body = !empty($request->input('body')) ? $request->input('body') : '' ;
       $i->type = $request->input('type');
-
       // 1 => 'URL', 2 => 'Video', 3 => 'Imagen', 4 => 'Audio', 5 => 'Texto',
       if($i->type == 1){
         $i->data = $request->input('url');
@@ -65,7 +64,7 @@ class ItemController extends Controller
       }elseif($i->type == 3){
         if(!empty($request->file('photo'))){
           $validator = $request->validate([
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
           ]);
 
           $file = $request->file('photo');
@@ -82,7 +81,7 @@ class ItemController extends Controller
 
           if(!empty($request->file('image'))){
             $request->validate([
-              'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
+              'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             $file1 = $request->file('image');
             $filename1 = time().'.'.$file1->getClientOriginalExtension();

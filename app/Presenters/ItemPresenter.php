@@ -52,7 +52,7 @@ class ItemPresenter extends Presenter
     $diccionary = array(
       '[:name]' => current_user()->present()->getFullName(),
       '[:email]' => current_user()->email,
-      '[:child]' => current_user()->child,
+      '[:child]' => current_user()->child_name,
       '[:today]' => "$dt->day/$dt->month/$dt->year",
       '[:time]' =>  $dt->format('h:i'),
     );

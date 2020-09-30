@@ -11,7 +11,7 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h3>{{ $item->content->name }}</h3>
+              <h3 class="text-center">{{ $item->title }}</h3>
             </div>
             <div class="col-sm-12 {{ $col }} col-xs-12">
               <img src="{{ $item->present()->getPhoto() }}" height="240px" alt="">
