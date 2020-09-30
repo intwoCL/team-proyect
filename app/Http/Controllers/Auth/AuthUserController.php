@@ -27,9 +27,15 @@ class AuthUserController extends Controller
     }
   }
 
+  
+  public function android(){
+    // sesion laravel
+    return redirect()->route('index');
+  }
+
   public function login(Request $request){
     try {
-      close_sessions();
+      $this->close_sessions();
       $u = User::where('email',$request->email)->firstOrFail();
       $pass = hash('sha256', $request->password);
       
@@ -51,7 +57,7 @@ class AuthUserController extends Controller
   }
 
   public function logout(){        
-      close_sessions();
+      $this->close_sessions();
       return redirect('/');
   }
 
@@ -71,4 +77,12 @@ class AuthUserController extends Controller
       // return back()->with('danger','Error intente nuevamente.');
     }
   }
+
+  private function close_sessions(){
+    if(\Auth::guard('user')->check()){
+      \Auth::guard('user')->logout();
+    }
+  }
 }
+
+

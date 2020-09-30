@@ -20,7 +20,8 @@
             <table id="tableSelect" class="table table-hover table-md">
               <thead>
               <tr>
-                <th>#</th>
+                <th>status</th>
+                <th>code</th>
                 <th>{{ trans('t.activity_name') }}</th>
                 <th>{{ trans('t.objetive') }}</th>
                 <th>{{ trans('t.level') }}</th>
@@ -31,6 +32,7 @@
               <tbody>
               @foreach ($activities as $a)
               <tr>
+                <td>{!! $a->present()->getIconsHTML() !!}</td>
                 <td>{{ $a->id }}</td>
                 <td>
                   {{ $a->name }}

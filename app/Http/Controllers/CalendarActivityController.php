@@ -12,16 +12,10 @@ use App\Models\CalendarActivity;
 class CalendarActivityController extends Controller
 {
 
-  public function index($id){
-    $c = Calendar::findOrFail($id);
-    return view('admin.calendar.details.index',compact('c'));
-  }
-
   public function edit($id){
     $c = Calendar::findOrFail($id);
 
     $calendarsActivities = CalendarActivity::where('calendar_id',$id)->get();
-    // return $calendarsActivities;
     $calendars = array();
     foreach ($calendarsActivities as $ca) {
       $a = array(
@@ -31,11 +25,11 @@ class CalendarActivityController extends Controller
         'backgroundColor' => 'green',
         // 'borderColor' => $color ,
         // 'url' => route('attention.control', $a->id),
-      
+
       );
       array_push($calendars,$a);
     }
-    return view('admin.calendar.details.edit',compact('c','calendars','days','calendarsActivities'));
+    return view('admin.calendar.details.edit',compact('c','calendars','calendarsActivities'));
   }
 
   public function create($id,$day){
@@ -45,7 +39,7 @@ class CalendarActivityController extends Controller
   }
 
   public function store($id,$day,Request $request){
-    
+
     try {
       $ca  = new CalendarActivity();
       $ca->worktime = $request->input('worktime');
@@ -66,7 +60,7 @@ class CalendarActivityController extends Controller
   //CREATE 2
   public function create2($id){
     $c = Calendar::findOrFail($id);
-    $activities = Activity::get();
+    $activities = Activity::where('status',3)->get();
     return view('admin.calendar.details.create2',compact('c','activities'));
   }
 
@@ -75,12 +69,14 @@ class CalendarActivityController extends Controller
       $dias = $request->input('days');
       $worktime = $request->input('worktime');
       $activity_id = $request->input('activity_id');
+      $times = $request->input('times');
       foreach ($dias as $d) {
         $ca = new CalendarActivity();
         $ca->worktime = $worktime;
         $ca->activity_id = $activity_id;
         $ca->calendar_id = $id;
         $ca->weekday = $d;
+        $ca->times = $times;
         $ca->save();
       }
       return redirect()->route('calendar.activity.edit',$id)->with('success',trans('alert.success'));

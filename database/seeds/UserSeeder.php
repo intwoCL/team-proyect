@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
       'first_name' => 'Super',
       'last_name' => 'Admin',
       'email' => 'admin@example.com',
-      'run' => Str::random(10),
+      // 'run' => Str::random(10),
       'password' => hash('sha256', '123456'),
       'admin' => true,
       'specialist' => true

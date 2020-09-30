@@ -44,7 +44,7 @@
                     <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
                   </div>
                 </td>
-                <td>{{$c->objective}}</td>
+                <td>{!! $c->objective !!}</td>
                 <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td>
               </tr>
               @endforeach
@@ -62,35 +62,29 @@
   var el = document.getElementById('items');
   let url = "{{ route('content.changePosition', $a->id ) }}";
 
-    Sortable.create(el, {
-      animation: 300,
-      handle: '.handle',
-      sort: true,
-      chosenClass: 'active',
-      onEnd: function(evt) {
-        console.log(evt.oldIndex +','+ evt.newIndex);
-        var newIndex = evt.newIndex+1;
-        var oldIndex = evt.oldIndex+1;
-
-        var params = {
-          oldIndex,
-          newIndex
-        };
-
-        findFetch(url,params);
-        location.reload();
-      }
-    });
-
-    function findFetch(url,params){
-      axios.put(url, { params })
-      .then(response => {
-          // this.user = response.data;
-          console.log(response);
-      }).catch(e => {
-          console.log(e);
-      })
+  Sortable.create(el, {
+    animation: 300,
+    handle: '.handle',
+    sort: true,
+    chosenClass: 'active',
+    onEnd: function(evt) {
+      var newIndex = evt.newIndex+1;
+      var oldIndex = evt.oldIndex+1;
+      var params = {
+        oldIndex,
+        newIndex
+      };
+      findFetch(url,params);
     }
+  });
 
+  function findFetch(url,params){
+    axios.put(url, { params })
+    .then(response => {
+        location.reload();
+    }).catch(e => {
+        console.log(e);
+    })
+  }
 </script>
 @endpush

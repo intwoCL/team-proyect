@@ -74,7 +74,7 @@
               <div class="form-group">
                 <div class="input-group">
                   <div id="preview">
-                    <img class="img-fluid" src="{{ $activity->getPhoto() }}" alt="" title=""></a>
+                    <img class="img-fluid" src="{{ $activity->present()->getPhoto() }}" alt="" title=""></a>
                   </div>
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
@@ -118,6 +118,17 @@
                   <input type="number" min="0" name="total_time" value="{{$activity->total_time}}" class="form-control" required="" autocomplete="off">
                 </div>
               </div>
+
+              <div class="form-group row">
+                <label for="inputScale" class="col-sm-3 col-form-label">Estado</label>
+                <div class="col-sm-6">
+                  <select class="form-control select2" name="status" required="">
+                    @foreach ($activity->present()->states as $key => $value)
+                    <option {{ ($key == $activity->status) ? 'selected' : '' }} value="{{ $key }}">{{ $value }}</option>
+                    @endforeach
+                  </select>
+                </div>
+              </div>
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.update')}}</button>
@@ -138,6 +149,7 @@
     placeholder: 'Hello stand alone ui',
     tabsize: 10,
     height: 120,
+    disableDragAndDrop: true,
     toolbar: [
       ['style', ['style']],
       ['font', ['bold', 'underline', 'clear']],

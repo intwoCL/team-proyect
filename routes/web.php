@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+Route::get('sign_in/android/','Auth\AuthUserController@android')->name('index.app');
+
 Route::get('/','Auth\AuthUserController@index')->name('index');
 Route::post('/','Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
@@ -20,6 +22,16 @@ Route::middleware('user')->group(function () {
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::put('activity/{activity_id}/content','ContentController@changePosition')->name('content.changePosition');
+  
+  Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
+  Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
+  Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
+  Route::put('item/{id}','ItemController@update')->name('item.update');
+  Route::delete('item','ItemController@delete')->name('item.delete');  
+
+  Route::get('preview/item/{id}','PreviewController@item')->name('preview.item');
+  Route::get('preview/content/{id}','PreviewController@content')->name('preview.content');
+
 
   Route::resource('user','UserController');
   Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
@@ -27,7 +39,7 @@ Route::middleware('user')->group(function () {
   Route::get('user/{user}','UserController@show')->name('user.show');
 
   Route::resource('calendar','CalendarController');
-  Route::get('calendar/{id}/details','CalendarActivityController@index')->name('calendar.activity.index');
+  // Route::get('calendar/{id}/details','CalendarActivityController@index')->name('calendar.activity.index');
   Route::get('calendar/{id}/details/edit','CalendarActivityController@edit')->name('calendar.activity.edit');
   Route::get('calendar/{id}/details/{day}/create','CalendarActivityController@create')->name('calendar.activity.create');
   Route::post('calendar/{id}/details/{day}/create','CalendarActivityController@store')->name('calendar.activity.store');
@@ -37,15 +49,23 @@ Route::middleware('user')->group(function () {
   Route::get('calendar/{id}/details/create2','CalendarActivityController@create2')->name('calendar.activity.create2');
   Route::post('calendar/{id}/details/create2','CalendarActivityController@store2')->name('calendar.activity.store2');
 
-  Route::resource('assignment','AssignmentController');
+  Route::resource('assignment','AssignmentController',['except'=>['destroy']]);
+  Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
+  Route::resource('enrollment','EnrollmentController');
+  Route::get('schedule/user/{user_id}','ScheduleController@index')->name('schedule.index');
+  Route::get('schedule/user/{user_id}/create','ScheduleController@create')->name('schedule.create');
+  Route::post('schedule/user/{user_id}/create','ScheduleController@store')->name('schedule.store');
 
-  Route::get('activity/{activity_id}/content/{content_id}/item/create','ItemController@create')->name('item.create');
-  Route::get('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@edit')->name('item.edit');
-  Route::get('activity/{activity_id}/content/{content_id}/item/{id}','ItemController@show')->name('item.show');
-  Route::post('activity/{activity_id}/content/{content_id}/item/edit/{id}','ItemController@update')->name('item.update');
-  Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
-  Route::post('activity/{activity_id}/content/{content_id}/item/{id}/delete','ItemController@delete')->name('item.delete');
-  Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
+  Route::get('schedule/{id}/edit','ScheduleController@edit')->name('schedule.edit');
+  Route::put('schedule/{id}/edit','ScheduleController@update')->name('schedule.update');
+
+  Route::get('schedule/{id}/details','ScheduleController@show')->name('schedule.show');
+  Route::get('schedule/{id}/details/edit','ScheduleController@details')->name('schedule.details.edit');
+  Route::get('schedule/{id}/details/create','ScheduleActivityController@create')->name('schedule.activity.create');
+  Route::delete('schedule/activity/delete','ScheduleActivityController@delete')->name('schedule.activity.delete');
+  Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
+
+  
 
 
 
@@ -60,10 +80,10 @@ Route::middleware('user')->group(function () {
   Route::namespace('App')->prefix('webapp')->group(function () {
     Route::get('/','WebAppController@index')->name('app.index');
     Route::get('activity/{id}','WebAppController@activity')->name('app.activity');
-    Route::get('item','WebAppController@item')->name('item');
+    Route::get('item','WebAppController@item')->name('app.item');
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
-    
+    Route::get('profile','WebAppController@profile')->name('app.profile');    
   });
 
 });
@@ -76,6 +96,8 @@ Route::get('demo', function () { return view('template.text'); });
 Route::post('demo','WebAppController@store');
 Route::get('mail','MailController@sendEmail');
 
-
+// Route::get('/debug-sentry', function () {
+//   throw new Exception('My first Sentry error!');
+// });
 
 

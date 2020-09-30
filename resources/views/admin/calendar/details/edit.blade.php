@@ -9,7 +9,7 @@
 @section('content')
 <section class="section">
   <div class="section-header">
-    <a href="{{ route('calendar.activity.index',$c->id) }}">
+    <a href="{{ route('calendar.show',$c->id) }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Panel de calendarios - {{ $c->name }}</h1>
@@ -28,8 +28,10 @@
               <th>#</th>
               <th>Día</th>
               <th>Hora</th>
+              <th>Veces</th>
               <th>Code</th>
               <th>Actividad</th>
+              <th>Nivel</th>
               <th></th>
             </tr>
             </thead>
@@ -40,8 +42,10 @@
               <td>{{ $ca->weekday }}</td>
               <td>{{ $ca->getDayWords() }}</td>
               <td>{{ $ca->worktime }}</td>
+              <td>{{ $ca->times }}</td>
               <td>{{ $ca->activity->id }}</td>
               <td>{{ $ca->activity->name}}</td>
+              <td>{{ $ca->activity->scale_id}}</td>
               <td>
                 <button type="button" class="btn btn-sm btn-danger" 
                   data-toggle="modal" 
@@ -61,7 +65,7 @@
 </section>
 @endsection
 @push('outerDiv')
-  @include('components.modal._delete')    
+  @include('components.modal._delete')
 @endpush
 @push('javascript')  
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
@@ -69,16 +73,15 @@
 <script>
   $(function () {
     $("#tableSelect").DataTable();
-  });
-
-  $('#deleteModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget);
-    var modal = $(this);
-    var id = button.data('activity');
-    var url = "{{route('calendar.activity.delete')}}";
-    modal.find('.modal-title').text('¿Desea Borrar esta Actividad?');
-    modal.find('.modal-body input').val(id);
-    modal.find('#formDelete').attr('action',url);
+    $('#deleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      var id = button.data('activity');
+      var url = "{{route('calendar.activity.delete')}}";
+      modal.find('.modal-title').text('¿Desea eliminar está actividad?');
+      modal.find('.modal-body input').val(id);
+      modal.find('#formDelete').attr('action',url);
+    });
   });
 </script>
 @endpush

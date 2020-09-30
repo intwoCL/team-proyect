@@ -52,25 +52,32 @@
                 </div>
 
                 <div class="form-group row">
-                  <label for="inputRut" class="col-sm-3 col-form-label">{{ trans('t.user.profile.run') }}<span class="text-danger">*</span></label>
-                  <div class="col-sm-9">
-                    <input type="text"  name="run" class="form-control" autocomplete="off" value="{{ old('run') }}" required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)" placeholder="{{ trans('t.user.profile.run') }}">
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label for="inputFirstName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.first_name') }}<span class="text-danger">*</span></label>
-                  <div class="col-sm-9">
+                  <label for="inputFirstName" class="col-sm-3 col-form-label">Nombre Tutor<span class="text-danger">*</span></label>
+                  <div class="col-sm-4">
                     <input type="text" class="form-control" id="inputFirstName" placeholder="{{ trans('t.user.profile.first_name') }}" required="" name="first_name">
                   </div>
-                </div>
 
-                <div class="form-group row">
-                  <label for="inputLastName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.last_name') }}<span class="text-danger">*</span></label>
-                  <div class="col-sm-9">
+                  {{-- <label for="inputLastName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.last_name') }}<span class="text-danger">*</span></label> --}}
+                  <div class="col-sm-5">
                     <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name">
                   </div>
                 </div>
+
+                <div class="form-group row">
+                  <label for="inputRut" class="col-sm-3 col-form-label">Nombre del niño</label>
+                  <div class="col-sm-9">
+                    <input type="text" name="run" class="form-control" autocomplete="off" value="{{ old('child_name') }}" placeholder="">
+                  </div>
+                </div>
+                <fieldset class="form-group">
+                  <label>Genero<small class="text-danger">*</small></label>
+                  <select class="form-control select2" name="gender" required>
+                    <option value="0">No mencionar</option>
+                    <option value="1">Hombre</option>
+                    <option value="2">Mujer</option>
+                  </select>  
+                </fieldset>
+            
                 <fieldset class="form-group">
                   <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                   <select class="form-control select2" name="lang" required="">
@@ -79,7 +86,7 @@
                   </select>  
                 </fieldset>
                 <fieldset class="form-group">
-                  <div class="row">
+                  <div class="">
                     <div class="col-form-label col-sm-6 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
                     <label class="custom-switch mt-2">
                       <input type="checkbox" name="admin" class="custom-switch-input">
@@ -105,7 +112,7 @@
                 <div class="form-group row">
                   <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger">*</span></label>
                   <div class="col-sm-9">
-                    <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" required="" value="">
+                    <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" value="">
                   </div>
                 </div>
 

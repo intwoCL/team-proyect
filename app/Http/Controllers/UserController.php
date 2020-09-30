@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Assignment;
+
 use App\Http\Requests\UserStoreRequest;
 use App\Http\Requests\UserUpdateRequest;
 
@@ -41,23 +43,16 @@ class UserController extends Controller
       try {
         $u = new User();
         $u->email = $request->input('email');
-        $u->password = hash('sha256', $request->input('password'));
+        $u->password = hash('sha256', $request->input('password'));        
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
+        $u->child_name = !empty($request->input('child_name')) ? $request->input('child_name') : '';
         $u->lang = $request->input('lang');
-        $u->specialty = $request->input('specialty');
+        $u->gender = $request->input('gender');
+        $u->admin = !empty($request->input('admin')) ? true : false;
+        $u->specialist = !empty($request->input('specialist')) ? true : false;
+        $u->specialty = !empty($request->input('specialty')) ? $request->input('specialty') : '';
 
-        if (!empty($request->input('run'))) {
-          $u->run = $request->input('run');
-        }
-        
-        if (!empty($request->input('admin'))) {
-          $u->admin = true;
-        }
-
-        if (!empty($request->input('specialist'))) {
-          $u->specialist = true;
-        }
         if(!empty($request->file('photo'))){
           $request->validate([
             'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -113,25 +108,12 @@ class UserController extends Controller
         $u->email = $request->input('email');
         $u->first_name = $request->input('first_name');
         $u->last_name = $request->input('last_name');
+        $u->child_name = !empty($request->input('child_name')) ? $request->input('child_name') : '';
         $u->lang = $request->input('lang');
-        $u->specialty = $request->input('specialty');
-        if (!empty($request->input('run'))) {
-          $u->run = $request->input('run');
-        }else{
-          $u->run = "";
-        }
-        
-        if (!empty($request->input('admin'))) {
-          $u->admin = true;
-        } else {
-          $u->admin = false;
-        }
-        
-        if (!empty($request->input('specialist'))) {
-          $u->specialist = true;
-        }else {
-          $u->specialist = false;
-        }
+        $u->gender = $request->input('gender');
+        $u->admin = !empty($request->input('admin')) ? true : false;
+        $u->specialist = !empty($request->input('specialist')) ? true : false;
+        $u->specialty = !empty($request->input('specialty')) ? $request->input('specialty') : '';
 
         if(!empty($request->file('photo'))){
           $request->validate([

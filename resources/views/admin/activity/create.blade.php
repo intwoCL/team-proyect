@@ -92,9 +92,6 @@
               <button class="btn btn-primary">{{trans('button.save')}}</button>
             </div>
           </form>
-
-          
-
         </div>
       </div>
     </div>
@@ -118,6 +115,7 @@
       // ['insert', ['link', 'picture', 'video']],
       // ['view', ['codeview', 'help']]
     ],
+    disableDragAndDrop: true,
     styleTags: [
     'p',
     { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },

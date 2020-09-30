@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Calendar;
 use App\Models\Activity;
+use App\Models\CalendarActivity;
 
 class CalendarController extends Controller
 {
@@ -50,7 +51,24 @@ class CalendarController extends Controller
         return $th;
       }
     }
-    
+
+    public function show($id){
+      $c = Calendar::findOrFail($id);
+      $activities = $c->present()->getActivitiesTable();
+      $numbers = [];
+      foreach ($activities as $a) {
+        $numbers[] = count($a);
+      }
+      $max = (!empty($numbers)) ? max($numbers) : 0;
+      return view('admin.calendar.details.index',compact('c','activities','max'));
+    }
+
+    public function edit($id)
+    {
+      $calendar = Calendar::findOrFail($id);
+      return view('admin.calendar.edit',compact('calendar'));
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -60,7 +78,16 @@ class CalendarController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      try {
+        $c = Calendar::findOrFail($id);
+        $c->name = $request->input('name');
+        $c->objective = $request->input('objective');
+        $c->status = $request->input('status');
+        $c->update();
+        return redirect()->back()->with('success',trans('alert.update'));
+      } catch (\Throwable $th) {
+        return redirect()->back()->with('danger',trans('alert.danger'));
+      }
     }
 
     /**
@@ -73,4 +100,6 @@ class CalendarController extends Controller
     {
         //
     }
+    //Show para mostrar un calendario seleccionado
+
 }

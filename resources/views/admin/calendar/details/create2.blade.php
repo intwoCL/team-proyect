@@ -56,6 +56,13 @@
               </div>
             </div>
 
+            <div class="form-group row">
+              <label for="inputName" class="col-sm-3 col-form-label">Veces</label>
+              <div class="col-sm-9">
+                <input type="number" name="times" min="1" class="form-control" required="" value="{{ !empty(old('times')) ? old('times') : '1'}}">
+              </div>
+            </div>
+
             {{-- <div class="form-group row">
               <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
               <div class="col-sm-9">
@@ -84,9 +91,7 @@
 <script>
   $(function () {
     $("#tableSelect").DataTable();
+    $('.clockpicker').clockpicker();
   });
-
-  $('.clockpicker').clockpicker();
 </script>
-
 @endpush

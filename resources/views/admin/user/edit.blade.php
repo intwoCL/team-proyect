@@ -46,25 +46,33 @@
               </div>
 
               <div class="form-group row">
-                <label for="inputRut" class="col-sm-3 col-form-label">{{ trans('t.user.profile.run') }}</label>
-                <div class="col-sm-9">
-                  <input type="text"  name="run" class="form-control" autocomplete="off" value="{{$user->run}}" required maxlength="9" min="8" autocomplete="off" onkeyup="this.value = validateRun(this.value)" placeholder="{{ trans('t.user.profile.run') }}">
-                </div>
-              </div>
-
-              <div class="form-group row">
-                <label for="inputFirstName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.first_name') }}</label>
-                <div class="col-sm-9">
+                <label for="inputFirstName" class="col-sm-3 col-form-label">Nombre Tutor<span class="text-danger">*</span></label>
+                <div class="col-sm-4">
                   <input type="text" class="form-control" id="inputFirstName" placeholder="{{ trans('t.user.profile.first_name') }}" required="" name="first_name" value="{{$user->first_name}}">
                 </div>
+
+                {{-- <label for="inputLastName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.last_name') }}<span class="text-danger">*</span></label> --}}
+                <div class="col-sm-5">
+                  <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required name="last_name" value="{{$user->last_name}}">
+                </div>
               </div>
 
               <div class="form-group row">
-                <label for="inputLastName" class="col-sm-3 col-form-label">{{ trans('t.user.profile.last_name') }}</label>
+                <label for="inputRut" class="col-sm-3 col-form-label">Nombre del niño</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" id="inputLastName" placeholder="{{ trans('t.user.profile.last_name') }}" required="" name="last_name" value="{{$user->last_name}}">
+                  <input type="text" name="child_name" class="form-control" autocomplete="off" value="{{ $user->child_name }}" placeholder="">
                 </div>
               </div>
+
+              <fieldset class="form-group">
+                <label>Genero<small class="text-danger">*</small></label>
+                <select class="form-control select2" name="gender" required>
+                  <option {{ ($user->gender==0) ? 'selected' : '' }} value="0">No mencionar</option>
+                  <option {{ ($user->gender==1) ? 'selected' : '' }} value="1">Hombre</option>
+                  <option {{ ($user->gender==2) ? 'selected' : '' }} value="2">Mujer</option>
+                </select>  
+              </fieldset>
+
               <fieldset class="form-group">
                 <label>{{ trans('t.user.profile.lang') }}<small class="text-danger">*</small></label>
                 <select class="form-control select2" name="lang" required="" value="{{$user->lang}}">
@@ -83,7 +91,7 @@
               @endphp
               <fieldset class="form-group">
                 <div class="row">
-                  <div class="col-form-label col-sm-3 pt-0">{{ trans('t.user.index.admin') }}<small class="text-danger">*</small></div>
+                  <div class="col-form-label col-sm-4 pt-0">{{ trans('t.user.index.admin') }}<small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
                     <input type="checkbox" name="admin" class="custom-switch-input" {{ $checkedA }}>
                     <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
@@ -98,7 +106,7 @@
               @endphp
               <fieldset class="form-group">
                 <div class="row">
-                  <div class="col-form-label col-sm-3 pt-0">{{ trans('t.user.index.specialist') }}<small class="text-danger">*</small></div>
+                  <div class="col-form-label col-sm-4 pt-0">{{ trans('t.user.index.specialist') }}<small class="text-danger">*</small></div>
                   <label class="custom-switch mt-2">
                     <input type="checkbox" name="specialist" class="custom-switch-input" {{ $checkedS }}>
                     <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
