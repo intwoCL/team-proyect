@@ -167,10 +167,10 @@
           {{-- <a href="#" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i> Logout
           </a> --}}
-          <div class="custom-control custom-switch nav-link">
+          {{-- <div class="custom-control custom-switch nav-link">
             <input type="checkbox" class="custom-control-input" id="darkSwitch">
             <label class="custom-control-label" for="darkSwitch">Dark Mode</label>
-          </div>
+          </div> --}}
           <a href="{{ route('logout') }}" class="dropdown-item has-icon text-danger">
             <i class="fas fa-sign-out-alt"></i>{{ trans('t.logout') }}
           </a>
@@ -181,10 +181,10 @@
   @yield('content')
   <footer class="main-footer">
     <div class="footer-left">
-      Copyright &copy; 2018 <div class="bullet"></div>
+      Copyright &copy; 2020 <div class="bullet"></div>
     </div>
     <div class="footer-right">
-      0.1.1
+      0.2.0
     </div>
   </footer>
 </div>
