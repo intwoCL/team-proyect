@@ -25,10 +25,10 @@
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Form Validation</h2>
+    {{-- <h2 class="section-title">Form Validation</h2>
     <p class="section-lead">
       Form validation using default from Bootstrap 4
-    </p>
+    </p> --}}
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
@@ -37,7 +37,7 @@
             @csrf
             <input type="hidden" name="activity_id" value="{{$activity->id}}">
             <div class="card-header">
-              <h4>Default Validation</h4>
+              <h4>Formulario de creación de contenido</h4>
             </div>
             <div class="card-body">
 

@@ -7,7 +7,7 @@
     </div>
     <div class="section-body">
       <h2 class="section-title">List of Packages Question</h2>
-      <p class="section-lead">This page is for managing packages including questions and answers.</p>
+     {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
       <div class="card">
         <div class="card-body p-0">
           <div class="table-responsive">

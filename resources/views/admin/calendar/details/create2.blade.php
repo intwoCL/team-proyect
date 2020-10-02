@@ -11,7 +11,7 @@
     </a>
   <h1>Asignar Actividad al Dia</h1>
   </div>
-  <div class="row">  
+  <div class="row">
     <div class="col-12 col-md-6 col-lg-6">
       @include('partials._errors')
       <div class="card">

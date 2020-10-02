@@ -16,21 +16,21 @@
     <a href="{{ route('activity.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>{{trans('t.activity.create.title')}}</h1>
+    <h1>Formulario de creación de actividades</h1>
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Form Validation</h2>
+    {{-- <h2 class="section-title">Form Validation</h2>
     <p class="section-lead">
       Form validation using default from Bootstrap 4
-    </p>
+    </p> --}}
 
     <div class="row">  
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
           <div class="card-header">
-            <h4>Horizontal Form</h4>
+            <h4>Formulario de creación de actividades</h4>
           </div>
           <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data">
             @csrf

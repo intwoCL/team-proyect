@@ -26,13 +26,13 @@
                 <tr>
                   <td>{{ $u->id }}</td>
                   <td>{{ $u->present()->getFullName() }}
-                    <div class="table-links">
+                    {{-- <div class="table-links">
                       <a href="#">View</a>
                       <div class="bullet"></div>
                       <a href="#">Edit</a>
                       <div class="bullet"></div>
                       <a href="#" class="text-danger">Trash</a>
-                    </div>
+                    </div> --}}
                   </td>
                   <td>{{ count($u->assignmentUsers)}}</td>
                   <td><a href="{{ route('assignment.show',$u->id) }}" class="btn btn-success btn-sm">Asignados</a></td>

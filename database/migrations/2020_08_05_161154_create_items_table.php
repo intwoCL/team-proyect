@@ -23,6 +23,7 @@ class CreateItemsTable extends Migration
             $table->string('image')->nullable();
             $table->string('data')->nullable(); //link url, link youtube, audio
             $table->integer('position');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

@@ -94,11 +94,9 @@ class ItemController extends Controller
       $c = Content::findOrFail($i->content_id);
       $a = Activity::findOrFail($c->activity_id);
       $i->update();
-      return redirect()->back()->with('success',trans('alert.success'));
-
+      return back()->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
-      return $th;
-      return redirect()->back()->with('danger',trans('alert.danger'));
+      return back()->with('danger',trans('alert.danger'));
     }
   }
 
@@ -110,9 +108,14 @@ class ItemController extends Controller
    */
   public function destroy(Request $request)
   {
-    $i = Item::findOrFail($request->input('id'));
-    $i->destroy();
-    
+    try {
+      $i = Item::findOrFail($request->input('id'));
+      $i->delete();
+      return back()->with('success',trans('alert.delete'));
+    } catch (\Throwable $th) {
+      return back()->with('danger',trans('alert.danger'));
+    }
+
   }
 
   public function changePosition($activity_id,$content_id, Request $request){

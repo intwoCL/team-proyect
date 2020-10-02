@@ -14,6 +14,14 @@ class ItemPresenter extends Presenter
   private $folderImg = 'photo_items';
   private $imgDefault = '/images/gallery.jpg';
 
+  private $typesIcons = array(
+    1 => '<span class="badge badge-info"><i class="fas fa-link" title="URL"></i> Link </span>',
+    2 => '<span class="badge badge-danger"><i class="fab fa-youtube" title="Video"></i> Video</span>',
+    3 => '<span class="badge badge-success"><i class="fas fa-image" title="Imagen"></i> Imagen</span>',
+    4 => '<span class="badge badge-primary"><i class="fas fa-volume-up" title="Audio"></i> Audio</span>',
+    5 => '<span class="badge badge-secondary"><i class="fas fa-file-alt" title="Texto"></i> Texto</span>',
+  );
+
   public function getPhoto(){
     try {
       if($this->model->image == $this->imgDefault){
@@ -44,7 +52,12 @@ class ItemPresenter extends Presenter
   public function getText(){
     return $this->filter();
   }
+
   
+  public function getIcons(){
+    return $this->typesIcons[$this->model->type];
+  }
+
   // $result = str_replace('[:name]',current_user()->present()->getFullName(),$this->body);
   public function filter(){
     $dt = Carbon::now();

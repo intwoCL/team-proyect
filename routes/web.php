@@ -27,7 +27,7 @@ Route::middleware('user')->group(function () {
   Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
   Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
   Route::put('item/{id}','ItemController@update')->name('item.update');
-  Route::delete('item','ItemController@delete')->name('item.delete');  
+  Route::delete('item','ItemController@destroy')->name('item.delete');  
 
   Route::get('preview/item/{id}','PreviewController@item')->name('preview.item');
   Route::get('preview/content/{id}','PreviewController@content')->name('preview.content');
