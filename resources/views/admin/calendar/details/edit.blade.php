@@ -29,7 +29,7 @@
               <th>Día</th>
               <th>Hora</th>
               <th>Veces</th>
-              <th>Code</th>
+              <th>Código</th>
               <th>Actividad</th>
               <th>Nivel</th>
               <th></th>

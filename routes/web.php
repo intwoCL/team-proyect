@@ -8,6 +8,8 @@ Route::get('/','Auth\AuthUserController@index')->name('index');
 Route::post('/','Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
 Route::post('password/reset','Auth\AuthUserController@resetPassword')->name('reset.password');
+Route::get('about','DashboardController@about')->name('about');
+
 
 Route::middleware('user')->group(function () {
 

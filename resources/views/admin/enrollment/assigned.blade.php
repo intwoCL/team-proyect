@@ -28,8 +28,8 @@
                     <td>{{ $asigmentUser->user->present()->getFullName() }}</td>
                     <td>{{ $asigmentUser->user->email }}
                       <div class="table-links">
-                        <div class="bullet"></div>
-                        <a href="{{ route('enrollment.show',$asigmentUser->id) }}">{{ trans('t.view') }}</a>
+                        {{-- <div class="bullet"></div>
+                        <a href="{{ route('enrollment.show',$asigmentUser->id) }}">{{ trans('t.view') }}</a> --}}
                         {{-- <a href="">{{ trans('t.edit') }}</a>
                         <div class="bullet"></div>
                         <a href="" class="text-danger">{{ trans('t.trash') }}</a> --}}

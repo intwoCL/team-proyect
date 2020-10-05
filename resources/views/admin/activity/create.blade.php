@@ -72,6 +72,13 @@
                 </div>
               </div>
               <div class="form-group row">
+                <div class="col-12">
+                  <label for="">
+                    <strong>FEI:</strong> Funciones ejecutivas iniciales<br>
+                    <strong>EC:</strong> Esquema Corporal<br>
+                    <strong>NI:</strong> Niveles de imitación<br>
+                  </label>
+                </div>
                 <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
                 <div class="col-sm-9">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
@@ -82,9 +89,9 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputTotalTime" class="col-sm-3 col-form-label">{{trans('t.activity.create.total_time')}}</label>
+                <label for="inputTotalTime" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
-                  <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="{{ old('total_time')}}">
+                  <input type="hidden" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="0">
                 </div>
               </div>
             </div>

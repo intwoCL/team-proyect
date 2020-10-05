@@ -18,18 +18,20 @@
             <table class="table table-hover table-md ">
               <thead>
                 <tr>
-                  <th>Numero</th>
+                  {{-- <th>Numero</th> --}}
                   <th>Nombre</th>
-                  <th>Objectivo</th>
+                  <th>Objetivo</th>
+                  <th>Estado</th>
                   <th></th>
                 </tr>
               </thead>
               <tbody>
               @foreach ($schedules as $sch)
               <tr>
-                <td>{{ $sch->id}}</td>
+                {{-- <td>{{ $sch->id}}</td> --}}
                 <td>{{ $sch->name}}</td>
                 <td>{{ $sch->objective}}</td>
+                <td><span class="badge badge-{{ $sch->present()->getColor() }}">{{ $sch->present()->getState() }}</span></td>
                 <td>
                   <a href="{{ route('schedule.show',$sch->id) }}" class="btn btn-sm btn-info">Ver</a>
                   <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">editar</a>

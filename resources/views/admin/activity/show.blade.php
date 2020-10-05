@@ -26,6 +26,7 @@
                 <th>Position</th>
                 <th>Nombre</th>
                 <th>Objetivo</th>
+                <th>Quiz</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -39,13 +40,16 @@
                   {{$c->name}}
                   <div class="table-links">
                     {{-- <a href="{{route('content.show',[$a->id,$c->id])}}">Items</a> --}}
-                    {{-- <div class="bullet"></div> --}}
-                    {{-- <a href="{{route('content.edit',[$a->id,$c->id])}}">{{ trans('t.edit') }}</a> --}}
+                    <div class="bullet"></div>
+                    <a href="{{route('content.edit',[$a->id,$c->id])}}">{{ trans('t.edit') }}</a>
                     {{-- <div class="bullet"></div> --}}
                     {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
                 </td>
                 <td>{!! $c->objective !!}</td>
+                <td>
+                  {!! $c->present()->getQuiz() !!}
+                </td>
                 <td> <a href="{{ route('preview.content',$c->id) }}" class="btn btn-success btn-sm">Visualizar</a></td>
                 <td> <a href="{{route('content.show',[$a->id,$c->id])}}" class="btn btn-primary btn-sm">Items</a> </td>
               </tr>

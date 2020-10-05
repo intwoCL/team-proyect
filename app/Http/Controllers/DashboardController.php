@@ -8,9 +8,12 @@ use App\Models\Activity;
 
 class DashboardController extends Controller
 {
-  public function index()
-  {
+  public function index(){
     $activities = Activity::where('status',3)->get();
     return view('app.dashboard',compact('activities'));
+  }
+
+  public function about(){
+    return view('layouts.about');
   }
 }

@@ -20,8 +20,8 @@
             <table id="tableSelect" class="table table-hover table-md">
               <thead>
               <tr>
-                <th>status</th>
-                <th>code</th>
+                <th>Estado</th>
+                <th>Código</th>
                 <th>{{ trans('t.activity_name') }}</th>
                 <th>{{ trans('t.objetive') }}</th>
                 <th>{{ trans('t.level') }}</th>

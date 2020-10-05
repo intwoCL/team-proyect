@@ -14,6 +14,9 @@
   .face-shadow {
     text-shadow: 1px 2px 4px #4b4a4a !important;
   }
+  /* p{
+    font-size: 14px !important;
+  } */
 </style>
 @endpush
 @section('app')
@@ -42,7 +45,12 @@
               @break
             @endswitch  
           </div>
-          @endforeach
+        @endforeach
+        @if ($content->quiz)
+          <div class="swiper-slide">
+            @include('webapp.components.swiper._quiz')
+          </div>
+        @endif
       </div>
     </div>
   </div>

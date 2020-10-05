@@ -55,7 +55,7 @@ class ActivityPresenter extends Presenter
   }
 
   public function getCodeName(){
-    return "{$this->model->id} {$this->model->name}";
+    return "<small class='badge badge-success rounded-0'>CODE: {$this->model->id}</small> <br> <p><strong>{$this->model->name}</strong></p>";
   }
 
 }

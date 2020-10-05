@@ -23,7 +23,7 @@
                   <th>#</th>
                   <th>Name</th>
                   <th>Objectivo</th>
-                  <th>Status</th>
+                  {{-- <th>Status</th> --}}
                   <th></th>
                 </tr>
               </thead>
@@ -33,9 +33,9 @@
                 <td>{{ $ca->id }}</td>
                 <td>{{ $ca->name }}</td>
                 <td>{{ $ca->objective }}</td>
-                <td>
+                {{-- <td>
                   <small class="badge badge-{{ $ca->present()->getColor() }}">{{$ca->present()->getState()}}</small>
-                </td>
+                </td> --}}
                 <td>
                   <button type="button" class="btn btn-sm btn-success"
                     data-toggle="modal"
