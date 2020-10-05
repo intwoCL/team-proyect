@@ -11,8 +11,7 @@
       </div>
     </div>
     <div class="article-details">
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse
-      cillum dolore eu fugiat nulla pariatur. </p>
+      <p>{!! $a->objective !!}</p>
       <div class="article-cta">
         <a href="#" class="btn btn-primary btn-block">EMPEZAR</a>
       </div>
