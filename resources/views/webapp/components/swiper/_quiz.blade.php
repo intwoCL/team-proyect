@@ -13,7 +13,7 @@
             <div class="col-sm-12 COL-md-12 col-xs-12">
               <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
                 <div class="mr-3">
-                  <i class="fa fa-smile fa-4x text-danger face" role="button"></i>
+                  <i class="fa fa-smile fa-4x text-primary face" role="button"></i>
                   <p>Normal</p>
                 </div>
                 <div class="mr-3">
@@ -29,7 +29,7 @@
                   <p>Normal</p>
                 </div>
                 <div class="mr-3">
-                  <i class="fa fa-smile fa-4x text-danger face" role="button"></i>
+                  <i class="fa fa-smile fa-4x text-dark face" role="button"></i>
                   <p>Normal</p>
                 </div>
               </div>

@@ -18,34 +18,6 @@
 
 </style>
 
-{{-- <style>
-  .balloon{
-  border-radius: 5px;
-  background-color: chocolate;
-  color: floralwhite;
-  padding: 10px;
-  width: 420px;
-  font-family: 'Indie Flower', cursive;
-  font-size: 2em
-  }
-  
-  .balloon:before {
-  content:"";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-bottom: 20px solid chocolate;
-  border-right: 18px solid transparent;
-  border-left: 18px solid transparent;
-  margin: -30px 0 0 40px;
-  }
-  
-  .clasecualquiera:before {
-  content: 'esto se agregará';
-  color: red;
-  }
-  
-  </style> --}}
 @endpush
 @section('app')
 <div class="main-wrapper container">
@@ -71,7 +43,6 @@
               @include('webapp.components.swiper._text')
               @break
             @default
-                  
           @endswitch     
         </div>
       </div>
