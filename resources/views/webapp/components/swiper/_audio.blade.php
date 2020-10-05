@@ -3,7 +3,7 @@
 @endphp
 <section class="ml-2 mr-2 row">
   <div class="section-body">
-    <div class="tex-center">
+    {{-- <div class="tex-center"> --}}
       <div class="card">
         <div class="card-header">
           <h4>{{ $item->content->name }}</h4>
@@ -26,7 +26,7 @@
                 </div>
               </div>   
             </div>
-            <div class="text-justify col-sm-12 col-md-6 col-xs-12 mt-2">
+            <div class="col-sm-12 col-md-6 col-xs-12 mt-2">
               {!! $item->present()->getText() !!}
             </div>
           </div>            
@@ -36,6 +36,6 @@
           {{-- <button class="btn btn-success">CONTINUAR</button> --}}
         </div>
       </div>
-    </div>
+    {{-- </div> --}}
   </div>
 </section>

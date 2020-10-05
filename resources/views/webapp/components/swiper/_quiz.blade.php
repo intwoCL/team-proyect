@@ -1,6 +1,6 @@
 <section class="ml-2 mr-2 row">
   <div class="section-body">
-    <div class="tex-center">
+    {{-- <div class="tex-center"> --}}
       <div class="card">
         <div class="card-header">
           <h4>{{ $content->name }}</h4>
@@ -44,6 +44,6 @@
           <button class="btn btn-success">FINALIZAR</button>
         </div>
       </div>
-    </div>
+    {{-- </div> --}}
   </div>
 </section>

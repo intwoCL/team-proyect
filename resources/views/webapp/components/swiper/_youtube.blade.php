@@ -3,7 +3,7 @@ $col = !empty($item->body) ? 'col-md-6' : 'col-md-12';
 @endphp
 <section class="ml-2 mr-2 row">
   <div class="section-body">
-    <div class="tex-center">
+    {{-- <div class="tex-center"> --}}
       <div class="card">
         <div class="card-header">
           <h4>{{ $item->content->name }}</h4>
@@ -26,6 +26,6 @@ $col = !empty($item->body) ? 'col-md-6' : 'col-md-12';
           {{-- <button class="btn btn-success">CONTINUAR</button> --}}
         </div>
       </div>
-    </div>
+    {{-- </div> --}}
   </div>
 </section>

@@ -3,7 +3,7 @@
 @endphp
 <section class="ml-2 mr-2 row">
   <div class="section-body">
-    <div class="tex-center">
+    {{-- <div class="tex-center"> --}}
       <div class="card">
         <div class="card-header">
           <h4>{{ $item->content->name }}</h4>
@@ -24,7 +24,7 @@
           <a href="{{ $item->data }}" class="btn btn-primary">Ir al enlace</a>  
         </div>
       </div>
-    </div>
+    {{-- </div> --}}
   </div>
 </section>
 
