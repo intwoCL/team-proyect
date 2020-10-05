@@ -16,21 +16,21 @@
     <a href="{{ route('activity.index') }}">
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
-    <h1>{{trans('t.activity.create.title')}}</h1>
+    <h1>Formulario de creación de actividades</h1>
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Form Validation</h2>
+    {{-- <h2 class="section-title">Form Validation</h2>
     <p class="section-lead">
       Form validation using default from Bootstrap 4
-    </p>
+    </p> --}}
 
     <div class="row">  
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
           <div class="card-header">
-            <h4>Horizontal Form</h4>
+            <h4>Formulario de creación de actividades</h4>
           </div>
           <form action="{{route('activity.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -72,6 +72,13 @@
                 </div>
               </div>
               <div class="form-group row">
+                <div class="col-12">
+                  <label for="">
+                    <strong>FEI:</strong> Funciones ejecutivas iniciales<br>
+                    <strong>EC:</strong> Esquema Corporal<br>
+                    <strong>NI:</strong> Niveles de imitación<br>
+                  </label>
+                </div>
                 <label for="inputCategory" class="col-sm-3 col-form-label">{{trans('t.activity.create.categories')}}</label>
                 <div class="col-sm-9">
                   <select class="form-control select2" multiple="" name="categories[]" required="">
@@ -82,9 +89,9 @@
                 </div>
               </div>
               <div class="form-group row">
-                <label for="inputTotalTime" class="col-sm-3 col-form-label">{{trans('t.activity.create.total_time')}}</label>
+                <label for="inputTotalTime" class="col-sm-3 col-form-label"></label>
                 <div class="col-sm-9">
-                  <input type="number" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="{{ old('total_time')}}">
+                  <input type="hidden" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="0">
                 </div>
               </div>
             </div>

@@ -14,11 +14,22 @@ class CategorySeeder extends Seeder
     {
 
       $categories = [
-        'Sensitivo',
-        'Manipulacion',
-        'Objetivos'
+        'FEI - Atención Conjunta',
+        'FEI - Atención Sostenida',
+        'FEI - Planificar',
+        'FEI - Funcionalidad de los objetos',
+        'Intención Comunicativa',
+        'Permanencia del objeto',
+        'Relación Causa y Efecto',
+        'EC - Nivel de complejidad 1',
+        'EC - Nivel de complejidad 2',
+        'NI - Imitación con Objeto Concreto',
+        'NI - Imitación Motora Gruesa',
+        'NI - Imitación Motora Fina',
+        'NI - Imitación Oral',
+        'NI - Imitación Verbal',
       ];
-  
+
       foreach ($categories as $key => $value) {
         DB::table('categories')->insert([
           'name' => $value

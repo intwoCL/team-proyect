@@ -12,13 +12,6 @@
     </a>
     <h1>Editar item</h1>
     <div class="section-header-breadcrumb">
-      {{-- <button class="breadcrumb-item btn btn-info">Información --}}
-        {{-- <i class="fa fa-question mr-2 text-danger pull-right"></i> --}}
-      {{-- </button> --}}
-      
-      <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#infoModal">
-        Información
-      </button>
       <button type="button" class="btn btn-sm btn-info ml-2" data-toggle="modal" data-target="#dataModal">
         Data
       </button>
@@ -132,7 +125,6 @@
 </section>
 @endsection
 @push('outerDiv')
-  @include('admin.activity.content.item._modal_info')
   @include('admin.activity.content.item._modal_data')
 @endpush
 @push('javascript')

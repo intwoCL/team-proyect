@@ -16,7 +16,7 @@ return [
   'activities' => 'Actividades',
   'specialist' => 'Especialista',
   'attention' => 'Atención',
-  'calendar' => 'Calendario',
+  'calendar' => 'Horarios personalizado',
   'hi' => 'Hola',
   'logout' => 'Cerrar sesión',
   'profile_settings' => 'Configuración',

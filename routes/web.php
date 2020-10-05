@@ -8,6 +8,8 @@ Route::get('/','Auth\AuthUserController@index')->name('index');
 Route::post('/','Auth\AuthUserController@login')->name('login');
 Route::get('password/reset','Auth\AuthUserController@reset')->name('reset.password');
 Route::post('password/reset','Auth\AuthUserController@resetPassword')->name('reset.password');
+Route::get('about','DashboardController@about')->name('about');
+
 
 Route::middleware('user')->group(function () {
 
@@ -27,7 +29,7 @@ Route::middleware('user')->group(function () {
   Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
   Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
   Route::put('item/{id}','ItemController@update')->name('item.update');
-  Route::delete('item','ItemController@delete')->name('item.delete');  
+  Route::delete('item','ItemController@destroy')->name('item.delete');  
 
   Route::get('preview/item/{id}','PreviewController@item')->name('preview.item');
   Route::get('preview/content/{id}','PreviewController@content')->name('preview.content');
@@ -79,8 +81,10 @@ Route::middleware('user')->group(function () {
 
   Route::namespace('App')->prefix('webapp')->group(function () {
     Route::get('/','WebAppController@index')->name('app.index');
+    
     Route::get('activity/{id}','WebAppController@activity')->name('app.activity');
-    Route::get('item','WebAppController@item')->name('app.item');
+    Route::get('content/{id}','WebAppController@content')->name('app.content');
+
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
     Route::get('profile','WebAppController@profile')->name('app.profile');    

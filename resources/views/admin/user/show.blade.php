@@ -17,7 +17,7 @@
         @include('components.card._profile')
       </div>
       
-      <div class="col-12 col-md-6 col-lg-6">
+      {{-- <div class="col-12 col-md-6 col-lg-6">
         
         <div class="card">
           <form action="{{route('user.update', $user->id)}}" method="POST" enctype="multipart/form-data" >
@@ -96,7 +96,7 @@
 
           </form>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
 </section>

@@ -27,10 +27,10 @@
   </div>
 
   <div class="section-body">
-    <h2 class="section-title">Form Validation</h2>
+    {{-- <h2 class="section-title">Form Validation</h2>
     <p class="section-lead">
       Form validation using default from Bootstrap 4
-    </p>
+    </p> --}}
 
     <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
@@ -40,7 +40,7 @@
             @csrf
             @method('PUT')
             <div class="card-header">
-              <h4>Default Validation</h4>
+              <h4>Formulario de edición</h4>
             </div>
             <div class="card-body">
 

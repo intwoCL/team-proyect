@@ -18,7 +18,7 @@
             <div class="col-sm-12 {{ $col }} col-xs-12">
               <img src="{{ $item->present()->getPhoto() }}" height="240px" alt="">  
             </div>
-            @endif         
+            @endif
             <div class="col-sm-12 col-md-6 col-xs-12">
               {!! $item->present()->getText() !!}
             </div>

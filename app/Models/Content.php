@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Storage;
+use App\Presenters\ContentPresenter;
 
 class Content extends Model
 {
@@ -17,7 +17,7 @@ class Content extends Model
     return $this->hasMany(Item::class,'content_id')->orderBy('position','asc');
   }
 
-  public function getPhoto(){
-    return \Storage::url("$this->folderImg/$this->photo");
+  public function present(){
+    return new ContentPresenter($this);
   }
 }

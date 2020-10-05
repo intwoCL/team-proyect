@@ -27,9 +27,7 @@
   </section>
   <div class="row">
     @foreach ($activities as $a)
-      {{-- @include('webapp.components._card') --}}
       @include('webapp.components._article')
-
     @endforeach
   </div>
 </div>
@@ -48,7 +46,6 @@
         $(this).removeClass('card-items-shadow');
       }
     );
-    value(swiper);
   });
 </script>
 @endpush

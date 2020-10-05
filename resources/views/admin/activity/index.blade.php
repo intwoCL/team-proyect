@@ -13,19 +13,19 @@
     </div>
     <div class="section-body">
       <h2 class="section-title">{{ trans('t.activity_list') }}</h2>
-      <p class="section-lead">This page is for managing packages including questions and answers.</p>
+      {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
             <table id="tableSelect" class="table table-hover table-md">
               <thead>
               <tr>
-                <th>status</th>
-                <th>code</th>
+                <th>Estado</th>
+                <th>Código</th>
                 <th>{{ trans('t.activity_name') }}</th>
                 <th>{{ trans('t.objetive') }}</th>
                 <th>{{ trans('t.level') }}</th>
-                <th></th>
+                <th>Categoría</th>
                 <th></th>
               </tr>
               </thead>
@@ -37,11 +37,11 @@
                 <td>
                   {{ $a->name }}
                   <div class="table-links">
-                    <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div>
+                    {{-- <a href="#">{{ trans('t.view') }}</a>
+                    <div class="bullet"></div> --}}
                     <a href="{{route('activity.edit',$a->id)}}">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="#" class="text-danger">{{ trans('t.trash') }}</a>
+                    {{-- <div class="bullet"></div> --}}
+                    {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
                 </td>
                 <td>{!! $a->objective !!}</td>

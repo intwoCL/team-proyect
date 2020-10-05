@@ -51,30 +51,24 @@ class ScheduleController extends Controller
             $sch->user_id = $user_id;
             $sch->specialist_id = current_user()->id;
             $sch->name = $cal->name;
-            $sch->status = $cal->status;
             $sch->objective = $cal->objective;
-            $sch->comment = '';
             $sch->save();
 
             // Crear los Schedules Activities
             foreach ($cal->activities as $ca) {
                 $sa = new ScheduleActivity();
-                $sa->schedule_id = $sch->id; // ??
+                $sa->schedule_id = $sch->id;
                 $sa->calendar_id = $cal->id;
-                $sa->activity_id = $ca->id;
+                $sa->activity_id = $ca->activity_id;
                 $sa->weekday = $ca->weekday;
                 $sa->worktime = $ca->worktime;
                 $sa->times = $ca->times;
                 $sa->save();
             }
-
             return redirect()->route('schedule.index',$user_id);
-
         } catch (\Throwable $th) {
-            // return redirect()->back()->with('danger',trans('alert.danger'));
-            return $th;
+            return redirect()->back()->with('danger',trans('alert.danger'));
         }
-
     }
 
     /**

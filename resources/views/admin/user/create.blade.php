@@ -86,7 +86,7 @@
                   </select>  
                 </fieldset>
                 <fieldset class="form-group">
-                  <div class="">
+                  <div class="row">
                     <div class="col-form-label col-sm-6 pt-0">¿Es administrador? <small class="text-danger">*</small></div>
                     <label class="custom-switch mt-2">
                       <input type="checkbox" name="admin" class="custom-switch-input">
@@ -101,7 +101,7 @@
                   <div class="row">
                     <div class="col-form-label col-sm-6 pt-0">¿Es especialista? <small class="text-danger">*</small></div>
                     <label class="custom-switch mt-2">
-                      <input type="checkbox" name="admin" class="custom-switch-input">
+                      <input type="checkbox" name="specialist" id="specialist" class="custom-switch-input">
                       <span class="custom-switch-description mr-2">{{ trans('t.no') }}</span>
                       <span class="custom-switch-indicator"></span>
                       <span class="custom-switch-description">{{ trans('t.yes') }}</span>
@@ -109,8 +109,8 @@
                   </div>
                 </fieldset>
 
-                <div class="form-group row">
-                  <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }} <span class="text-danger">*</span></label>
+                <div class="form-group row" hidden id="id_specialty">
+                  <label for="inputSpecialty" class="col-sm-3 col-form-label">{{ trans('t.user.profile.specialty') }}</label>
                   <div class="col-sm-9">
                     <input type="text" name="specialty" class="form-control" id="inputSpecialty" placeholder="{{ trans('t.user.profile.specialty') }}" value="">
                   </div>
@@ -142,4 +142,14 @@
 @push('javascript')
 <script src="/vendor/intwo/validate-run.js"></script>
 <script src="/vendor/intwo/preview.js"></script>
+
+<script>
+$('#specialist').change(function() {
+  if (!this.checked) {
+    $("#id_specialty").attr('hidden',true);
+  }else{
+    $("#id_specialty").removeAttr("hidden");
+  }
+});
+</script>
 @endpush

@@ -32,6 +32,6 @@ class CalendarActivity extends Model
     return "|".$this->times." times| " . $this->activity->present()->getCodeName()." ".$this->worktime;
   }
   public function getCodeNameTimeHTML(){
-    return $this->activity->present()->getCodeName() . "<span class='ml-4 badge badge-primary'>{$this->times}</span>";
+    return $this->activity->present()->getCodeName() . "<span class='ml-4 badge badge-danger '>{$this->times}</span>";
   }
 }

@@ -34,11 +34,12 @@
                 <td>{{ $u->id }}</td>
                 <td>{{ $u->present()->getFullName() }} 
                   <div class="table-links">
+                    <div class="bullet"></div>
                     <a href="{{ route('user.show',$u->id) }}">{{ trans('t.view') }}</a>
                     <div class="bullet"></div>
                     <a href="{{route('user.edit',$u->id)}}">{{ trans('t.edit') }}</a>
-                    <div class="bullet"></div>
-                    <a href="{{ route('user.destroy',$u->id) }}" class="text-danger">{{ trans('t.trash') }}</a>
+                    {{-- <div class="bullet"></div> --}}
+                    {{-- <a href="{{ route('user.destroy',$u->id) }}" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
                 </td>
                 <td>{{ $u->child_name }}</td>

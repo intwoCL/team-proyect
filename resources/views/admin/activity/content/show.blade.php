@@ -22,7 +22,7 @@
         data-target="#createModal">
           Nuevo Item
       </button>
-      <a href="{{ route('preview.content',$content->id) }}" class="btn btn-success btn-sm">Preview</a>
+      <a href="{{ route('preview.content',$content->id) }}" class="btn btn-success btn-sm">Visualizar</a>
     </div>
   </div>
   <div class="section-body">
@@ -39,6 +39,7 @@
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{trans('t.activity.item.type')}}</th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody id="items" data-content="{{ $content->id }}">
@@ -48,25 +49,27 @@
                 <td>{{$i->position}}</td>
                 <td>
                   {{$i->name}}
-                  <div class="table-links">
+                  {{-- <div class="table-links"> --}}
                     {{-- <a href="{{route('item.show',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.view') }}</a> --}}
                     {{-- <div class="bullet"></div> --}}
                     {{-- <a href="{{route('item.edit',[$content->activity->id,$content->id,$i->id])}}">{{ trans('t.edit') }}</a> --}}
                     {{-- <div class="bullet"></div> --}}
                     {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
-                  </div>
+                  {{-- </div> --}}
                 </td>
-                <td>{{ $i->present()->getType() }}</td>
+                <td>{!! $i->present()->getIcons() !!}</td>
                 <td>
+                  <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm">Visualizar</a>
+                </td>
+                <td>
+                
                   <a href="{{ route('item.edit',$i->id) }}" class="btn btn-info btn-sm">Editar</a>
-                  <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm">Preview</a>
-
-                  {{-- <button type="button" class="btn btn-sm btn-danger"
+                  <button type="button" class="btn btn-sm btn-danger"
                   data-toggle="modal"
                   data-target="#deleteModal"
                   data-id="{{$i->id}}">
                     Eliminar
-                  </button> --}}
+                  </button>
                 </td>
               </tr>
               @endforeach
