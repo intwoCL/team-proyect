@@ -44,7 +44,7 @@ table, th, td {
               @for ($i = 0; $i < $max; $i++)
                 <tr>
                 @for ($j = 0; $j < 7; $j++)
-                  <td>{!! !empty($activities[$j][$i]) ? $activities[$j][$i]->getCodeNameTimeHTML() : '' !!}</td>
+                <td class="text-center">{!! !empty($activities[$j][$i]) ? $activities[$j][$i]->getCodeNameTimeHTML() : '' !!}</td>
                 @endfor
                 </tr>
               @endfor

@@ -66,7 +66,7 @@
                 <div class="form-group row">
                   <label for="inputRut" class="col-sm-3 col-form-label">Nombre del niño</label>
                   <div class="col-sm-9">
-                    <input type="text" name="run" class="form-control" autocomplete="off" value="{{ old('child_name') }}" placeholder="">
+                    <input type="text" name="child_name" class="form-control" autocomplete="off" value="{{ old('child_name') }}" placeholder="">
                   </div>
                 </div>
                 <fieldset class="form-group">
