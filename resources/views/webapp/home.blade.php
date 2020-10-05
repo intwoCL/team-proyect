@@ -18,11 +18,3 @@
 @endsection
 @include('webapp.navbar.top')
 @include('webapp.navbar.bottom')
-
-
-
-
-
-
- 
-

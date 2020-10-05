@@ -17,7 +17,7 @@
         </div>
         <div class="card card-primary">
           <div class="row m-0">
-            <div class="col-6 col-md-6 col-lg-6 p-0">
+            <div class="col-md-12 col-lg-6 p-0">
               <div class="card-header text-center"><h4>Acerca de</h4></div>
               <div class="card-body">
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam recusandae atque at exercitationem delectus odit hic distinctio vero dolores iure aspernatur, ratione ducimus quasi quaerat suscipit quos perferendis voluptates accusamus.
@@ -31,7 +31,7 @@
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam recusandae atque at exercitationem delectus odit hic distinctio vero dolores iure aspernatur, ratione ducimus quasi quaerat suscipit quos perferendis voluptates accusamus.
               </div>
             </div>
-            <div class="col-6 col-md-6 col-lg-6 p-0">
+            <div class="col-md-12 col-lg-6 p-0">
               <div class="card-header text-center"><h4>Equipo</h4></div>
                 <div class="card-body">
                   @php

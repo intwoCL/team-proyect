@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Activity;
+use App\Models\Content;
+use App\Models\Item;
 use App\Models\Attention;
 
 class WebAppController extends Controller
@@ -44,8 +46,10 @@ class WebAppController extends Controller
     return $request;
   }
 
-  public function item(){
-    return view('webapp.items');
+  public function content($id){
+    $content = Content::findOrFail($id);
+    $back = route('app.activity',[$content->activity_id]);
+    return view('webapp.content',compact('content','back'));
   }
 
   // public function index(){
