@@ -83,7 +83,7 @@
           <a href="{{ route('about') }}">Acerca de Programa TEAM</a>
           <br>
           <br>
-          <br>  v0.2
+          <br>  v0.3
         </div>
       </div>
     </div>
