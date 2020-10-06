@@ -10,7 +10,7 @@
             <div class="col-md-12">
               <h3 class="text-center">{{ $item->title }}</h3>
             </div>
-            <div class="col-md-12 col-xs-12 mt-2">
+            <div class="col-md-12 col-xs-12 mt-2 text-left">
               {!! $item->present()->getText() !!}
             </div>
           </div>            
