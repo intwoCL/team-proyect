@@ -131,6 +131,35 @@ class UserController extends Controller
       }
     }
 
+    public function updateprofile(UserUpdateRequest $request){
+      try {
+        $u = current_user();
+        $u->email = $request->input('email');
+        $u->first_name = $request->input('first_name');
+        $u->last_name = $request->input('last_name');
+        $u->child_name = !empty($request->input('child_name')) ? $request->input('child_name') : '';
+        $u->lang = $request->input('lang');
+        $u->gender = $request->input('gender');
+        $u->admin = !empty($request->input('admin')) ? true : false;
+        $u->specialist = !empty($request->input('specialist')) ? true : false;
+        $u->specialty = !empty($request->input('specialty')) ? $request->input('specialty') : '';
+
+        if(!empty($request->file('photo'))){
+          $request->validate([
+            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+            $file = $request->file('photo');
+            $filename = time() .'.'.$file->getClientOriginalExtension();
+            $path = $file->storeAs('public/photo_users',$filename);
+            $u->photo= $filename;
+        }
+        $u->update();
+        return back()->with('success',trans('alert.update'));
+      } catch (\Throwable $th) {
+        return back()->with('danger',trans('alert.danger'));
+      }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
@@ -142,10 +171,20 @@ class UserController extends Controller
       
     }
 
-    public function updateEmail(Request $request, $id)
-    {
+    public function updateEmail(Request $request, $id){
       try {
         $u = User::findOrFail($id);
+        $newPassword = $request->input('password');
+        $u->changePassword($newPassword);
+        return back()->with('success',trans('alert.update'));
+      } catch (\Throwable $th) {
+        return back()->with('danger',trans('alert.danger'));
+      }
+    }
+
+    public function updateEmailMyself(Request $request){
+      try {
+        $u = current_user();
         $newPassword = $request->input('password');
         $u->changePassword($newPassword);
         return back()->with('success',trans('alert.update'));

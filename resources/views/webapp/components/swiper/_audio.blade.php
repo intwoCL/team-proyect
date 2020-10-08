@@ -26,7 +26,7 @@
                 </div>
               </div>   
             </div>
-            <div class="col-sm-12 col-md-6 col-xs-12 mt-2">
+            <div class="text-left col-sm-12 col-md-6 col-xs-12 mt-2">
               {!! $item->present()->getText() !!}
             </div>
           </div>            

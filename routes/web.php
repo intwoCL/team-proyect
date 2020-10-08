@@ -37,6 +37,8 @@ Route::middleware('user')->group(function () {
 
   Route::resource('user','UserController');
   Route::put('user/{id}/email','UserController@updateEmail')->name('user.email');
+  Route::put('profile/mail','UserController@updateEmailMyself')->name('user.updateEmailMyself');
+  Route::put('profile','UserController@updateprofile')->name('user.updateprofile');
   Route::get('profile','UserController@profile')->name('user.profile');
   Route::get('user/{user}','UserController@show')->name('user.show');
 
