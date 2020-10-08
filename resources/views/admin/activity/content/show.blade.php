@@ -26,7 +26,8 @@
     </div>
   </div>
   <div class="section-body">
-    <h2 class="section-title">Lista de todos los Items</h2>
+    {{-- <h2 class="section-title">Lista de todos los Items</h2> --}}
+    <h2 class="section-title">Actividad <strong>{{ Str::upper($content->activity->name) }}</strong> / {{ Str::upper($content->name) }} </h2>
     {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
     <div class="card">
       <div class="card-body">
