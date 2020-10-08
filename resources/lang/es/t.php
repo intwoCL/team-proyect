@@ -28,7 +28,7 @@ return [
   'trash' => 'Eliminar',
   'login' => [
     'title' => 'Bienvenidos a ',
-    'email' => 'Correo electronico',
+    'email' => 'Correo electrónico',
     'password' => 'Contraseña',
     'forgot'   => '¿He olvidado mi contraseña?',
     'message' => 'Le enviaremos un correo para restablecer su contraseña',
