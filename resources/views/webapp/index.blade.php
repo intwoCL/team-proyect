@@ -1,3 +1,16 @@
+    
+@php
+    // $days = array( 
+    //   1 => 'LUNES',
+    //   2 => 'MARTES',
+    //   3 => 'MIERCOLES',
+    //   4 => 'JUEVES',
+    //   5 => 'VIERNES',
+    //   6 => 'SABADO',
+    //   7 => 'DOMINGO'
+    // );
+    $days = ['LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SÁBADO','DOMINGO'];
+@endphp
 @extends('webapp.components.app')
 @push('stylesheet')
 
@@ -20,14 +33,22 @@
         <div class="breadcrumb-item">{{ date('d-m-Y') }}</div>
       </div>
     </div>
-    <h2 class="section-title">LUNES</h2>
-    <p class="section-lead">
-      {{-- Form validation using default from Bootstrap 4 --}}
-    </p>
   </section>
   <div class="row">
-    @foreach ($activities as $a)
-      @include('webapp.components._article')
+    @foreach ($calendar_activities as $key => $value)
+      <div class="col-12">
+        <h2>{{ $days[$key] }}</h2>
+      </div>
+      {{-- <div class="col-12"> --}}
+        @foreach ($value as $horario)
+          @php
+          $a = $horario->activity;
+          $times = $horario->times;
+          @endphp
+        
+          @include('webapp.components._article')
+        @endforeach
+      {{-- </div> --}}
     @endforeach
   </div>
 </div>

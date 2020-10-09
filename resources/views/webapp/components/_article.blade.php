@@ -7,7 +7,7 @@
         <h2><a href="#">{{ $a->name }}</a></h2>
       </div>
       <div class="article-badge" style="margin-bottom: 100px; margin-top: 25px;">
-        <div class="article-badge-item bg-info"><strong>10 veces</strong></div>
+        <div class="article-badge-item bg-info"><strong>{{ $times }} veces</strong></div>
       </div>
     </div>
     <div class="article-details">

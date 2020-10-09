@@ -10,12 +10,15 @@ use App\Models\Activity;
 use App\Models\Content;
 use App\Models\Item;
 use App\Models\Attention;
+use App\Models\Schedule;
 
 class WebAppController extends Controller
 {
   public function index(){
-    $activities = Activity::get();
-    return view('webapp.index',compact('activities'));
+    $calendar = Schedule::where('user_id',current_user()->id)->where('status',2)->firstOrFail();
+    $calendar_activities = $calendar->present()->getActivitiesTable();
+    // return $calendar_activities;
+    return view('webapp.index',compact('calendar','calendar_activities'));
   }
 
   public function calendar($month,$year){

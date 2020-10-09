@@ -11,9 +11,9 @@ class SchedulePresenter extends Presenter
   );
 
   private $colorState = array( 
-    1 => 'info',
-    2 => 'warning',
-    3 => 'success'
+    1 => 'warning',
+    2 => 'success',
+    3 => 'danger'
   );
 
   public function getState(){
