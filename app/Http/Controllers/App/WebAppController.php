@@ -15,10 +15,10 @@ use App\Models\Schedule;
 class WebAppController extends Controller
 {
   public function index(){
-    $calendar = Schedule::where('user_id',current_user()->id)->where('status',2)->firstOrFail();
-    $calendar_activities = $calendar->present()->getActivitiesTable();
-    // return $calendar_activities;
-    return view('webapp.index',compact('calendar','calendar_activities'));
+    $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->firstOrFail();
+    $Schedule_days = $schedule->present()->getActivitiesTable();
+    ksort($Schedule_days);
+    return view('webapp.index',compact('schedule','Schedule_days'));
   }
 
   public function calendar($month,$year){
@@ -46,19 +46,12 @@ class WebAppController extends Controller
     return view('webapp.activity',compact('activity'));
   }
 
-  public function store(Request $request){
-    return $request;
-  }
-
   public function content($id){
     $content = Content::findOrFail($id);
     $back = route('app.activity',[$content->activity_id]);
     return view('webapp.content',compact('content','back'));
   }
 
-  // public function index(){
-  //   return view('webapp.welcome');
-  // }
 
 
 }

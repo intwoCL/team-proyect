@@ -29,6 +29,7 @@ class SchedulePresenter extends Presenter
     $activities = $this->model->schedulesActivities;
     $calendars = [];
     for ($i = 0; $i < count($activities); $i++) {
+      // $calendars[$activities[$i]->weekday-1][] = $activities[$i];
       switch ($activities[$i]->weekday) {
         case 1:
           $calendars[0][] = $activities[$i];

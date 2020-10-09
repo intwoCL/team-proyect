@@ -8,29 +8,25 @@
         <div class="card-body">
           <div class="row">
             <div class="col-md-12">
-              <h3 class="text-center">¿Cómo te ha parecido?</h3>
+              <h3 class="text-center">¿Tipo de instigación?</h3>
             </div>
             <div class="col-sm-12 COL-md-12 col-xs-12">
               <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
                 <div class="mr-3">
-                  <i class="fa fa-smile fa-4x text-primary face" role="button"></i>
-                  <p>Normal</p>
+                  <i class="fa fa-square fa-4x text-primary face" role="button"></i>
+                  <p>Sin instigación</p>
                 </div>
                 <div class="mr-3">
-                  <i class="fa fa-smile-beam fa-4x text-warning face" role="button"></i>
-                  <p>Bien</p>
+                  <i class="fa fa-square fa-4x text-warning face" role="button"></i>
+                  <p>Verbal</p>
                 </div>
                 <div class="mr-3">
-                  <i class="fa fa-laugh-beam fa-4x text-success face" role="button"></i>
-                  <p>Muy Bien</p>
+                  <i class="fa fa-square fa-4x text-success face" role="button"></i>
+                  <p>Moderado</p>
                 </div>
                 <div class="mr-3">
-                  <i class="fa fa-smile fa-4x text-danger face" role="button"></i>
-                  <p>Normal</p>
-                </div>
-                <div class="mr-3">
-                  <i class="fa fa-smile fa-4x text-dark face" role="button"></i>
-                  <p>Normal</p>
+                  <i class="fa fa-square fa-4x text-danger face" role="button"></i>
+                  <p>Física</p>
                 </div>
               </div>
             </div>

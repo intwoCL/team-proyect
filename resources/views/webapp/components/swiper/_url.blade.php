@@ -21,7 +21,7 @@
         <div class="card-footer d-flex justify-content-around">
           {{-- <button class="btn btn-secondary">ATRAS</button> --}}
           {{-- <button class="btn btn-success">CONTINUAR</button> --}}
-          <a href="{{ $item->data }}" class="btn btn-primary">Ir al enlace</a>  
+          <a href="{{ $item->data }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Ir al enlace</a>  
         </div>
       </div>
     {{-- </div> --}}
