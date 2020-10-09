@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attention extends Model
 {
-  public $states = ['Pending','Complete','Canceled'];
+  public $states = ['Pendiente','Asistió','Cancelado'];
   private $colorCss = ['#f39c12','#00a65a','#dd4b39'];
   private $colorState = ['warning','success','danger'];
 

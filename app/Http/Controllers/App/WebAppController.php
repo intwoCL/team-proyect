@@ -22,6 +22,7 @@ class WebAppController extends Controller
     $attentions = Attention::where('user_id',current_user()->id)->whereMonth('attention_date', $month)
 ->whereYear('attention_date', $year)->get();
     $date = date_format(Carbon::parse("$year-$month-01"),'Y-m');
+    // return $attentions;
     return view('webapp.calendar',compact('attentions','date'));
   }
 
