@@ -15,9 +15,14 @@ use App\Models\Schedule;
 class WebAppController extends Controller
 {
   public function index(){
-    $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->firstOrFail();
-    $Schedule_days = $schedule->present()->getActivitiesTable();
-    ksort($Schedule_days);
+    $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->first();
+    if(!empty($schedule)){
+      $Schedule_days = $schedule->present()->getActivitiesTable();
+      ksort($Schedule_days);
+    }else{
+      $schedule = null;
+      $Schedule_days = [];
+    }
     return view('webapp.index',compact('schedule','Schedule_days'));
   }
 
