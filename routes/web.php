@@ -89,7 +89,8 @@ Route::middleware('user')->group(function () {
 
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
-    Route::get('profile','WebAppController@profile')->name('app.profile');    
+    Route::get('profile','WebAppController@profile')->name('app.profile');
+    Route::get('about','WebAppController@about')->name('app.about'); 
   });
 
 });
