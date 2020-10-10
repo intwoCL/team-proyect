@@ -73,8 +73,7 @@ class AuthUserController extends Controller
       Mail::to($u->email)->queue($mail);
       return back()->with('success','Se ha enviado un correo.');
     } catch (\Throwable $th) {
-      return $th;
-      // return back()->with('danger','Error intente nuevamente.');
+      return back()->with('danger','Error intente nuevamente.');
     }
   }
 

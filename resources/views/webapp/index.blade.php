@@ -28,7 +28,7 @@
     </div>
   </section>
   <div class="row">
-    @foreach ($Schedule_days as $key => $value)
+    @forelse ($Schedule_days as $key => $value)
       <div class="col-12" id="{{ $days[$key] }}">
         <h2>
           @if ($key+1==$numberDay)
@@ -48,7 +48,9 @@
         @endforeach
       {{-- </div> --}}
       <div class=""></div>
-    @endforeach
+    @empty
+    
+    @endforelse
   </div>
 </div>
 @endsection
