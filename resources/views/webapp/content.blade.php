@@ -25,7 +25,20 @@
     <div class="swiper-container" data-pagination-type='progress' style="margin-top: 100px;">
       <div class="swiper-wrapper">
         {{-- 1 => 'URL', 2 => 'Video', 3 => 'Imagen', 4 => 'Audio', 5 => 'Texto', --}}
+        @php
+          $i = 1;
+          $count = count($content->items);
+          $btnFinish = false;
+        @endphp
         @foreach ($content->items as $item)
+          @php
+            if (!$content->quiz) { 
+              if($i==$count){
+                $btnFinish = true;
+              }
+              $i++;
+            }
+          @endphp
           <div class="swiper-slide">
             @switch($item->type)
             @case(1)
@@ -65,7 +78,6 @@
 @endsection
 @push('footerNav')
 @include('webapp.components.top')
-{{-- @include('webapp.components.bottom') --}}
 @endpush
 @push('javascript')
 <script src="/vendor/swiper/js/swiper-bundle.min.js"></script>
@@ -113,12 +125,11 @@
     btnBack.play();
   }
 
-  function buttonFinish(){
-    var comment = document.getElementById("comment");
-    console.log(comment);
-    // btnFinish.volume = 0.5;
-    btnFinish.play();
-  }
+  // function buttonFinish(){
+  //   var comment = document.getElementById("comment");
+  //   // btnFinish.volume = 0.5;
+  //   btnFinish.play();
+  // }
   btnFinish.addEventListener("ended", function(){
     window.location.href = btnFinish.dataset.url;
   });
@@ -138,5 +149,42 @@
     );
     value(swiper);
   });
+
+
+  function sendingSurveys(point = 0){
+        // //get the input value
+        // $someInput = $('#someInput').val();
+        // $.ajax({
+        //     //the url to send the data to
+        //     url: "ajax/url.ajax.php",
+        //     //the data to send to
+        //     data: {someInput : $someInput},
+        //     //type. for eg: GET, POST
+        //     type: "POST",
+        //     //datatype expected to get in reply form server
+        //     dataType: "json",
+        //     //on success
+        //     success: function(data){
+        //         //do something after something is recieved from php
+        //     },
+        //     //on error
+        //     error: function(){
+        //         //bad request
+        //     }
+        // });
+    console.log(point);
+
+    }
+
+  function finishContent(){
+    var comment = $('#comment').val();
+    if(comment != null){
+      console.log(comment);
+    }else{
+      console.log("null");
+    }
+  }
+  
+
 </script>
 @endpush

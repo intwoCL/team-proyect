@@ -31,7 +31,7 @@
               <div class="article-image" data-background="{{  $activity->present()->getPhoto()  }}" style="background-image: url('{{  $activity->present()->getPhoto() }}');">
               </div>
               <div class="article-badge">
-                <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i> 10 veces</div>
+                <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i>{{ $scheduleActivity->times }} veces</div>
               </div>
             </div>
             <div class="article-details">
@@ -49,7 +49,7 @@
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
           @foreach ($activity->contents as $content)
-            @include('webapp.components._card')
+          @include('webapp.components._card')
           @endforeach
         </div>
       </div>

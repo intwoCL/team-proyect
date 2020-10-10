@@ -6,7 +6,6 @@
 @endphp
 @extends('webapp.components.app')
 @push('stylesheet')
-
 <style>
   .card-horizontal {
     display: flex;
@@ -37,19 +36,18 @@
           {{ $days[$key] }}
         </h2>
       </div>
-      {{-- <div class="col-12"> --}}
-        @foreach ($value as $horario)
-          @php
-          $a = $horario->activity;
-          $times = $horario->times;
-          @endphp
-        
-          @include('webapp.components._article')
-        @endforeach
-      {{-- </div> --}}
-      <div class=""></div>
+      @foreach ($value as $horario)
+        @php
+        $a = $horario->activity;
+        $times = $horario->times;
+        @endphp
+      
+        @include('webapp.components._article')
+      @endforeach
     @empty
-    
+      <div class="col-12">
+        <h4>No tienes actividades asignadas</h4>
+      </div>
     @endforelse
   </div>
 </div>

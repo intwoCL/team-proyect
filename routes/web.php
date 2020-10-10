@@ -83,9 +83,12 @@ Route::middleware('user')->group(function () {
 
   Route::namespace('App')->prefix('webapp')->group(function () {
     Route::get('/','WebAppController@index')->name('app.index');
-    
+
     Route::get('activity/{id}','WebAppController@activity')->name('app.activity');
-    Route::get('content/{id}','WebAppController@content')->name('app.content');
+
+
+    // Route::get('activity/{id}','WebAppController@activity')->name('app.activity');
+    Route::get('activity/{id}/content/{content_id}','WebAppController@content')->name('app.content');
 
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
