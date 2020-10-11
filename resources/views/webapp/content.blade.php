@@ -71,6 +71,7 @@
 
 <div style="display: none;">
   <audio id="fx-back"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
+  <audio id="fx-store"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
   <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
   <audio id="fx-finish" data-url="/webapp"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
 </div>
@@ -125,11 +126,11 @@
     btnBack.play();
   }
 
-  // function buttonFinish(){
-  //   var comment = document.getElementById("comment");
-  //   // btnFinish.volume = 0.5;
-  //   btnFinish.play();
-  // }
+  function buttonFinish(){
+    btnFinish.volume = 0.5;
+    btnFinish.play();
+  }
+  
   btnFinish.addEventListener("ended", function(){
     window.location.href = btnFinish.dataset.url;
   });
@@ -151,38 +152,40 @@
   });
 
 
-  function sendingSurveys(point = 0){
-        // //get the input value
-        // $someInput = $('#someInput').val();
-        // $.ajax({
-        //     //the url to send the data to
-        //     url: "ajax/url.ajax.php",
-        //     //the data to send to
-        //     data: {someInput : $someInput},
-        //     //type. for eg: GET, POST
-        //     type: "POST",
-        //     //datatype expected to get in reply form server
-        //     dataType: "json",
-        //     //on success
-        //     success: function(data){
-        //         //do something after something is recieved from php
-        //     },
-        //     //on error
-        //     error: function(){
-        //         //bad request
-        //     }
-        // });
-    console.log(point);
+  const url = "{{ route('app.summary.update') }}";
+  var data = {
+    id: {{ $summary->id }},
+    saId : {{ $scheduleActivity->id }},
+    cId : {{ $content->id }}
+  }
+  function sendingSurveys(store = 0){
+    var soundSend = document.getElementById("fx-store");
+    soundSend.volume = 0.5;
+    soundSend.play();
 
-    }
+    data.store = store;
+    axios.put(url, { data })
+    .then(resp => {
+      if(resp.data.code=="ok"){
+        console.log("enviado");
+      }
+    }).catch(e => {
+      console.error("error");
+    });
+  }
 
   function finishContent(){
-    var comment = $('#comment').val();
-    if(comment != null){
-      console.log(comment);
-    }else{
-      console.log("null");
-    }
+    var feedback = $('#feedback').val();
+    data.feedback = feedback;
+    data.finish = true;
+    axios.put(url, { data })
+    .then(resp => {
+      if(resp.data.code=="exit"){
+        buttonFinish();
+      }
+    }).catch(e => {
+      console.error("error");
+    });
   }
   
 

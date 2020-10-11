@@ -30,7 +30,7 @@
             </div>
           </div>
           <div class="col-sm-12 col-md-12 col-xs-12 d-flex justify-content-center">
-            <textarea name="comment" id="comment" class="form-control" cols="40" rows="5" style="width: 300px; height: auto;" placeholder="Deja acá tu comentario"></textarea>
+            <textarea name="feedback" id="feedback" class="form-control" cols="40" rows="5" style="width: 300px; height: auto;" placeholder="Deja acá tu comentario"></textarea>
           </div>
         </div>            
       </div>

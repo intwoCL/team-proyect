@@ -12,6 +12,7 @@ use App\Models\Item;
 use App\Models\Attention;
 use App\Models\Schedule;
 use App\Models\ScheduleActivity;
+use App\Models\ActivitySummary;
 
 class WebAppController extends Controller
 {
@@ -41,22 +42,24 @@ class WebAppController extends Controller
     }
   }
 
-  // public function activity($id){
-  //   $activity = Activity::findOrFail($id);
-  //   return view('webapp.activity',compact('activity'));
-  // }
-
   // id_sa = ScheduleActivity
-  public function content($id_sa,$id_content){
+  public function content($sa_id,$content_id){
     try {
       //comprueba el curso
-      $scheduleActivity = ScheduleActivity::findOrFail($id_sa);
+      $scheduleActivity = ScheduleActivity::findOrFail($sa_id);
       // es mi horario, esta activado y es la id correcta
       $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->findOrFail($scheduleActivity->schedule_id);
-      $content = Content::findOrFail($id_content);
-      $back = route('app.activity',[$id_sa]);
+      $content = Content::findOrFail($content_id);
+      $back = route('app.activity',[$sa_id]);
 
-      return view('webapp.content',compact('scheduleActivity','content','back'));
+      // register activity
+      $summary = new ActivitySummary();
+      $summary->content_id = $content_id;
+      $summary->schedule_activity_id = $scheduleActivity->id;
+      $summary->user_id = current_user()->id;
+      $summary->save();
+
+      return view('webapp.content',compact('scheduleActivity','content','back','summary'));
     } catch (\Throwable $th) {
       return $th;
     }
