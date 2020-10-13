@@ -21,7 +21,7 @@ class ScheduleActivity extends Model
   }
 
   public function activitiesSummaries(){
-    return $this->hasMany(ActivitySummaries::class,'schedule_activity_id');
+    return $this->hasMany(ActivitySummary::class,'schedule_activity_id');
   }
 
   public function getCodeNameTimeHTML(){
