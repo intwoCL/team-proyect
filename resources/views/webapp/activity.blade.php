@@ -31,7 +31,7 @@
               <div class="article-image" data-background="{{  $activity->present()->getPhoto()  }}" style="background-image: url('{{  $activity->present()->getPhoto() }}');">
               </div>
               <div class="article-badge">
-                <div class="article-badge-item bg-danger"><i class="fas fa-fire"></i>{{ $scheduleActivity->times }} veces</div>
+                <div class="article-badge-item bg-info"><i class="fas fa-history"></i>{{ $scheduleActivity->times }} veces</div>
               </div>
             </div>
             <div class="article-details">

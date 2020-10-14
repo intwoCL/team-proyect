@@ -2,11 +2,15 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use App\Presenters\ContentPresenter;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Content extends Model
 {
+  use SoftDeletes;
+
   private $folderImg = 'photo_contents';
 
   public function activity(){

@@ -124,7 +124,6 @@ class ScheduleActivityController extends Controller
     }
 
     
-    
 
   }
 }
