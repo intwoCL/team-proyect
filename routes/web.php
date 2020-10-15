@@ -17,7 +17,7 @@ Route::middleware('user')->group(function () {
 
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 
-  Route::resource('activity','ActivityController');
+  Route::resource('activity','ActivityController',['except'=>['destroy']]);
   Route::get('activity/{activity_id}/content/create','ContentController@create')->name('content.create');
   Route::get('activity/{activity_id}/content/{id}/edit','ContentController@edit')->name('content.edit');
   Route::put('activity/{activity_id}/content/{id}/edit','ContentController@update')->name('content.update');
@@ -29,7 +29,10 @@ Route::middleware('user')->group(function () {
   Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
   Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
   Route::put('item/{id}','ItemController@update')->name('item.update');
-  Route::delete('item','ItemController@destroy')->name('item.delete');  
+
+  Route::delete('item','ItemController@destroy')->name('item.delete');
+  Route::delete('content','ContentController@destroy')->name('content.delete');
+  Route::delete('activity','ActivityController@destroy')->name('activity.delete');
 
   Route::get('preview/item/{id}','PreviewController@item')->name('preview.item');
   Route::get('preview/content/{id}','PreviewController@content')->name('preview.content');

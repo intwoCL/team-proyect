@@ -14,6 +14,12 @@
   .face-shadow {
     text-shadow: 1px 2px 4px #4b4a4a !important;
   }
+
+  /* .face-active{
+    text-shadow: 0px 0px 10px red !important;
+    background-color: red !important;
+  } */
+  
   /* p{
     font-size: 14px !important;
   } */
@@ -148,6 +154,15 @@
         $(this).removeClass('face-shadow');
       }
     );
+
+    $(".face").click(
+      function() {
+        $(this).addClass('face-active'); 
+      }, function() {
+        $(this).removeClass('face-active');
+      }
+    );
+
     value(swiper);
   });
 
@@ -167,7 +182,7 @@
     axios.put(url, { data })
     .then(resp => {
       if(resp.data.code=="ok"){
-        console.log("enviado");
+        toastShow(store);
       }
     }).catch(e => {
       console.error("error");
@@ -187,7 +202,24 @@
       console.error("error");
     });
   }
-  
 
+  function toastShow(store){
+    iziToast.settings({
+      // timeout: 3000,
+      position: 'bottomCenter',
+      transitionIn: 'flipInX',
+      transitionOut: 'flipOutX',
+      messageColor: 'white',
+    });
+    let message = "Muchas gracias";
+    let color = ['#6777ef','#ffa426','#47c363','#fc544b'];
+    iziToast.success({
+      backgroundColor: color[store-1],
+      message: message
+    });
+  }
 </script>
+
+
+
 @endpush

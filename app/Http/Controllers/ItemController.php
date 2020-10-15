@@ -113,14 +113,13 @@ class ItemController extends Controller
     try {
       $i = Item::findOrFail($request->input('id'));
       
-      $contents = $i->content->items;
-      $x = $i->position;
-      foreach ($contents as $item) {
-        if($item->position == $x){
-          $item->position -= 1;
-          $item->update();
-          $x++;
-        }
+      $items = $i->content->items;
+      $x = 1;
+      foreach ($items as $item) {
+        if($item->id == $i->id){ continue; }
+        $item->position = $x;
+        $item->update();
+        $x++;
       }
       $i->delete();
 

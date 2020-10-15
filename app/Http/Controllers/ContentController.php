@@ -115,9 +115,25 @@ class ContentController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function destroy($id)
+  public function destroy(Request $request)
   {
-    //
+    try {
+      $c = Content::findOrFail($request->input('id'));
+      
+      $contents = $c->activity->contents;
+      $x = 1;
+      foreach ($contents as $content) {
+        if($content->id == $c->id){ continue; }
+        $content->position = $x;
+        $content->update();
+        $x++;
+      }
+      
+      $c->delete();
+      return redirect()->route('activity.show',$c->activity_id)->with('success',trans('alert.success'));
+    } catch (\Throwable $th) {
+      return back()->with('danger',trans('alert.danger'));
+    }
   }
 
   public function changePosition($id, Request $request){

@@ -24,6 +24,12 @@
       <div class="breadcrumb-item"><a href="#">Forms</a></div>
       <div class="breadcrumb-item">Form Validation</div>
     </div> --}}
+    <button type="button" class="ml-2 btn btn-sm btn-danger"
+    data-toggle="modal"
+    data-target="#deleteModal"
+    data-id="{{$activity->id}}">
+      Eliminar
+    </button>
   </div>
 
   <div class="section-body">
@@ -141,6 +147,9 @@
   </div>
 </section>
 @endsection
+@push('outerDiv')
+  @include('components.modal._delete')
+@endpush
 @push('javascript')
 <script src="/vendor/intwo/preview.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
@@ -174,5 +183,18 @@
        $('.ckeditor').ckeditor();
     });
 </script> --}}
+<script>
+  $(function () {
+    $('#deleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      var id = button.data('id');
+      var url = "{{route('activity.delete')}}";
+      modal.find('.modal-title').text('¿Desea eliminar la actividad?');
+      modal.find('.modal-body input').val(id);
+      modal.find('#formDelete').attr('action',url);
+    });
+  });
+</script>
 @endpush
 

@@ -71,8 +71,8 @@ class ActivityController extends Controller
       }
       return redirect()->route('activity.index')->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
-      return $th;
-      // return redirect()->back()->with('danger',trans('alert.danger'));
+      // return $th;
+      return redirect()->back()->with('danger',trans('alert.danger'));
     }
   }
 
@@ -163,9 +163,15 @@ class ActivityController extends Controller
    * @param  int  $id
    * @return \Illuminate\Http\Response
    */
-  public function destroy($id)
+  public function destroy(Request $request)
   {
-    //
+    try {
+      $a = Activity::findOrFail($request->input('id'));
+      $a->delete();
+      return redirect()->route('activity.index')->with('success',trans('alert.success'));
+    } catch (\Throwable $th) {
+      return back()->with('danger',trans('alert.danger'));
+    }
   }
 
   //crear funcion buscar codigo de largo 10

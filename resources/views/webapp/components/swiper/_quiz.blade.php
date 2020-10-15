@@ -16,12 +16,12 @@
                 <p>Sin instigación</p>
               </div>
               <div class="mr-3">
-                <i class="fa fa-square fa-4x text-warning face" role="button" onclick="sendingSurveys(2)"></i>
+                <i class="fa fa-square fa-4x text-warning face face-active" role="button" onclick="sendingSurveys(2)"></i>
                 <p>Verbal</p>
               </div>
               <div class="mr-3">
                 <i class="fa fa-square fa-4x text-success face" role="button" onclick="sendingSurveys(3)"></i>
-                <p>Moderado</p>
+                <p>Modelado</p>
               </div>
               <div class="mr-3">
                 <i class="fa fa-square fa-4x text-danger face" role="button" onclick="sendingSurveys(4)"></i>
