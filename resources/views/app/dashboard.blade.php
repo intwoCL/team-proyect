@@ -57,7 +57,7 @@
   </section>
 @endsection
 @push('javascript')  
-@include('partials._integrations')
+@include('partials._chat')
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
 <script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
 <script>

@@ -138,7 +138,7 @@
   }
   
   btnFinish.addEventListener("ended", function(){
-    window.location.href = btnFinish.dataset.url;
+    window.location.href = "{{ $back }}";
   });
 
   btnBack.addEventListener("ended", function(){
