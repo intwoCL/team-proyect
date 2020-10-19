@@ -13,7 +13,7 @@
     <div class="row">
       <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
         <div class="login-brand">
-          <h4 class="text-dark font-weight-normal">{{ trans('t.login.title') }} <span class="font-weight-bold">TEAM</span></h4>
+          <h4 class="text-dark font-weight-normal">{{ trans('t.login.title') }} <span class="font-weight-bold">Programa TEAM</span></h4>
         </div>
 
         <div class="card card-primary">
@@ -56,11 +56,11 @@
                     {{ trans('t.login.btn.login') }}
                   </button>
                 </div>
-                <div class="form-group text-right">
+                {{-- <div class="form-group text-right">
                   <a href="{{ route('reset.password') }}" class="float-left mt-3">
                     {{ trans('t.login.forgot') }}
                   </a>
-                </div>
+                </div> --}}
 
                 {{-- solo android --}}
                 {{-- <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" /> --}}
@@ -83,7 +83,7 @@
           <a href="{{ route('about') }}">Acerca de Programa TEAM</a>
           <br>
           <br>
-          <br>  v0.3
+          <br> v1.0.1
         </div>
       </div>
     </div>
@@ -98,6 +98,7 @@
         Android.showToast(toast);
     }
 </script> --}}
+@include('partials._chat')
 </body>
 </html>
 

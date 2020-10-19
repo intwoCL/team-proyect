@@ -15,9 +15,14 @@
     <p class="section-lead">
       {{-- Form validation using default from Bootstrap 4 --}}
       @include('components.card._profile')
+
+      <img onclick="smartsupp('chat:open');">
+      <a href="#" onclick="smartsupp('chat:open'); return false;" class="btn btn-info"> <i class="fa fa-support"></i> Chat de soporte</a>
     </p>
+    
   </section>
   <div class="row">
+   
   </div>
 </div>
 @endsection
@@ -25,5 +30,5 @@
 @include('webapp.components.bottom')
 @endpush
 @push('javascript')
-
+@include('partials._chat')
 @endpush
