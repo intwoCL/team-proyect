@@ -152,7 +152,7 @@
 
   function buttonFinish(){
     var comment = document.getElementById("comment");
-    console.log(comment);
+    // console.log(comment);
     // btnFinish.volume = 0.5;
     btnFinish.play();
   }

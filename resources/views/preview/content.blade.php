@@ -101,7 +101,7 @@
     $('#barProgress')[0].dataset['width'] = por+"%";
     $('#barProgress')[0].style.width = por+"%";
 
-    console.log("a " + actual + "  - largo " + largo + "  por" + por);
+    // console.log("a " + actual + "  - largo " + largo + "  por" + por);
   }
 
   // button back 
