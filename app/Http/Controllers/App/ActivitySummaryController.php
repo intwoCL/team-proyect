@@ -44,7 +44,7 @@ class ActivitySummaryController extends Controller
       // return $th;
       return \response()->json([
         'status' => '400',
-        'message' => 'error'], Response::HTTP_BAD_REQUEST);
+        'message' => 'error'], 400);
     }
   }
 }
