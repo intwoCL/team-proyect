@@ -120,7 +120,7 @@
     sort: true,
     chosenClass: 'active',
     onEnd: function(evt) {
-      console.log(evt.oldIndex +','+ evt.newIndex);
+      // console.log(evt.oldIndex +','+ evt.newIndex);
       var newIndex = evt.newIndex+1;
       var oldIndex = evt.oldIndex+1;
 
