@@ -104,7 +104,7 @@
       var modal = $(this);
       var id = button.data('id');
       var url = "{{route('item.delete')}}";
-      modal.find('.modal-title').text('¿Desea eliminar al item?');
+      modal.find('.modal-title').text('¿Desea eliminar item?');
       modal.find('.modal-body input').val(id);
       modal.find('#formDelete').attr('action',url);
     });

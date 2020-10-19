@@ -74,29 +74,31 @@ class ItemController extends Controller
         }
       }elseif($i->type == 4){
         if(!empty($request->file('audio'))){
+          $validator = $request->validate([
+            'audio' => 'required|mimes:mp3|max:4096',
+          ]);
           $file = $request->file('audio');
           $filename = time().'.'.$file->getClientOriginalExtension();
           $path = $file->storeAs('public/audio_items',$filename);
           $i->data = $filename;
-
-          if(!empty($request->file('image'))){
-            $request->validate([
-              'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
-            $file1 = $request->file('image');
-            $filename1 = time().'.'.$file1->getClientOriginalExtension();
-            $path1 = $file1->storeAs('public/photo_items',$filename1);
-            $i->image = $filename1;
-          }
+        }
+        if(!empty($request->file('image'))){
+          $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+          ]);
+          $file1 = $request->file('image');
+          $filename1 = time().'.'.$file1->getClientOriginalExtension();
+          $path1 = $file1->storeAs('public/photo_items',$filename1);
+          $i->image = $filename1;
         }
       }
-
       $c = Content::findOrFail($i->content_id);
       $a = Activity::findOrFail($c->activity_id);
       $i->update();
       return back()->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
       return back()->with('danger',trans('alert.danger'));
+      // return $th;
     }
   }
 
@@ -110,12 +112,21 @@ class ItemController extends Controller
   {
     try {
       $i = Item::findOrFail($request->input('id'));
+      
+      $items = $i->content->items;
+      $x = 1;
+      foreach ($items as $item) {
+        if($item->id == $i->id){ continue; }
+        $item->position = $x;
+        $item->update();
+        $x++;
+      }
       $i->delete();
+
       return back()->with('success',trans('alert.delete'));
     } catch (\Throwable $th) {
       return back()->with('danger',trans('alert.danger'));
     }
-
   }
 
   public function changePosition($activity_id,$content_id, Request $request){

@@ -23,6 +23,7 @@
                   <th>Objetivo</th>
                   <th>Estado</th>
                   <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -34,7 +35,10 @@
                 <td><span class="badge badge-{{ $sch->present()->getColor() }}">{{ $sch->present()->getState() }}</span></td>
                 <td>
                   <a href="{{ route('schedule.show',$sch->id) }}" class="btn btn-sm btn-info">Ver</a>
-                  <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">editar</a>
+                  <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">Editar</a>
+                </td>
+                <td>
+                  {{-- <a href="{{ route('schedule.report',$sch->id) }}" class="btn btn-sm btn-warning">Reportes</a> --}}
                 </td>
               </tr>
               @endforeach

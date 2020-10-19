@@ -44,9 +44,13 @@
               <tbody>
                 @forelse ($attentions as $a)
                 <tr>
-                  <td class="bg-{{ $a->getColor() }}">{{ $a->getState() }}</td>
+                  <td>
+                    <span class="badge badge-{{ $a->getColor() }} rounded-0">
+                      {{ $a->getState() }}
+                    </span>
+                  </td>
                   <td>{{ $a->getAttentionDate() }}</td>
-                  <td>{{ $a->specialist()->present()->getFullName() }}</td>
+                  <td>{{ $a->specialist->present()->getFullName() }}</td>
                 </tr>
                 @empty
                 <tr>

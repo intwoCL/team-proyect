@@ -1,6 +1,11 @@
+    
+@php
+    $date = \Carbon\Carbon::now();
+    $numberDay = $date->isoFormat('E');
+    $days = ['LUNES','MARTES','MIERCOLES','JUEVES','VIERNES','SÁBADO','DOMINGO'];
+@endphp
 @extends('webapp.components.app')
 @push('stylesheet')
-
 <style>
   .card-horizontal {
     display: flex;
@@ -15,20 +20,35 @@
 <div class="container" style="padding-top: 90px !important;">
   <section class="section">
     <div class="section-header">
-      <h1>Actividades</h1>
+      <h1>Actividades <a href="#{{ $days[$numberDay-1] }}" class="btn btn-info">Hoy</a></h1>
       <div class="section-header-breadcrumb">
         <div class="breadcrumb-item">{{ date('d-m-Y') }}</div>
       </div>
     </div>
-    <h2 class="section-title">LUNES</h2>
-    <p class="section-lead">
-      {{-- Form validation using default from Bootstrap 4 --}}
-    </p>
   </section>
   <div class="row">
-    @foreach ($activities as $a)
-      @include('webapp.components._article')
-    @endforeach
+    @forelse ($Schedule_days as $key => $value)
+      <div class="col-12" id="{{ $days[$key] }}">
+        <h2>
+          @if ($key+1==$numberDay)
+            <i class="fa fa-star text-warning"></i> 
+          @endif
+          {{ $days[$key] }}
+        </h2>
+      </div>
+      @foreach ($value as $horario)
+        @php
+        $a = $horario->activity;
+        $times = $horario->times;
+        @endphp
+      
+        @include('webapp.components._article')
+      @endforeach
+    @empty
+      <div class="col-12">
+        <h4>No tienes actividades asignadas</h4>
+      </div>
+    @endforelse
   </div>
 </div>
 @endsection

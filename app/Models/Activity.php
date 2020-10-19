@@ -3,10 +3,14 @@
 namespace App\Models;
 
 use App\Presenters\ActivityPresenter;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Activity extends Model
 {
+  use SoftDeletes;
+
   protected $table = 'activities';
 
   public $selected = false;

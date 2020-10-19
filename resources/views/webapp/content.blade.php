@@ -14,6 +14,12 @@
   .face-shadow {
     text-shadow: 1px 2px 4px #4b4a4a !important;
   }
+
+  /* .face-active{
+    text-shadow: 0px 0px 10px red !important;
+    background-color: red !important;
+  } */
+  
   /* p{
     font-size: 14px !important;
   } */
@@ -25,7 +31,20 @@
     <div class="swiper-container" data-pagination-type='progress' style="margin-top: 100px;">
       <div class="swiper-wrapper">
         {{-- 1 => 'URL', 2 => 'Video', 3 => 'Imagen', 4 => 'Audio', 5 => 'Texto', --}}
+        @php
+          $i = 1;
+          $count = count($content->items);
+          $btnFinish = false;
+        @endphp
         @foreach ($content->items as $item)
+          @php
+            if (!$content->quiz) { 
+              if($i==$count){
+                $btnFinish = true;
+              }
+              $i++;
+            }
+          @endphp
           <div class="swiper-slide">
             @switch($item->type)
             @case(1)
@@ -58,6 +77,7 @@
 
 <div style="display: none;">
   <audio id="fx-back"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
+  <audio id="fx-store"><source type="audio/mp3" src="/fx/effects/bottle-cork.mp3"></audio>
   <audio id="fx-slider" controls> <source type="audio/mp3" src="/fx/effects/swoosh.mp3"></audio>
   <audio id="fx-finish" data-url="/webapp"> <source type="audio/wav" src="/fx/effects/Warm_Interface_Sound_7.wav"></audio>
 </div>
@@ -65,7 +85,6 @@
 @endsection
 @push('footerNav')
 @include('webapp.components.top')
-{{-- @include('webapp.components.bottom') --}}
 @endpush
 @push('javascript')
 <script src="/vendor/swiper/js/swiper-bundle.min.js"></script>
@@ -114,11 +133,10 @@
   }
 
   function buttonFinish(){
-    var comment = document.getElementById("comment");
-    console.log(comment);
-    // btnFinish.volume = 0.5;
+    btnFinish.volume = 0.5;
     btnFinish.play();
   }
+  
   btnFinish.addEventListener("ended", function(){
     window.location.href = btnFinish.dataset.url;
   });
@@ -136,7 +154,72 @@
         $(this).removeClass('face-shadow');
       }
     );
+
+    $(".face").click(
+      function() {
+        $(this).addClass('face-active'); 
+      }, function() {
+        $(this).removeClass('face-active');
+      }
+    );
+
     value(swiper);
   });
+
+
+  const url = "{{ route('app.summary.update') }}";
+  var data = {
+    id: {{ $summary->id }},
+    saId : {{ $scheduleActivity->id }},
+    cId : {{ $content->id }}
+  }
+  function sendingSurveys(store = 0){
+    var soundSend = document.getElementById("fx-store");
+    soundSend.volume = 0.5;
+    soundSend.play();
+
+    data.store = store;
+    axios.put(url, { data })
+    .then(resp => {
+      if(resp.data.code=="ok"){
+        toastShow(store);
+      }
+    }).catch(e => {
+      console.error("error");
+    });
+  }
+
+  function finishContent(){
+    var feedback = $('#feedback').val();
+    data.feedback = feedback;
+    data.finish = true;
+    axios.put(url, { data })
+    .then(resp => {
+      if(resp.data.code=="exit"){
+        buttonFinish();
+      }
+    }).catch(e => {
+      console.error("error");
+    });
+  }
+
+  function toastShow(store){
+    iziToast.settings({
+      // timeout: 3000,
+      position: 'bottomCenter',
+      transitionIn: 'flipInX',
+      transitionOut: 'flipOutX',
+      messageColor: 'white',
+    });
+    let message = "Muchas gracias";
+    let color = ['#6777ef','#ffa426','#47c363','#fc544b'];
+    iziToast.success({
+      backgroundColor: color[store-1],
+      message: message
+    });
+  }
 </script>
+
+
+
 @endpush

@@ -184,7 +184,7 @@
       Copyright &copy; 2020 <div class="bullet"></div>
     </div>
     <div class="footer-right">
-      0.2.0
+      0.4.0
     </div>
   </footer>
 </div>
