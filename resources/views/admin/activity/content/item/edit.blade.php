@@ -15,7 +15,7 @@
       <button type="button" class="btn btn-sm btn-info ml-2" data-toggle="modal" data-target="#dataModal">
         Data
       </button>
-      <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm ml-2">Preview</a>
+      <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm ml-2">Visualizar</a>
     </div>
     {{-- <br> --}}
   </div>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div id="video" class="form-group">
-                  <label>Video adjunto <small>(ejemplo: https://www.youtube.com/watch?v=<strong>kJQP7kiw5Fk</strong>)</small></label>
+                  <label>Video adjunto <p>(ejemplo: https://www.youtube.com/watch?v=<strong>kJQP7kiw5Fk</strong>)</p></label>
                   <input type="text" name="video" class="form-control"  placeholder="" autocomplete="off" value="{{ ($i->type==2) ? $i->data : '' }}">
                 </div>
 

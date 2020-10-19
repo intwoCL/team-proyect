@@ -11,7 +11,7 @@
         <p>
           Código internos
           <li><strong>[:name]</strong>: Nombre del usuario.  (ejemplo: {{ current_user()->present()->getFullName() }})</li>
-          <li><strong>[:email]</strong>: Correo electronico.</li>
+          <li><strong>[:email]</strong>: Correo electrónico.</li>
           <li><strong>[:child]</strong>: Nombre del hijo.</li>
           <li><strong>[:today]</strong>: Fecha de hoy dd/mm/yyyy.</li>
           <li><strong>[:time]</strong>: La hora de hoy hora:min.</li>

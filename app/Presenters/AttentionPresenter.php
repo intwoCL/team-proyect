@@ -44,7 +44,7 @@ class AttentionPresenter extends Presenter
 
   public function jsonCalendar(){
     return array(
-      'title' => $this->user->present()->getFullName(),
+      'title' => $this->model->user->present()->getFullName(),
       'start' => $this->getAttentionDateTime(),
       'backgroundColor' => $this->getColorCss(),
       'borderColor' => $this->getColorCss(),

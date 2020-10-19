@@ -40,7 +40,7 @@
                 <div class="form-group row">
                   <label for="inputEmail3" class="col-sm-3 col-form-label">{{ trans('t.user.profile.email') }}<span class="text-danger">*</span></label>
                   <div class="col-sm-9">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="{{ trans('t.user.profile.email') }}" required="" name="email">
+                    <input type="email" class="form-control" id="inputEmail3" autocomplete="off" placeholder="{{ trans('t.user.profile.email') }}" required="" name="email">
                   </div>
                 </div>
 

@@ -26,7 +26,8 @@
     </div>
   </div>
   <div class="section-body">
-    <h2 class="section-title">Lista de todos los Items</h2>
+    {{-- <h2 class="section-title">Lista de todos los Items</h2> --}}
+    <h2 class="section-title">Actividad <strong>{{ Str::upper($content->activity->name) }}</strong> / {{ Str::upper($content->name) }} </h2>
     {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
     <div class="card">
       <div class="card-body">
@@ -103,7 +104,7 @@
       var modal = $(this);
       var id = button.data('id');
       var url = "{{route('item.delete')}}";
-      modal.find('.modal-title').text('¿Desea eliminar al item?');
+      modal.find('.modal-title').text('¿Desea eliminar item?');
       modal.find('.modal-body input').val(id);
       modal.find('#formDelete').attr('action',url);
     });
@@ -119,7 +120,7 @@
     sort: true,
     chosenClass: 'active',
     onEnd: function(evt) {
-      console.log(evt.oldIndex +','+ evt.newIndex);
+      // console.log(evt.oldIndex +','+ evt.newIndex);
       var newIndex = evt.newIndex+1;
       var oldIndex = evt.oldIndex+1;
 

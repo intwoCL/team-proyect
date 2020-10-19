@@ -11,6 +11,12 @@
       <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
     </a>
     <h1>Editar Contenido</h1>
+    <button type="button" class="ml-2 btn btn-sm btn-danger"
+    data-toggle="modal"
+    data-target="#deleteModal"
+    data-id="{{$content->id}}">
+      Eliminar
+    </button>
     {{-- <div class="section-header-breadcrumb">
       <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
       <div class="breadcrumb-item"><a href="#">Forms</a></div>
@@ -79,6 +85,9 @@
   </div>
 </section>
 @endsection
+@push('outerDiv')
+  @include('components.modal._delete')
+@endpush
 @push('javascript')
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script>
@@ -98,6 +107,19 @@
     { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' },
     'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
 	  ],
+  });
+</script>
+<script>
+  $(function () {
+    $('#deleteModal').on('show.bs.modal', function (event) {
+      var button = $(event.relatedTarget);
+      var modal = $(this);
+      var id = button.data('id');
+      var url = "{{route('content.delete')}}";
+      modal.find('.modal-title').text('¿Desea eliminar contenido?');
+      modal.find('.modal-body input').val(id);
+      modal.find('#formDelete').attr('action',url);
+    });
   });
 </script>
 @endpush

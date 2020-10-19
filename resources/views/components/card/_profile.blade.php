@@ -22,9 +22,9 @@
       <div class="text-muted d-inline font-weight-normal"><div class="slash">
       </div> {{ $user->email }}</div>
   </div>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+  {{-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
   quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-  consequat.</p>
+  consequat.</p> --}}
   </div>
 </div>
