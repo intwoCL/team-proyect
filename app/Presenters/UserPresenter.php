@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Presenters;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class UserPresenter extends Presenter
 {
@@ -13,7 +13,7 @@ class UserPresenter extends Presenter
       if($this->model->photo == $this->imgDefault){
         return $this->imgDefault;
       }
-      return \Storage::url("{$this->folderImg}/{$this->model->photo}");
+      return Storage::url("{$this->folderImg}/{$this->model->photo}");
     } catch (\Throwable $th) {
       return $this->imgDefault;
     }

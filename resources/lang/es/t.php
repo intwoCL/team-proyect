@@ -37,7 +37,7 @@ return [
     'repeat' => "Repetir contraseña",
     'new' => 'Nueva contraseña',
     'btn' => [
-      'login' => 'Acceder',
+      'login' => 'ACCEDER',
       'reset' => 'Restablecer contraseña',
     ]
   ],

@@ -21,7 +21,7 @@ class Attention extends Model
   public function getAttentionDate(){
 		return date_format(date_create($this->attention_date . " " . $this->attention_time), 'd-m-Y h:m');
   }
-  
+
   public function getAttentionDateTime(){
     return date_format(date_create($this->attention_date . " " . $this->attention_time), 'Y-m-d h:m');
     // $this->attention_date . " " . $this->attention_time ,

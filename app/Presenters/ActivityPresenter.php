@@ -1,10 +1,9 @@
 <?php
 
 namespace App\Presenters;
-use Storage;
-
+use Illuminate\Support\Facades\Storage;
 class ActivityPresenter extends Presenter
-{  
+{
   public $states = array(
     1 => 'Edición',
     2 => 'Revisión',
@@ -40,7 +39,7 @@ class ActivityPresenter extends Presenter
 
   public function getIconsHTML(){
     // return "<i class='fas fa-thumbs-up bg-success'></i>";
-    return "<i class='fa-2x fa {$this->getIcons()} text-{$this->getColor()}' title='{$this->getState()}'></i>";    
+    return "<i class='fa-2x fa {$this->getIcons()} text-{$this->getColor()}' title='{$this->getState()}'></i>";
   }
 
   public function getPhoto(){
@@ -48,7 +47,7 @@ class ActivityPresenter extends Presenter
       if($this->model->photo == $this->imgDefault){
         return $this->imgDefault;
       }
-      return \Storage::url("{$this->folderImg}/{$this->model->photo}");
+      return Storage::url("{$this->folderImg}/{$this->model->photo}");
     } catch (\Throwable $th) {
       return $this->imgDefault;
     }

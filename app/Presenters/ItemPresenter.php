@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Presenters;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 
 use App\Presenters\Data\TypeData;
@@ -27,7 +27,7 @@ class ItemPresenter extends Presenter
       if($this->model->image == $this->imgDefault){
         return $this->imgDefault;
       }
-      return \Storage::url("{$this->folderImg}/{$this->model->image}");
+      return Storage::url("{$this->folderImg}/{$this->model->image}");
     } catch (\Throwable $th) {
       return $this->imgDefault;
     }
@@ -36,7 +36,7 @@ class ItemPresenter extends Presenter
   public function getAudio(){
     try {
       if(!empty($this->model->data)){
-        return \Storage::url("{$this->folderAudio}/{$this->model->data}");
+        return Storage::url("{$this->folderAudio}/{$this->model->data}");
       }else{
         return '';
       }
