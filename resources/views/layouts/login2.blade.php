@@ -5,6 +5,8 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Programa Team Acceso</title>
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+  <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
 </head>
 <body>
   <div id="app">
@@ -35,7 +37,7 @@
 
                   </div>
                 </div>
-        
+
                 <div class="form-group floating-addon">
                   {{-- <div class="d-block"> --}}
                     <label for="password" class="control-label">{{ trans('t.login.password') }}</label>
@@ -64,7 +66,9 @@
 
                 {{-- solo android --}}
                 {{-- <input type="button" class="btn btn-success" value="Say hello" onClick="showAndroidToast('Hello Android!')" /> --}}
-          
+                <div class="mt-5 text-center">
+                  <a href="{{ route('about') }}" class="btn btn-danger">ACERCA DE NOSOTROS</a>
+                </div>
                 @if (helper_integration_gmail())
                 <div class="mt-5 text-center">
                   <a href="auth-register.html" class="btn btn-danger"><i class="fab fa-google"></i> Sign in google</a>
@@ -75,15 +79,13 @@
             </div>
             <div class="col-12 col-md-12 col-lg-7 p-0 d-none d-md-block">
               {{-- <div id="map" class="contact-map"></div> --}}
-              <img src="/images/fondo2.jpg" width="100%" height="500px" class="img img-responsive" alt="">
+              <img src="/images/home.jpg" width="100%" height="100%" class="img img-responsive" alt="">
             </div>
           </div>
         </div>
         <div class="simple-footer">
-          <a href="{{ route('about') }}">Acerca de Programa TEAM</a>
-          <br>
-          <br>
-          <br> v1.0.1
+          {{-- <a href="{{ route('about') }}">Acerca de Programa TEAM</a> --}}
+          <strong>V1.1</strong>
         </div>
       </div>
     </div>

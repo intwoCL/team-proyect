@@ -55,17 +55,6 @@
       </div>
     </div>
   </div>
-
-
-
-  {{-- <footer class="main-footer"> --}}
-    {{-- <div class="footer-left"> --}}
-      {{-- Copyright &copy; 2018 <div class="bullet"></div> --}}
-    {{-- </div> --}}
-    {{-- <div class="footer-right"> --}}
-      {{-- 0.1.1 --}}
-    {{-- </div> --}}
-  {{-- </footer> --}}
 </div>
 @endsection
 @push('footerNav')
@@ -77,7 +66,7 @@
   $(document).ready(function() {
     $(".card-items").hover(
       function() {
-        $(this).addClass('card-items-shadow').css('cursor', 'pointer'); 
+        $(this).addClass('card-items-shadow').css('cursor', 'pointer');
       }, function() {
         $(this).removeClass('card-items-shadow');
       }
