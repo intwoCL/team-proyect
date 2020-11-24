@@ -1,4 +1,4 @@
-<div class="profile-widget">
+<div class="profile-widget mt-0">
   <div class="profile-widget-header">
     <div class="profile-widget-items">
       <div class="profile-widget-item">
@@ -14,6 +14,6 @@
       <div class="text-muted d-inline font-weight-normal"><div class="slash">
       </div> {{ $email }}</div>
     </div>
-    <p>{{ $description }}</p>
+    <p class=" text-justify">{{ $description }}</p>
   </div>
 </div>

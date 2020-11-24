@@ -5,6 +5,7 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
   <title>Programa Team Acceso</title>
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body>
   <div id="app">
@@ -22,7 +23,7 @@
         <div class="card card-primary">
           <div class="row m-0">
             <div class="col-md-12 col-lg-6 p-0">
-              <div class="card-header text-center"><h4>Acerca de</h4></div>
+              <div class="card-header text-center"><h4>Acerca de TEAM</h4></div>
               <div class="card-body text-justify">
                 TEAM es una herramienta tecnológica para potenciar el desarrollo de la comunicación funcional en niños con Trastorno del Espectro Autista a través del entrenamiento y un programa de intervención terapéutico, en el marco del desarrollo de proyectos de Investigación Aplicada de Duoc UC. <br> <br>
                 Los niños TEA y sus padres tienden a presentar una carga emocional y económica muy elevada, y para lograr avances en el desarrollo comunicacional se requieren de diferentes terapias, constancia y continuidad en el tiempo, como mínimo una vez a la semana. Es en este punto donde TEAM busca apoyar la labor de los padres, sobre todo, porque la intervención en edades tempranas es clave. <br> <br>
@@ -30,7 +31,7 @@
 
               </div>
               <div class="card-header text-center"><h4>El equipo</h4></div>
-              <div class="card-body text-justify">
+              <div class="card-body text-justify pt-0">
                 El equipo  TEAM está compuesto por profesores de Duoc UC a través de un trabajo multidisciplinario de diferentes profesionales provenientes de la Escuela de Construcción, Informática y del Programa de Emprendimiento e Innovación. Los docentes María Jesús, Pablo y Carolina lideraron esta versión, en conjunto con Leonardo quien desde su rol de alumno fue parte imprescindible en el diseño y desarrollo del proyecto, además de Benjamín quien lideró el desarrollo informático tras la propuesta.
               </div>
               {{-- <div class="card-header text-center"><h4>Acerca de</h4></div> --}}
@@ -40,7 +41,7 @@
             </div>
             <div class="col-md-12 col-lg-6 p-0">
               <div class="card-header text-center"><h4>ACERCA DE LÍDER TEAM</h4></div>
-                <div class="card-body">
+                <div class="card-body pt-0">
                   @php
                     $photo = "/images/organizadora.png";
                     $name = "Carolina Saavedra";
