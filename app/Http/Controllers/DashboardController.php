@@ -9,7 +9,7 @@ use App\Models\Activity;
 class DashboardController extends Controller
 {
   public function index(){
-    $activities = Activity::where('status',3)->with('tagsCategories','tagsCategories.category')->get();
+    $activities = Activity::where('status',3)->with('tagsCategories','tagsCategories.category')->orderBy('created_at','desc')->get();
     return view('app.dashboard',compact('activities'));
   }
 
