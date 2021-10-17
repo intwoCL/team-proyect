@@ -25,7 +25,7 @@
       Form validation using default from Bootstrap 4
     </p> --}}
 
-    <div class="row">  
+    <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
@@ -47,8 +47,8 @@
                   {{-- <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}"> --}}
 
                   <textarea name="objective" class="ckeditor" id="summernote" required>{{old('objective')}}</textarea>
-                </div>  
-              </div>  
+                </div>
+              </div>
               <div class="form-group row">
                 <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.photo')}}</label>
                 <div class="col-sm-9">
@@ -56,11 +56,11 @@
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
                 </div>
-              </div>  
+              </div>
               <div class="form-group center-text">
                   <div id="preview"></div>
               </div>
-  
+
               <div class="form-group row">
                 <label for="inputScale" class="col-sm-3 col-form-label">{{trans('t.activity.create.scale')}}</label>
                 <div class="col-sm-9">
@@ -131,7 +131,7 @@
     // airMode: true
   });
 </script>
-  
+
 {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {

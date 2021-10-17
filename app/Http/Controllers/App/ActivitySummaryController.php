@@ -16,7 +16,7 @@ class ActivitySummaryController extends Controller
   // update store
   public function update(Request $request){
     try {
-      $summary_id = $request->input('data.id'); 
+      $summary_id = $request->input('data.id');
       $scheduleActivity_id = $request->input('data.saId');
       $content_id = $request->input('data.cId');
       $store = $request->input('data.store');
@@ -34,7 +34,7 @@ class ActivitySummaryController extends Controller
       $summary->feedback = $feedback;
       $summary->finished_at = date('Y-m-d H:i:s');
       $summary->update();
-      
+
       if($finish){
         return response()->json(['message' => 'Yup. This request succeeded.','status' => '200','code'=>'exit'], 200);
       }else{

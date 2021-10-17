@@ -16,9 +16,9 @@
       {{-- <button onClick="window.location.href='{{ route('item.create',[$content->activity->id,$content->id]) }}'"
         class="btn btn-primary">Nuevo Item</button> --}}
 
-        
-      <button type="button" class="btn btn-sm btn-primary" 
-        data-toggle="modal" 
+
+      <button type="button" class="btn btn-sm btn-primary"
+        data-toggle="modal"
         data-target="#createModal">
           Nuevo Item
       </button>
@@ -63,7 +63,7 @@
                   <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm">Visualizar</a>
                 </td>
                 <td>
-                
+
                   <a href="{{ route('item.edit',$i->id) }}" class="btn btn-info btn-sm">Editar</a>
                   <button type="button" class="btn btn-sm btn-danger"
                   data-toggle="modal"
@@ -86,7 +86,7 @@
   @include('admin.activity.content.item._modal_create')
   @include('components.modal._delete')
 @endpush
-@push('javascript')  
+@push('javascript')
 <script>
   $(function () {
     $('#createModal').on('show.bs.modal', function (event) {

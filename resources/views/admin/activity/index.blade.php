@@ -17,7 +17,7 @@
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table id="tableSelect" class="table table-hover table-md">
+            <table id="tableSelect" class="table table-hover table-sm">
               <thead>
               <tr>
                 <th>Estado</th>
@@ -62,9 +62,9 @@
     </div>
   </section>
 @endsection
-@push('javascript')  
+@push('javascript')
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
-<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
   $(function () {
     $("#tableSelect").DataTable();
