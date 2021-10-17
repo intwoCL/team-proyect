@@ -38,7 +38,7 @@ class WebAppController extends Controller
       $activity = $scheduleActivity->activity;
       return view('webapp.activity',compact('scheduleActivity','activity','schedule'));
     } catch (\Throwable $th) {
-      return $th; 
+      return $th;
     }
   }
 
