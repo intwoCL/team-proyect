@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 /**
  * Random (string & num) por su longitud
@@ -50,4 +50,6 @@ function helper_days() {
   return $days;
 }
 
-
+function activeTab($url) {
+  return request()->is($url) ? 'active' : '';
+}

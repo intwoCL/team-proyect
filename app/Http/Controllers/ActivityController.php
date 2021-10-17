@@ -23,6 +23,13 @@ class ActivityController extends Controller
     return view('admin.activity.index',compact('activities'));
   }
 
+  public function activity_me()
+  {
+    $activities = Activity::where('user_id', current_user()->id)->get();
+    return view('admin.activity.index',compact('activities'));
+  }
+
+
   /**
    * Show the form for creating a new resource.
    *
@@ -60,7 +67,7 @@ class ActivityController extends Controller
         $filename = time() .'.'.$file->getClientOriginalExtension();
         $path = $file->storeAs('public/photo_activities',$filename);
         $a->photo= $filename;
-      }     
+      }
       $a->save();
       $categories = $request->input('categories');
       for ($i=0; $i < count($categories) ; $i++) {
@@ -130,7 +137,7 @@ class ActivityController extends Controller
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
       $a->status = $request->input('status');
-      
+
       if(!empty($request->file('photo'))){
         $request->validate([
           'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',

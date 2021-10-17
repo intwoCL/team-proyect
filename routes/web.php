@@ -18,13 +18,15 @@ Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 
   Route::resource('activity','ActivityController',['except'=>['destroy']]);
+  Route::get('activity_me','ActivityController@activity_me')->name('activity.me');
+
   Route::get('activity/{activity_id}/content/create','ContentController@create')->name('content.create');
   Route::get('activity/{activity_id}/content/{id}/edit','ContentController@edit')->name('content.edit');
   Route::put('activity/{activity_id}/content/{id}/edit','ContentController@update')->name('content.update');
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::put('activity/{activity_id}/content','ContentController@changePosition')->name('content.changePosition');
-  
+
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
   Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
   Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
@@ -74,7 +76,7 @@ Route::middleware('user')->group(function () {
 
   Route::get('schedule/{id}/report','ScheduleActivityController@report')->name('schedule.report');
 
-  
+
 
 
 
@@ -96,7 +98,7 @@ Route::middleware('user')->group(function () {
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
     Route::get('profile','WebAppController@profile')->name('app.profile');
-    Route::get('about','WebAppController@about')->name('app.about'); 
+    Route::get('about','WebAppController@about')->name('app.about');
   });
 
 });

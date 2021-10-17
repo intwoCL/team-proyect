@@ -8,12 +8,23 @@
       <h1>{{ trans('t.activity_panel') }}</h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-        <button onClick="window.location.href='{{ route('activity.create') }}'" class="btn btn-primary">{{ trans('t.create_activity') }}</button>
+        <a href="{{ route('activity.create') }}" class="btn btn-primary">{{ trans('t.create_activity') }}</a>
       </div>
+
+      {{-- 'activity.me --}}
     </div>
     <div class="section-body">
       <h2 class="section-title">{{ trans('t.activity_list') }}</h2>
       {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link {{ activeTab('activity') ? 'active' : '' }}"  href="{{ route('activity.index') }}">Actividades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ activeTab('activity_me') ? 'active' : '' }}" href="{{ route('activity.me') }}">Mis actividades</a>
+        </li>
+      </ul>
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
