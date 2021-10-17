@@ -19,13 +19,13 @@ class ActivityController extends Controller
    */
   public function index()
   {
-    $activities = Activity::get();
+    $activities = Activity::with(['tagsCategories','tagsCategories.category'])->get();
     return view('admin.activity.index',compact('activities'));
   }
 
   public function activity_me()
   {
-    $activities = Activity::where('user_id', current_user()->id)->get();
+    $activities = Activity::where('user_id', current_user()->id)->with(['tagsCategories','tagsCategories.category'])->get();
     return view('admin.activity.index',compact('activities'));
   }
 
