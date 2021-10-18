@@ -19,24 +19,28 @@ class CalendarSeeder extends Seeder
       $c->user_id = 1;
       $c->name = "Calendario 1";
       $c->objective = "Primeros pasos nivel 1";
+      $c->status = 3;
       $c->save();
 
       $c = new Calendar();
       $c->user_id = 2;
       $c->name ="Calendario 2";
       $c->objective = "Primeros pasos nivel 1";
+      $c->status = 3;
       $c->save();
 
       $c = new Calendar();
       $c->user_id = 1;
       $c->name = "Calendario 3";
       $c->objective = "Primeros pasos nivel 1";
+      $c->status = 3;
       $c->save();
 
       $c = new Calendar();
       $c->user_id = 2;
       $c->name = "Calendario 4";
       $c->objective = "Primeros pasos nivel 1";
+      $c->status = 3;
       $c->save();
 
       $f = Faker\Factory::create();
@@ -46,6 +50,7 @@ class CalendarSeeder extends Seeder
         $c->user_id = $x%2 == 0 ? 1 : 2;
         $c->name = "Calendario $x " . $f->name;
         $c->objective = "Primeros " . $f->text(50);
+        $c->status = 3;
         $c->save();
       }
 

@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
       'calendars',
       'schedules',
       'assignments',
+      'attentions'
     ]);
 
     $this->call(UserSeeder::class);
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
     $this->call(ContentSeeder::class);
     $this->call(CalendarSeeder::class);
     $this->call(AssigmentSeeder::class);
+    $this->call(AttentionsSeeder::class);
   }
 
   public function truncateTables(array $tables)

@@ -13,7 +13,7 @@ class UserSeeder extends Seeder
    */
   public function run()
   {
-    $f = Faker\Factory::create();
+    $f = Faker\Factory::create('es_ES');
 
     $pass = hash('sha256', '123456');
     $usuarios_fake = [

@@ -16,7 +16,9 @@ class AssigmentSeeder extends Seeder
      */
     public function run()
     {
-      $f = Faker\Factory::create();
+      // $f = Faker\Factory::create();
+      // $f = Faker\Factory::create('es_CL');
+      $f = Faker\Factory::create('es_ES');
 
       $users = User::get();
 
@@ -37,6 +39,7 @@ class AssigmentSeeder extends Seeder
         $s->specialist_id = 2;
         $s->name = 'Calendario de evaluacion';
         $s->objective = 'Evaluacion del paciente';
+        $s->status = 2;
         // $s->objective = 'Evaluacion del paciente';
         $s->calendar_id = $f->randomElement($calendars);
         $s->save();

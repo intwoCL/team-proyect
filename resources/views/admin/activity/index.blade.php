@@ -55,7 +55,10 @@
                   </div>
                   @endif
                 </td>
-                <td>{!! $a->objective !!}</td>
+                <td>
+
+                  {!! Str::limit($a->objective, 30) !!}
+                </td>
                 <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
                 <td>
                   @foreach ($a->tagsCategories as $c)

@@ -20,7 +20,9 @@ class ActivitySeeder extends Seeder
     public function run()
     {
 
-      $f = Faker\Factory::create();
+      // $f = Faker\Factory::create('es_CL');
+      // $f = Faker\Factory::create();
+      $f = Faker\Factory::create('es_ES');
 
       for ($i=0; $i < 100; $i++) {
         DB::table('activities')->insert(
@@ -31,6 +33,7 @@ class ActivitySeeder extends Seeder
             'user_id' => $i%2 == 0 ? 1 : 2,
             'code' => Str::random(10) . $i,
             'total_time' => 120,
+            'status' => 3,
           ]
         );
       }
@@ -75,7 +78,9 @@ class ActivitySeeder extends Seeder
     }
 
     function items($p, $content_id) {
-      $f = Faker\Factory::create();
+      // $f = Faker\Factory::create();
+      // $f = Faker\Factory::create('es_CL');
+      $f = Faker\Factory::create('es_ES');
 
       $i = new Item();
       $i->name = $f->text(10);

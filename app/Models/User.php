@@ -20,7 +20,7 @@ class User extends Authenticatable
   ];
 
   public function assignmentUsers(){
-    return $this->hasMany(Assignment::class,'specialist_id');
+    return $this->hasMany(Assignment::class,'specialist_id')->with(['user']);
   }
 
   public function changePassword($newPassword = ''){
@@ -30,7 +30,7 @@ class User extends Authenticatable
     $encryPassword = hash('sha256', $newPassword);
     $this->password = $encryPassword;
     $this->update();
-    return [$newPassword,$encryPassword]; 
+    return [$newPassword,$encryPassword];
   }
 
   public function present(){
