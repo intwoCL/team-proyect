@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
         'specialist' => true
       ],
       [
-        'first_name' => 'Team',
+        'first_name' => 'Tea',
         'last_name' => 'Especialista',
         'email' => 'especialista@admin.com',
         'password' => $pass,
@@ -34,7 +34,7 @@ class UserSeeder extends Seeder
         'specialist' => true
       ],
       [
-        'first_name' => 'Team',
+        'first_name' => 'Tea',
         'last_name' => 'Administrador',
         'email' => 'usuario@admin.com',
         'child_name' => $f->name,

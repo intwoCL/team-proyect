@@ -4,14 +4,14 @@
   }
   function open($url){
     return request()->is($url) ? 'menu-open' : '';
-  }  
+  }
 @endphp
 <aside id="sidebar-wrapper">
   <div class="sidebar-brand">
-    <a href="">Programa TEAM</a>
+    <a href="">Programa Tea</a>
   </div>
   <div class="sidebar-brand sidebar-brand-sm">
-    <a href="#">PTEAM</a>
+    <a href="#">PTea</a>
   </div>
   <ul class="sidebar-menu">
     <li class="menu-header">{{ trans('t.dashboard') }}</li>
@@ -21,7 +21,7 @@
     <li class="{{ active('activity*') }}">
       <a href="{{ route('activity.index') }}"><i class="fas fa-puzzle-piece"></i> <span>{{ trans('t.activities') }}</span></a>
     </li>
-    @if (current_user()->admin)     
+    @if (current_user()->admin)
     <li class="{{ active('user*') }}">
       <a href="{{ route('user.index') }}"><i class="fas fa-users"></i> <span>Usuarios</span></a>
     </li>
@@ -29,11 +29,11 @@
       <a href="{{ route('assignment.index') }}"><i class="fas fa-hands-helping"></i> <span>{{ trans('t.specialist') }}</span></a>
     </li>
     @endif
-    
+
     <li class="{{ active('calendar*') }}">
       <a href="{{ route('calendar.index') }}"><i class="fas fa-calendar-alt"></i> <span>{{ trans('t.calendar') }}</span></a>
     </li>
-      
+
     @if (is_specialist())
     <li class="menu-header">Especialista</li>
     <li class="{{ active('attention*') }}">
@@ -44,8 +44,8 @@
     </li>
 
     @endif
- 
- 
+
+
     <hr>
     <li><a href="/webapp" class="bg-success text-white"><i class="fas fa-mobile-alt"></i> <span>{{ trans('t.app') }}</span></a></li>
   </ul>
