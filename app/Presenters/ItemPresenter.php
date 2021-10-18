@@ -35,10 +35,14 @@ class ItemPresenter extends Presenter
 
   public function getAudio(){
     try {
-      if(!empty($this->model->data)){
-        return Storage::url("{$this->folderAudio}/{$this->model->data}");
-      }else{
-        return '';
+      if ($this->model->data != '/assets/test/test.mp3') {
+        if(!empty($this->model->data)){
+          return Storage::url("{$this->folderAudio}/{$this->model->data}");
+        }else{
+          return '';
+        }
+      } else{
+        return $this->model->data;
       }
     } catch (\Throwable $th) {
       return '';
@@ -53,7 +57,7 @@ class ItemPresenter extends Presenter
     return $this->filter();
   }
 
-  
+
   public function getIcons(){
     return $this->typesIcons[$this->model->type];
   }

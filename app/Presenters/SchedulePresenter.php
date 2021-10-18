@@ -10,7 +10,7 @@ class SchedulePresenter extends Presenter
     3 => 'Cerrado'
   );
 
-  private $colorState = array( 
+  private $colorState = array(
     1 => 'warning',
     2 => 'success',
     3 => 'danger'
