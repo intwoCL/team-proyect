@@ -1,12 +1,12 @@
-# Team project
+# Tea project
 
 Laravel Framework 7.0
 VERSION PROJECT 0.1
 
 #### Repositorio
 ```shell
-git clone zxx team
-cd team
+git clone zxx Tea
+cd Tea
 code .
 composer install
 ```
@@ -62,7 +62,7 @@ php artisan db:seed
 ``` -->
 
 
-<!-- 
+<!--
 
 #### Translate
 add to lang -> t.php
@@ -79,19 +79,19 @@ trans('t.message.success.create')
 <!-- TEST -->
 <!-- https://medium.com/@tonyfrenzy/part-2-testing-model-relationships-in-laravel-basic-8b606dd36c02 -->
 
-<!-- 
+<!--
 
 vendor\bin\phpunit
 
  -->
 
- <!-- https://www.twilio.com/blog/unit-testing-laravel-api-phpunit 
- 
+ <!-- https://www.twilio.com/blog/unit-testing-laravel-api-phpunit
+
  https://styde.net/solicitudes-http-con-axios/
 
  https://freesfx.co.uk/Default.aspx
 
- 
+
 https://www.nigmacode.com/laravel/Subir-proyecto-laravel-a-hosting
 
 
