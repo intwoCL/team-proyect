@@ -18,7 +18,7 @@ class WebAppController extends Controller
 {
 
   public function index(){
-    $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->first();
+    $schedule = Schedule::where('user_id',current_user()->id)->with(['schedulesActivities','schedulesActivities.activity'])->where('status',2)->first();
     if(!empty($schedule)){
       $Schedule_days = $schedule->present()->getActivitiesTable();
       ksort($Schedule_days);
@@ -32,7 +32,9 @@ class WebAppController extends Controller
   public function activity($id){
     try {
       //comprueba el curso
-      $scheduleActivity = ScheduleActivity::findOrFail($id);
+      $scheduleActivity = ScheduleActivity::with(['activity','activity.contents'])->findOrFail($id);
+
+      // return $scheduleActivity;
       // es mi horario, esta activado y es la id correcta
       $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->findOrFail($scheduleActivity->schedule_id);
       $activity = $scheduleActivity->activity;
@@ -71,7 +73,7 @@ class WebAppController extends Controller
   }
 
   public function calendar($month,$year){
-    $attentions = Attention::where('user_id',current_user()->id)->whereMonth('attention_date', $month)->whereYear('attention_date', $year)->get();
+    $attentions = Attention::where('user_id',current_user()->id)->with(['specialist'])->whereMonth('attention_date', $month)->whereYear('attention_date', $year)->get();
     $date = date_format(Carbon::parse("$year-$month-01"),'Y-m');
     return view('webapp.calendar',compact('attentions','date'));
   }

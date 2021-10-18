@@ -39,37 +39,47 @@ class ActivitySeeder extends Seeder
       }
 
       $categories = Category::get()->count();
-      $acti = Activity::get();
+      $activities = Activity::get();
 
-      foreach ($acti as $ac) {
+      foreach ($activities as $ac) {
         $ra = $f->numberBetween(1,$categories);
         $acxx = new ActivityCategory();
         $acxx->category_id = $ra;
         $acxx->activity_id = $ac->id;
         $acxx->save();
-      }
+        $count = rand(1,15);
 
-
-      $count = 1;
-      $activity_id = 1;
-      for ($i=0; $i < 500; $i++) {
-        $c = new Content();
-        $c->activity_id = $activity_id;
-        $c->name = $f->text(10);
-        $c->objective = $f->text(100);
-        $c->position = $count;
-        $c->save();
-
-        $count++;
-        if($count == 10){
-          $count = 1;
-          $activity_id++;
+        for ($p=1; $p <= $count; $p++) {
+          $c = new Content();
+          $c->activity_id = $ac->id;
+          $c->name = $f->text(10);
+          $c->objective = $f->text(100);
+          $c->position = $p;
+          $c->save();
         }
       }
 
+
+      // $count = 1;
+      // $activity_id = 1;
+      // for ($i=0; $i < 500; $i++) {
+      //   $c = new Content();
+      //   $c->activity_id = $activity_id;
+      //   $c->name = $f->text(10);
+      //   $c->objective = $f->text(100);
+      //   $c->position = $count;
+      //   $c->save();
+
+      //   $count++;
+      //   if($count == 10){
+      //     $count = 1;
+      //     $activity_id++;
+      //   }
+      // }
+
       $contents = Content::get();
       foreach ($contents as $c) {
-        $interacciones = $f->numberBetween(1,10);
+        $interacciones = rand(1,10);
         for ($i=1; $i <= $interacciones; $i++) {
           $this->items($i, $c->id);
         }
@@ -94,7 +104,7 @@ class ActivitySeeder extends Seeder
       if($i->type == 1){
         $i->data = $f->imageUrl(300, 300, 'cats');
       }elseif($i->type == 2){
-        $i->data = 'https://www.youtube.com/watch?v=kJQP7kiw5Fk';
+        $i->data = 'kJQP7kiw5Fk';
       }elseif($i->type == 3){
         $i->image = '/images/gallery.jpg';
       }elseif($i->type == 4){
