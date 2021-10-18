@@ -20,5 +20,5 @@ class Calendar extends Model
   public function present(){
     return new CalendarPresenter($this);
   }
-  
+
 }

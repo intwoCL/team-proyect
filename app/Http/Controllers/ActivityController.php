@@ -103,22 +103,26 @@ class ActivityController extends Controller
    */
   public function edit($id)
   {
-    $status = array('1' => 'pending' , '2' => 'finished' );
-    $scales = Scale::get();
-    $categories = Category::get();
-    $activity = Activity::FindOrFail($id);
+    try {
+      $status = array('1' => 'pending' , '2' => 'finished' );
+      $scales = Scale::get();
+      $categories = Category::get();
+      $activity = Activity::where('user_id',current_user()->id)->FindOrFail($id);
 
-    // TODO: Buscar una forma de no hacer esto
-    $tags= $activity->tagsCategories;
-    foreach ($categories as $c){
-      foreach ($tags as $t) {
-        if ($c->id == $t->category_id){
-          $c->selected = true;
-          break;
+      // TODO: Buscar una forma de no hacer esto
+      $tags= $activity->tagsCategories;
+      foreach ($categories as $c){
+        foreach ($tags as $t) {
+          if ($c->id == $t->category_id){
+            $c->selected = true;
+            break;
+          }
         }
       }
+      return view('admin.activity.edit',compact('status','categories','scales','activity','tags'));
+    } catch (\Throwable $th) {
+      return redirect()->route('activity.index')->with('danger',trans('alert.danger'));
     }
-    return view('admin.activity.edit',compact('status','categories','scales','activity','tags'));
   }
 
   /**
