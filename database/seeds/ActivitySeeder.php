@@ -24,6 +24,10 @@ class ActivitySeeder extends Seeder
       // $f = Faker\Factory::create();
       $f = Faker\Factory::create('es_ES');
 
+      // $table->boolean('evaluation_quiz_enabled')->nullable()->default(false);
+      // $table->boolean('day_quiz_enabled')->nullable()->default(false);
+      // $table->boolean('frequency_quiz_enabled')->nullable()->default(false)
+
       for ($i=0; $i < 100; $i++) {
         DB::table('activities')->insert(
           [
@@ -34,6 +38,9 @@ class ActivitySeeder extends Seeder
             'code' => Str::random(10) . $i,
             'total_time' => 120,
             'status' => 3,
+            'evaluation_quiz_enabled' => $i%2 == 0 ? true : false,
+            'day_quiz_enabled' =>  rand(1,6)%2 == 0 ? true: false,
+            'frequency_quiz_enabled' => rand(1,20)%2 == 0 ? true: false,
           ]
         );
       }
