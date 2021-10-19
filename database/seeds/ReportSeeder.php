@@ -1,8 +1,9 @@
 <?php
 
-use App\Models\ActivitySummaryReports;
+use App\Models\ActivitySummaryReport;
 use App\Models\Schedule;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class ReportSeeder extends Seeder
 {
@@ -50,36 +51,36 @@ class ReportSeeder extends Seeder
         // $day = $sactivity->weekday - 1;
         // $dateNow = date('Y-m-d');
         // $ns = $f->randomElement(range(1, 28), 15);
-        $r = new ActivitySummaryReports();
+        $r = new ActivitySummaryReport();
         $r->activity_id = $sactivity->activity_id;
         $r->schedule_id = $s->id;
         $r->user_id = $s->user_id;
         $r->calendar_id = $s->calendar_id;
-        $r->day_score =  $f->randomElement(ActivitySummaryReports::DAY_SCORE_NUMBER);
-        $r->frequency_score =  $f->randomElement(ActivitySummaryReports::FRECUENCY_SCORE_NUMBER);
-        $r->evaluation_score = $f->randomElement(ActivitySummaryReports::EVALUATION_SCORE_NUMBER);
+        $r->day_score =  $f->randomElement(ActivitySummaryReport::DAY_SCORE_NUMBER);
+        $r->frequency_score =  $f->randomElement(ActivitySummaryReport::FRECUENCY_SCORE_NUMBER);
+        $r->evaluation_score = $f->randomElement(ActivitySummaryReport::EVALUATION_SCORE_NUMBER);
         $r->finished_at = $last_days[$sactivity->weekday - 1];
         $r->save();
 
-        $r = new ActivitySummaryReports();
+        $r = new ActivitySummaryReport();
         $r->activity_id = $sactivity->activity_id;
         $r->schedule_id = $s->id;
         $r->user_id = $s->user_id;
         $r->calendar_id = $s->calendar_id;
-        $r->day_score =  $f->randomElement(ActivitySummaryReports::DAY_SCORE_NUMBER);
-        $r->frequency_score =  $f->randomElement(ActivitySummaryReports::FRECUENCY_SCORE_NUMBER);
-        $r->evaluation_score = $f->randomElement(ActivitySummaryReports::EVALUATION_SCORE_NUMBER);
+        $r->day_score =  $f->randomElement(ActivitySummaryReport::DAY_SCORE_NUMBER);
+        $r->frequency_score =  $f->randomElement(ActivitySummaryReport::FRECUENCY_SCORE_NUMBER);
+        $r->evaluation_score = $f->randomElement(ActivitySummaryReport::EVALUATION_SCORE_NUMBER);
         $r->finished_at = $days[$sactivity->weekday - 1];
         $r->save();
 
-        $r = new ActivitySummaryReports();
+        $r = new ActivitySummaryReport();
         $r->activity_id = $sactivity->activity_id;
         $r->schedule_id = $s->id;
         $r->user_id = $s->user_id;
         $r->calendar_id = $s->calendar_id;
-        $r->day_score =  $f->randomElement(ActivitySummaryReports::DAY_SCORE_NUMBER);
-        $r->frequency_score =  $f->randomElement(ActivitySummaryReports::FRECUENCY_SCORE_NUMBER);
-        $r->evaluation_score = $f->randomElement(ActivitySummaryReports::EVALUATION_SCORE_NUMBER);
+        $r->day_score =  $f->randomElement(ActivitySummaryReport::DAY_SCORE_NUMBER);
+        $r->frequency_score =  $f->randomElement(ActivitySummaryReport::FRECUENCY_SCORE_NUMBER);
+        $r->evaluation_score = $f->randomElement(ActivitySummaryReport::EVALUATION_SCORE_NUMBER);
         $r->finished_at = $next_days[$sactivity->weekday - 1];
         $r->save();
       }

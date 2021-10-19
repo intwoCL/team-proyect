@@ -20,6 +20,7 @@
                 <th>{{ trans('t.activity_name') }}</th>
                 <th>{{ trans('t.objetive') }}</th>
                 <th>{{ trans('t.level') }}</th>
+                <th>Feedback</th>
                 <th>Categoría</th>
                 <th></th>
               </tr>
@@ -42,6 +43,14 @@
                 </td>
                 <td>{!! $a->objective !!}</td>
                 <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
+                <td>
+                    <i class="fa fa-lg fa-book-open text-{{ $a->evaluation_quiz_enabled ? 'success' : 'secondary' }}" ´
+                        title="Evaluacion {{ $a->evaluation_quiz_enabled ? 'Activada' : 'Desactivada' }}"></i>
+                    <i class="fa fa-lg fa-sun text-{{ $a->day_quiz_enabled ? 'success' : 'secondary' }}"
+                        title="Momento del dia {{ $a->day_quiz_enabled ? 'Activado' : 'Desactivado' }}"></i>
+                    <i class="fa fa-lg fa-stopwatch-20 text-{{ $a->frequency_quiz_enabled ? 'success' : 'secondary' }}"
+                        title="Frecuencia {{ $a->frequency_quiz_enabled ? 'Activada' : 'Desactivada' }}"></i>
+                </td>
                 <td>
                   @foreach ($a->tagsCategories as $c)
                   <div class="badge badge-success">{{ $c->category->name }}</div>

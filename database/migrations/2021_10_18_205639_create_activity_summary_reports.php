@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateActivitySummariesReports extends Migration
+class CreateActivitySummaryReports extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateActivitySummariesReports extends Migration
      */
     public function up()
     {
-        Schema::create('activity_summaries_reports', function (Blueprint $table) {
+        Schema::create('activity_summary_reports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->foreignId('schedule_id')->references('id')->on('schedules');
@@ -34,6 +34,6 @@ class CreateActivitySummariesReports extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('activity_summaries_reports');
+        Schema::dropIfExists('activity_summary_reports');
     }
 }
