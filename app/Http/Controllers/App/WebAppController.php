@@ -13,6 +13,7 @@ use App\Models\Attention;
 use App\Models\Schedule;
 use App\Models\ScheduleActivity;
 use App\Models\ActivitySummary;
+use App\Models\ActivitySummaryReport;
 
 class WebAppController extends Controller
 {
@@ -34,10 +35,10 @@ class WebAppController extends Controller
       //comprueba el curso
       $scheduleActivity = ScheduleActivity::with(['activity','activity.contents'])->findOrFail($id);
 
-      //Checkeo si ya completo feedback hoy
-      //get dia hoy
-      //query si hay ActivitySymaryreport hoy
-      $feedbackEnabled = true;
+      //query si hay ActivitySummaryReport hoy
+      $hoy = ActivitySummaryReport::where('finished_at',Carbon::now()->toDateString())->where('activity_id',$id)->first();
+      $feedbackEnabled = empty($hoy);
+      //return json_encode($feedbackEnabled);
 
       // return $scheduleActivity;
       // es mi horario, esta activado y es la id correcta
@@ -88,6 +89,37 @@ class WebAppController extends Controller
     $month = $date->month;
     $year = $date->year;
     return redirect()->route('app.calendar',[$month,$year]);
+  }
+
+  public function sendDayQuiz(Request $request){
+    try {
+      $evaluation = $request->input('data.evaluacion');
+      $momentday = $request->input('data.momento');
+      $frequency =$request->input('data.frecuencia');
+
+      $scheduleActivity = ScheduleActivity::findOrFail($scheduleActivity_id);
+      // es mi horario, esta activado y es la id correcta
+      $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->findOrFail($scheduleActivity->schedule_id);
+      $content = Content::findOrFail($content_id);
+      $summary = ActivitySummary::findOrFail($summary_id);
+      if(!empty($store)){
+        $summary->store = $store;
+      }
+      $summary->feedback = $feedback;
+      $summary->finished_at = date('Y-m-d H:i:s');
+      $summary->update();
+
+      if($finish){
+        return response()->json(['message' => 'Yup. This request succeeded.','status' => '200','code'=>'exit'], 200);
+      }else{
+        return response()->json(['message' => 'Yup. This request succeeded.','status' => '200','code'=>'ok'], 200);
+      }
+    } catch (\Throwable $th) {
+      // return $th;
+      return \response()->json([
+        'status' => '400',
+        'message' => 'error'], 400);
+    }
   }
 
 

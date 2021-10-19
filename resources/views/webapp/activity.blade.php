@@ -54,15 +54,13 @@
             </div>
           </article>
           <div class="card card-items border-left border-primary" role="button" data-toggle="modal"
-            @if($feedbackEnabled)
-                data-target="#feedbackModal">
-            @endif
+            @if($feedbackEnabled) data-target="#feedbackModal" @endif >
             <div class="card-horizontal">
 
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="fa-stack" style="margin: -2px !important;">
-                    <span class="fa fa-question-circle fa-stack-2x text-primary"></span>
+                    <span class="fa fa-question-circle fa-stack-2x {{$feedbackEnabled ? 'text-primary' : 'text-secondary'}}"></span>
                     <strong class="fa-stack-1x"></strong>
                   </span>
                   Evaluacion Diaria
@@ -105,13 +103,13 @@
         <div class="row">
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-danger">
-              <input type="radio" name="evaluacion" id="option1" autocomplete="off"> Negativa
+              <input type="radio" name="evaluacion" id="evalsad" autocomplete="off"> Negativa
             </label>
             <label class="btn btn-secondary">
-              <input type="radio" name="evaluacion" id="option2" autocomplete="off"> Neutral
+              <input type="radio" name="evaluacion" id="evalneutral" autocomplete="off"> Neutral
             </label>
             <label class="btn btn-success">
-              <input type="radio" name="evaluacion" id="option3" autocomplete="off"> Positva
+              <input type="radio" name="evaluacion" id="evalhappy" autocomplete="off"> Positva
             </label>
           </div>
         </div>
@@ -127,16 +125,16 @@
         <div class="row">
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary">
-              <input type="radio" name="momento" id="option1" autocomplete="off"> Mañana
+              <input type="radio" name="momento" value="100" id="timesun" autocomplete="off"> Mañana
             </label>
             <label class="btn btn-warning">
-              <input type="radio" name="momento" id="option2" autocomplete="off"> Mediodia
+              <input type="radio" name="momento" value="70" id="timemid" autocomplete="off"> Mediodia
             </label>
             <label class="btn btn-success">
-              <input type="radio" name="momento" id="option3" autocomplete="off"> Tarde
+              <input type="radio" name="momento" value="40" id="timenoon" autocomplete="off"> Tarde
             </label>
             <label class="btn btn-danger">
-              <input type="radio" name="momento" id="option4" autocomplete="off"> Noche
+              <input type="radio" name="momento" value="10" id="timenight" autocomplete="off"> Noche
             </label>
           </div>
         </div>
@@ -152,16 +150,16 @@
         <div class="row">
           <div class="btn-group btn-group-toggle" data-toggle="buttons">
             <label class="btn btn-primary">
-              <input type="radio" name="frecuencia" id="option1" autocomplete="off"> 1-10
+              <input type="radio" name="frecuencia" value="100" id="freqblue" autocomplete="off"> 1-10
             </label>
             <label class="btn btn-warning">
-              <input type="radio" name="frecuencia" id="option2" autocomplete="off"> 11-20
+              <input type="radio" name="frecuencia" value="70" id="freqyellow" autocomplete="off"> 11-20
             </label>
             <label class="btn btn-success">
-              <input type="radio" name="frecuencia" id="option3" autocomplete="off"> 21-30
+              <input type="radio" name="frecuencia" value="40" id="freqgreen" autocomplete="off"> 21-30
             </label>
             <label class="btn btn-danger">
-              <input type="radio" name="frecuencia" id="option4" autocomplete="off"> 31-40
+              <input type="radio" name="frecuencia" value="10" id="freqred" autocomplete="off"> 31-40
             </label>
           </div>
         </div>
