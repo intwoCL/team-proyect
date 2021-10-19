@@ -31,7 +31,7 @@ class ActivitySeeder extends Seeder
       for ($i=0; $i < 100; $i++) {
         DB::table('activities')->insert(
           [
-            'name' =>  $f->text(10) . Str::random(10),
+            'name' =>  $f->name,
             'objective' => $f->text(200),
             'scale_id' => $f->numberBetween(1,4),
             'user_id' => $i%2 == 0 ? 1 : 2,

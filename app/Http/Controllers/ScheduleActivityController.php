@@ -111,7 +111,6 @@ class ScheduleActivityController extends Controller
 
   // Calendar report
   public function report($id){
-
     // $sch = Schedule::findOrFail($id);
     // return $sch;
 
