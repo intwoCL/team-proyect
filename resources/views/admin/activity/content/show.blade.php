@@ -1,3 +1,6 @@
+@php
+    $a = $content->activity;
+@endphp
 @extends('layouts.app')
 
 @push('stylesheet')
@@ -16,12 +19,13 @@
       {{-- <button onClick="window.location.href='{{ route('item.create',[$content->activity->id,$content->id]) }}'"
         class="btn btn-primary">Nuevo Item</button> --}}
 
-
-      <button type="button" class="btn btn-sm btn-primary"
-        data-toggle="modal"
-        data-target="#createModal">
-          Nuevo Item
-      </button>
+      @if ($a->user_id == current_user()->id)
+        <button type="button" class="btn btn-sm btn-primary"
+          data-toggle="modal"
+          data-target="#createModal">
+            Nuevo Item
+        </button>
+      @endif
       <a href="{{ route('preview.content',$content->id) }}" class="btn btn-success btn-sm">Visualizar</a>
     </div>
   </div>
@@ -35,18 +39,24 @@
           <table class="table table-hover table-md ">
             <thead>
               <tr>
+                @if ($a->user_id == current_user()->id)
                 <th>#</th>
+                @endif
                 <th>Posición</th>
                 <th>{{ trans('t.activity.item.title') }}</th>
                 <th>{{trans('t.activity.item.type')}}</th>
                 <th></th>
+                @if ($a->user_id == current_user()->id)
                 <th></th>
+                @endif
               </tr>
             </thead>
             <tbody id="items" data-content="{{ $content->id }}">
               @foreach ($items as $i)
               <tr>
-                <td class="handle" data-id="{{ $i->id }}" data-position="{{ $i->position }}"><i class="fa fa-arrows-alt"></i></td>
+                @if ($a->user_id == current_user()->id)
+                  <td class="handle" data-id="{{ $i->id }}" data-position="{{ $i->position }}"><i class="fa fa-arrows-alt"></i></td>
+                @endif
                 <td>{{$i->position}}</td>
                 <td>
                   {{$i->name}}
@@ -62,6 +72,7 @@
                 <td>
                   <a href="{{ route('preview.item',$i->id) }}" class="btn btn-success btn-sm">Visualizar</a>
                 </td>
+                @if ($a->user_id == current_user()->id)
                 <td>
 
                   <a href="{{ route('item.edit',$i->id) }}" class="btn btn-info btn-sm">Editar</a>
@@ -72,6 +83,7 @@
                     Eliminar
                   </button>
                 </td>
+                @endif
               </tr>
               @endforeach
             </tbody>

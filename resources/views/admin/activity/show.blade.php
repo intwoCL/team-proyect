@@ -9,9 +9,11 @@
         <i class="fa fa-chevron-circle-left mr-2 fa-2x text-secundary"></i>
       </a>
       <h1>{{trans('t.activity.show.title')}} </h1>
+      @if ($a->user_id == current_user()->id)
       <div class="section-header-button">
         <button onClick="window.location.href='{{ route('content.create',$a->id) }}'" class="btn btn-primary">Nuevos Contenidos</button>
       </div>
+      @endif
     </div>
     <div class="section-body">
       <h2 class="section-title">Actividad <strong>{{ Str::upper($a->name) }}</strong></h2>
@@ -22,7 +24,10 @@
             <table class="table table-hover table-md">
               <thead>
               <tr>
+                @if ($a->user_id == current_user()->id)
                 <th>#</th>
+                @endif
+
                 <th>Position</th>
                 <th>Nombre</th>
                 <th>Objetivo</th>
@@ -34,10 +39,18 @@
               <tbody id="items" data-activity="{{ $a->id }}">
               @foreach ($a->contents as $c)
               <tr>
-                <td class="handle" data-id="{{ $c->id }}" data-nombramiento="{{ $c->position }}"><i class="fa fa-arrows-alt"></i></td>
+
+                @if ($a->user_id == current_user()->id)
+                <td class="handle" data-id="{{ $c->id }}" data-nombramiento="{{ $c->position }}">
+                  <i class="fa fa-arrows-alt"></i>
+                </td>
+                @endif
+
                 <td>{{$c->position}}</td>
                 <td>
                   {{$c->name}}
+                  @if ($a->user_id == current_user()->id)
+
                   <div class="table-links">
                     {{-- <a href="{{route('content.show',[$a->id,$c->id])}}">Items</a> --}}
                     <div class="bullet"></div>
@@ -45,6 +58,7 @@
                     {{-- <div class="bullet"></div> --}}
                     {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
+                  @endif
                 </td>
                 <td>{!! $c->objective !!}</td>
                 <td>
