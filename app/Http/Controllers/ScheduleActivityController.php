@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\ScheduleActivity;
 use App\Models\Activity;
 use App\Models\ActivitySummary;
+use App\Models\ActivitySummaryReports;
 
 class ScheduleActivityController extends Controller
 {
@@ -110,20 +111,36 @@ class ScheduleActivityController extends Controller
 
   // Calendar report
   public function report($id){
+    // $sch = Schedule::findOrFail($id);
+    // return $sch;
+
+    // $reportes =  ActivitySummaryReports::where('schedule_id',$sch->id)->get();
+
+    // return $reportes;
+    // // $summary = ActivitySummary::where()
+
+    // // foreach ($sch->schedulesActivities as $schedule_activity) {
+    // //   foreach ($schedule_activity->activitiesSummaries as $summary) {
+    // //     echo $summary->id;
+    // //     echo "<br>";
+    // //   }
+    // //   // echo $schActivity->id;
+    // //   echo "<br>";
+    // // }
+
+
     $sch = Schedule::findOrFail($id);
-    
-    // $summary = ActivitySummary::where()
-
-    foreach ($sch->schedulesActivities as $schedule_activity) {
-      foreach ($schedule_activity->activitiesSummaries as $summary) {
-        echo $summary->id;
-        echo "<br>";
-      }
-      // echo $schActivity->id;
-      echo "<br>";
+    $sch_activities = $sch->present()->getActivitiesTable();
+    $numbers = [];
+    foreach ($sch_activities as $day_of_activities) {
+      $numbers[] = count($day_of_activities);
     }
+    $max = (!empty($numbers)) ? max($numbers) : 0;
+    return view('admin.schedule.details.report',compact('sch','sch_activities','max'));
+    // return compact('sch','sch_activities','max');
+  }
 
-    
-
+  public function reportStore(Request $request, $id) {
+    return $request;
   }
 }

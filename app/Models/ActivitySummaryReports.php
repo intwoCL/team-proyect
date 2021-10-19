@@ -6,11 +6,58 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActivitySummaryReports extends Model
 {
-    protected $table = 'activity_summary_reports';
+    protected $table = 'activity_summaries_reports';
+
+    const EVALUATION_SCORE = [
+      100 => 'FELIZ',
+      50  => 'MEDIO',
+      10  => 'MAL',
+      0   => 'NO',
+    ];
+
+    const EVALUATION_SCORE_NUMBER = [
+      'FELIZ' => 100,
+      'MEDIO' => 50,
+      'MAL' => 10,
+      'NO' => 0
+    ];
+
+    const DAY_SCORE = [
+      100 => 'SOL',
+      70  => 'MEDIO',
+      40  => 'ATARDECER',
+      10  => 'NOCHE',
+      0   => 'NO',
+    ];
+
+
+    const DAY_SCORE_NUMBER = [
+      'SOL' => 100,
+      'MEDIO' => 70,
+      'ATARDECER' => 40,
+      'NOCHE' => 10,
+      'NO' => 0
+    ];
+
+    const FRECUENCY_SCORE = [
+      100 => 'AZUL',
+      70  => 'AMARILLO',
+      40  => 'VERDE',
+      10  => 'ROJO',
+      0   => 'NO',
+    ];
+
+    const FRECUENCY_SCORE_NUMBER = [
+      'AZUL' => 100,
+      'AMARILLO' => 70,
+      'VERDE' => 40,
+      'ROJO' => 10,
+      'NO' => 0
+    ];
 
     public function user(){
-        return $this->belongsTo(User::class,'user_id');
-      }
+      return $this->belongsTo(User::class,'user_id');
+    }
 
     public function schedule(){
       return $this->belongsTo(Schedule::class,'schedule_id');
@@ -20,10 +67,7 @@ class ActivitySummaryReports extends Model
       return $this->belongsTo(Calendar::class,'calendar_id');
     }
 
-    public function activity()
-    {
-      return $this->belongTo(Activity::class,'activity_id')
+    public function activity(){
+      return $this->belongTo(Activity::class,'activity_id');
     }
-
-
 }

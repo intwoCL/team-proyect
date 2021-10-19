@@ -61,6 +61,8 @@ Route::middleware('user')->group(function () {
   Route::resource('assignment','AssignmentController',['except'=>['destroy']]);
   Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
   Route::resource('enrollment','EnrollmentController');
+  Route::get('enrollment_report/id','EnrollmentController@report')->name('enrollment.report');
+
   Route::get('schedule/user/{user_id}','ScheduleController@index')->name('schedule.index');
   Route::get('schedule/user/{user_id}/create','ScheduleController@create')->name('schedule.create');
   Route::post('schedule/user/{user_id}/create','ScheduleController@store')->name('schedule.store');
@@ -75,6 +77,7 @@ Route::middleware('user')->group(function () {
   Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
 
   Route::get('schedule/{id}/report','ScheduleActivityController@report')->name('schedule.report');
+  Route::post('schedule/{id}/report','ScheduleActivityController@reportStore')->name('schedule.report');
 
 
 
