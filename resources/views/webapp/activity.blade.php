@@ -47,7 +47,7 @@
             </div>
           </article>
 
-          <div class="card card-items border-left border-primary" role="button" >
+          <div class="card card-items border-left border-primary" role="button" data-toggle="modal" data-target="#exampleModal"> {{-- deshabilitar target}}
             <div class="card-horizontal">
               {{-- <div class="img-square-wrapper">
                 <img class="img-responsive " width="150px" height="150px" src="http://via.placeholder.com/300x150"  alt="Card image cap">
@@ -76,6 +76,55 @@
     </div>
   </div>
 </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-12">
+                  <h3 class="text-center">¿Tipo de instigación?</h3>
+                </div>
+                <div class="col-sm-12 COL-md-12 col-xs-12">
+                  <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
+                    <div class="mr-3">
+                      <i class="fa fa-square fa-4x text-primary face" role="button" onclick="sendingSurveys(1)"></i>
+                      <p>Sin instigación</p>
+                    </div>
+                    <div class="mr-3">
+                      <i class="fa fa-square fa-4x text-warning face face-active" role="button" onclick="sendingSurveys(2)"></i>
+                      <p>Verbal</p>
+                    </div>
+                    <div class="mr-3">
+                      <i class="fa fa-square fa-4x text-success face" role="button" onclick="sendingSurveys(3)"></i>
+                      <p>Modelado</p>
+                    </div>
+                    <div class="mr-3">
+                      <i class="fa fa-square fa-4x text-danger face" role="button" onclick="sendingSurveys(4)"></i>
+                      <p>Física</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-12 col-md-12 col-xs-12 d-flex justify-content-center">
+                  <textarea name="feedback" id="feedback" class="form-control" cols="40" rows="5" style="width: 300px; height: auto;" placeholder="Deja acá tu comentario"></textarea>
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 @endsection
 @push('footerNav')
 {{-- @include('webapp.navbar.top') --}}
