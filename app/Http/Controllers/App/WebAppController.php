@@ -34,11 +34,16 @@ class WebAppController extends Controller
       //comprueba el curso
       $scheduleActivity = ScheduleActivity::with(['activity','activity.contents'])->findOrFail($id);
 
+      //Checkeo si ya completo feedback hoy
+      //get dia hoy
+      //query si hay ActivitySymaryreport hoy
+      $feedbackEnabled = true;
+
       // return $scheduleActivity;
       // es mi horario, esta activado y es la id correcta
       $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->findOrFail($scheduleActivity->schedule_id);
       $activity = $scheduleActivity->activity;
-      return view('webapp.activity',compact('scheduleActivity','activity','schedule'));
+      return view('webapp.activity',compact('scheduleActivity','activity','schedule','feedbackEnabled'));
     } catch (\Throwable $th) {
       return $th;
     }
