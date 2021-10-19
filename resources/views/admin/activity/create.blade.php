@@ -94,6 +94,43 @@
                   <input type="hidden" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="0">
                 </div>
               </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Evaluación <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="evaluation_quiz_enabled" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Momento del día <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="day_quiz_enabled" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Frecuencia <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="frequency_quiz_enabled" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.save')}}</button>

@@ -46,6 +46,26 @@
               </div>
             </div>
           </article>
+
+          <div class="card card-items border-left border-primary" role="button" >
+            <div class="card-horizontal">
+              {{-- <div class="img-square-wrapper">
+                <img class="img-responsive " width="150px" height="150px" src="http://via.placeholder.com/300x150"  alt="Card image cap">
+              </div> --}}
+              <div class="card-body">
+                <h5 class="card-title">
+                  {{-- <i class="fa fa-star text-warning"></i> --}}
+                  <span class="fa-stack" style="margin: -2px !important;">
+                    <span class="fa fa-question-circle fa-stack-2x text-primary"></span>
+                    <strong class="fa-stack-1x"></strong>
+                  </span>
+                  Evaluacion Diaria
+                  </h5>
+                <p class="card-text"></p>
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="col-sm-12 col-md-12 col-lg-6">
           @foreach ($activity->contents as $content)

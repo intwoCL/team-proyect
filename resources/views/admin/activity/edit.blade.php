@@ -8,7 +8,7 @@
   .table-bordered, .table-bordered td, .table-bordered th {
     border: 2px solid #000 !important;
   }
-</style>    
+</style>
 @endpush
 @section('content')
 
@@ -68,7 +68,7 @@
                 <label for="inputObjetive" class="col-sm-12 col-form-label">{{trans('t.activity.create.objective')}}</label>
                 <div class="col-sm-12">
                   <textarea name="objective" class="ckeditor" id="summernote" required>{!! $activity->objective !!}</textarea>
-                </div>  
+                </div>
               </div>
 
               <div class="form-group row">
@@ -111,7 +111,7 @@
                       @if ($c->selected)
                         <option selected value="{{ $c->id }}">{{ $c->name }}</option>
                       @else
-                        <option value="{{ $c->id }}">{{ $c->name }}</option> 
+                        <option value="{{ $c->id }}">{{ $c->name }}</option>
                       @endif
                     @endforeach
                   </select>
@@ -135,6 +135,44 @@
                   </select>
                 </div>
               </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Evaluación <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="evaluation_quiz_enabled" class="custom-switch-input" {{$activity->evaluation_quiz_enabled ? 'checked' : ''}}>
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Momento del día <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="day_quiz_enabled" class="custom-switch-input" {{$activity->day_quiz_enabled ? 'checked' : ''}}>
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Frecuencia <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="frequency_quiz_enabled" class="custom-switch-input" {{$activity->frequency_quiz_enabled ? 'checked' : ''}}>
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.update')}}</button>
@@ -176,7 +214,7 @@
     // airMode: true
   });
 </script>
-  
+
 {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {

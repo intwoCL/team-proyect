@@ -59,6 +59,11 @@ class ActivityController extends Controller
       $a->user_id = current_user()->id;
       $a->code = $this->getCodeRandom();
 
+      $a->evaluation_quiz_enabled = !empty($request->input('evaluation_quiz_enabled'));
+      $a->day_quiz_enabled = !empty($request->input('day_quiz_enabled'));
+      $a->frequency_quiz_enabled = !empty($request->input('frequency_quiz_enabled'));
+
+
       if(!empty($request->file('photo'))){
         $request->validate([
           'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
@@ -134,6 +139,7 @@ class ActivityController extends Controller
    */
   public function update(ActivityStoreRequest $request, $id)
   {
+
     try {
       $a = Activity::FindOrFail($id);
       $a->name = $request->input('name');
@@ -141,6 +147,10 @@ class ActivityController extends Controller
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
       $a->status = $request->input('status');
+      // nuevas columnas
+      $a->evaluation_quiz_enabled = !empty($request->input('evaluation_quiz_enabled'));
+      $a->day_quiz_enabled = !empty($request->input('day_quiz_enabled'));
+      $a->frequency_quiz_enabled = !empty($request->input('frequency_quiz_enabled'));
 
       if(!empty($request->file('photo'))){
         $request->validate([
