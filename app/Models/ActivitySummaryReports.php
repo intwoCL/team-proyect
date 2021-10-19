@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ActivitySummaryReports extends Model
 {
-    protected $table = 'activity_summary_reports';
+    protected $table = 'activity_summaries_reports';
 
     const EVALUATION_SCORE = [
       100 => 'FELIZ',
