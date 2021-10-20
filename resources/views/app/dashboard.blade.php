@@ -31,6 +31,7 @@
                 <td>{{ $a->id }}</td>
                 <td>
                   {{ $a->name }}
+                  @if ($a->user_id == current_user()->id)
                   <div class="table-links">
                     {{-- <a href="#">{{ trans('t.view') }}</a> --}}
                     <div class="bullet"></div>
@@ -38,6 +39,7 @@
                     {{-- <div class="bullet"></div> --}}
                     {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
+                  @endif
                 </td>
                 <td>{!! $a->objective !!}</td>
                 <td><small class="badge badge-success">{{$a->scale_id}}</small></td>

@@ -6,8 +6,8 @@ use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Models\ScheduleActivity;
 use App\Models\Activity;
-use App\Models\ActivitySummary;
-use App\Models\ActivitySummaryReports;
+use App\Models\ActivitySummaryReport;
+use App\Services\ConvertDatetime;
 
 class ScheduleActivityController extends Controller
 {
@@ -129,14 +129,48 @@ class ScheduleActivityController extends Controller
     // // }
 
 
+    // date('Y-m-d')
+    // return date('N',strtotime(date('Y-m-d')));
+
+    $date = (new ConvertDatetime(date('Y-m-d')))->getStartEnd();
+
+    $reports = ActivitySummaryReport::where('schedule_id',$id)
+                                    ->whereBetween('finished_at', $date)
+                                    ->get();
+    // return $reports;
+    // return $reports;
+
     $sch = Schedule::findOrFail($id);
     $sch_activities = $sch->present()->getActivitiesTable();
     $numbers = [];
-    foreach ($sch_activities as $day_of_activities) {
-      $numbers[] = count($day_of_activities);
+
+    // return $sch_activities;
+    foreach ($sch_activities as $keyX => $day_of_activitiesX) {
+      $numbers[] = count($day_of_activitiesX);
+
+      foreach ($day_of_activitiesX as $keyY => $valueY) {
+        foreach ($reports as $r) {
+          $n =  date('N',strtotime($r->finished_at));
+          if ($n == $keyX+1 && $r->activity_id == $valueY->activity_id) {
+            // $sch_activities[$key]['reporte'][] = $r;
+            // return $r;
+            // $day_of_activities[$keyX]['reportes'] = $r;
+
+            $sch_activities[$keyX][$keyY]['reporte'] = $r;
+
+          }
+
+        }
+      }
+
     }
+
+    // return $sch_activities;
     $max = (!empty($numbers)) ? max($numbers) : 0;
-    return view('admin.schedule.details.report',compact('sch','sch_activities','max'));
+
+
+    // return $sch_activities;
+    return view('admin.schedule.details.report',compact('sch','sch_activities','max','reports'));
     // return compact('sch','sch_activities','max');
   }
 
