@@ -104,89 +104,32 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-12 COL-md-12 col-xs-12 text-center">
-              <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <img src="/images/quiz/dia.png" width="50px" alt="">
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <img src="/images/quiz/manana.png" width="50px" alt="">
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <img src="/images/quiz/tarde.png" width="50px" alt="">
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <img src="/images/quiz/noche.png" width="50px" alt="">
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-              </div>
-            </div>
+
 
             <div class="col-sm-12 COL-md-12 col-xs-12 text-center">
               <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <img src="/images/quiz/cara0.png" width="50px" alt="">
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <img src="/images/quiz/cara1.png" width="50px" alt="">
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
                 <div class="mr-3">
                   <label class="btn btn-ligth">
                     <img src="/images/quiz/cara2.png" width="50px" alt="">
                     <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
                   </label>
                 </div>
-              </div>
-            </div>
-
-            <div class="col-sm-12 COL-md-12 col-xs-12 text-center">
-              <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
                 <div class="mr-3">
                   <label class="btn btn-ligth">
-                    <i class="fa fa-square fa-4x text-primary"></i>
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
+                    <img src="/images/quiz/cara1.png" width="50px" alt="">
+                    <input type="radio" name="evaluacion" value="50" id="evalneutral" autocomplete="off"> Neutral
                   </label>
                 </div>
                 <div class="mr-3">
                   <label class="btn btn-ligth">
-                    <i class="fa fa-square fa-4x text-warning"></i>
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <i class="fa fa-square fa-4x text-success"></i>
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
-                  </label>
-                </div>
-                <div class="mr-3">
-                  <label class="btn btn-ligth">
-                    <i class="fa fa-square fa-4x text-danger"></i>
-                    <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
+                    <img src="/images/quiz/cara0.png" width="50px" alt="">
+                    <input type="radio" name="evaluacion" value="100" id="evalhappy" autocomplete="off"> Positva
                   </label>
                 </div>
               </div>
             </div>
 
-
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            {{-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-danger">
                 <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
               </label>
@@ -196,7 +139,8 @@
               <label class="btn btn-success">
                 <input type="radio" name="evaluacion" value="100" id="evalhappy" autocomplete="off"> Positva
               </label>
-            </div>
+            </div> --}}
+
           </div>
           @endif
           {{-- Momento del dia --}}
@@ -206,8 +150,37 @@
               <h3 class="text-center">Momento del dia </h3>
             </div>
           </div>
+
           <div class="row">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="col-sm-12 COL-md-12 col-xs-12 text-center">
+              <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <img src="/images/quiz/manana.png" width="50px" alt="">
+                    <input type="radio" name="momento" value="100" id="timesun" autocomplete="off"> Mañana
+                  </label>
+                </div>
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <img src="/images/quiz/dia.png" width="50px" alt="">
+                    <input type="radio" name="momento" value="70" id="timemid" autocomplete="off"> Mediodia
+                  </label>
+                </div>
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <img src="/images/quiz/tarde.png" width="50px" alt="">
+                    <input type="radio" name="momento" value="40" id="timenoon" autocomplete="off"> Tarde
+                  </label>
+                </div>
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <img src="/images/quiz/noche.png" width="50px" alt="">
+                    <input type="radio" name="momento" value="10" id="timenight" autocomplete="off"> Noche
+                  </label>
+                </div>
+              </div>
+            </div>
+            {{-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-primary">
                 <input type="radio" name="momento" value="100" id="timesun" autocomplete="off"> Mañana
               </label>
@@ -220,7 +193,7 @@
               <label class="btn btn-danger">
                 <input type="radio" name="momento" value="10" id="timenight" autocomplete="off"> Noche
               </label>
-            </div>
+            </div> --}}
           </div>
           @endif
           {{-- Frecuencia --}}
@@ -231,7 +204,35 @@
             </div>
           </div>
           <div class="row">
-            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <div class="col-sm-12 COL-md-12 col-xs-12 text-center">
+              <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <i class="fa fa-square fa-4x text-primary"></i>
+                    <input type="radio" name="frecuencia" value="100" id="freqblue" autocomplete="off"> 1-10
+                  </label>
+                </div>
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <i class="fa fa-square fa-4x text-warning"></i>
+                    <input type="radio" name="frecuencia" value="70" id="freqyellow" autocomplete="off"> 11-20
+                  </label>
+                </div>
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <i class="fa fa-square fa-4x text-success"></i>
+                    <input type="radio" name="frecuencia" value="40" id="freqgreen" autocomplete="off"> 21-30
+                  </label>
+                </div>
+                <div class="mr-3">
+                  <label class="btn btn-ligth">
+                    <i class="fa fa-square fa-4x text-danger"></i>
+                    <input type="radio" name="frecuencia" value="10" id="freqred" autocomplete="off"> 31-40
+                  </label>
+                </div>
+              </div>
+            </div>
+            {{-- <div class="btn-group btn-group-toggle" data-toggle="buttons">
               <label class="btn btn-primary">
                 <input type="radio" name="frecuencia" value="100" id="freqblue" autocomplete="off"> 1-10
               </label>
@@ -244,7 +245,7 @@
               <label class="btn btn-danger">
                 <input type="radio" name="frecuencia" value="10" id="freqred" autocomplete="off"> 31-40
               </label>
-            </div>
+            </div> --}}
           </div>
           @endif
         </div>
