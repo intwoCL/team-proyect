@@ -35,10 +35,11 @@ class WebAppController extends Controller
       //comprueba el curso
       $scheduleActivity = ScheduleActivity::with(['activity','activity.contents'])->findOrFail($id);
 
-      //query si hay ActivitySummaryReport hoy
-      $hoy = ActivitySummaryReport::where('finished_at',Carbon::now()->toDateString())->where('activity_id',$id)->first();
-      $feedbackEnabled = empty($hoy);
-      //return json_encode($feedbackEnabled);
+      // cambiar a estados: disponible, no corresponde al dia, respondido
+
+      //query si hay ActivitySummaryReport hoy (Flag)
+      $hoy = ActivitySummaryReport::where('finished_at',Carbon::now()->toDateString())->where('activity_id',$scheduleActivity->activity_id)->first();
+      $feedbackEnabled = empty($hoy) && $scheduleActivity->weekday==Carbon::now()->dayOfWeekIso;
 
       // return $scheduleActivity;
       // es mi horario, esta activado y es la id correcta
@@ -91,34 +92,26 @@ class WebAppController extends Controller
     return redirect()->route('app.calendar',[$month,$year]);
   }
 
-  public function sendDayQuiz(Request $request){
+  public function sendDayQuiz(Request $request, $sa_id){
     try {
-      $evaluation = $request->input('data.evaluacion');
-      $momentday = $request->input('data.momento');
-      $frequency =$request->input('data.frecuencia');
+      $sa = ScheduleActivity::findOrFail($sa_id);
 
-      $scheduleActivity = ScheduleActivity::findOrFail($scheduleActivity_id);
-      // es mi horario, esta activado y es la id correcta
-      $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->findOrFail($scheduleActivity->schedule_id);
-      $content = Content::findOrFail($content_id);
-      $summary = ActivitySummary::findOrFail($summary_id);
-      if(!empty($store)){
-        $summary->store = $store;
-      }
-      $summary->feedback = $feedback;
-      $summary->finished_at = date('Y-m-d H:i:s');
-      $summary->update();
+      $asr = new ActivitySummaryReport();
+      $asr->user_id = current_user()->id;
+      $asr->schedule_id = $sa->schedule_id;
+      $asr->calendar_id = $sa->calendar_id;
+      $asr->activity_id = $sa->activity_id;
+      $asr->evaluation_score = $request->input('evaluacion') ?? 0;
+      $asr->day_score = $request->input('momento') ?? 0;
+      $asr->frequency_score = $request->input('frecuencia') ?? 0;
+      $asr->finished_at = Carbon::now()->toDateString();
+      $asr->save();
 
-      if($finish){
-        return response()->json(['message' => 'Yup. This request succeeded.','status' => '200','code'=>'exit'], 200);
-      }else{
-        return response()->json(['message' => 'Yup. This request succeeded.','status' => '200','code'=>'ok'], 200);
-      }
+      return back()->with('success','Evaluacion enviada exitosamente');
+
     } catch (\Throwable $th) {
-      // return $th;
-      return \response()->json([
-        'status' => '400',
-        'message' => 'error'], 400);
+      return $th;
+      //back()->with('danger','Error intente nuevamente');
     }
   }
 

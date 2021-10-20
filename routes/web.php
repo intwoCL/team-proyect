@@ -97,6 +97,7 @@ Route::middleware('user')->group(function () {
     Route::get('activity/{id}/content/{content_id}','WebAppController@content')->name('app.content');
 
     Route::put('activitySummary','ActivitySummaryController@update')->name('app.summary.update');
+    Route::post('activitySummary/{id}','WebAppController@sendDayQuiz')->name('app.report.submit');
 
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');

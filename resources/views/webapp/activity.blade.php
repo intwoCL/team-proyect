@@ -54,16 +54,17 @@
             </div>
           </article>
           <div class="card card-items border-left border-primary" role="button" data-toggle="modal"
-            @if($feedbackEnabled) data-target="#feedbackModal" @endif >
+            @if($feedbackEnabled) data-target="#feedbackModal" @endif>
             <div class="card-horizontal">
 
               <div class="card-body">
                 <h5 class="card-title">
                   <span class="fa-stack" style="margin: -2px !important;">
-                    <span class="fa fa-question-circle fa-stack-2x {{$feedbackEnabled ? 'text-primary' : 'text-secondary'}}"></span>
+                    <span
+                      class="fa fa-question-circle fa-stack-2x {{$feedbackEnabled ? 'text-primary' : 'text-secondary'}}"></span>
                     <strong class="fa-stack-1x"></strong>
                   </span>
-                  Evaluacion Diaria
+                  Evaluacion Diaria {{$feedbackEnabled ? '(Disponible)' : '(No Disponible)' }}
                 </h5>
                 <p class="card-text"></p>
               </div>
@@ -85,91 +86,92 @@
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Evaluacion Diaria</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
+      <form action="{{route('app.report.submit',$scheduleActivity->id)}}" method="POST">
+        @csrf
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Evaluacion Diaria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
 
-        {{-- Evaluacion --}}
-        @if($activity->evaluation_quiz_enabled)
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="text-center">Evaluacion</h3>
+        <div class="modal-body">
+          {{-- Evaluacion --}}
+          @if($activity->evaluation_quiz_enabled)
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-center">Evaluacion</h3>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-danger">
-              <input type="radio" name="evaluacion" id="evalsad" autocomplete="off"> Negativa
-            </label>
-            <label class="btn btn-secondary">
-              <input type="radio" name="evaluacion" id="evalneutral" autocomplete="off"> Neutral
-            </label>
-            <label class="btn btn-success">
-              <input type="radio" name="evaluacion" id="evalhappy" autocomplete="off"> Positva
-            </label>
+          <div class="row">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-danger">
+                <input type="radio" name="evaluacion" value="10" id="evalsad" autocomplete="off"> Negativa
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="evaluacion" value="50" id="evalneutral" autocomplete="off"> Neutral
+              </label>
+              <label class="btn btn-success">
+                <input type="radio" name="evaluacion" value="100" id="evalhappy" autocomplete="off"> Positva
+              </label>
+            </div>
           </div>
+          @endif
+          {{-- Momento del dia --}}
+          @if($activity->day_quiz_enabled)
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-center">Momento del dia </h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary">
+                <input type="radio" name="momento" value="100" id="timesun" autocomplete="off"> Mañana
+              </label>
+              <label class="btn btn-warning">
+                <input type="radio" name="momento" value="70" id="timemid" autocomplete="off"> Mediodia
+              </label>
+              <label class="btn btn-success">
+                <input type="radio" name="momento" value="40" id="timenoon" autocomplete="off"> Tarde
+              </label>
+              <label class="btn btn-danger">
+                <input type="radio" name="momento" value="10" id="timenight" autocomplete="off"> Noche
+              </label>
+            </div>
+          </div>
+          @endif
+          {{-- Frecuencia --}}
+          @if ($activity->frequency_quiz_enabled)
+          <div class="row">
+            <div class="col-md-12">
+              <h3 class="text-center">Frecuencia</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-primary">
+                <input type="radio" name="frecuencia" value="100" id="freqblue" autocomplete="off"> 1-10
+              </label>
+              <label class="btn btn-warning">
+                <input type="radio" name="frecuencia" value="70" id="freqyellow" autocomplete="off"> 11-20
+              </label>
+              <label class="btn btn-success">
+                <input type="radio" name="frecuencia" value="40" id="freqgreen" autocomplete="off"> 21-30
+              </label>
+              <label class="btn btn-danger">
+                <input type="radio" name="frecuencia" value="10" id="freqred" autocomplete="off"> 31-40
+              </label>
+            </div>
+          </div>
+          @endif
         </div>
-        @endif
 
-        {{-- Momento del dia --}}
-        @if($activity->day_quiz_enabled)
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="text-center">Momento del dia </h3>
-          </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+          <button type="submit" class="btn btn-primary">Enviar</button>
         </div>
-        <div class="row">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-primary">
-              <input type="radio" name="momento" value="100" id="timesun" autocomplete="off"> Mañana
-            </label>
-            <label class="btn btn-warning">
-              <input type="radio" name="momento" value="70" id="timemid" autocomplete="off"> Mediodia
-            </label>
-            <label class="btn btn-success">
-              <input type="radio" name="momento" value="40" id="timenoon" autocomplete="off"> Tarde
-            </label>
-            <label class="btn btn-danger">
-              <input type="radio" name="momento" value="10" id="timenight" autocomplete="off"> Noche
-            </label>
-          </div>
-        </div>
-        @endif
-
-        {{-- Frecuencia --}}
-        @if ($activity->frequency_quiz_enabled)
-        <div class="row">
-          <div class="col-md-12">
-            <h3 class="text-center">Frecuencia</h3>
-          </div>
-        </div>
-        <div class="row">
-          <div class="btn-group btn-group-toggle" data-toggle="buttons">
-            <label class="btn btn-primary">
-              <input type="radio" name="frecuencia" value="100" id="freqblue" autocomplete="off"> 1-10
-            </label>
-            <label class="btn btn-warning">
-              <input type="radio" name="frecuencia" value="70" id="freqyellow" autocomplete="off"> 11-20
-            </label>
-            <label class="btn btn-success">
-              <input type="radio" name="frecuencia" value="40" id="freqgreen" autocomplete="off"> 21-30
-            </label>
-            <label class="btn btn-danger">
-              <input type="radio" name="frecuencia" value="10" id="freqred" autocomplete="off"> 31-40
-            </label>
-          </div>
-        </div>
-        @endif
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="sendFeedback()">Save changes</button>
-      </div>
+      </form>
     </div>
   </div>
 </div>
@@ -191,21 +193,5 @@
     );
     value(swiper);
   });
-</script>
-<script>
-  function sendFeedback(){
-    data.evaluacion = $('input[name="evaluacion"]:checked').val();
-    data.momento = $('input[name="momento"]:checked').val();
-    data.frecuencia = $('input[name="frecuencia"]:checked').val();
-
-    axios.put("{{route('app.summary.update')}}", { data }) //arreglar ruta
-    .then(resp => {
-      if(resp.data.code=="ok"){
-        console.log("ok");
-      }
-    }).catch(e => {
-      console.error("error");
-    });
-  }
 </script>
 @endpush
