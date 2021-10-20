@@ -34,5 +34,4 @@ class Activity extends Model
   public function present(){
     return new ActivityPresenter($this);
   }
-
 }

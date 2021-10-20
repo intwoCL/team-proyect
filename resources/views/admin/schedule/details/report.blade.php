@@ -43,6 +43,7 @@ i {
         </div>
         <div class="section-body">
           <div class="container">
+
             <div class="col-sm-12 COL-md-12 col-xs-12 text-center">
               <div class="btn-group mb-3 mt-2" role="group" aria-label="face group">
                 <div class="mr-3">
