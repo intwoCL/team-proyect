@@ -84,7 +84,7 @@
           </div>
         </div>
         <div class="simple-footer">
-          <strong>V1.1</strong>
+          <strong>V2.0</strong>
         </div>
       </div>
     </div>

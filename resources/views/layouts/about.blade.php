@@ -57,7 +57,7 @@
           <a href="/">Volver al Inicio</a>
           <br>
           <br>
-          <br> v1.1
+          <br> v2.0
         </div>
       </div>
     </div>
