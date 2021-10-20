@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
 */
 
 // $factory->define(User::class, function (Faker $faker) {
-//   return [ 
+//   return [
 //     'run' => Str::random(10),
 //     'first_name' => $faker->name,
 //     'last_name' => '',
@@ -30,7 +30,7 @@ use Illuminate\Support\Str;
 // });
 
 $factory->define(User::class, function (Faker $faker) {
-  return [ 
+  return [
     // 'run' => Str::random(10),
     'first_name' => $faker->name,
     'last_name' => '',

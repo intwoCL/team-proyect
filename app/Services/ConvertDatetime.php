@@ -74,6 +74,12 @@ class ConvertDatetime
     return array('start' => $start,'end' => $end);
   }
 
+
+  public function getStartEndWeek() {
+    $monday = date("Y-m-d", strtotime('monday this week', strtotime($this->date)));
+    $friday = date("Y-m-d", strtotime('sunday this week', strtotime($this->date)));
+    return [$monday, $friday];
+  }
   // PRIVATE
   private function format($date, string $format){
     return date_format(date_create($date),$format);

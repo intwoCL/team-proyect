@@ -76,8 +76,8 @@ Route::middleware('user')->group(function () {
   Route::delete('schedule/activity/delete','ScheduleActivityController@delete')->name('schedule.activity.delete');
   Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
 
-  Route::get('schedule/{id}/report','ScheduleActivityController@report')->name('schedule.report');
-  Route::post('schedule/{id}/report','ScheduleActivityController@reportStore')->name('schedule.report');
+  Route::get('schedule/{id}/report/{date}','ScheduleActivityController@report')->name('schedule.report');
+  Route::post('schedule/{id}/report','ScheduleActivityController@reportStore')->name('schedule.reports');
 
 
 

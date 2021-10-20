@@ -23,8 +23,8 @@ class ActivitySummaryReport extends Model
     ];
 
     const DAY_SCORE = [
-      100 => 'SOL',
-      70  => 'MEDIO',
+      100 => 'AMANECER',
+      70  => 'TARDE',
       40  => 'ATARDECER',
       10  => 'NOCHE',
       0   => 'NO',
@@ -32,8 +32,8 @@ class ActivitySummaryReport extends Model
 
 
     const DAY_SCORE_NUMBER = [
-      'SOL' => 100,
-      'MEDIO' => 70,
+      'AMANECER' => 100,
+      'TARDE' => 70,
       'ATARDECER' => 40,
       'NOCHE' => 10,
       'NO' => 0
