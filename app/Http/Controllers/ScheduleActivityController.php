@@ -6,8 +6,7 @@ use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Models\ScheduleActivity;
 use App\Models\Activity;
-use App\Models\ActivitySummary;
-use App\Models\ActivitySummaryReports;
+use App\Models\ActivitySummaryReport;
 use App\Services\ConvertDatetime;
 
 class ScheduleActivityController extends Controller
@@ -135,10 +134,10 @@ class ScheduleActivityController extends Controller
 
     $date = (new ConvertDatetime(date('Y-m-d')))->getStartEnd();
 
-    $reports = ActivitySummaryReports::where('schedule_id',$id)
+    $reports = ActivitySummaryReport::where('schedule_id',$id)
                                     ->whereBetween('finished_at', $date)
                                     ->get();
-
+    // return $reports;
     // return $reports;
 
     $sch = Schedule::findOrFail($id);
@@ -152,7 +151,7 @@ class ScheduleActivityController extends Controller
       foreach ($day_of_activitiesX as $keyY => $valueY) {
         foreach ($reports as $r) {
           $n =  date('N',strtotime($r->finished_at));
-          if ($n == $keyX && $r->activity_id == $valueY->activity_id) {
+          if ($n == $keyX+1 && $r->activity_id == $valueY->activity_id) {
             // $sch_activities[$key]['reporte'][] = $r;
             // return $r;
             // $day_of_activities[$keyX]['reportes'] = $r;
@@ -165,6 +164,8 @@ class ScheduleActivityController extends Controller
       }
 
     }
+
+    // return $sch_activities;
     $max = (!empty($numbers)) ? max($numbers) : 0;
 
 
