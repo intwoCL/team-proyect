@@ -13,7 +13,7 @@
     <div class="article-details">
       <p>{!! $a->objective !!}</p>
       <div class="article-cta">
-        <a href="#" class="btn btn-primary btn-block">EMPEZAR</a>
+        <span class="btn btn-primary btn-block">EMPEZAR</span>
       </div>
     </div>
   </article>
