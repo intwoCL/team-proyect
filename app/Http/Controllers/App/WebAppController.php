@@ -45,6 +45,8 @@ class WebAppController extends Controller
       // es mi horario, esta activado y es la id correcta
       $schedule = Schedule::where('user_id',current_user()->id)->where('status',2)->findOrFail($scheduleActivity->schedule_id);
       $activity = $scheduleActivity->activity;
+      $feedbackEnabled = $feedbackEnabled && $activity->hasFeedback();
+
       return view('webapp.activity',compact('scheduleActivity','activity','schedule','feedbackEnabled'));
     } catch (\Throwable $th) {
       return $th;
