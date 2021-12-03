@@ -40,6 +40,7 @@
                       <a href="{{ route('attention.create', $asigmentUser->user->id) }}" class="btn btn-success btn-sm">Tomar hora</a>
                       <a href="{{ route('attention.historial', $asigmentUser->user->id) }}" class="btn btn-primary btn-sm ml-2">Historial</a>
                       <a href="{{ route('schedule.index',$asigmentUser->user->id)}}" class="btn btn-warning btn-sm ml-2">Horarios</a>
+                      {{-- <a href="{{ route('schedule.index',$asigmentUser->user->id)}}" class="btn btn-warning btn-sm ml-2">Horarios</a> --}}
                     </td>
                   </tr>
                   @empty
@@ -56,9 +57,9 @@
     </section>
   </div>
 @endsection
-@push('javascript')  
+@push('javascript')
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
-<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
   $(function () {
     $("#tableSelect").DataTable();

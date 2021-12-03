@@ -19,9 +19,16 @@ class ActivityController extends Controller
    */
   public function index()
   {
-    $activities = Activity::get();
+    $activities = Activity::with(['tagsCategories','tagsCategories.category'])->orderBy('created_at','desc')->get();
     return view('admin.activity.index',compact('activities'));
   }
+
+  public function activity_me()
+  {
+    $activities = Activity::where('user_id', current_user()->id)->with(['tagsCategories','tagsCategories.category'])->orderBy('created_at','desc')->get();
+    return view('admin.activity.index',compact('activities'));
+  }
+
 
   /**
    * Show the form for creating a new resource.
@@ -52,6 +59,11 @@ class ActivityController extends Controller
       $a->user_id = current_user()->id;
       $a->code = $this->getCodeRandom();
 
+      $a->evaluation_quiz_enabled = !empty($request->input('evaluation_quiz_enabled'));
+      $a->day_quiz_enabled = !empty($request->input('day_quiz_enabled'));
+      $a->frequency_quiz_enabled = !empty($request->input('frequency_quiz_enabled'));
+
+
       if(!empty($request->file('photo'))){
         $request->validate([
           'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',
@@ -60,7 +72,7 @@ class ActivityController extends Controller
         $filename = time() .'.'.$file->getClientOriginalExtension();
         $path = $file->storeAs('public/photo_activities',$filename);
         $a->photo= $filename;
-      }     
+      }
       $a->save();
       $categories = $request->input('categories');
       for ($i=0; $i < count($categories) ; $i++) {
@@ -96,22 +108,26 @@ class ActivityController extends Controller
    */
   public function edit($id)
   {
-    $status = array('1' => 'pending' , '2' => 'finished' );
-    $scales = Scale::get();
-    $categories = Category::get();
-    $activity = Activity::FindOrFail($id);
+    try {
+      $status = array('1' => 'pending' , '2' => 'finished' );
+      $scales = Scale::get();
+      $categories = Category::get();
+      $activity = Activity::where('user_id',current_user()->id)->FindOrFail($id);
 
-    // TODO: Buscar una forma de no hacer esto
-    $tags= $activity->tagsCategories;
-    foreach ($categories as $c){
-      foreach ($tags as $t) {
-        if ($c->id == $t->category_id){
-          $c->selected = true;
-          break;
+      // TODO: Buscar una forma de no hacer esto
+      $tags= $activity->tagsCategories;
+      foreach ($categories as $c){
+        foreach ($tags as $t) {
+          if ($c->id == $t->category_id){
+            $c->selected = true;
+            break;
+          }
         }
       }
+      return view('admin.activity.edit',compact('status','categories','scales','activity','tags'));
+    } catch (\Throwable $th) {
+      return redirect()->route('activity.index')->with('danger',trans('alert.danger'));
     }
-    return view('admin.activity.edit',compact('status','categories','scales','activity','tags'));
   }
 
   /**
@@ -123,6 +139,7 @@ class ActivityController extends Controller
    */
   public function update(ActivityStoreRequest $request, $id)
   {
+
     try {
       $a = Activity::FindOrFail($id);
       $a->name = $request->input('name');
@@ -130,7 +147,11 @@ class ActivityController extends Controller
       $a->scale_id = $request->input('scale_id');
       $a->total_time = $request->input('total_time');
       $a->status = $request->input('status');
-      
+      // nuevas columnas
+      $a->evaluation_quiz_enabled = !empty($request->input('evaluation_quiz_enabled'));
+      $a->day_quiz_enabled = !empty($request->input('day_quiz_enabled'));
+      $a->frequency_quiz_enabled = !empty($request->input('frequency_quiz_enabled'));
+
       if(!empty($request->file('photo'))){
         $request->validate([
           'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:1048',

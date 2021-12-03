@@ -16,7 +16,7 @@ class AttentionController extends Controller
      */
     public function index()
     {
-      $attentions = Attention::where('specialist_id', current_user()->id)->get();
+      $attentions = Attention::where('specialist_id', current_user()->id)->with(['user'])->get();
       $calendario = array();
       foreach ($attentions as $a) {
         array_push($calendario,$a->jsonCalendar());

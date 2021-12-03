@@ -20,6 +20,7 @@
                 <th>{{ trans('t.activity_name') }}</th>
                 <th>{{ trans('t.objetive') }}</th>
                 <th>{{ trans('t.level') }}</th>
+                <th>Feedback</th>
                 <th>Categoría</th>
                 <th></th>
               </tr>
@@ -30,6 +31,7 @@
                 <td>{{ $a->id }}</td>
                 <td>
                   {{ $a->name }}
+                  @if ($a->user_id == current_user()->id)
                   <div class="table-links">
                     {{-- <a href="#">{{ trans('t.view') }}</a> --}}
                     <div class="bullet"></div>
@@ -37,9 +39,18 @@
                     {{-- <div class="bullet"></div> --}}
                     {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
                   </div>
+                  @endif
                 </td>
                 <td>{!! $a->objective !!}</td>
                 <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
+                <td>
+                    <i class="fa fa-lg fa-book-open text-{{ $a->evaluation_quiz_enabled ? 'success' : 'secondary' }}" ´
+                        title="Evaluacion {{ $a->evaluation_quiz_enabled ? 'Activada' : 'Desactivada' }}"></i>
+                    <i class="fa fa-lg fa-sun text-{{ $a->day_quiz_enabled ? 'success' : 'secondary' }}"
+                        title="Momento del dia {{ $a->day_quiz_enabled ? 'Activado' : 'Desactivado' }}"></i>
+                    <i class="fa fa-lg fa-stopwatch-20 text-{{ $a->frequency_quiz_enabled ? 'success' : 'secondary' }}"
+                        title="Frecuencia {{ $a->frequency_quiz_enabled ? 'Activada' : 'Desactivada' }}"></i>
+                </td>
                 <td>
                   @foreach ($a->tagsCategories as $c)
                   <div class="badge badge-success">{{ $c->category->name }}</div>
@@ -56,10 +67,10 @@
     </div>
   </section>
 @endsection
-@push('javascript')  
+@push('javascript')
 @include('partials._chat')
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
-<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
   $(function () {
     $("#tableSelect").DataTable();

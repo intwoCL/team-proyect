@@ -25,7 +25,7 @@
       Form validation using default from Bootstrap 4
     </p> --}}
 
-    <div class="row">  
+    <div class="row">
       <div class="col-12 col-md-6 col-lg-6">
         @include('partials._errors')
         <div class="card">
@@ -47,8 +47,8 @@
                   {{-- <input type="text" name="objective" class="form-control" required="" autocomplete="off" value="{{ old('objective')}}"> --}}
 
                   <textarea name="objective" class="ckeditor" id="summernote" required>{{old('objective')}}</textarea>
-                </div>  
-              </div>  
+                </div>
+              </div>
               <div class="form-group row">
                 <label for="inputObjetive" class="col-sm-3 col-form-label">{{trans('t.activity.create.photo')}}</label>
                 <div class="col-sm-9">
@@ -56,11 +56,11 @@
                   <input type="file" name="photo" accept="image/*" onchange="preview(this)" />
                   <br>
                 </div>
-              </div>  
+              </div>
               <div class="form-group center-text">
                   <div id="preview"></div>
               </div>
-  
+
               <div class="form-group row">
                 <label for="inputScale" class="col-sm-3 col-form-label">{{trans('t.activity.create.scale')}}</label>
                 <div class="col-sm-9">
@@ -94,6 +94,43 @@
                   <input type="hidden" min="0" name="total_time" class="form-control" required="" autocomplete="off" value="0">
                 </div>
               </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Evaluación <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="evaluation_quiz_enabled" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Momento del día <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="day_quiz_enabled" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="control-label col-sm-3">Frecuencia <small class="text-danger">*</small></div>
+                <div class="col">
+                  <label class="custom-switch mt-2">
+                    <input type="checkbox" name="frequency_quiz_enabled" class="custom-switch-input">
+                    <span class="custom-switch-description mr-2">No</span>
+                    <span class="custom-switch-indicator"></span>
+                    <span class="custom-switch-description">Si</span>
+                  </label>
+                </div>
+              </div>
+
             </div>
             <div class="card-footer text-right">
               <button class="btn btn-primary">{{trans('button.save')}}</button>
@@ -131,7 +168,7 @@
     // airMode: true
   });
 </script>
-  
+
 {{-- <script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
 <script type="text/javascript">
     $(document).ready(function() {

@@ -18,13 +18,15 @@ Route::middleware('user')->group(function () {
   Route::get('dashboard', 'DashboardController@index')->name('dashboard.index');
 
   Route::resource('activity','ActivityController',['except'=>['destroy']]);
+  Route::get('activity_me','ActivityController@activity_me')->name('activity.me');
+
   Route::get('activity/{activity_id}/content/create','ContentController@create')->name('content.create');
   Route::get('activity/{activity_id}/content/{id}/edit','ContentController@edit')->name('content.edit');
   Route::put('activity/{activity_id}/content/{id}/edit','ContentController@update')->name('content.update');
   Route::get('activity/{activity_id}/content/{id}','ContentController@show')->name('content.show');
   Route::post('activity/{activity_id}/content','ContentController@store')->name('content.store');
   Route::put('activity/{activity_id}/content','ContentController@changePosition')->name('content.changePosition');
-  
+
   Route::post('activity/{activity_id}/content/{content_id}/item','ItemController@store')->name('item.store');
   Route::put('activity/{activity_id}/content/{content_id}/item','ItemController@changePosition')->name('item.changePosition');
   Route::get('item/{id}/edit','ItemController@edit')->name('item.edit');
@@ -59,6 +61,8 @@ Route::middleware('user')->group(function () {
   Route::resource('assignment','AssignmentController',['except'=>['destroy']]);
   Route::delete('assignment','AssignmentController@delete')->name('assignment.delete');
   Route::resource('enrollment','EnrollmentController');
+  Route::get('enrollment_report/id','EnrollmentController@report')->name('enrollment.report');
+
   Route::get('schedule/user/{user_id}','ScheduleController@index')->name('schedule.index');
   Route::get('schedule/user/{user_id}/create','ScheduleController@create')->name('schedule.create');
   Route::post('schedule/user/{user_id}/create','ScheduleController@store')->name('schedule.store');
@@ -72,9 +76,10 @@ Route::middleware('user')->group(function () {
   Route::delete('schedule/activity/delete','ScheduleActivityController@delete')->name('schedule.activity.delete');
   Route::post('schedule/activity/store','ScheduleActivityController@store')->name('schedule.activity.store');
 
-  Route::get('schedule/{id}/report','ScheduleActivityController@report')->name('schedule.report');
+  Route::get('schedule/{id}/report/{date}','ScheduleActivityController@report')->name('schedule.report');
+  Route::post('schedule/{id}/report','ScheduleActivityController@reportStore')->name('schedule.reports');
 
-  
+
 
 
 
@@ -92,11 +97,12 @@ Route::middleware('user')->group(function () {
     Route::get('activity/{id}/content/{content_id}','WebAppController@content')->name('app.content');
 
     Route::put('activitySummary','ActivitySummaryController@update')->name('app.summary.update');
+    Route::post('activitySummary/{id}','WebAppController@sendDayQuiz')->name('app.report.submit');
 
     Route::get('calendar/{month}/{year}','WebAppController@calendar')->name('app.calendar');
     Route::post('calendar','WebAppController@findCalendar')->name('app.findCalendar');
     Route::get('profile','WebAppController@profile')->name('app.profile');
-    Route::get('about','WebAppController@about')->name('app.about'); 
+    Route::get('about','WebAppController@about')->name('app.about');
   });
 
 });

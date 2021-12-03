@@ -8,16 +8,27 @@
       <h1>{{ trans('t.activity_panel') }}</h1>
       <div class="section-header-button">
         {{-- <a href="features-post-create.html" class="btn btn-primary">Add New</a> --}}
-        <button onClick="window.location.href='{{ route('activity.create') }}'" class="btn btn-primary">{{ trans('t.create_activity') }}</button>
+        <a href="{{ route('activity.create') }}" class="btn btn-primary">{{ trans('t.create_activity') }}</a>
       </div>
+
+      {{-- 'activity.me --}}
     </div>
     <div class="section-body">
       <h2 class="section-title">{{ trans('t.activity_list') }}</h2>
       {{-- <p class="section-lead">This page is for managing packages including questions and answers.</p> --}}
+
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link {{ activeTab('activity') ? 'active' : '' }}"  href="{{ route('activity.index') }}">Actividades</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {{ activeTab('activity_me') ? 'active' : '' }}" href="{{ route('activity.me') }}">Mis actividades</a>
+        </li>
+      </ul>
       <div class="card">
         <div class="card-body">
           <div class="table-responsive">
-            <table id="tableSelect" class="table table-hover table-md">
+            <table id="tableSelect" class="table table-hover table-sm">
               <thead>
               <tr>
                 <th>Estado</th>
@@ -25,6 +36,7 @@
                 <th>{{ trans('t.activity_name') }}</th>
                 <th>{{ trans('t.objetive') }}</th>
                 <th>{{ trans('t.level') }}</th>
+                <th>Feedback</th>
                 <th>Categoría</th>
                 <th></th>
               </tr>
@@ -36,16 +48,28 @@
                 <td>{{ $a->id }}</td>
                 <td>
                   {{ $a->name }}
+                  @if ($a->user_id == current_user()->id)
                   <div class="table-links">
-                    {{-- <a href="#">{{ trans('t.view') }}</a>
-                    <div class="bullet"></div> --}}
-                    <a href="{{route('activity.edit',$a->id)}}">{{ trans('t.edit') }}</a>
-                    {{-- <div class="bullet"></div> --}}
-                    {{-- <a href="#" class="text-danger">{{ trans('t.trash') }}</a> --}}
+                    <a href="{{route('activity.edit',$a->id)}}">
+                      <strong>{{ trans('t.edit') }}</strong>
+                    </a>
                   </div>
+                  @endif
                 </td>
-                <td>{!! $a->objective !!}</td>
+                <td>
+
+                  {!! Str::limit($a->objective, 30) !!}
+                </td>
                 <td><small class="badge badge-success">{{$a->scale_id}}</small></td>
+
+                <td>
+                    <i class="fa fa-lg fa-book-open text-{{ $a->evaluation_quiz_enabled ? 'success' : 'secondary' }}" ´
+                        title="Evaluacion {{ $a->evaluation_quiz_enabled ? 'Activada' : 'Desactivada' }}"></i>
+                    <i class="fa fa-lg fa-sun text-{{ $a->day_quiz_enabled ? 'success' : 'secondary' }}"
+                        title="Momento del dia {{ $a->day_quiz_enabled ? 'Activado' : 'Desactivado' }}"></i>
+                    <i class="fa fa-lg fa-stopwatch-20 text-{{ $a->frequency_quiz_enabled ? 'success' : 'secondary' }}"
+                        title="Frecuencia {{ $a->frequency_quiz_enabled ? 'Activada' : 'Desactivada' }}"></i>
+                </td>
                 <td>
                   @foreach ($a->tagsCategories as $c)
                   <div class="badge badge-success">{{ $c->category->name }}</div>
@@ -62,9 +86,9 @@
     </div>
   </section>
 @endsection
-@push('javascript')  
+@push('javascript')
 <script src="/vendor/datatables/jquery.dataTables.js"></script>
-<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script> 
+<script src="/vendor/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 <script>
   $(function () {
     $("#tableSelect").DataTable();

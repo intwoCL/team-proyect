@@ -38,7 +38,7 @@
                   <a href="{{ route('schedule.edit',$sch->id) }}" class="btn btn-sm btn-primary">Editar</a>
                 </td>
                 <td>
-                  {{-- <a href="{{ route('schedule.report',$sch->id) }}" class="btn btn-sm btn-warning">Reportes</a> --}}
+                  <a href="{{ route('schedule.report',[$sch->id, date('Y-m-d')]) }}" class="btn btn-sm btn-danger">Reportes</a>
                 </td>
               </tr>
               @endforeach

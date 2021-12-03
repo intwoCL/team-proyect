@@ -8,7 +8,7 @@
 	https://github.com/konsav/email-templates/  -->
 
 	<style>
-/* Reset styles */ 
+/* Reset styles */
 body { margin: 0; padding: 0; min-width: 100%; width: 100% !important; height: 100% !important;}
 body, table, td, div, p, a { -webkit-font-smoothing: antialiased; text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; line-height: 100%; }
 table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-collapse: collapse !important; border-spacing: 0; }
@@ -17,12 +17,12 @@ img { border: 0; line-height: 100%; outline: none; text-decoration: none; -ms-in
 .ReadMsgBody { width: 100%; } .ExternalClass { width: 100%; }
 .ExternalClass, .ExternalClass p, .ExternalClass span, .ExternalClass font, .ExternalClass td, .ExternalClass div { line-height: 100%; }
 
-/* Rounded corners for advanced mail clients only */ 
+/* Rounded corners for advanced mail clients only */
 @media all and (min-width: 560px) {
 	.container { border-radius: 2px; -webkit-border-radius: 2px; -moz-border-radius: 2px; -khtml-border-radius: 2px;}
 }
 
-/* Set color for auto links (addresses, dates, etc.) */ 
+/* Set color for auto links (addresses, dates, etc.) */
 a, a:hover {
 	color: #127DB3;
 }
@@ -97,7 +97,7 @@ a, a:hover {
 			color: #000000;
 			font-family: sans-serif;" class="header"> Headline For Message</td>
 	</tr>
-	
+
 	<!-- SUBHEADER -->
 	<!-- Set text color and font family ("sans-serif" or "Georgia, serif") -->
 	<tr>
@@ -124,10 +124,10 @@ a, a:hover {
 	<!-- Set text color and font family ("sans-serif" or "Georgia, serif"). Duplicate all text styles in links, including line-height -->
 	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%; font-size: 14px; font-weight: 200; line-height: 160%;
-			padding-top: 25px; 
+			padding-top: 25px;
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-				 error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur  error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur 
+				 error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur  error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
 		</td>
 	</tr>
 
@@ -149,7 +149,7 @@ a, a:hover {
 
 	<!-- LINE -->
 	<!-- Set line color -->
-	<tr>	
+	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 6.25%; width: 87.5%;
 			padding-top: 25px;" class="line"><hr
 			color="#E0E0E0" align="center" width="100%" size="1" noshade style="margin: 0; padding: 0;" />
@@ -159,7 +159,7 @@ a, a:hover {
 	<!-- LIST -->
 	<tr>
 		<td align="center" valign="top" style="border-collapse: collapse; border-spacing: 0; margin: 0; padding: 0; padding-left: 6.25%; padding-right: 3.25%;" class="list-item"><table align="center" border="0" cellspacing="0" cellpadding="0" style="width: inherit; margin: 0; padding: 0; border-collapse: collapse; border-spacing: 0;">
-			
+
 			<!-- LIST ITEM -->
 			<tr>
 
@@ -232,7 +232,7 @@ a, a:hover {
 			padding-bottom: 25px;
 			color: #000000;
 			font-family: sans-serif;" class="paragraph">
-				Have a&nbsp;question? <a href="mailto:support@ourteam.com" target="_blank" style="color: #127DB3; font-family: sans-serif; font-size: 14px; font-weight: 200; line-height: 160%;">support@ourteam.com</a>
+				Have a&nbsp;question? <a href="mailto:support@ourTea.com" target="_blank" style="color: #127DB3; font-family: sans-serif; font-size: 14px; font-weight: 200; line-height: 160%;">support@ourTea.com</a>
 		</td>
 	</tr>
 
@@ -269,7 +269,7 @@ a, a:hover {
 					color: #000000;"
 					alt="T" title="Twitter"
 					width="44" height="44"
-					src="https://raw.githubusercontent.com/konsav/email-templates/master/images/social-icons/twitter.png"></a></td>				
+					src="https://raw.githubusercontent.com/konsav/email-templates/master/images/social-icons/twitter.png"></a></td>
 
 				<!-- ICON 3 -->
 				<td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 10px; padding-right: 10px; border-collapse: collapse; border-spacing: 0;"><a target="_blank"
@@ -278,7 +278,7 @@ a, a:hover {
 					color: #000000;"
 					alt="G" title="Google Plus"
 					width="44" height="44"
-					src="https://raw.githubusercontent.com/konsav/email-templates/master/images/social-icons/googleplus.png"></a></td>		
+					src="https://raw.githubusercontent.com/konsav/email-templates/master/images/social-icons/googleplus.png"></a></td>
 
 				<!-- ICON 4 -->
 				<td align="center" valign="middle" style="margin: 0; padding: 0; padding-left: 10px; padding-right: 10px; border-collapse: collapse; border-spacing: 0;"><a target="_blank"

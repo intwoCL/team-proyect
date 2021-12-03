@@ -16,16 +16,24 @@ class DatabaseSeeder extends Seeder
       'users',
       'scales',
       'categories',
-      // 'activities',
-      // 'contents'
-
+      'activities',
+      'contents',
+      'items',
+      'calendars',
+      'schedules',
+      'assignments',
+      'attentions'
     ]);
-    
+
     $this->call(UserSeeder::class);
     $this->call(ScaleSeeder::class);
     $this->call(CategorySeeder::class);
-    // $this->call(ActivitySeeder::class);
-    // $this->call(ContentSeeder::class);
+    $this->call(ActivitySeeder::class);
+    $this->call(ContentSeeder::class);
+    $this->call(CalendarSeeder::class);
+    $this->call(AssigmentSeeder::class);
+    $this->call(AttentionsSeeder::class);
+    $this->call(ReportSeeder::class);
   }
 
   public function truncateTables(array $tables)

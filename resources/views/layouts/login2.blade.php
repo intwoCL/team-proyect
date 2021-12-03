@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Programa Team Acceso</title>
+  <title>Programa TEA Acceso</title>
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="shortcut icon" href="/images/icon.ico" type="image/x-icon">
@@ -15,7 +15,7 @@
     <div class="row">
       <div class="col-12 col-md-10 offset-md-1 col-lg-10 offset-lg-1">
         <div class="login-brand">
-          <h4 class="text-dark font-weight-normal">{{ trans('t.login.title') }} <span class="font-weight-bold">Programa TEAM</span></h4>
+          <h4 class="text-dark font-weight-normal">{{ trans('t.login.title') }} <span class="font-weight-bold">Programa TEA</span></h4>
         </div>
 
         <div class="card card-primary">
@@ -84,8 +84,7 @@
           </div>
         </div>
         <div class="simple-footer">
-          {{-- <a href="{{ route('about') }}">Acerca de Programa TEAM</a> --}}
-          <strong>V1.1</strong>
+          <strong>V2.0</strong>
         </div>
       </div>
     </div>

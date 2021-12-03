@@ -6,11 +6,11 @@
       <div class="container mt-5">
         <div class="row">
           <div class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
-            {{-- <h4 class="text-dark font-weight-normal"><span class="font-weight-bold">Programa Team</span></h4> --}}
+            {{-- <h4 class="text-dark font-weight-normal"><span class="font-weight-bold">Programa Tea</span></h4> --}}
             <div class="login-brand">
-              <h4 class="text-dark font-weight-normal">{{ trans('t.login.title') }} <span class="font-weight-bold">TEAM</span></h4>
+              <h4 class="text-dark font-weight-normal">{{ trans('t.login.title') }} <span class="font-weight-bold">Tea</span></h4>
             </div>
-    
+
             {{-- @if (session('success'))
             <div class="alert alert-success">
               <div class="alert-title">Enviado</div>

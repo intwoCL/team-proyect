@@ -6,7 +6,8 @@ use App\Models\Schedule;
 use Illuminate\Http\Request;
 use App\Models\ScheduleActivity;
 use App\Models\Activity;
-use App\Models\ActivitySummary;
+use App\Models\ActivitySummaryReport;
+use App\Services\ConvertDatetime;
 
 class ScheduleActivityController extends Controller
 {
@@ -109,21 +110,69 @@ class ScheduleActivityController extends Controller
   }
 
   // Calendar report
-  public function report($id){
+  public function report($id, $date){
+    $dates = (new ConvertDatetime($date))->getStartEndWeek();
+    $reports = ActivitySummaryReport::where('schedule_id',$id)
+                                    ->whereBetween('finished_at', $dates)
+                                    ->get();
     $sch = Schedule::findOrFail($id);
-    
-    // $summary = ActivitySummary::where()
+    $sch_activities = $sch->present()->getActivitiesTable();
+    $numbers = [];
 
-    foreach ($sch->schedulesActivities as $schedule_activity) {
-      foreach ($schedule_activity->activitiesSummaries as $summary) {
-        echo $summary->id;
-        echo "<br>";
+    foreach ($sch_activities as $keyX => $day_of_activitiesX) {
+      $numbers[] = count($day_of_activitiesX);
+
+      foreach ($day_of_activitiesX as $keyY => $valueY) {
+        foreach ($reports as $r) {
+          $n =  date('N',strtotime($r->finished_at));
+          if ($n == $keyX+1 && $r->activity_id == $valueY->activity_id) {
+            $sch_activities[$keyX][$keyY]['reporte'] = $r;
+          }
+        }
       }
-      // echo $schActivity->id;
-      echo "<br>";
     }
 
-    
+    $max = (!empty($numbers)) ? max($numbers) : 0;
 
+    $resumen = [
+      'e' => 0,
+      'd' => 0,
+      'f' => 0,
+      'count' => 0,
+      'e_p' => 0,
+      'd_p' => 0,
+      'f_p' => 0,
+    ];
+
+    foreach ($reports as $r) {
+      $resumen['e'] = $resumen['e'] + $r->evaluation_score;
+      $resumen['d'] = $resumen['d'] + $r->day_score;
+      $resumen['f'] = $resumen['f'] + $r->frequency_score;
+      $resumen['count']++;
+    }
+
+    if ($resumen['count'] > 0) {
+      $resumen['e_p'] = $resumen['e'] > 0 ? round($resumen['e'] / $resumen['count']) : 0;
+      $resumen['d_p'] = $resumen['d'] > 0 ? round($resumen['d'] / $resumen['count']) : 0;
+      $resumen['f_p'] = $resumen['f'] > 0 ? round($resumen['f'] / $resumen['count']) : 0;
+    }
+
+    // return $resumen;
+
+    return view('admin.schedule.details.report',compact('sch','sch_activities','max','reports','date','resumen'));
+  }
+
+  public function reportStore(Request $request, $id) {
+    $date = date_format(date_create($request->input('fecha')),'Y-m-d');
+    return redirect()->route('schedule.report',[$id, $date]);
+  }
+
+
+  public function time_for_week_day($day_name, $ref_time=null){
+    $monday = strtotime(date('o-\WW',$ref_time));
+    if(substr(strtoupper($day_name),0,3) === "MON")
+      return $monday;
+    else
+      return strtotime("next $day_name",$monday);
   }
 }

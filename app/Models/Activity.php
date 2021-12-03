@@ -35,4 +35,8 @@ class Activity extends Model
     return new ActivityPresenter($this);
   }
 
+  public function hasFeedback(){
+    return $this->evaluation_quiz_enabled || $this->day_quiz_enabled || $this->frequency_quiz_enabled;
+  }
+
 }

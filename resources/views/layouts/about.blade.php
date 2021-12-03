@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Programa Team Acceso</title>
+  <title>Programa Tea Acceso</title>
   <link rel="stylesheet" href="{{ mix('css/app.css') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
@@ -16,23 +16,23 @@
         <div class="login-brand">
           <a href="/">
             <h4 class="text-dark font-weight-normal">
-              {{ trans('t.login.title') }} <span class="font-weight-bold">TEAM</span>
+              {{ trans('t.login.title') }} <span class="font-weight-bold">TEA</span>
             </h4>
           </a>
         </div>
         <div class="card card-primary">
           <div class="row m-0">
             <div class="col-md-12 col-lg-6 p-0">
-              <div class="card-header text-center"><h4>Acerca de TEAM</h4></div>
+              <div class="card-header text-center"><h4>Acerca de TEA</h4></div>
               <div class="card-body text-justify">
-                TEAM es una herramienta tecnológica para potenciar el desarrollo de la comunicación funcional en niños con Trastorno del Espectro Autista a través del entrenamiento y un programa de intervención terapéutico, en el marco del desarrollo de proyectos de Investigación Aplicada de Duoc UC. <br> <br>
-                Los niños TEA y sus padres tienden a presentar una carga emocional y económica muy elevada, y para lograr avances en el desarrollo comunicacional se requieren de diferentes terapias, constancia y continuidad en el tiempo, como mínimo una vez a la semana. Es en este punto donde TEAM busca apoyar la labor de los padres, sobre todo, porque la intervención en edades tempranas es clave. <br> <br>
+                TEA es una herramienta tecnológica para potenciar el desarrollo de la comunicación funcional en niños con Trastorno del Espectro Autista a través del entrenamiento y un programa de intervención terapéutico, en el marco del desarrollo de proyectos de Investigación Aplicada de Duoc UC. <br> <br>
+                Los niños TEA y sus padres tienden a presentar una carga emocional y económica muy elevada, y para lograr avances en el desarrollo comunicacional se requieren de diferentes terapias, constancia y continuidad en el tiempo, como mínimo una vez a la semana. Es en este punto donde TEA busca apoyar la labor de los padres, sobre todo, porque la intervención en edades tempranas es clave. <br> <br>
                 A través de esta aplicación las familias contarán con un registro digital de los programas con las respectivas actividades que los niños deben ejecutar entre una terapia y otra, lo cual quedará en línea con el terapeuta que podrá contar con una información actualizada respecto a los avances de sus pacientes, los tipos de instigación en el desarrollo de las tareas y los avances obtenidos para guiar de mejor forma a las familias.
 
               </div>
               <div class="card-header text-center"><h4>El equipo</h4></div>
               <div class="card-body text-justify pt-0">
-                El equipo  TEAM está compuesto por profesores de Duoc UC a través de un trabajo multidisciplinario de diferentes profesionales provenientes de la Escuela de Construcción, Informática y del Programa de Emprendimiento e Innovación. Los docentes María Jesús, Pablo y Carolina lideraron esta versión, en conjunto con Leonardo quien desde su rol de alumno fue parte imprescindible en el diseño y desarrollo del proyecto, además de Benjamín quien lideró el desarrollo informático tras la propuesta.
+                El equipo  TEA está compuesto por profesores de Duoc UC a través de un trabajo multidisciplinario de diferentes profesionales provenientes de la Escuela de Construcción, Informática y del Programa de Emprendimiento e Innovación. Los docentes María Jesús, Pablo y Carolina lideraron esta versión, en conjunto con Leonardo quien desde su rol de alumno fue parte imprescindible en el diseño y desarrollo del proyecto, además de Benjamín quien lideró el desarrollo informático tras la propuesta.
               </div>
               {{-- <div class="card-header text-center"><h4>Acerca de</h4></div> --}}
               <div class="card-body">
@@ -40,12 +40,12 @@
               </div>
             </div>
             <div class="col-md-12 col-lg-6 p-0">
-              <div class="card-header text-center"><h4>ACERCA DE LÍDER TEAM</h4></div>
+              <div class="card-header text-center"><h4>ACERCA DE LÍDER TEA</h4></div>
                 <div class="card-body pt-0">
                   @php
                     $photo = "/images/organizadora.png";
                     $name = "Carolina Saavedra";
-                    $email = "Lider de TEAM";
+                    $email = "Lider de TEA";
                     $description = "Publicista de la Universidad de Santiago de Chile, Magíster en Desarrollo Curricular y Proyectos Educativos UNAB. Coach Neurolingüístico certificado por HCN World. Diplomado en Metodologías Ágiles, Mentor Certificado por Imagine Lab y Universidad Adolfo Ibáñez, Design Thinking Professional Certificate, Docente de Duoc UC del Programa de Emprendimiento e Innovación y lo más importante mamá de Agustina, una niña con TEA sin desarrollo de lenguaje verbal.";
                   @endphp
                   @include('components.card._info_profile')
@@ -57,7 +57,7 @@
           <a href="/">Volver al Inicio</a>
           <br>
           <br>
-          <br> v1.1
+          <br> v2.0
         </div>
       </div>
     </div>

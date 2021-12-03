@@ -1,11 +1,11 @@
 @extends('webapp.components.skeleton')
 @section('app')
-    
+
 <div class="main-wrapper">
   <div class="navbar-bg" style="height: 70px !important;"></div>
   <nav class="navbar navbar-expand-lg main-navbar ">
     {{-- sidebar-gone-hide  --}}
-    <a href="{{ route('app.index') }}" class="navbar-brand mr-5 ml-3">TEAM</a>
+    <a href="{{ route('app.index') }}" class="navbar-brand mr-5 ml-3">TEA</a>
     <div class="nav-collapse d-none d-lg-block">
       <a class="sidebar-gone-show nav-collapse-toggle nav-link" href="#">
         <i class="fas fa-ellipsis-v"></i>

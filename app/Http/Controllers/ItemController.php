@@ -20,7 +20,7 @@ class ItemController extends Controller
     $i = new Item();
     $i->content_id = $c->id;
     $i->name = $request->input('name');
-    $i->position = Item::where('content_id',$i->content_id)->count() + 1;    
+    $i->position = Item::where('content_id',$i->content_id)->count() + 1;
     $i->save();
     return redirect()->back()->with('success',trans('alert.success'));
     } catch (\Throwable $th) {
@@ -112,7 +112,7 @@ class ItemController extends Controller
   {
     try {
       $i = Item::findOrFail($request->input('id'));
-      
+
       $items = $i->content->items;
       $x = 1;
       foreach ($items as $item) {
