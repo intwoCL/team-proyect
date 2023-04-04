@@ -33,7 +33,7 @@
                         <i class="fas fa-envelope"></i>
                       </div>
                     </div>
-                    <input id="email" type="email" class="form-control" name="email" tabindex="1" value="" required autofocus>
+                    <input id="email" type="email" class="form-control" name="email" tabindex="1" value="admin@admin.com" required autofocus>
 
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                         <i class="fas fa-lock"></i>
                       </div>
                     </div>
-                    <input id="password" type="password" autocomplete="off" class="form-control" name="password" tabindex="2" value="" required>
+                    <input id="password" type="password" autocomplete="off" class="form-control" name="password" tabindex="2" value="123456" required>
                   </div>
                 </div>
 
